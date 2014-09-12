@@ -6,7 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Vector;
 
-import webBoltOns.client.clientUtil.CipherString;
 import webBoltOns.dataContol.DBSchemaException;
 import webBoltOns.dataContol.DataAccess;
 import webBoltOns.dataContol.DataSet;
@@ -34,9 +33,9 @@ public class TheCryptKeeper {
 					"Select * From wkpGroups Where KeeperID = "
 							+ dataSet.getStringField("KeeperID")
 							+ " And j1 = '" + dataSet.getScmbl() + "' ",
-					"wkpGroups", dataSet))
+					"wkpGroups", dataSet));
 
-				dataSet.addMessage("LIT0001");
+				
 		} catch (DBSchemaException e) {
 			dataSet.addMessage("SVR0001");
 		}
@@ -54,6 +53,10 @@ public class TheCryptKeeper {
 	}
 
 	private boolean editCryptKeeper(DataSet dataSet, DataAccess dataAccss) {
+		if(dataSet.getStringField("KeeperID").equals(dataSet.getStringField("PrntID"))) {
+				dataSet.addMessage("LIT0007");
+				return false;
+		}				
 		return true;
 	}
 
@@ -164,12 +167,11 @@ public class TheCryptKeeper {
 		String[] tblCols = (String[]) dataSet.getTableColumnFields("Table1");
 		ResultSet resultSet;
 		Statement sqlStatement = dataAccss.execConnectReadOnly();
-		;
 
 		String sql = "Select " + DataAccess.buildArgumentList(tblCols)
-				+ "  From wkpGroups ";
-		sql = DataAccess.addToSearchWhereClause(sql, "GroupID", "CHR",
-				keyField1);
+				+ "  From wkpGroups Where j1 = '" + dataSet.getScmbl() + "' ";
+		
+		sql = DataAccess.addToSearchWhereClause(sql, "GroupID", "CHR", keyField1);
 
 		try {
 			resultSet = sqlStatement.executeQuery(sql);
