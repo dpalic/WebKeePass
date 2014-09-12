@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 2.1 *  -->
+<!--	 	 Script Name :  KeePass006 -->
+<!--	 	 Description :  Search Passwords -->
+<!--	 	 Server Class :  server.TheCrypt -->
+<!--	 	 Initalization Method :  getCryptSrch -->
+<!--	 	 File Path :  /home/java/Projects/JavaProjects/jRivet-KeePass/apache-tomcat-5.5.20/webapps/KeePass/WEB-INF/XML/KeePass006.xml -->
+<!--	 	 Last Update :  27-May-2007 -->
+<!--	 	 User Profile:  admin -->
+<SCRIPT SCRIPT_NAME="KeePass006" DOCUMENT_TYPE="Window" CLASS_NAME="server.TheCrypt" METHOD="getCryptSrch" AUTO_REFRESH="false" DESCRIPTION="Search Passwords" Screen_Title="Search Passwords" WIDTH="1015" HEIGHT="710">
+  <ButtonBar>
+    <BarButton TYPE="CLEAR" DESCRIPTION="Clear" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Find It!" ICON="iFind.gif" METHOD="getCryptSrch" />
+  </ButtonBar>
+  <Table FIELDNAME="Table1" HEIGHT="20" WIDTH="20" POSITION="Left">
+    <TableTextField FIELDNAME="PasswordID" DESCRIPTION="-ID" LENGTH="2" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
+    <TableTextField FIELDNAME="a0" DESCRIPTION="Title" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <TableTextField FIELDNAME="b9" DESCRIPTION="User Name" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <TableTextField FIELDNAME="d7" DESCRIPTION="Added On " LENGTH="8" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
+    <TableTextField FIELDNAME="e6" DESCRIPTION="Changed On" LENGTH="8" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
+    <TableTextField FIELDNAME="f5" DESCRIPTION="Expires On" LENGTH="8" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
+  </Table>
+  <Panel POSITION="Left" HIDDEN="N">
+    <Button FIELDNAME="CrtGrp" DESCRIPTION="Update/Add A Password" LINK="KeePass002" METHOD_CLASS="server.TheCrypt" METHOD="getCrypt" />
+  </Panel>
+</SCRIPT>
+

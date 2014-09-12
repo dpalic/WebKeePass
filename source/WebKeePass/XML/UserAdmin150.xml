@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 2.1 *  -->
+<!--	 	 Script Name :  UserAdmin150 -->
+<!--	 	 Description :  Edit Screen  -->
+<!--	 	 Server Class :  webBoltOns.server.DevelopmentTools -->
+<!--	 	 Initalization Method :   -->
+<!--	 	 File Path :  /home/java/Projects/JavaProjects/jRivet-KeePass/apache-tomcat-5.5.20/webapps/KeePass/WEB-INF/XML/UserAdmin150.xml -->
+<!--	 	 Last Update :  26-May-2007 -->
+<!--	 	 User Profile:  admin -->
+<SCRIPT SCRIPT_NAME="UserAdmin150" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.DevelopmentTools" AUTO_REFRESH="false" DESCRIPTION="Edit Screen " Screen_Title="Edit Screen " WIDTH="680" HEIGHT="650">
+  <ButtonBar>
+    <BarButton TYPE="CLEAR" DESCRIPTION="Clear  " ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Load    " ICON="iFind.gif" METHOD="getScriptDetails" />
+    <BarButton TYPE="POST" DESCRIPTION="Save    " ICON="iEdit.gif" METHOD="saveScriptDetails" />
+    <BarButton TYPE="PREVIEW" DESCRIPTION="Run Test Script" ICON="ePreview.gif" METHOD="runScriptPreview" />
+  </ButtonBar>
+  <Panel POSITION="Left" HIDDEN="N">
+    <TextField FIELDNAME="ScriptID" DESCRIPTION="Script Name" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="UserAdmin190" PARAMETER="@ScriptFileName" METHOD="getScriptDetails" />
+    <SpinnerField FIELDNAME="Wdth" DESCRIPTION="  Screen Width" LENGTH="7" DATA_LEN="0" POSITION="Right" />
+    <TextField FIELDNAME="DescID" DESCRIPTION="Description" LENGTH="25" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+    <SpinnerField FIELDNAME="Hght" DESCRIPTION="  Height" LENGTH="7" DATA_LEN="0" POSITION="Right" />
+    <CheckBox FIELDNAME="aFresh" DESCRIPTION="Refresh" />
+    <TextField FIELDNAME="ClassID" DESCRIPTION="Server Class" LENGTH="25" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+    <TextField FIELDNAME="MethodID" DESCRIPTION="  Init Method" LENGTH="20" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+  </Panel>
+  <Panel POSITION="Left" HIDDEN="N">
+    <ScriptEditor FIELDNAME="SEditor" HEIGHT="470" />
+  </Panel>
+</SCRIPT>
+

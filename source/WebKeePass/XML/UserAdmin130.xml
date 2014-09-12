@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 1.0 *  -->
+<!--	 	 Script Name :  UserAdmin130 -->
+<!--	 	 Description :  User Profiles  -->
+<!--	 	 Server Class :  webBoltOns.server.UserSecurityManager -->
+<!--	 	 Initalization Method :   -->
+<!--	 	 File Path :  /usr/jRivet-2.060206-Linux/jakarta-tomcat-5.5.7/webapps/jRivetExample1/WEB-INF/XML/UserAdmin130.xml -->
+<!--	 	 Last Update :  05-Feb-2006 -->
+<!--	 	 User Profile:  GENERAL -->
+<SCRIPT SCRIPT_NAME="UserAdmin130" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.UserSecurityManager" AUTO_REFRESH="false" DESCRIPTION="User Profiles " Screen_Title="User Profiles " WIDTH="910" HEIGHT="595">
+  <ButtonBar>
+    <BarButton TYPE="CLEAR" DESCRIPTION="Clear      " ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Find-it!   " METHOD="getUserList" ICON="iFind.gif" />
+  </ButtonBar>
+  <Panel DESCRIPTION="Search Values" POSITION="Left Fill" Hidden="N">
+    <TextField DESCRIPTION="Description:" FIELDNAME="@Description" LENGTH="20" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
+    <TextField DESCRIPTION="Name" FIELDNAME="@Name" LENGTH="10" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
+    <TextField DESCRIPTION="Group ID" FIELDNAME="@Group" LENGTH="10" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
+  </Panel>
+  <Table FIELDNAME="User" HEIGHT="15" WIDTH="0" POSITION="Left">
+    <TableTextField DESCRIPTION="User ID" FIELDNAME="UserID" LENGTH="10" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL_VALUE="N" />
+    <TableTextField DESCRIPTION="Description" FIELDNAME="UserDescription" LENGTH="15" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL_VALUE="N" />
+    <TableTextField DESCRIPTION="Name" FIELDNAME="Name" LENGTH="15" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL_VALUE="N" />
+    <TableTextField DESCRIPTION="Group ID" FIELDNAME="GroupID" LENGTH="10" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL_VALUE="N" />
+    <TableCheckBox DESCRIPTION="Active" FIELDNAME="ActiveUser" />
+  </Table>
+  <Panel POSITION="Left" Hidden="N">
+    <Button DESCRIPTION="Edit User" METHOD="getUser" POSITION="Left" LINK="UserAdmin110" />
+    <Button DESCRIPTION="Edit User Group" METHOD="getUserGroup" LINK="UserAdmin100" />
+  </Panel>
+</SCRIPT>
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 2.1 *  -->
+<!--	 	 Script Name :  CCMenu -->
+<!--	 	 Description :  Web Kee Pass -->
+<!--	 	 File Path :  /home/java/Projects/JavaProjects/jRivet-KeePass/apache-tomcat-5.5.20/webapps/KeePass/WEB-INF/XML/CCMenu.xml -->
+<!--	 	 Last Update :  27-May-2007 -->
+<!--	 	 User Profile:  admin -->
+<SCRIPT SCRIPT_NAME="CCMenu" DOCUMENT_TYPE="Menu" DESCRIPTION="Web Kee Pass" Screen_Title="Web Kee Pass">
+  <SubMenu DESCRIPTION="Work With My Passwords" LINK="WKP-MyPasswords" QUICK_LINK="FALSE">
+    <Script DESCRIPTION="My Passwords" LINK="KeePass001" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Search Passwords" LINK="KeePass006" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Edit Password" LINK="KeePass002" QUICK_LINK="TRUE" />
+  </SubMenu>
+  <SubMenu DESCRIPTION="Work With Web Users" LINK="WKP-MyPasswords" QUICK_LINK="FALSE">
+    <Script DESCRIPTION="List Web Users" LINK="UserAdmin130" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Edit Web Users" LINK="UserAdmin110" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="List Web Users Groups" LINK="UserAdmin120" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Edit Web Users Groups" LINK="UserAdmin100" QUICK_LINK="TRUE" />
+  </SubMenu>
+</SCRIPT>
+
