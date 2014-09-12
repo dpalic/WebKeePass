@@ -5,6 +5,7 @@ Fork of the previous sourceforge project http://sourceforge.net/projects/webkeep
 Imported version of 1.070527 zip archiveWebKeePass  Copyright (C) 2007 
 
 
+WebKeePass  Copyright (C) 2007 
 All rights reserved.
 
 *** Requirements ***
