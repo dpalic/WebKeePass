@@ -126,7 +126,11 @@ public class CListBoxField extends JPanel implements
 		keys.put(key, item);
 		listModel.addElement(item);
 	}
-
+	
+	public String getString() {
+		return null;
+	}
+	
 	public void buildComponent(WindowItem parentItem, WindowItem thisItem, WindowFrame mainFrame) {
 		
 		comp = thisItem;

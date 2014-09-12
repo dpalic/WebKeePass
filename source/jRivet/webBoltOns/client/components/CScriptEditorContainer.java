@@ -258,6 +258,10 @@ public class CScriptEditorContainer extends JPanel implements StandardComponentL
 		}
 	}
 
+	public String getString() {
+		return null;
+	}
+	
 
 	protected JPanel buildPropertyPanel() {
 		JPanel propertyPanel = new JPanel(new GridFlowLayout(5,3));

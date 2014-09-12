@@ -86,21 +86,7 @@ public class DataSet extends Hashtable implements java.io.Serializable {
 
 	public DataSet() { }
 	
-	
-	/**
-	 * <h2><code>getBUnit</code></h2>
-	 * 
-	 * <p>
-	 *	returns the current bUnit 
-	 * </p>
-	 * 
-	 * 
-	 */
-	
-	public String getBUnit() {
-		return getStringField("[BnsUnit/]");
-	}
-	
+
 	
 	/**
 	 * <h2><code>addMessage</code></h2>

@@ -250,9 +250,8 @@ public class CPanelContainer extends JPanel implements StandardComponentLayout {
 	}
 	
 
-	
+	public String getString() {	return null;}
 	public boolean locateCursor() {return false;}
-	
 	public void setValid(boolean invalid) {}
 	
 	}

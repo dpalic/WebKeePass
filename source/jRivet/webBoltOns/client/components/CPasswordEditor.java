@@ -78,7 +78,6 @@ import webBoltOns.client.WindowFrame;
 import webBoltOns.client.WindowItem;
 import webBoltOns.client.clientUtil.PasswordGntr;
 import webBoltOns.client.components.componentRules.StandardComponentLayout;
-import webBoltOns.client.components.layoutManagers.StackedFlowLayout;
 import webBoltOns.dataContol.DataSet;
 
 public class CPasswordEditor extends JPasswordField implements StandardComponentLayout, ActionListener, KeyListener {
@@ -248,6 +247,7 @@ public class CPasswordEditor extends JPasswordField implements StandardComponent
 	private final static String PRINTABLE =  "All printable characters";
 	private static final long serialVersionUID = -3343059845815975451L;
 	private final static String ShowPW = "[ShowPW/]";
+	private final static String ClipPW = "[ClipPW/]";
 	private final static String UPPERCASE_LETTERS ="Upper letters";
 	private final static String UPPERCASE_LETTERS_NUMBERS ="Upper letters & numbers";
 	private ButtonGroup bgroup;
@@ -283,7 +283,12 @@ public class CPasswordEditor extends JPasswordField implements StandardComponent
 		} else if(ae.getActionCommand().equals(GenPW)) {
 			popup.show(genPW, 5 , genPW.getHeight() );		 
 		
-		
+
+		} else if(ae.getActionCommand().equals(ClipPW)) {		
+			commitEditing(new String (getPassword()));
+			mFrm.getMenuObject().copyToClipTimer(commitValue);
+
+			
 		} else if(ae.getActionCommand().equals(CrtPW)) {
 			setEchoChar((char)0);
 			
@@ -342,7 +347,7 @@ public class CPasswordEditor extends JPasswordField implements StandardComponent
 		genPW.addActionListener(this);
 		fieldPanel.add(genPW, BorderLayout.EAST);
 		echo = getEchoChar();
-		
+
 		bar.setValue(0);
 		bar.setStringPainted(true);
 		fieldPanel.add(bar, BorderLayout.SOUTH);
@@ -460,6 +465,11 @@ public class CPasswordEditor extends JPasswordField implements StandardComponent
 		return dataSet;
 	}
 
+	
+	public String getString () {
+		commitEditing(new String (getPassword()));		
+		return commitValue;
+	}
 
 	protected void revertEditing() {
 		if (commitValue != null)

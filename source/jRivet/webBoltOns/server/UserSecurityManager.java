@@ -80,74 +80,7 @@ public class UserSecurityManager {
 
 	public UserSecurityManager() { }
 	
-	
-	/* */
-	public boolean isNewBUnit(String key, DataAccess dataAccss) {
-		try {
-			return !dataAccss.executeQuery(
-					"Select BUnit from jrBUnits Where BUnit = '" + key + "' ", "", null);  
-		
-		} catch (Exception er) { 
-			return true;
-		}
-	}
- 
 
- 
-	/* */
-	public DataSet getBUnitList(DataSet bUnit,  DataAccess dataAccss) {
-		try {
-			bUnit.putTableVector("[BUnitList/]",
-					dataAccss.executeVectorQuery("Select * From jrBUnits ",  
-					 new String[] { "BUnit", "BUnitDesc", "LastUpdate"} ));
-		
-		} catch (DBSchemaException e) {}
-		return bUnit;
-	}
-
-		
-	/* ??? */
-	public DataSet updateBUnitList(DataSet bUnit, DataAccess dataAccss) {		
-		
-		Enumeration tbl = bUnit.getTableVector("[BUnitList/]").elements();
-		bUnit.remove("[BUnitList/]");
-		PreparedStatement sqlInsert = null, sqlUpdate= null;
-		try {
-			sqlInsert = dataAccss.execPreparedConnect("Insert Into jrBUnits " +
-					" (BUnit, BUnitDesc, LastUpdate) " +
-					" Values (?, ?, ?)");
-			sqlUpdate = dataAccss.execPreparedConnect("Update jrBUnits Set " +
-					" BUnitDesc = ?,  LastUpdate = ? " +
-					" Where BUnit = ? ");
-
-			while (tbl.hasMoreElements()) {
-				String[] row = (String[]) tbl.nextElement();
-				 if(!row[0].equals("")) {
-					if (isNewBUnit(row[0],  dataAccss)) {
-						sqlInsert.setString(1, row[0]);
- 						sqlInsert.setString(2, row[1]);
- 						sqlInsert.setString(3, new SimpleDateFormat("yyyyMMdd").format(new Date()));
- 						sqlInsert.executeUpdate();
-					} else {						
-						sqlUpdate.setString(1, row[1]);
-						sqlUpdate.setString(2, new SimpleDateFormat("yyyyMMdd").format(new Date()));
-						sqlUpdate.setString(3, row[0]);
-						sqlUpdate.executeUpdate();
-					}
-				 }
-			}
-			bUnit.addMessage("Company(s) Updated", "10", null, null);
-		} catch (SQLException er) {
-			dataAccss.logMessage(" *UserSecurityManager.updateBUnitList* -- "+ er);
-			bUnit.addMessage("SVR0001");
-		} finally {
-			dataAccss.execClose(sqlInsert);
-			dataAccss.execClose(sqlUpdate);
-		}
-		return bUnit;
-	}
- 
-	
 	
 	
 	/* */

@@ -167,20 +167,11 @@ public class CRadioGroupContainer extends JPanel implements
 		buttongroup.setSelected(top, true);
 	}
 
-	public void initializeComponentUI() {
-	}
-
-	public boolean validateComponent(String action, String editorName) {
-		return true;
-	}
-  	
-	
-	public boolean locateCursor() {
-		return false;
-	}
-	
+	public void initializeComponentUI() {}
+	public boolean validateComponent(String action, String editorName) {return true;}
+	public boolean locateCursor() {return false;}
+	public String getString() {return null;}
 	public void setValid(boolean invalid) {}
-	
 	public void setProperty(String propertyName, String propertyValue) {}
 
 }

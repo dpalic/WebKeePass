@@ -262,8 +262,8 @@ public class CMenuEditorContainer extends JPanel
 	}
 
 	public boolean validateComponent(String action, String editorName) {return true;}
-
- 
+	public String getString() {return null;}
+	
 	public void populateComponent(String action, String editorName,
 			DataSet dataSet) {
 		DataSet script = (DataSet) dataSet.get(editorName);

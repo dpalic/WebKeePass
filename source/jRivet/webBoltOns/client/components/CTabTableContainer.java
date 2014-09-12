@@ -133,7 +133,11 @@ public class CTabTableContainer extends JPanel implements StandardComponentLayou
 
 	public void clearComponent(String defaultValue) {
 	}
-
+	
+	public String getString() {
+		return null;
+	}
+	
 	public void fireIconsCleared() {
 		Enumeration etabs = vtabs.elements();
 		while (etabs.hasMoreElements()) {

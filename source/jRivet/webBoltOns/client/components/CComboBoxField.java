@@ -157,6 +157,7 @@ public class CComboBoxField extends JComboBox implements StandardComponentLayout
 		
  	}
 
+	public String getString() {return null;}
 	
 	public void buildComponent(WindowItem parentItem, WindowItem thisItem, WindowFrame mainFrame) {
 		

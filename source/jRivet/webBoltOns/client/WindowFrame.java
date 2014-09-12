@@ -167,7 +167,11 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 		// -   Email Document
 		} else if (cmpntTree[hl].getMethod().equals(WindowItem.GET_EMAIL)) {
 			actionEmailDoc(hl);
-
+			// -   Email Document
+		} else if (cmpntTree[hl].getMethod().equals(WindowItem.CLIP_FIELD)) {
+			actionTempClip(hl);
+			
+			
 		// -   Script Link
 		} else if (!cmpntTree[hl].getLink().equals("")) {
 			DataSet scrnSt = new DataSet();
@@ -178,7 +182,6 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 			aa.showWindow();
 			scrnSt = getSelectedTableRows(scrnSt);
 			scrnSt = getSelectedTextFields(scrnSt);
-			scrnSt.putStringField("[BnsUnit/]", cntr.getBUnitID());
 			aa.startWindowFrame(scrnSt, cmpntTree[hl].getMethod());
 			mFrm.addWindowListener(new WindowListener(){
 				public void windowActivated(WindowEvent arg0) {}
@@ -280,31 +283,40 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 	 *  
 	 */
 	private void actionEmailDoc(int hl) {
-		String document = "";
 		if (!cmpntTree[hl].getLink().equals("")) {
-			document += cmpntTree[hl].getLink();
+			cntr.showWebDocument(cmpntTree[hl].getLink());
+		
 		} else {
 			for (int c = 0; c < cmpntTree.length; c++) {
-				if (cmpntTree[c] == null
-						|| cmpntTree[c].getFieldName() == null) {
+				if (cmpntTree[c] == null || cmpntTree[c].getFieldName() == null)  
 					continue;
-				}
-				if (cmpntTree[c].getFieldName().equals(
-						cmpntTree[hl].getFieldName())
-						&& cmpntTree[c].getObjectName().equals(
-								WindowItem.TEXT_FIELD_OBJECT)) {
-					document = "mailto:"
-							+ ((JTextField) cmpntTree[c]
-									.getComponentObject()).getText();
+				 
+				if (cmpntTree[c].getFieldName().equals(cmpntTree[hl].getFieldName()) ){
+					cntr.showWebDocument("mailto:" + (cmpntTree[c].getComponentObject()).toString());
 					c = cmpntTree.length;
 				}
 			}
 		}
-		if (!document.equals("")) {
-			cntr.showWebDocument(document);
-		}
 	}
 
+	
+	
+	private void actionTempClip(int hl) {
+		for (int c = 0; c < cmpntTree.length; c++) {
+			if (cmpntTree[c] == null || cmpntTree[c].getFieldName() == null ||
+					cmpntTree[c].getComponentObject() == null)  continue;
+				
+			if (cmpntTree[c].getFieldName().equals(cmpntTree[hl].getFieldName())) {
+				mMnu.copyToClipTimer( ((StandardComponentLayout) cmpntTree[c].getComponentObject()).getString());
+					c = cmpntTree.length;
+				}
+			}
+		
+		}
+	
+	
+	
+	
 	/**
 	 * <h2><code>fireComponentServerRequest</code></h2>
 	 *
@@ -1911,8 +1923,6 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 				dSet = ((StandardComponentLayout) cmpntTree[x].getComponentObject())
 				                       .populateDataSet(action, field, dSet);
 		}
-		
-		dSet.putStringField("[BnsUnit/]", cntr.getBUnitID());
 	}
 
 	
@@ -2013,7 +2023,6 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 		cntr.showWebStatus("Opening webBoltOnsServer.ServletConnetor:"+ script);		
 		itmAcsLvl = script.getIntegerField("[ScriptAccessLevel/]");
 		script.put(WindowItem.ACTION, WindowItem.GET_SCRIPT);
-		script.putStringField("[BnsUnit/]", cntr.getBUnitID());
 		script = cntr.postServerRequestImed(script);
 		if (script != null) {
 				buildMainPanel(script);
@@ -2173,7 +2182,6 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 		if (initMthd != null && !initMthd.equals("")) {
 			dSet.put(WindowItem.METHOD, initMthd);
 			dSet.put(WindowItem.ACTION, WindowItem.FIND_RECORD);
-			dSet.putStringField("[BnsUnit/]", cntr.getBUnitID());
 			preProcessParameters(dSet);
 			postServerRequestImed();
 			sendTableToWindow(null);
@@ -2182,7 +2190,6 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 		if (calledmethod != null && !calledmethod.equals("")) {
 			dSet.put(WindowItem.METHOD, calledmethod);
 			dSet.put(WindowItem.ACTION, WindowItem.FIND_RECORD);
-			dSet.putStringField("[BnsUnit/]", cntr.getBUnitID());
 			preProcessParameters(hs);
 			postServerRequestImed();
 			sendTableToWindow(null);

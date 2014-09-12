@@ -441,7 +441,6 @@ import webBoltOns.server.servletUtil.NativeExecutable;
 		   
 		   dataSet = userSecurityManager.setRequesterGroupAccess(dataSet,dataAccess);  		   
 		   dataSet = userSecurityManager.getUserTheme(dataSet, dataAccess);
-		   dataSet = userSecurityManager.getBUnitList(dataSet, dataAccess);
 		   
 		} 
 		return dataSet;

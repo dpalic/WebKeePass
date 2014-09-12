@@ -3,6 +3,8 @@ WebKeePass
 
 Fork of the previous sourceforge project http://sourceforge.net/projects/webkeepass/files/ since the SF project has no repository.
 Imported version of 1.070527 zip archiveWebKeePass  Copyright (C) 2007 
+
+
 All rights reserved.
 
 *** Requirements ***

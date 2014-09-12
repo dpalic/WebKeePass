@@ -113,7 +113,10 @@ public class CTabContainer extends JTabbedPane implements StandardComponentLayou
 		
 	}
 
-
+	public String getString() {
+		return null;
+	}
+	
 	public DataSet populateDataSet(String action, String editorName, DataSet dataSet) {
 		return dataSet;
 	}

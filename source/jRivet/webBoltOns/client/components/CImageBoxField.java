@@ -192,6 +192,10 @@ public class CImageBoxField  extends JPanel implements StandardComponentLayout {
 	return null;
   }
   
+  public String getString() {
+	  return null;
+  }
+	
   public void initializeComponentUI () {}
   
 

@@ -206,7 +206,11 @@ public class CTextHTMLField extends JPanel implements StandardComponentLayout,
 		setScrollPosition(0);
 	}
  
-
+	public String getString() {
+		return  getText();
+	}
+	
+	
 	public void setToolTipText(String tip) {
 		mainT.setToolTipText(tip);
 		if(srcT != null)

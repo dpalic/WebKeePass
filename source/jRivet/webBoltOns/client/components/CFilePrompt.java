@@ -141,6 +141,10 @@ public class CFilePrompt extends JPanel implements StandardComponentLayout {
 	}
 
 	
+	public String getString() {
+		return null;
+	}
+	
 	public boolean locateCursor() {
 		prompt.grabFocus();
 		return true;

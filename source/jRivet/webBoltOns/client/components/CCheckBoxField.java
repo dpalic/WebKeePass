@@ -144,6 +144,7 @@ public class CCheckBoxField extends JCheckBox implements StandardComponentLayout
 		return true;
 	}
 
-	public void setValid(boolean invalid) {
-	}
+	public void setValid(boolean invalid) {}
+	public String getString() {return null;}
+
 }

@@ -66,6 +66,10 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.ClipboardOwner;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Transferable;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -90,6 +94,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
@@ -97,6 +102,7 @@ import javax.swing.JTree;
 import javax.swing.KeyStroke;
 import javax.swing.RepaintManager;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.ToolTipManager;
 import javax.swing.UIManager;
 import javax.swing.border.BevelBorder;
@@ -115,6 +121,7 @@ import webBoltOns.client.components.componentRules.ComManager;
 import webBoltOns.client.components.layoutManagers.GridFlowLayout;
 import webBoltOns.client.components.layoutManagers.GridFlowLayoutParameter;
 import webBoltOns.client.components.layoutManagers.StackedFlowLayout;
+import webBoltOns.dataContol.DBSchemaException;
 import webBoltOns.dataContol.DataSet;
 
 /**
@@ -123,7 +130,7 @@ import webBoltOns.dataContol.DataSet;
  * 
  */
 
-public class MenuFrame extends JPanel implements ComManager, MouseListener, KeyListener, ActionListener {
+public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  MouseListener, KeyListener, ActionListener {
 
 	class CControlTab extends Component implements Icon {
 
@@ -274,7 +281,6 @@ public class MenuFrame extends JPanel implements ComManager, MouseListener, KeyL
 				int tabIndex, int x, int y, int w, int h, boolean isSelected) {}
 	}
 
-	// ***************************************************************************************
 
 	class CTabbedControlPane extends JTabbedPane implements MouseListener,
 			MouseMotionListener {
@@ -491,6 +497,10 @@ public class MenuFrame extends JPanel implements ComManager, MouseListener, KeyL
 	private AppletConnector cntr;
 
 	private String bt;
+	
+	private Clipboard clpbrd;
+	
+	private SecurityManager security;
 
 	private JButton bgClrBtn, tbFntClrBtn, tbClrBtn, crsClrBtn;
 
@@ -516,13 +526,13 @@ public class MenuFrame extends JPanel implements ComManager, MouseListener, KeyL
 
 	private int qcolumn = 0;
 	
-	private boolean updateUI = false;
-
 	private JPanel qckPnl, rghtPnl, leftPanel, bnrBar, topRight, main0;
+	
+	private JProgressBar cpyBar;
 
-	private JComboBox srvrLgs, bUnitCombo, combomode;
+	private JComboBox srvrLgs, combomode;
 
-	private JLabel stdFtNm, hdeFtNm, bUnit ;
+	private JLabel stdFtNm, hdeFtNm, bTitle, cpyL;
 
 	private CTabbedControlPane mainTab = new CTabbedControlPane();
 
@@ -535,6 +545,8 @@ public class MenuFrame extends JPanel implements ComManager, MouseListener, KeyL
 	private JDialog admFrm;
 	
 	private JPasswordField pw1, pw2, pw3;
+	
+	private Thread timer; 
 		
 	public MenuFrame(AppletConnector a) {
 		cntr = a;
@@ -595,9 +607,54 @@ public class MenuFrame extends JPanel implements ComManager, MouseListener, KeyL
 	}
 
 	
+	public void copyToClipTimer(String clip) {
+	 
+		if (cpyL.isVisible()) return;
+		  
+		try {
+			clpbrd.setContents(new StringSelection(clip), MenuFrame.this);
+			timer = new Thread() {			 
+               public void run() {
+            	   try {
+            		cpyBar.setValue(10);
+            		cpyL.setVisible(true);
+            		cpyBar.setVisible(true);
+            		 for(int s=10; s > 0; s--){
+            			 cpyBar.setValue(s);
+            			 Thread.sleep(850);
+            		 }	 
+            	 
+               	   } catch (InterruptedException e) {
+
+               	   } finally {
+               		cpyBar.setValue(0);
+           			clpbrd.setContents(new StringSelection(""), MenuFrame.this);
+         			cpyL.setVisible(false);
+         			cpyBar.setVisible(false);
+               	   }
+               }
+			};
+			
+			timer.start();
+		} catch (Exception er) {}
+		
+	 }
 	
-	public void setBUnit(String id) {
-		bUnit.setText(id);
+	
+
+	public void lostOwnership(Clipboard arg0, Transferable arg1) { }
+
+	
+	public boolean checkSecurity() {
+		try {
+			security = System.getSecurityManager();
+			if (security != null) {
+				security.checkSystemClipboardAccess();
+			}
+			return true;
+		} catch (SecurityException se) {
+			return false;
+		}
 	}
 	
 	
@@ -617,12 +674,6 @@ public class MenuFrame extends JPanel implements ComManager, MouseListener, KeyL
 		d2.setName("jRivet");
 		d2.addMouseListener(this);
 		card1.add(d2);
-		bUnitCombo = new JComboBox(); 
-		card1.add(bUnitCombo);
-		Object [] bU = cntr.getBUnitNames();
-		for(int x=0; x< bU.length; x++) bUnitCombo.addItem(bU[x]);
-		
-		bUnitCombo.setSelectedItem(cntr.getBUnitDesc());
 		return card1;
 
 	}
@@ -861,11 +912,26 @@ public class MenuFrame extends JPanel implements ComManager, MouseListener, KeyL
 		infoT.setActionCommand("infoT");
 		infoT.addActionListener(this);
 
+
+		
 		logot = cntr.buildFancyButton("", "logout.gif","Log-off", ' ');
 		logot.setActionCommand("logOut");
 		logot.addActionListener(this);
 		
+		if (checkSecurity()) clpbrd = cntr.getToolkit().getSystemClipboard();
+	
+		cpyL = new JLabel("Clipboard cleared in:");
+		cpyL.setFont(new java.awt.Font("Arial", 1, 8));
+		cpyBar = new JProgressBar(0, 10);
+		cpyBar.setPreferredSize(new Dimension(50, 10));
+		cpyBar.setStringPainted(false);
+
+		cpyL.setVisible(false);
+		cpyBar.setVisible(false);	
+		
 		final JPanel controls = new JPanel();
+		controls.add(cpyL);
+		controls.add(cpyBar);
 		controls.add(logot);
 		controls.add(infoT);
 		
@@ -891,18 +957,19 @@ public class MenuFrame extends JPanel implements ComManager, MouseListener, KeyL
 		topRight.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
 		topRight.add(BorderLayout.WEST, slpter);
 		topRight.add(BorderLayout.EAST, controls);
-		bUnit = createTitle(cntr.getBUnitDesc() + "      User: "
+	
+		rghtPnl = new JPanel(new BorderLayout());
+		rghtPnl.add(BorderLayout.NORTH, topRight);
+		rghtPnl.add(BorderLayout.CENTER, mainTab);
+		
+		bTitle = createTitle(" User: "
 				+ cntr.user + "-"
 				+ cntr.userDesc + "      Date: "
 				+ (new SimpleDateFormat(cntr.dateFormat)).format(new Date()),
 				 Color.BLACK, BorderFactory.createEmptyBorder(2, 2, 2, 2)  ,new Font("Dialog", Font.BOLD, 14));	
 		
-		topRight.add(BorderLayout.CENTER, bUnit);
-	
-		rghtPnl = new JPanel(new BorderLayout());
-		rghtPnl.add(BorderLayout.NORTH, topRight);
-		rghtPnl.add(BorderLayout.CENTER, mainTab);
-						
+		topRight.add(BorderLayout.CENTER, bTitle);
+		
 		horSplit = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);		
 		horSplit.setLeftComponent(leftPanel);
 		horSplit.setRightComponent(rghtPnl);
@@ -1176,18 +1243,7 @@ public class MenuFrame extends JPanel implements ComManager, MouseListener, KeyL
 	private void fireAdminButtonPerformed(String mode) {
 		if (mode != null && !mode.equals("")) {
 			cntr.setComMode(mode);
-			if(updateUI || !cntr.getBUnitDesc().equals(bUnitCombo.getSelectedItem())) {
-				cntr.setBUnitID((String)bUnitCombo.getSelectedItem());
-				bUnit.setText((String)bUnitCombo.getSelectedItem() 
-						+ "      User: "
-						+ cntr.user + "-"
-						+ cntr.userDesc + "      Date: "
-						+ (new SimpleDateFormat(cntr.dateFormat)).format(new Date())  
-				);
-				mainTab.deleteAll();
-			}
 		}
-		updateUI = false;
 	}
 
 	/**
@@ -1438,7 +1494,6 @@ public class MenuFrame extends JPanel implements ComManager, MouseListener, KeyL
 	
 	
 	private void updateTheme() {
-		updateUI = true;
 		CDialog optionCnf = new CDialog(cntr.getAppletFrame(), cntr);
 		DataSet updThm = new DataSet();
 		updThm.putStringField(WindowItem.METHODCLASS,"webBoltOns.server.UserSecurityManager");
@@ -1651,6 +1706,6 @@ public class MenuFrame extends JPanel implements ComManager, MouseListener, KeyL
 	public void mouseReleased(MouseEvent e) {}
 	public void fireServerRepsone(ActionEvent source, DataSet request, DataSet respose) { }
 
-	
+
 
 }

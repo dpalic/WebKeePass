@@ -97,6 +97,8 @@ public class WindowItem {
 	public static final String GET_MENU = "GET_MENU";
 	public static final String GET_SCRIPT = "GET_SCRIPT";
 	public static final String GET_URL = "URL";
+	public static final String CLIP_FIELD = "CLIP_FIELD";
+	
 	public static final String HEIGHT = "HEIGHT";
 	public static final String HIDDEN = "HIDDEN";
 	public static final String ICON = "ICON";

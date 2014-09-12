@@ -568,7 +568,10 @@ public class CReportEditorContainer extends JPanel implements
 		return tb;
 	}
 
-
+	public String getString() {
+		return null;
+	}
+	
 	private void pasteObjectTreeNode(ObjectTreeNode referenceNode, String action) {
 
 		if (paster != null) {

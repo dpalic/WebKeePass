@@ -83,7 +83,11 @@ public class CLabelImageField extends JLabel implements StandardComponentLayout 
 	public boolean locateCursor() {
 		return false;
 	}
-  	
+	
+	public String getString() {
+		return null;
+	}
+	
 	public void setValid(boolean invalid) {
 	}
 	

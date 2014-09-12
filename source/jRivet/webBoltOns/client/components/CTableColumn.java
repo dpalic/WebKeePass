@@ -295,7 +295,12 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 			((CComboBoxField ) comp.getComponentObject()).requestFocus();
 		}
 	}
-
+	
+	
+	public String getString() {
+		return null;
+	}
+	
 
 	//****************************************************************************************
 	class CTableCellRenderer extends DefaultTableCellRenderer {

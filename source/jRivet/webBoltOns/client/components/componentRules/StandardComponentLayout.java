@@ -70,5 +70,6 @@ public interface StandardComponentLayout {
 	public void setProperty(String propertyName, String propertyValue);
 	public boolean locateCursor();
 	public void setValid(boolean invalid);
+	public String getString();
 }
 

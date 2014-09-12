@@ -149,6 +149,10 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 		columns.add(c);
 	}
 	
+	public String getString() {
+		return null;
+	}
+	
 	public void setValid(boolean invalid) {
 	}
 	

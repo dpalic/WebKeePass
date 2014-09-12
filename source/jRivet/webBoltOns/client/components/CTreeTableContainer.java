@@ -313,7 +313,10 @@ public class CTreeTableContainer extends CTableContainer implements
 
 	public void populateComponent(String action, String editorName,
 			DataSet dataSet) {
-		expandTable(dataSet.getTableVector(editorName));
+		if(dataSet.contains(editorName))
+			expandTable(dataSet.getTableVector(editorName));
+		else
+			clearComponent(null);
 	}
 
 	public DataSet populateDataSet(String action, String editorName,

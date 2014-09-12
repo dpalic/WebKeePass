@@ -142,22 +142,12 @@ public class CSHAPasswordField extends JPasswordField implements
 	}
  
 	public void initializeComponentUI() {}
-	
-
-	
+	public String getString() {return null;}
 	public String getSelectedComponentItem() { return null; }
-
-	
 	public boolean validateComponent(String action, String editorName) {return true; }
-
-
 	public boolean locateCursor() {return false; }
-
-
 	public void setProperty(String propertyName, String propertyValue) {}
-	
-	public void setValid(boolean invalid) {
-	}
+	public void setValid(boolean invalid) {}
 	  
 	public static String sha1(String data) throws NoSuchAlgorithmException {
 		    MessageDigest md = MessageDigest.getInstance("SHA");

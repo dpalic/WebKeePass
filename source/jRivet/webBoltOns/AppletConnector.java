@@ -74,9 +74,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.security.NoSuchAlgorithmException;
-import java.util.Enumeration;
 import java.util.Hashtable;
-import java.util.Vector;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -151,7 +149,6 @@ public class AppletConnector extends JApplet {
 	private CipherString cipher;
 
 	private Hashtable bUnits = new Hashtable(), literals = new Hashtable();
-	private String bUnit, bUnitDesc;
 	
 	public AppletConnector() {}
 
@@ -334,24 +331,6 @@ public class AppletConnector extends JApplet {
 		return rRules;
 	}
 	
-	
-	public String getBUnitDesc() {
-		return bUnitDesc;
-	}
-	
-	public String getBUnitID() {
-		return bUnit;
-	}
-	
-
-	public Object [] getBUnitNames() {	
-		return bUnits.keySet().toArray();
-	}
-
-	public void setBUnitID(String name) {	
-		bUnit = (String) bUnits.get(name);
-		bUnitDesc = name;
-	}
 	
 	/**
 	 * <h2><code>getAppletInfo</code></h2>
@@ -928,16 +907,6 @@ public class AppletConnector extends JApplet {
 
 	
 	private void setEnvironment(DataSet dataSet) {
-
-		 	Enumeration  bu =  ((Vector)dataSet.get("[BUnitList/]")).elements();
-		 	while(bu.hasMoreElements()) {
-				String rw[] = (String[]) bu.nextElement();
-				bUnits.put(rw[1], rw[0]);
-				if(rw[0].equals(dataSet.getStringField("[BUnit/]"))) {
-					bUnit = rw[0];	
-					bUnitDesc = rw[1];
-				}	
-			}
 						 
 			String bgC = dataSet.getStringField("[BackGroundColor/]");
 			String tbC = dataSet.getStringField("[TitleBarColor/]");

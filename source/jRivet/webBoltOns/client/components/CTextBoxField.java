@@ -200,6 +200,15 @@ public class CTextBoxField extends JTextField
 		return dataSet;
 	}
 
+
+	
+	public String getString() {
+		commitEditing(getText());
+		return  getText();
+	}
+	
+ 	
+	
 	public void populateComponent(String action, String editorName, DataSet dataSet) {
 		validValue = true;
 		if(cnct.strictEncoding && comp.isEncrypted())

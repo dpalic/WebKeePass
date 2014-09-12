@@ -173,7 +173,11 @@ public class CSpinnerField extends JSpinner implements StandardComponentLayout,
 	public void focusLost(FocusEvent e) {
 		 setBackground(Color.WHITE);
 	}
-  	
+	
+	public String getString() {
+		return null;
+	}
+	
 }
 
  

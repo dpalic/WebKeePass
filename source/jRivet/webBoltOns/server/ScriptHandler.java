@@ -89,7 +89,7 @@ public class ScriptHandler extends HandlerBase {
 	private UserSecurityManager usrScrtyMngr;
 	private Vector<String> vf = new Vector<String>();
 	private boolean editMode = false;
-	private String bUnit = "", user = "", scmbl = "";
+	private String user = "", scmbl = "";
 
 	public ScriptHandler(DataAccess da, UserSecurityManager usm, String m, boolean e) {
 		stck.push("0");
@@ -294,7 +294,6 @@ public class ScriptHandler extends HandlerBase {
 				
 				if(!linkSelection.equals("") ) {
 					linkSelection = linkSelection.replaceAll(":", "'");
-					linkSelection = linkSelection.replaceAll("BUnit", bUnit.trim());
 					linkSelection = linkSelection.replaceAll("User", user).trim();
 					linkSelection = linkSelection.replaceAll("Scmbl", scmbl.trim()); 
 					sql += " Where " + linkSelection + " ";					
@@ -367,10 +366,8 @@ public class ScriptHandler extends HandlerBase {
 	 	public void loadScript(String script, DataSet ds) throws   ParserConfigurationException, 
 	 	                  SAXException, IOException {
 			
-	 		bUnit = ds.getBUnit();
 			user = ds.getUser(); 
 			scmbl = ds.getScmbl(); 
-			
 			File file = new File(script);
 			FileReader reader = new FileReader(file);
 			SAXParserFactory spf = SAXParserFactory.newInstance();
