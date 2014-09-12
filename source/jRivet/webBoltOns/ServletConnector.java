@@ -435,13 +435,14 @@ import webBoltOns.server.servletUtil.NativeExecutable;
 			   dataSet =  userSecurityManager.confirmPassword(dataSet ,dataAccess); 
 			   if(dataSet.getUser().equals(""))
 				   return dataSet;
+		
+			   dataSet = userSecurityManager.setRequesterGroupAccess(dataSet,dataAccess);  		   
+			   dataSet = userSecurityManager.getUserTheme(dataSet, dataAccess);
+			   
 		   } else {
 			   dataSet.setUser(req.getRemoteUser());
 		   } 
-		   
-		   dataSet = userSecurityManager.setRequesterGroupAccess(dataSet,dataAccess);  		   
-		   dataSet = userSecurityManager.getUserTheme(dataSet, dataAccess);
-		   
+ 
 		} 
 		return dataSet;
 	}

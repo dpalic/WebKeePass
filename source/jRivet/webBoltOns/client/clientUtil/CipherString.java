@@ -71,7 +71,9 @@ public class CipherString {
 
 	public static final String DESEDE_SCHEME = "DESede";
 	public static final String DES_SCHEME = "DES";
-	public static final String DEFAULT_KEY = "oSvSGrkOPdwIkSlxhpPzfKJFFrPAyConOnEaUvWHqwvjePGrAUzpbROJiZnEaXAuqiQUDREaFXLcHyIdNSvrCQBNxdsixZtixRNrUfTyEcUGcvaIRqDbMGGKiwxCqcmY";
+	public static final String DEFAULT_KEY =  
+		"oSvSGrkOPdwIkSlxhpPzfKJFFrPAyConOnEaUvWHqwvjePGrAUzpbROJiZnEaXAuqiQUDREa";
+	
 	private KeySpec keySpec;
 	private SecretKeyFactory keyFactory;
 	private Cipher cipher;
@@ -82,17 +84,16 @@ public class CipherString {
 	}
 		
 	
-	public CipherString(String encryptionScheme) throws EncryptionException {
-		this(encryptionScheme, DEFAULT_KEY);
+	public CipherString(String key) throws EncryptionException {
+		this(DESEDE_SCHEME, key);
 	}
 
 	public CipherString(String encryptionScheme, String encryptionKey)  {
 
 		if (encryptionKey == null)
-			throw new IllegalArgumentException("encryption key was null");
+			encryptionScheme = DEFAULT_KEY;
 		if (encryptionKey.trim().length() < 24)
-			throw new IllegalArgumentException(
-					"encryption key was less than 24 characters");
+			encryptionScheme = DEFAULT_KEY;
 
 		try {
 			byte[] keyAsBytes = encryptionKey.getBytes(UNICODE_FORMAT);
@@ -102,8 +103,7 @@ public class CipherString {
 			} else if (encryptionScheme.equals(DES_SCHEME)) {
 				keySpec = new DESKeySpec(keyAsBytes);
 			} else {
-				throw new IllegalArgumentException(
-						"Encryption scheme not supported: " + encryptionScheme);
+				throw new IllegalArgumentException("Encryption scheme not supported: " + encryptionScheme);
 			}
 
 			keyFactory = SecretKeyFactory.getInstance(encryptionScheme);

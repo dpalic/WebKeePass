@@ -5,9 +5,9 @@
 <!--	 	 Description :  Create Group -->
 <!--	 	 Server Class :  server.TheCryptKeeper -->
 <!--	 	 Initalization Method :  newCryptKeeper -->
-<!--	 	 File Path :  /home/java/Projects/JavaProjects/jRivet-KeePass/apache-tomcat-5.5.20/webapps/KeePass/WEB-INF/XML/KeePass004.xml -->
-<!--	 	 Last Update :  27-May-2007 -->
-<!--	 	 User Profile:  admin -->
+<!--	 	 File Path :  /home/java/WKP11/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass004.xml -->
+<!--	 	 Last Update :  30-Jun-2007 -->
+<!--	 	 User Profile:  root -->
 <SCRIPT SCRIPT_NAME="KeePass004" DOCUMENT_TYPE="Window" CLASS_NAME="server.TheCryptKeeper" METHOD="newCryptKeeper" AUTO_REFRESH="true" DESCRIPTION="Create Group" Screen_Title="Create Group" WIDTH="600" HEIGHT="380">
   <ButtonBar>
     <BarButton TYPE="CLEAR" DESCRIPTION="Clear/New " ICON="iClear.gif" />
@@ -17,7 +17,7 @@
     <BarButton TYPE="POST" DESCRIPTION="Update Changes" ICON="iEdit.gif" METHOD="updCryptKeeper" />
   </ButtonBar>
   <Panel POSITION="Left" HIDDEN="N">
-    <TextField FIELDNAME="KeeperID" DESCRIPTION="ID #" LENGTH="4" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="5" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+    <TextField FIELDNAME="KeeperID" DESCRIPTION="ID #" LENGTH="4" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="5" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="KeePass007" METHOD="getCryptKeeper" />
     <TextField FIELDNAME="KeeperDesc" DESCRIPTION="Group Desc." LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
     <TextField FIELDNAME="KeeperIcon" DESCRIPTION="icon File Name" LENGTH="15" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
     <TextField FIELDNAME="CreateDate" DESCRIPTION="CreateDate" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />

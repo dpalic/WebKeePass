@@ -24,6 +24,7 @@ public class FileInstaller {
 	    	file.close();
 	    	
 		} catch (Exception er) {
+			er.printStackTrace();
 			msg.append("Error Reading File - " + er.getMessage());
 			return false;
 		}
@@ -51,6 +52,7 @@ public class FileInstaller {
 			sourceFile.close();
 			
 		} catch (Exception er) {
+			er.printStackTrace();
 			msg.append("Error Writing File - " + er.getMessage());
 			return false;	
 		}

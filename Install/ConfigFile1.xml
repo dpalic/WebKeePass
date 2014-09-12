@@ -53,7 +53,7 @@
 
  <!-- User Security Manager - Set 'ON' / 'OFF'  -->
   <UserSecurityManager>JRIVET</UserSecurityManager>
-    
+  <UserSecurityKey>{eKey}</UserSecurityKey>  
  </CONFIG>
 
 

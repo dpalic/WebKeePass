@@ -136,6 +136,8 @@ public class AppletConnector extends JApplet {
 			treeTableLeafIcon, menuExpandIcon, menuCollapseIcon,
 			menuScriptIcon, menuDocumentIcon, logoImageIcon, logoImagePanel;
 	
+	public String cKey = "-";
+		
 	private static JFrame frame;
 	private static final long serialVersionUID = 7491806255617902205L;
 	private static final int SOCKET_PORT = 1100,REGISTRY_PORT = Registry.REGISTRY_PORT;
@@ -148,7 +150,7 @@ public class AppletConnector extends JApplet {
 	private ReportRules rRules = new ReportRules();		
 	private CipherString cipher;
 
-	private Hashtable bUnits = new Hashtable(), literals = new Hashtable();
+	private Hashtable  literals = new Hashtable();
 	
 	public AppletConnector() {}
 
@@ -661,7 +663,7 @@ public class AppletConnector extends JApplet {
 	 */
 	public void showWebDocument(String document) {
 		showWebStatus("Opening webBoltOns Server.ServletConnetor:" + document);
-
+			
 			try {
 				getAppletContext().showDocument(new URL(document), "_blank");
 
@@ -757,7 +759,6 @@ public class AppletConnector extends JApplet {
 		setIcons(strtUp);	
 		strtUp.remove("[Environment_Options/]");
 		try{
-			cipher = new CipherString();
 			if (strtUp.getSecurityManagerStatus())
 				loadUserEnvironment(strtUp);
 			else	 
@@ -848,7 +849,7 @@ public class AppletConnector extends JApplet {
 	}
 	
 	
-	private void loadGuestEnvironment(DataSet ds) {
+	private void loadGuestEnvironment(DataSet ds) throws EncryptionException {
 		securityManager = false;
 		System.out.println("UserSecurityManager: OFF");
 		setEnvironment((DataSet)ds.get("[Standards/]"));
@@ -861,12 +862,13 @@ public class AppletConnector extends JApplet {
 		tipAccess = true;
 		tableCopyAccess = true;
 		tablePrintAccess = true;
+		cipher = new CipherString();
 		setComMode("HTTP");
 	}
 	
 	
 	
-	private void loadUserEnvironment(DataSet ds) throws InvalidUserException {
+	private void loadUserEnvironment(DataSet ds) throws InvalidUserException, EncryptionException {
 		System.out.println("UserSecurityManager: ON");
 		securityManager = true;
 		ds.remove("[Login-UserName/]");
@@ -890,10 +892,17 @@ public class AppletConnector extends JApplet {
 			throw new InvalidUserException();
 		}
 		
+		
+		if(ds.getStringField("[cKey/]").length() < 24)
+			cipher = new CipherString();
+		else
+			cipher = new CipherString(ds.getStringField("[cKey/]"));
+		
+		ds.remove("[cKey/]");
+		
 		setEnvironment(ds);
 		user = ds.getUser();
 		userDesc = ds.getUserDescription();
-		
 		menuScript = ds.getStringField("[MENU_SCRIPT/]");
 		administratorAccess = ds.getBooleanField("[Administrator/]");
 		deskTopThemeAccess = ds.getBooleanField("[DeskTopTheme/]");

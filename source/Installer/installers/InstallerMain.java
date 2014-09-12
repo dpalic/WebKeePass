@@ -15,7 +15,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
- 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -39,8 +40,21 @@ public class InstallerMain implements ActionListener, MouseListener{
 	JTextField path_T = new JTextField(20);
 	JTextField jh_T = new JTextField(20);
 	JTextField db_T = new JTextField(20);
-	JTextField usr_T = new JTextField(20);
-	JTextField pw_T = new JTextField(20);
+	JTextField usr_DB = new JTextField(20);
+	JTextField pw_DB = new JTextField(20);
+
+	JTextField usr_ADM = new JTextField(20);
+	JTextField pw_ADM = new JTextField(20);
+
+	JTextField usr_USR = new JTextField(20);
+	JTextField pw_USR = new JTextField(20);
+	
+	JTextField port_A = new JTextField(20);
+	JTextField dmName_A = new JTextField(20);
+	
+	JTextField key_A = new JTextField(40);
+	JTextField key_B = new JTextField(40);
+	
 	JFrame main_F; 
  
 	String fs, os; 
@@ -51,8 +65,53 @@ public class InstallerMain implements ActionListener, MouseListener{
 	DataBaseInstaller data = new DataBaseInstaller();
 	ZipInstaller zip = new ZipInstaller();
 	FileInstaller fi = new FileInstaller();
-
 	StringBuffer msgs = new StringBuffer();
+	
+	
+	public JPanel buildTitlePanel() {
+		JPanel tl_P = new JPanel();
+		JLabel l = new JLabel(new ImageIcon("Install/banner.jpg"));
+		l.setFont(new java.awt.Font("Times", 1, 20));
+		tl_P.add(l);
+		tl_P.setBackground(Color.WHITE);
+		tl_P.setBorder(BorderFactory.createCompoundBorder(BorderFactory
+				.createBevelBorder(BevelBorder.LOWERED), BorderFactory
+				.createLineBorder(new Color(0, 150, 150), 1)));
+		return tl_P;
+	}
+	
+
+	public JPanel buildfooterPanel(String next, String action) {
+		JPanel ftr_P = new JPanel();
+		JButton in_B = new JButton(next);
+		in_B.setActionCommand(action);
+		in_B.addActionListener(this);
+		JButton cn_B = new JButton("Cancel");
+		cn_B.setActionCommand("Cancel.Action");
+		cn_B.addActionListener(this);
+		ftr_P.add(cn_B);
+		ftr_P.add(in_B);
+		return ftr_P;
+	}
+
+	
+	
+//-------
+	
+	public void showLICENSE() {
+		os = System.getProperty("os.name");
+		fs = System.getProperty("file.separator");
+		main_F = new JFrame();
+		main_F.getContentPane().setLayout(new BorderLayout());
+		main_F.getContentPane().setBackground(Color.WHITE);
+		main_F.add(buildTitlePanel(), BorderLayout.NORTH);
+		main_F.add(buildLncePanel(), BorderLayout.CENTER);
+		main_F.pack();
+		main_F.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+		main_F.setLocation((d.width - main_F.getSize().width) / 2, (d.height - main_F.getSize().height) / 2);
+		main_F.setVisible(true);
+	}
 
 	
 	public JPanel buildLncePanel() {
@@ -73,33 +132,26 @@ public class InstallerMain implements ActionListener, MouseListener{
 		} catch (Exception er) {
 			t.setText(null);
 		}
-		
-		JPanel ftr_P = new JPanel();
-		JButton inst = new JButton("I Agree");
-		inst.setActionCommand("Next.Action");
-		inst.addActionListener(this);
-		ftr_P.add(inst);
-
-		JButton can = new JButton("Cancel");
-		can.setActionCommand("Cancel.Action");
-		can.addActionListener(this);
-		ftr_P.add(can);
-		
+				
 		l.add(main_P, BorderLayout.CENTER);
-		l.add(ftr_P, BorderLayout.SOUTH);
+		l.add(buildfooterPanel("I Agree", "Next1.Action"), BorderLayout.SOUTH);
+		
 		return l;
 	}
 	
 	
 	
 	
-	public void MainLICENSE() {
-		 
+//------- 
+	
+	public void showScreen1() {
+		main_F.dispose();
 		main_F = new JFrame();
 		main_F.getContentPane().setLayout(new BorderLayout());
 		main_F.getContentPane().setBackground(Color.WHITE);
-		main_F.add(buildTitlePanel(), BorderLayout.NORTH);
-		main_F.add(buildLncePanel(), BorderLayout.CENTER);
+		main_F.add(buildTitlePanel(), BorderLayout.NORTH);			
+		main_F.add(buildPanel1(), BorderLayout.CENTER);
+		main_F.add(buildfooterPanel("Next", "Next2.Action" ), BorderLayout.SOUTH);
 		main_F.pack();
 		main_F.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
@@ -108,75 +160,16 @@ public class InstallerMain implements ActionListener, MouseListener{
 		main_F.setVisible(true);
 	}
 
-	
-	
-	public void MainInstaller() {
-		main_F.dispose();
-		main_F = new JFrame();
-
-		os = System.getProperty("os.name");
-		fs = System.getProperty("file.separator");
-			
+	public JPanel buildPanel1() {
+		
 		if(fs.equals("/"))
 			path_T.setText("/usr/local/WebKeePass");
 		else
 			path_T.setText("C:\\WebKeePass");
 		
 		db_T.setText("WebKeePass");
-		usr_T.setText("root");
+		usr_DB.setText("root");
 		
-		
-		bar.setMaximum(0);
-		bar.setMaximum(4);
-		bar.setStringPainted(true);
-		bar.setPreferredSize(path_T.getPreferredSize());
-		
-		main_F.getContentPane().setLayout(new BorderLayout());
-		main_F.getContentPane().setBackground(Color.WHITE);
-		main_F.add(buildTitlePanel(), BorderLayout.NORTH);			
-		
-		main_F.add(buildInstallingPanel(), BorderLayout.CENTER);
-		
-		main_F.add(buildfooterPanel(), BorderLayout.SOUTH);
-		
-		main_F.pack();
-		main_F.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-		main_F.setLocation((d.width - main_F.getSize().width) / 2, (d.height - main_F
-				.getSize().height) / 2);
-		main_F.setVisible(true);
-	}
-	
-	
-	
-	public JPanel buildTitlePanel() {
-		JPanel tl_P = new JPanel();
-		JLabel l = new JLabel(new ImageIcon("Install/banner.jpg"));
-		l.setFont(new java.awt.Font("Times", 1, 20));
-		tl_P.add(l);
-		tl_P.setBackground(Color.WHITE);
-		tl_P.setBorder(BorderFactory.createCompoundBorder(BorderFactory
-				.createBevelBorder(BevelBorder.LOWERED), BorderFactory
-				.createLineBorder(new Color(0, 150, 150), 1)));
-		return tl_P;
-	}
-
-	public JPanel buildfooterPanel() {
-		JPanel ftr_P = new JPanel();
-		JButton in_B = new JButton("Install");
-		in_B.setActionCommand("Install.Action");
-		in_B.addActionListener(this);
-		ftr_P.add(in_B);
-
-		JButton cn_B = new JButton("Cancel");
-		cn_B.setActionCommand("Cancel.Action");
-		cn_B.addActionListener(this);
-		ftr_P.add(cn_B);
-
-		return ftr_P;
-	}
-
-	public JPanel buildInstallingPanel() {
 		JPanel main_P = new JPanel(new GridFlowLayout(10, 10));
 
 		JLabel l1 = new JLabel("<html><font color=\"blue\"><u>Installation Path:</u></font></html>");
@@ -193,33 +186,210 @@ public class InstallerMain implements ActionListener, MouseListener{
 		main_P.add(l2, new GridFlowLayoutParameter(true, 1));
 		main_P.add(jh_T, new GridFlowLayoutParameter(false, 2));
 		
-		main_P.add(new JLabel("Create MySQL Database/Schema:"), new GridFlowLayoutParameter(
-				true, 1));
+		main_P.add(new JLabel("MySQL Database/Schema:"), new GridFlowLayoutParameter(true, 1));
 		main_P.add(db_T, new GridFlowLayoutParameter(false, 2));
 
-		main_P.add(new JLabel("MySQL Admin User Name:"), new GridFlowLayoutParameter(
-				true, 1));
-		main_P.add(usr_T, new GridFlowLayoutParameter(false, 2));
+		main_P.add(new JLabel("MySQL Admin User Name:"), new GridFlowLayoutParameter(true, 1));
+		main_P.add(usr_DB, new GridFlowLayoutParameter(false, 2));
 
-		main_P.add(new JLabel("MySQL Admin Password:"), new GridFlowLayoutParameter(
-				true, 1));
-		main_P.add(pw_T, new GridFlowLayoutParameter(false, 2));
+		main_P.add(new JLabel("MySQL Admin Password:"), new GridFlowLayoutParameter(true, 1));
+		main_P.add(pw_DB, new GridFlowLayoutParameter(false, 2));
 		
-		main_P.add(new JLabel("Progress:"), new GridFlowLayoutParameter(true, 1));
-
-		
-		main_P.add(bar, new GridFlowLayoutParameter(false, 2));
 		return main_P;
 	
 	}
 
+	private boolean editScreen1() {
+		
+		if (path_T.getText() == null || path_T.getText().equals("")) {
+			JOptionPane.showMessageDialog(null, "Invalid Install Path",
+					"Path Error", JOptionPane.ERROR_MESSAGE);
+			return false;
+		
+		
+		 } else if( !(new File(jh_T.getText().trim() + "/bin/java").isFile())  &&
+		 		   !(new File(jh_T.getText().trim() + "/bin/java.exe").isFile())  ) {
+		 	JOptionPane.showMessageDialog(null, "Invalid JAVA_HOME Path",
+		 		"Path Error", JOptionPane.ERROR_MESSAGE);
+		    return false;		 
+		 	
+		} else if (db_T.getText() == null || db_T.getText().equals("")) {
+			JOptionPane.showMessageDialog(null, "Invalid Database Name",
+					"Input Error", JOptionPane.ERROR_MESSAGE);
+			return false;
+			
+		} else if (usr_DB.getText() == null || usr_DB.getText().equals("")) {
+			JOptionPane.showMessageDialog(null, "Invalid Database User",
+					"Input Error", JOptionPane.ERROR_MESSAGE);
+			return false;
+			
+		} else if (pw_DB.getText() == null || pw_DB.getText().equals("")) {
+			JOptionPane.showMessageDialog(null, "Invalid Database Password",
+					"Input Error", JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+		
+		
+		return true;
+	}
+
+	
+
+
+	
+	
+//--------- 
+	
+	public void showScreen2() {
+		main_F.dispose();
+		main_F = new JFrame();
+		main_F.getContentPane().setLayout(new BorderLayout());
+		main_F.getContentPane().setBackground(Color.WHITE);
+		main_F.add(buildTitlePanel(), BorderLayout.NORTH);			
+		main_F.add(buildPanel2(), BorderLayout.CENTER);
+		main_F.add(buildfooterPanel("Next", "Next3.Action" ), BorderLayout.SOUTH);
+		
+		main_F.pack();
+		main_F.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+		main_F.setLocation((d.width - main_F.getSize().width) / 2, (d.height - main_F.getSize().height) / 2);
+		main_F.setVisible(true);
+	}
+		
+
+	public JPanel buildPanel2() {
+
+		JPanel main_P = new JPanel(new GridFlowLayout(10, 10));
+		usr_ADM.setText("root");
+		usr_USR.setText("user");
+		
+		main_P.add(new JLabel("Web KeePass Admin/Root UserID:"), new GridFlowLayoutParameter(true, 1));
+		main_P.add(usr_ADM, new GridFlowLayoutParameter(false, 2));
+
+		main_P.add(new JLabel("Admin/Root Password:"), new GridFlowLayoutParameter(true, 1));
+		main_P.add(pw_ADM, new GridFlowLayoutParameter(false, 2));
+
+		main_P.add(new JLabel("Web KeePass Standard UserID:"), new GridFlowLayoutParameter(true, 1));
+		main_P.add(usr_USR, new GridFlowLayoutParameter(false, 2));
+		
+		main_P.add(new JLabel("Standard Password:"), new GridFlowLayoutParameter(true, 1));
+		main_P.add(pw_USR, new GridFlowLayoutParameter(false, 2));
+
+		return main_P;	
+	}
+	
+	
+	
+	private boolean editScreen2() {	
+		if (usr_ADM.getText() == null || usr_ADM.getText().length() < 4 ||
+				usr_USR.getText() == null || usr_USR.getText().length() < 4) {
+			JOptionPane.showMessageDialog(null, "Invalid - User ID < 4 long",
+					"UserID Error", JOptionPane.ERROR_MESSAGE);
+			return false;
+		}	
+		
+		if (pw_ADM.getText() == null || pw_ADM.getText().length() < 8 ||
+					pw_USR.getText() == null || pw_USR.getText().length() < 8) {
+				JOptionPane.showMessageDialog(null, "Invalid - Password < 8 long",
+						"UserID Error", JOptionPane.ERROR_MESSAGE);
+				return false;
+		}
+			
+		return true;
+	}
+	
+	
+//----------- 
+	public void showScreen3() {
+		main_F.dispose();
+		main_F = new JFrame();
+		main_F.getContentPane().setLayout(new BorderLayout());
+		main_F.getContentPane().setBackground(Color.WHITE);
+		bar.setMaximum(0);
+		bar.setMaximum(4);
+		bar.setStringPainted(true);
+		bar.setPreferredSize(path_T.getPreferredSize());
+		bar.setVisible(false);
+		
+		main_F.getContentPane().setLayout(new BorderLayout());
+		main_F.getContentPane().setBackground(Color.WHITE);
+		main_F.add(buildTitlePanel(), BorderLayout.NORTH);			
+		main_F.add(buildPanel3(), BorderLayout.CENTER);
+		main_F.add(buildfooterPanel("Install", "Install.Action" ), BorderLayout.SOUTH);
+		
+		main_F.pack();
+		main_F.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+		main_F.setLocation((d.width - main_F.getSize().width) / 2, (d.height - main_F.getSize().height) / 2);
+		main_F.setVisible(true);
+	}
+	
+	
+	public JPanel buildPanel3() {
+		JPanel main_P = new JPanel(new GridFlowLayout(10, 10));
+		
+		port_A.setText("8443");
+		dmName_A.setText("localhost");
+		main_P.add(new JLabel("Tomcat HTTPS/SSL Port:"), new GridFlowLayoutParameter(true, 1));
+		main_P.add(port_A, new GridFlowLayoutParameter(false, 2));
+
+		main_P.add(new JLabel("Your Host Name:"), new GridFlowLayoutParameter(true, 1));
+		main_P.add(dmName_A, new GridFlowLayoutParameter(false, 2));
+
+		main_P.add(new JLabel("Enter Encryption Key Value:"), new GridFlowLayoutParameter(true, 1));
+		main_P.add(key_A, new GridFlowLayoutParameter(false, 2));
+
+		//main_P.add(new JLabel("Progress"), new GridFlowLayoutParameter(true, 1));
+		main_P.add(bar, new GridFlowLayoutParameter(true, 2));
+
+		return main_P;
+	
+	}
+	
+	
+	private boolean editScreen3() {
+		int port = 0;
+		try {
+			port = Integer.parseInt(port_A.getText());
+			
+			} catch (Exception e) {port = 0;}
+		
+		if (port < 200 || port > 65000) {
+			JOptionPane.showMessageDialog(null, "Invalid HTTPS/SSL Port",
+					"Tomcat Error", JOptionPane.ERROR_MESSAGE);
+			return false;
+		}	
+		
+		if (dmName_A.getText() == null || dmName_A.getText().length() < 2) {
+			JOptionPane.showMessageDialog(null, "Invalid Host Name",
+					"Tomcat Error", JOptionPane.ERROR_MESSAGE);
+			return false;
+		}	
+			
+		if (key_A.getText() == null || key_A.getText().length() < 20) {
+				JOptionPane.showMessageDialog(null, "Invalid Encryption Key Value - Key value must be > 20 long",
+						"Encryption Error", JOptionPane.ERROR_MESSAGE);
+				return false;	
+		}
+		
+		return true;
+	}
+	
+	
+	
 	
 	
 	public void actionPerformed(ActionEvent e) {
-	    if (e.getActionCommand().equals("Next.Action"))
-			MainInstaller();
+	    if (e.getActionCommand().equals("Next1.Action") )
+			showScreen1();
 				
-		else if (e.getActionCommand().equals("Install.Action"))
+	    else if (e.getActionCommand().equals("Next2.Action") && editScreen1()  )
+			showScreen2();
+	    
+	    if (e.getActionCommand().equals("Next3.Action") && editScreen2()  )
+			showScreen3();
+	    
+		else if (e.getActionCommand().equals("Install.Action")&& editScreen3())
 			installAction();
 
 		else if (e.getActionCommand().equals("Cancel.Action"))
@@ -260,7 +430,7 @@ public class InstallerMain implements ActionListener, MouseListener{
 	
 	
 	private void installAction() {
-		if (editInstall()) {
+		if (editScreen1() && editScreen2() && editScreen3() ) {
 			RunInstall r = new RunInstall();
 		  	r.start();
 		  	r = null;
@@ -269,53 +439,37 @@ public class InstallerMain implements ActionListener, MouseListener{
 
 	
 	
-	private boolean editInstall() {
-		
-		if (path_T.getText() == null || path_T.getText().equals("")) {
-			JOptionPane.showMessageDialog(null, "Invalid Install Path",
-					"Path Error", JOptionPane.ERROR_MESSAGE);
-			return false;
-		
-		
-		 } else if( !(new File(jh_T.getText().trim() + "/bin/java").isFile())  &&
-		 		   !(new File(jh_T.getText().trim() + "/bin/java.exe").isFile())  ) {
-		 	JOptionPane.showMessageDialog(null, "Invalid JAVA_HOME Path",
-		 		"Path Error", JOptionPane.ERROR_MESSAGE);
-		    return false;		 
-		 	
-		} else if (db_T.getText() == null || db_T.getText().equals("")) {
-			JOptionPane.showMessageDialog(null, "Invalid Database Name",
-					"Input Error", JOptionPane.ERROR_MESSAGE);
-			return false;
-			
-		} else if (usr_T.getText() == null || usr_T.getText().equals("")) {
-			JOptionPane.showMessageDialog(null, "Invalid Database User",
-					"Input Error", JOptionPane.ERROR_MESSAGE);
-			return false;
-			
-		} else if (pw_T.getText() == null || pw_T.getText().equals("")) {
-			JOptionPane.showMessageDialog(null, "Invalid Database Password",
-					"Input Error", JOptionPane.ERROR_MESSAGE);
-			return false;
-		}
-		
-		
-		return true;
-	}
 
-	public boolean installDB(String database, String user, String password) {
-		if(!data.installDB(database, user, password, "Install/CreateTables.sql"))
+	
+	public boolean installDB() {	
+		if(!data.installDB(
+				db_T.getText().trim(), 
+				usr_DB.getText().trim(), pw_DB.getText().trim(),
+				"Install/CreateTables.sql", 
+				usr_ADM.getText().trim(), sha1(pw_ADM.getText().trim()),
+				usr_USR.getText().trim(), sha1(pw_USR.getText().trim()))
+				)
 			return false;
-		
 		return true;
 	}
 	
 	
-	public boolean createConfig(String javaHome, String path, String url, String user, String pwrd) {		
+	
+	public boolean createConfig() {	
+	
+		String javaHome = jh_T.getText().trim();
+		String path = path_T.getText().trim(); 
+		String url = db_T.getText().trim();
+		String user = usr_DB.getText().trim();
+		String pwrd = pw_DB.getText().trim();    
+		String port = port_A.getText().trim();
+		String key1 = sha1(key_A.getText().trim());        
+		
 		if(!fi.readFile("Install/ConfigFile1.xml"))
 			return false;
 		fi.mergeTag("{db}", url);
 		fi.mergeTag("{user}", user);
+		fi.mergeTag("{eKey}", key1);
 		fi.mergeTag("{password}", pwrd);
 		fi.mergeTag( "{scripts}", 
 				path + "jakarta-tomcat-5.5.7"+ fs + "webapps" + fs +"ROOT" +  fs + "XML" + fs);
@@ -331,6 +485,9 @@ public class InstallerMain implements ActionListener, MouseListener{
 			return false;	
 		
 		
+		
+		
+		
 		if(!fi.readFile("Install/web.xml"))
 			return false;
 		fi.mergeTag( "{home}",  path + "jakarta-tomcat-5.5.7"+ fs + "webapps" + fs +"ROOT" + fs + "WEB-INF" + fs );
@@ -338,6 +495,15 @@ public class InstallerMain implements ActionListener, MouseListener{
 			return false;	
 		
 		
+		
+		if(!fi.readFile("Install/server.xml"))
+			return false;
+		fi.mergeTag( "{port}", port);
+		fi.mergeTag( "{certFile}",  path + "webKeePass.key");
+		if(!fi.writeFile( path +"jakarta-tomcat-5.5.7"+ fs + "conf" + fs +"server.xml"))
+			return false;	
+		
+
 		
 		StringBuffer startL = new StringBuffer("export JAVA_HOME=" + javaHome.trim() +"\n"+
 										       "cd ./jakarta-tomcat-5.5.7/bin\n" +
@@ -373,7 +539,14 @@ public class InstallerMain implements ActionListener, MouseListener{
 	public RunInstall () {} 
 	
 	public void run () {
+		bar.setVisible(true);
 		
+		String error = "\n \n - before re-installing please remove: " + path_T.getText() +
+		                  "\n   and drop database: " +db_T.getText();
+		
+		String start =   "Installation is Complete! \n " +
+				       "\n   1 - Start Tomcat: " + path_T.getText() +
+        			   "\n   2 - Open: https://" +dmName_A.getText().trim() + ":" + port_A.getText() + " \n ";
 		try {
 		main_F.setCursor(new Cursor(Cursor.WAIT_CURSOR));	 
 		if(!path_T.getText().endsWith("/") && !path_T.getText().endsWith("\\")) 
@@ -381,47 +554,108 @@ public class InstallerMain implements ActionListener, MouseListener{
 		
 		bar.setValue(1);
 		if(!zip.unZip("Install/Install.zip", path_T.getText())) {
-			JOptionPane.showMessageDialog(null, "Error Expanding Files: \n " + zip.getMessages(),
+			JOptionPane.showMessageDialog(null, "Error Expanding Files: \n " + zip.getMessages() + error,
 					"Zip Error", JOptionPane.ERROR_MESSAGE);
 			throw new InterruptedException();	
 		}	
 		
 		bar.setValue(2);
 	    
-		if(!createConfig(jh_T.getText().trim(), path_T.getText().trim(), 
-			 	                        db_T.getText().trim(), usr_T.getText().trim(), pw_T.getText().trim())) {
-			JOptionPane.showMessageDialog(null, "Config Write Error \n " + fi.getMessages() ,
+		if(!createConfig()) {
+			JOptionPane.showMessageDialog(null, "Config Write Error \n " + fi.getMessages() + error,
 					"Config-Error", JOptionPane.ERROR_MESSAGE);
-			
 			throw new InterruptedException();
 		}
-			
+
+		
+		if(!createCert()) {
+			JOptionPane.showMessageDialog(null, "Could not create Certified Key  " + error,
+					"Cert Error", JOptionPane.ERROR_MESSAGE);
+			throw new InterruptedException();
+		}
+
 		bar.setValue(3);
-		if(!installDB(db_T.getText(), usr_T.getText(), pw_T.getText())) {
-			JOptionPane.showMessageDialog(null, "Database Write Error: \n" + data.getMessages(),
+		if(!installDB()) {
+			JOptionPane.showMessageDialog(null, "Database Write Error: \n" + data.getMessages() + error,
 					"Data Error", JOptionPane.ERROR_MESSAGE);
-			
 			throw new InterruptedException();
 		}
 		
-			
+		
+		
 		bar.setValue(5);
-		JOptionPane.showMessageDialog(null, "Installation Complete",
-				"Done", JOptionPane.INFORMATION_MESSAGE);
+		
+		JOptionPane.showMessageDialog(null, start, "Done", JOptionPane.INFORMATION_MESSAGE);
 		main_F.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));			
-		main_F.dispose();
 		
 		} catch (InterruptedException i) {
 			bar.setValue(0);
-			main_F.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));		
+				
 		}
-		
+		main_F.dispose();
 	 }
+	
 	}
+	
+	
+	
+	
+	public boolean createCert() {	
+		/*	keytool -genkey 
+    	-keystore ~/tomcat/conf/keystore 
+    	-alias tomcat 
+    	-keyalg RSA 
+    	-keysize 2048 
+    	-dname CN=localhost 
+    	-storepass changeit 
+    	-keypass changeit   */
+		
+		try { 
+			String path = path_T.getText().trim();
+			String hostname = dmName_A.getText().trim();
+			sun.security.tools.KeyTool.main(new String []
+				  { "-genkey", 
+					"-alias", "tomcat",
+					"-keystore", path + "webKeePass.key",
+					"-keyalg", "RSA",
+					"-keysize", "2048", 
+					"-dname", "CN=" + hostname,
+					"-storepass", "changeit",
+					"-keypass", "changeit" });
+			
+			} catch (Exception e) {
+				e.printStackTrace();
+			return false;
+			} 
+		return true;
+	}
+	
+	
+	
+	
+   public static String sha1(String data) {
+	 try {
+	    MessageDigest md = MessageDigest.getInstance("SHA");
+	    String hex = "";
+	    md.update(data.getBytes());
+	    byte[] digest = md.digest();
+	    for (int i=0; i<digest.length; i++) {
+	      String h = Integer.toHexString(digest[i]);
+	      if (h.length() == 1) h = "0" + h;
+	      h = h.substring(h.length()-2);
+	      hex += h;
+	    }
+	    return hex;
+	 } catch (NoSuchAlgorithmException e) {
+		return data;
+	 }
+   }
 	
 	
 	public static void main(String[] args) {
 		InstallerMain installer = new InstallerMain();
-		installer.MainLICENSE();
+		installer.showLICENSE();
+	
+		
 	}
 }

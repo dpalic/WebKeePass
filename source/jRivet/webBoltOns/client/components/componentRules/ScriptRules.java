@@ -677,7 +677,7 @@ public  class ScriptRules {
 				"T", // 13 Script Link
 				"T", // 14 Link Method:
 				"T", // 15 Link Class:
-				"F", // 18 Paramter Name
+				"T", // 18 Paramter Name
 				"F", // 19 List Table:
 				"F", // 20 List Field Name:
 				"F", // 21 List Field Desc:

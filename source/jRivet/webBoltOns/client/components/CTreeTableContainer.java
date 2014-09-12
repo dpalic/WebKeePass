@@ -74,6 +74,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JTree;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.tree.DefaultTreeCellRenderer;
@@ -114,12 +115,23 @@ public class CTreeTableContainer extends CTableContainer implements
 		}
 	}
 
-	public void mouseReleased(MouseEvent e) {
+	public void mouseReleased(final MouseEvent e) {
 		if (mFrm != null && e.getClickCount() > 1
 				&& e.getButton() == MouseEvent.BUTTON1) {
 			mFrm.fireWindowReturning();
+			
+		} else if(e.getButton() == MouseEvent.BUTTON3 && popUp != null) {
+			 SwingUtilities.invokeLater(new Runnable() {
+                 public void run() {
+                	 int r = tableView.rowAtPoint(e.getPoint());
+                	 if(r >= 0) tableView.setRowSelectionInterval(r, r);
+                 	}
+			 });
+			popUp.show(e.getComponent(), e.getX(), e.getY());
 		}
+	
 	}
+	
 	
 	public void addColumn(CTableColumn c) {
 		if(columns.isEmpty())
@@ -313,7 +325,7 @@ public class CTreeTableContainer extends CTableContainer implements
 
 	public void populateComponent(String action, String editorName,
 			DataSet dataSet) {
-		if(dataSet.contains(editorName))
+		if(dataSet.getTableVector(editorName) != null )
 			expandTable(dataSet.getTableVector(editorName));
 		else
 			clearComponent(null);

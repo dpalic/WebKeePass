@@ -37,15 +37,15 @@ CREATE TABLE `jrGroupAccess` (
 
  
 INSERT INTO `jrGroupAccess` (`GroupID`,`MenuItem`,`GroupItemDescription`,`ItemAccessLevel`,`LastChangeDate`) VALUES 
- ('ADMIN','ICMENU','Inventory Control',3,NULL),
- ('ADMIN','WKP-MyPasswords','Work With My Passwords',3,NULL),
+ ('Admins','ICMENU','Inventory Control',3,NULL),
+ ('Admins','WKP-MyPasswords','Work With My Passwords',3,NULL),
  ('Users','WKP-MyPasswords','Work With My Passwords',3,NULL),
  ('Users','UserAdmin130','List Web Users',1,NULL),
  ('Users','UserAdmin110','Edit Web Users',1,NULL),
  ('Users','UserAdmin120','List Web User Groups',1,NULL),
  ('Users','UserAdmin100','Edit Web User Groups',1,NULL),
  ('Users','WKP-Users','Work With Web Users',1,NULL),
- ('ADMIN','WKP-Users','Work With Web Users',3,NULL);
+ ('Admins','WKP-Users','Work With Web Users',3,NULL);
  
 
 DROP TABLE IF EXISTS `jrUserGroups`;
@@ -71,7 +71,7 @@ CREATE TABLE `jrUserGroups` (
 
  
 INSERT INTO `jrUserGroups` (`GroupID`,`GroupDescription`,`MenuXML`,`DateFormat`,`CreateDate`,`ActiveDate`,`InActiveDate`,`LastChangeDate`,`Notes`,`ActiveGroup`,`Administrator`,`DeskTopTheme`,`TipAccess`,`CopyAccess`,`PrintAccess`,`AccessMethod`,`BUnit`) VALUES 
- ('ADMIN','Admin Group','CCMenu','dd MMM yyyy',NULL,'20050130','20050130','20050130','',1,1,1,1,1,1,'HTTP','1'),
+ ('Admins','Admin Group','CCMenu','dd MMM yyyy',NULL,'20050130','20050130','20050130','',1,1,1,1,1,1,'HTTP','1'),
  ('Users','Users Group','CCMenu','dd MMM yyyy',NULL,'20050130','20050130','20050130',NULL,1,0,1,1,1,1,'HTTP',NULL);
  
 
@@ -128,10 +128,6 @@ CREATE TABLE `jrUsers` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
  
-INSERT INTO `jrUsers` (`UserID`,`GroupID`,`UserDescription`,`Name`,`Address1`,`Address2`,`Address3`,`Address4`,`Phone1`,`Phone2`,`Fax`,`Email`,`WebSite`,`Notes`,`CreateDate`,`ActiveDate`,`InActiveDate`,`LastChangeDate`,`ActiveUser`,`BackGroundColorRed`,`BackGroundColorBlue`,`BackGroundColorGreen`,`TitleBarColorRed`,`TitleBarColorBlue`,`TitleBarColorGreen`,`TitleBarFontColorRed`,`TitleBarFontColorBlue`,`TitleBarFontColorGreen`,`WindowTitleColorRed`,`WindowTitleColorBlue`,`WindowTitleColorGreen`,`WindowTitleFontColorRed`,`WindowTitleFontColorBlue`,`WindowTitleFontColorGreen`,`CursorColorRed`,`CursorColorBlue`,`CursorColorGreen`,`HeaderFontName`,`HeaderFontSize`,`HeaderFontItalic`,`HeaderFontBold`,`RegularFontName`,`RegularFontSize`,`RegularFontItalic`,`RegularFontBold`,`CopyAccess`,`PrintAccess`,`Password`) VALUES 
- ('admin','ADMIN','Root User','Root User','','','','','',NULL,'','','',NULL,NULL,NULL,'','20060706',1,255,255,255,100,255,100,250,250,250,0,0,0,0,0,0,250,220,250,'Arial',11,0,1,'Arial',11,0,0,0,0,'d033e22ae348aeb5660fc2140aec35850c4da997'),
- ('user1','Users','user1','Sample User','','','','','',NULL,'','','','asf',NULL,NULL,'','',0,255,255,255,100,255,100,250,250,250,235,235,235,0,0,0,250,220,250,'Arial',11,0,1,'Arial',11,0,0,NULL,NULL,'b3daa77b4c04a9551b8781d03191fe098f325e67');
- 
 
 DROP TABLE IF EXISTS `wkpCryptHistory`;
 CREATE TABLE `wkpCryptHistory` (
@@ -177,19 +173,14 @@ CREATE TABLE `wkpGroups` (
 
  
 INSERT INTO `wkpGroups` (`KeeperID`,`KeeperDesc`,`keeperIcon`,`CreateDate`,`LastUpdate`,`j1`,`PrntID`) VALUES 
- (1,'General','MNode1.gif','20070527','20070527','qFC1Y2PiLSs=',0),
- (2,'Windows','MNode2.gif','20070527','20070527','qFC1Y2PiLSs=',0),
- (3,'Network','MNode2.gif','20070527','20070527','qFC1Y2PiLSs=',0),
- (4,'Internet','MNode3.gif','20070527','20070527','qFC1Y2PiLSs=',0),
- (5,'eMail','MNode3.gif','20070527','20070527','qFC1Y2PiLSs=',0),
- (6,'Homebanking','MNode4.gif','20070527','20070527','qFC1Y2PiLSs=',0),
- (7,'General-Office','MNode1.gif','20070527','20070527','qFC1Y2PiLSs=',1),
- (8,'General-Home','MNode1.gif','20070527','20070527','qFC1Y2PiLSs=',1),
- (9,'General','MNode1.gif','20070527','20070527','LObQfU/++9E=',0),
- (10,'Windows','MNode1.gif','20070527','20070527','LObQfU/++9E=',0),
- (11,'Network','MNode1.gif','20070527','20070527','LObQfU/++9E=',0),
- (12,'Internet','MNode1.gif','20070527','20070527','LObQfU/++9E=',0),
- (13,'Email','MNode1.gif','20070527','20070527','LObQfU/++9E=',0);
+ (1,'General','MNode1.gif','20070527','20070527','',0),
+ (2,'Windows','MNode2.gif','20070527','20070527','',0),
+ (3,'Network','MNode2.gif','20070527','20070527','',0),
+ (4,'Internet','MNode3.gif','20070527','20070527','',0),
+ (5,'eMail','MNode3.gif','20070527','20070527','',0),
+ (6,'Homebanking','MNode4.gif','20070527','20070527','',0),
+ (7,'General-Office','MNode1.gif','20070527','20070527','',1),
+ (8,'General-Home','MNode1.gif','20070527','20070527','',1);
  
 
 DROP TABLE IF EXISTS `wkpPasswordCrypt`;
@@ -222,9 +213,3 @@ CREATE TABLE `wkpPasswordCrypt` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
  
-INSERT INTO `wkpPasswordCrypt` (`PasswordID`,`a0`,`b9`,`c8`,`d7`,`e6`,`f5`,`g4`,`h3`,`i2`,`j1`,`k0`,`l9`,`m8`,`n7`,`o6`,`p5`,`q4`,`r3`,`s2`,`t1`,`Notes`,`Image`,`KeeperID`) VALUES 
- (1,'eVsuqFAYQ+yfUv8U51RoSA==','lhfBPh8UmOefUv8U51RoSA==','lFiKe+BH+OefUv8U51RoSA==','QdXrhUsD/cCfUv8U51RoSA==','QdXrhUsD/cCfUv8U51RoSA==','','false',NULL,'sE4+xtk0Vx37USG9h8lMi89KT5LRm+xu','qFC1Y2PiLSs=','sE4+xtk0Vx0T6IUPcnDkr89KT5LRm+xu',NULL,'iJQxwldQ2Mf7USG9h8lMi89KT5LRm+xu','sE4+xtk0Vx2LrgJmiruHf5Y0OQ85R78G',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1),
- (2,'ksRmD/7IuLOfUv8U51RoSA==','tiuUPwscJ/efUv8U51RoSA==','lFiKe+BH+OefUv8U51RoSA==','QdXrhUsD/cCfUv8U51RoSA==','QdXrhUsD/cCfUv8U51RoSA==','','false',NULL,'sE4+xtk0Vx37USG9h8lMi89KT5LRm+xu','qFC1Y2PiLSs=','sE4+xtk0Vx0T6IUPcnDkr89KT5LRm+xu',NULL,'iJQxwldQ2Mf7USG9h8lMi89KT5LRm+xu','sE4+xtk0Vx2LrgJmiruHf5Y0OQ85R78G',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,2),
- (3,'dg4NZWaeHmefUv8U51RoSA==','qrdKd9cPS3CfUv8U51RoSA==','afM6SXUIh1efUv8U51RoSA==','MJHZMLkVQ66jkRvzDsYpzg==','QdXrhUsD/cCfUv8U51RoSA==','','true',NULL,'','LObQfU/++9E=','',NULL,'','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,9);
-INSERT INTO `wkpPasswordCrypt` (`PasswordID`,`a0`,`b9`,`c8`,`d7`,`e6`,`f5`,`g4`,`h3`,`i2`,`j1`,`k0`,`l9`,`m8`,`n7`,`o6`,`p5`,`q4`,`r3`,`s2`,`t1`,`Notes`,`Image`,`KeeperID`) VALUES 
- (4,'Iqj6wkfCWt6fUv8U51RoSA==','xfLgO1/YVCs=','Wsq/aCo8x4qfUv8U51RoSA==','MJHZMLkVQ66jkRvzDsYpzg==','QdXrhUsD/cCfUv8U51RoSA==','','false',NULL,'','LObQfU/++9E=','',NULL,'','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,9);

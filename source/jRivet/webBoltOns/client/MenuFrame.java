@@ -548,6 +548,8 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 	
 	private Thread timer; 
 		
+	private boolean endTimer = false;
+	
 	public MenuFrame(AppletConnector a) {
 		cntr = a;
 	}
@@ -608,40 +610,41 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 
 	
 	public void copyToClipTimer(String clip) {
-	 
-		if (cpyL.isVisible()) return;
-		  
-		try {
-			clpbrd.setContents(new StringSelection(clip), MenuFrame.this);
-			timer = new Thread() {			 
-               public void run() {
-            	   try {
-            		cpyBar.setValue(10);
-            		cpyL.setVisible(true);
-            		cpyBar.setVisible(true);
-            		 for(int s=10; s > 0; s--){
-            			 cpyBar.setValue(s);
-            			 Thread.sleep(850);
-            		 }	 
-            	 
-               	   } catch (InterruptedException e) {
-
-               	   } finally {
-               		cpyBar.setValue(0);
-           			clpbrd.setContents(new StringSelection(""), MenuFrame.this);
-         			cpyL.setVisible(false);
-         			cpyBar.setVisible(false);
-               	   }
-               }
-			};
-			
-			timer.start();
-		} catch (Exception er) {}
 		
-	 }
+			if (cpyL.isVisible() && timer != null) {
+ 		 		endTimer = true;
+ 		 		while(timer.isAlive()); 
+			}
+			
+			
+			timer = new Thread()  {			 
+             public void run() {
+         	   try {
+         		cpyBar.setValue(10);
+         		cpyL.setVisible(true);
+         		cpyBar.setVisible(true);
+    			endTimer = false;     		
+         		 for(int s=10; s > 0 & !endTimer; s--){
+         			 cpyBar.setValue(s);
+         			 Thread.sleep(650);
+         		 }	 
+         		 
+         	   } catch (InterruptedException e) {
+            		  Thread.currentThread().interrupt();
+         	   
+         	   } finally {
+         		   cpyBar.setValue(0);
+         		   clpbrd.setContents(new StringSelection(""), MenuFrame.this);
+         		   cpyL.setVisible(false);
+         		   cpyBar.setVisible(false);
+            	 
+         	   }
+             }
+			};
+			clpbrd.setContents(new StringSelection(clip), MenuFrame.this);
+			timer.start();	 
+	}
 	
-	
-
 	public void lostOwnership(Clipboard arg0, Transferable arg1) { }
 
 	
@@ -993,7 +996,7 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 				mainTab.focusMenu();
 			}
 		});
-		
+	
 	}
 	
 	

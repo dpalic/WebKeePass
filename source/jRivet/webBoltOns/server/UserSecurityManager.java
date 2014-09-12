@@ -134,9 +134,11 @@ public class UserSecurityManager {
 					&&  login.getStringField("Password").equals(login.getStringField("[Login-Password/]" ))) {
 				login.putStringField("[UserManagerStatus/]", "Grant_Access");
 				login.setUser(login.getStringField("[Login-UserName/]"));
+				login.putStringField("[cKey/]", dataAccess.getCKey());
 			} else {
 				login.putStringField("[UserManagerStatus/]", "Prompt_Access");
 				login.setUser("");
+				login.putStringField("[cKey/]","");
 			}
 			
 		} catch (Exception er) {}	

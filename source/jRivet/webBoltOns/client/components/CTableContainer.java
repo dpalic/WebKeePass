@@ -57,6 +57,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.AdjustmentEvent;
@@ -67,13 +68,20 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.text.MessageFormat;
 import java.util.Enumeration;
+import java.util.Hashtable;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
+import javax.swing.ButtonModel;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingUtilities;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
@@ -105,7 +113,7 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 	protected WindowItem comp;
 	protected JButton print, copy;
 	
-
+	protected JPopupMenu popUp;	 
 	
 	public CTableContainer() {}
 	
@@ -129,7 +137,6 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 				((CPanelContainer) parentItem.getComponentObject()).addLeft(this, 0);
 		}
 		
-		
 		if (thisItem.getHeight() == 0) 
 			totlenght = 300;
 		 else 
@@ -137,6 +144,24 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 	}
 
 
+	
+	public void addPopUpButton(WindowItem btn) {
+		if(popUp == null) { 
+			popUp = new JPopupMenu();
+			popUp.add(new JLabel("  Options"));
+			popUp.add(new JPopupMenu.Separator());
+		}
+		
+		JButton button = cnct.buildFancyButton(btn.getDescription(), 
+								btn.getIconName(), btn.getDescription(), ' ');
+		button.setName(Integer.toString(btn.getObjectHL()));
+		button.setActionCommand(Integer.toString(btn.getObjectHL()));
+		button.addActionListener(mFrm);
+		popUp.add(button);
+	}
+	
+	
+	
 	protected void addFormattedRecord(String[] record) {
 		Object[] rc = new Object[record.length];
 		for (int c = 0; c < tableColumns.length; c++)  
@@ -335,6 +360,7 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 		fieldDataType = new String[totcol];
 		fieldParameter = new String[totcol];
 		curcol = 0;
+		
 		print = new JButton(cnct.tablePrintIcon);
 		print.setToolTipText("Print Table");
 		print.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -347,6 +373,7 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 		copy.setActionCommand("copy");
 		copy.addActionListener(this);
 
+		
 		while (ecolumns.hasMoreElements()) {
 			tableColumns[curcol] = (CTableColumn) ecolumns.nextElement();
 			fieldDescription[curcol] = tableColumns[curcol]
@@ -545,11 +572,9 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 			int rows = sr.length;
 			for (int r = 0; r < rows; r++) {
 				if (r == 0) {
-					tableView.getSelectionModel().setSelectionInterval(sr[0],
-							sr[0]);
+					tableView.getSelectionModel().setSelectionInterval(sr[0], sr[0]);
 				} else {
-					tableView.getSelectionModel().addSelectionInterval(sr[r],
-							sr[r]);
+					tableView.getSelectionModel().addSelectionInterval(sr[r], sr[r]);
 				}
 			}
 		}
@@ -646,14 +671,24 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 	}
 
 
-	public void mouseReleased(MouseEvent e) {
+	public void mouseReleased(final MouseEvent e) {
 		if (tabTable != null) {
-			tabTable.fireSelectionChanged(this, scrollpane
-					.getVerticalScrollBar().getValue(), tableView
-					.getSelectedRows());
+			tabTable.fireSelectionChanged(this,
+					scrollpane.getVerticalScrollBar().getValue(),
+					tableView.getSelectedRows());
 		}
+	
 		if (mFrm != null && e.getClickCount() > 1 && e.getButton() == MouseEvent.BUTTON1) {
 			mFrm.fireWindowReturning();
+			
+		} else if(e.getButton() == MouseEvent.BUTTON3 && popUp != null) {
+			 SwingUtilities.invokeLater(new Runnable() {
+                 public void run() {
+                	 int r = tableView.rowAtPoint(e.getPoint());
+                	 if(r >= 0) tableView.setRowSelectionInterval(r, r);
+                 	}
+			 });
+			popUp.show(e.getComponent(), e.getX(), e.getY());
 		}
 	}
 
@@ -666,7 +701,16 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 		
 	}
 	
-	public void mouseClicked(MouseEvent e) {}
+	
+	public void mouseClicked(MouseEvent e) {
+	
+	}
+	
+	
+	public void hidePopUP() {
+			popUp.setVisible(false);
+	}
+
 	public void mouseEntered(MouseEvent e) {}
 	public void mouseExited(MouseEvent e) {}
 	public void mousePressed(MouseEvent e) {}

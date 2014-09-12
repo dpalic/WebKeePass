@@ -110,7 +110,7 @@ public class DataAccess {
 	public DataAccessConnectionPool pool = new DataAccessConnectionPool();
 
 	private String windowTitle, bannertitle, connectType, scriptdir,
-			imagedir, logsdir, menuDocument, serverDateFormat;
+			imagedir, logsdir, menuDocument, serverDateFormat, cKey;
 	
 	private String emailServer, emailFromAddress, emailUser, emailPassword;
 
@@ -881,6 +881,10 @@ public class DataAccess {
 	}
 
 	
+	public String getCKey() {
+		return cKey;
+	}
+	
 	
 	/**
 	 * <h2><code>getEmailServer</code></h2>
@@ -959,12 +963,15 @@ public class DataAccess {
 			if (cfgTable.get("UserSecurityManager").equals("JRIVET")) {
 				sMnger = true;
 				jMnger = true;	
+				cKey = (String) cfgTable.get("UserSecurityKey");
 			} else if (cfgTable.get("UserSecurityManager").equals("WEB-SERVER") ) {
 				sMnger = true;
 				jMnger = false;
+				cKey = "";
 			} else {
 				sMnger = false;
 				jMnger = false;
+				cKey = "";
 			}	
 				
 			registryPort = Integer.parseInt((String) cfgTable.get("REGISTRY_PORT"));

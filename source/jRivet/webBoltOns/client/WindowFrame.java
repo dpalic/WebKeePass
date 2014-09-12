@@ -93,6 +93,7 @@ import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
 
 import webBoltOns.AppletConnector;
+import webBoltOns.client.MenuFrame.CTabbedControlPane;
 import webBoltOns.client.components.CButton;
 import webBoltOns.client.components.CComboBoxField;
 import webBoltOns.client.components.CDialog;
@@ -292,7 +293,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 					continue;
 				 
 				if (cmpntTree[c].getFieldName().equals(cmpntTree[hl].getFieldName()) ){
-					cntr.showWebDocument("mailto:" + (cmpntTree[c].getComponentObject()).toString());
+					cntr.showWebDocument("mailto:" + ((StandardComponentLayout) cmpntTree[c].getComponentObject()).getString());
 					c = cmpntTree.length;
 				}
 			}
@@ -590,7 +591,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 				
 				if (cmpntTree[c].getFieldName().equals(cmpntTree[hl].getFieldName())
 						&& cmpntTree[c].getObjectName().equals(WindowItem.TEXT_FIELD_OBJECT)) {
-					document = "http://" + ((JTextField) cmpntTree[c].getComponentObject()).getText();
+					document = "http://" + ((StandardComponentLayout) cmpntTree[c].getComponentObject()).getString();
 					c = cmpntTree.length;
 				}
 			}
@@ -839,14 +840,27 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 	 * @param	DataSet script
 	 *
  	 */
-	private void buildButtonObject(final int parent_hl, final int hl,
-			final DataSet script) {
-		final JButton button = new JButton();
-		final String link = cmpntTree[hl].getLink();
-		final String method = cmpntTree[hl].getMethod();
+	private void buildButtonObject(final int parent_hl, final int hl, final DataSet script) {
+		JButton button = new JButton();
+		String link = cmpntTree[hl].getLink();
+		String method = cmpntTree[hl].getMethod();
+		String popUp = cmpntTree[hl].getFieldParameterName();
+
 		cmpntTree[hl].setComponentObject(button);
 		button.setText(cmpntTree[hl].getDescription());
 		button.setName(Integer.toString(hl));
+		
+		if(!popUp.equals("")) {
+			for (int c = 0; c < cmpntTree.length; c++) {
+				if (cmpntTree[c] == null || cmpntTree[c].getFieldName() == null)  
+					continue;
+				 		
+				if (cmpntTree[c].getFieldName().equals(popUp))  
+							( (CTableContainer)	cmpntTree[c].getComponentObject() )
+													.addPopUpButton(cmpntTree[hl]);
+			}
+		}
+		
 		if (!cmpntTree[hl].getIconName().equals("")) {
 			button.setIcon(cntr.getImageIcon(cmpntTree[hl].getIconName()));
 		} else if (method.equals("URL")) {

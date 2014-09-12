@@ -8,8 +8,6 @@ import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import javax.swing.JProgressBar;
-
 public class ZipInstaller  {
 
 	protected String targetPath, filename;
@@ -47,6 +45,7 @@ public class ZipInstaller  {
 				getFile((ZipEntry) all.nextElement());
 			}
 		} catch (IOException err) {
+			err.printStackTrace();
 			msg.append("IO Error: " + err + " \n ");
 			return false;
 		}

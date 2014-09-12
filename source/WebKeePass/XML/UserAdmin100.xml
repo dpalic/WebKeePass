@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--	 **Script Builder 1.0 *  -->
+<!--	 **Script Builder 2.1 *  -->
 <!--	 	 Script Name :  UserAdmin100 -->
 <!--	 	 Description :  Edit User Groups -->
 <!--	 	 Server Class :  webBoltOns.server.UserSecurityManager -->
 <!--	 	 Initalization Method :   -->
-<!--	 	 File Path :  /usr/jRivet-2.060206-Linux/jakarta-tomcat-5.5.7/webapps/jRivetExample1/WEB-INF/XML/UserAdmin100.xml -->
-<!--	 	 Last Update :  05-Feb-2006 -->
-<!--	 	 User Profile:  GENERAL -->
+<!--	 	 File Path :  /home/java/Projects/JavaProjects/jRivet-KeePass/apache-tomcat-5.5.20/webapps/KeePass/WEB-INF/XML/UserAdmin100.xml -->
+<!--	 	 Last Update :  27-May-2007 -->
+<!--	 	 User Profile:  admin -->
 <SCRIPT SCRIPT_NAME="UserAdmin100" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.UserSecurityManager" AUTO_REFRESH="false" DESCRIPTION="Edit User Groups" Screen_Title="Edit User Groups" WIDTH="1015" HEIGHT="680">
   <ButtonBar>
     <BarButton TYPE="CLEAR" DESCRIPTION="Clear      " ICON="iClear.gif" />
-    <BarButton TYPE="FIND" DESCRIPTION="Find-it!   " METHOD="getUserGroup" ICON="iFind.gif" />
-    <BarButton TYPE="PREV" DESCRIPTION="Previous   " METHOD="prvUserGroup" ICON="iPrev.gif" />
-    <BarButton TYPE="NEXT" DESCRIPTION="Next       " METHOD="nxtUserGroup" ICON="iNext.gif" />
-    <BarButton TYPE="POST" DESCRIPTION="Add/Update " METHOD="updUserGroup" ICON="iEdit.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Find-it!   " ICON="iFind.gif" METHOD="getUserGroup" />
+    <BarButton TYPE="PREV" DESCRIPTION="Previous   " ICON="iPrev.gif" METHOD="prvUserGroup" />
+    <BarButton TYPE="NEXT" DESCRIPTION="Next       " ICON="iNext.gif" METHOD="nxtUserGroup" />
+    <BarButton TYPE="POST" DESCRIPTION="Add/Update " ICON="iEdit.gif" METHOD="updUserGroup" />
   </ButtonBar>
-  <Panel POSITION="Left" Hidden="N">
-    <TextField DESCRIPTION="User Group" METHOD="getUserGroup" FIELDNAME="GroupID" LENGTH="8" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" LINK="UserAdmin120" />
-    <TextField DESCRIPTION="Description" FIELDNAME="GroupDescription" LENGTH="30" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
+  <Panel POSITION="Left" HIDDEN="N">
+    <TextField FIELDNAME="GroupID" DESCRIPTION="User Group" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="UserAdmin120" METHOD="getUserGroup" />
+    <TextField FIELDNAME="GroupDescription" DESCRIPTION="Description" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
   </Panel>
-  <Panel DESCRIPTION="Menu Access Levels" POSITION="Left Fill" Hidden="N">
+  <Panel DESCRIPTION="Menu Access Levels" POSITION="Left Fill" HIDDEN="N">
     <MenuExplorer FIELDNAME="MenuStruct" HEIGHT="0" WIDTH="0">
-      <TableTextField DESCRIPTION="Menu Option" FIELDNAME="GroupItemDescription" LENGTH="15" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" PROTECTED="N" ZERO_FILL_VALUE="N" />
-      <TableTextField DESCRIPTION="Menu Name" FIELDNAME="MenuItem" LENGTH="10" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL_VALUE="N" />
-      <TableTextField DESCRIPTION="Menu Type" FIELDNAME="Type" LENGTH="10" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL_VALUE="N" ALIGNMENT="Center" />
-      <TableComboBox DESCRIPTION="Access" FIELDNAME="AccessLevel" LENGTH="10" PROTECTED="N" ALIGNMENT="Left">
+      <TableTextField FIELDNAME="GroupItemDescription" DESCRIPTION="Menu Option" LENGTH="15" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="N" ZERO_FILL="N" ENCRYPT="N" />
+      <TableTextField FIELDNAME="MenuItem" DESCRIPTION="Menu Name" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" />
+      <TableTextField FIELDNAME="Type" DESCRIPTION="Menu Type" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Center" />
+      <TableComboBox FIELDNAME="AccessLevel" DESCRIPTION="Access" LENGTH="10" PROTECTED="N" ENCRYPT="N" ALIGNMENT="Left">
 	<ComboItem DESCRIPTION="No Access" />
 	<ComboItem DESCRIPTION="Inquiry Only" />
 	<ComboItem DESCRIPTION="Inquiry / Update" />
       </TableComboBox>
     </MenuExplorer>
-    <Panel POSITION="Left" Hidden="N">
-      <Button DESCRIPTION="Edit Script" METHOD="getScriptLink" FIELDNAME="MenuItem" POSITION="Left" LINK="UserAdmin150" />
+    <Panel POSITION="Left" HIDDEN="N">
+      <Button FIELDNAME="MenuItem" DESCRIPTION="Edit Script" POSITION="Left" LINK="UserAdmin150" METHOD="getScriptLink" />
     </Panel>
   </Panel>
-  <Panel DESCRIPTION="Group Access Levels" POSITION="Right Fill" Hidden="N">
-    <Panel Hidden="N">
-      <CheckBox DESCRIPTION="Group Active" FIELDNAME="ActiveGroup" POSITION="Left" />
-      <CheckBox DESCRIPTION="Administrator Access" FIELDNAME="Administrator" POSITION="Left" />
-      <CheckBox DESCRIPTION="Desk Top Theme Access" FIELDNAME="DeskTopTheme" POSITION="Left" />
-      <CheckBox DESCRIPTION="Script Tips" FIELDNAME="TipAccess" POSITION="Left" />
-      <CheckBox DESCRIPTION="Table Copy Access" FIELDNAME="CopyAccess" POSITION="Left" />
-      <CheckBox DESCRIPTION="Table Print Access" FIELDNAME="PrintAccess" POSITION="Left" />
+  <Panel DESCRIPTION="Group Access Levels" POSITION="Right Fill" HIDDEN="N">
+    <Panel HIDDEN="N">
+      <CheckBox FIELDNAME="ActiveGroup" DESCRIPTION="Group Active" POSITION="Left" />
+      <CheckBox FIELDNAME="Administrator" DESCRIPTION="Administrator Access" POSITION="Left" />
+      <CheckBox FIELDNAME="DeskTopTheme" DESCRIPTION="Desk Top Theme Access" POSITION="Left" />
+      <CheckBox FIELDNAME="TipAccess" DESCRIPTION="Script Tips" POSITION="Left" />
+      <CheckBox FIELDNAME="CopyAccess" DESCRIPTION="Table Copy Access" POSITION="Left" />
+      <CheckBox FIELDNAME="PrintAccess" DESCRIPTION="Table Print Access" POSITION="Left" />
     </Panel>
-    <Panel Hidden="N">
-      <TextField DESCRIPTION="Menu XML" FIELDNAME="MenuXML" LENGTH="10" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" LINK="UserAdmin190" PARAMETER="@ScriptFileName" />
-      <TextField DESCRIPTION="Date Format" FIELDNAME="DateFormat" LENGTH="9" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
-      <TextField DESCRIPTION="Last Update" FIELDNAME="LastChangeDate" LENGTH="9" DECIMALS="0" DATATYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
-      <TextField DESCRIPTION="Date InActive" FIELDNAME="InActiveDate" LENGTH="9" DECIMALS="0" DATATYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
-      <TextField DESCRIPTION="Active Date" FIELDNAME="ActiveDate" LENGTH="9" DECIMALS="0" DATATYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
-      <ComboBox DESCRIPTION="Server Acccess" FIELDNAME="AccessMethod" LENGTH="4" DATATYPE="CHR" POSITION="Left">
+    <Panel HIDDEN="N">
+      <TextField FIELDNAME="MenuXML" DESCRIPTION="Menu XML" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="UserAdmin190" PARAMETER="@ScriptFileName" />
+      <TextField FIELDNAME="DateFormat" DESCRIPTION="Date Format" LENGTH="9" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+      <TextField FIELDNAME="LastChangeDate" DESCRIPTION="Last Update" LENGTH="9" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+      <TextField FIELDNAME="InActiveDate" DESCRIPTION="Date InActive" LENGTH="9" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+      <TextField FIELDNAME="ActiveDate" DESCRIPTION="Active Date" LENGTH="9" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+      <ComboBox FIELDNAME="AccessMethod" DESCRIPTION="Server Acccess" LENGTH="4" DATA_TYPE="CHR" POSITION="Left" ENCRYPT="N">
 	<ComboItem DESCRIPTION="HTTP" />
 	<ComboItem DESCRIPTION="RMI" />
 	<ComboItem DESCRIPTION="SOCKET" />
       </ComboBox>
     </Panel>
-    <Panel POSITION="Left" Hidden="N">
-      <Button DESCRIPTION="Notes" METHOD="getNotes" FIELDNAME="GroupID" POSITION="Left" LINK="UserAdmin140" />
+    <Panel POSITION="Left" HIDDEN="N">
+      <Button FIELDNAME="GroupID" DESCRIPTION="Notes" POSITION="Left" LINK="UserAdmin140" METHOD="getNotes" />
     </Panel>
   </Panel>
 </SCRIPT>
