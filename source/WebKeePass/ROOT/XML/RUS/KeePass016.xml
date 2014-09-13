@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 2.1 *  -->
+<!--	 	 Script Name :  KeePass016 -->
+<!--	 	 Description :  My Shared Password Profile -->
+<!--	 	 Server Class :  server.Akin -->
+<!--	 	 Initalization Method :  getAkinListByPwd -->
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass016.xml -->
+<!--	 	 Last Update :  18-Mar-2009 -->
+<!--	 	 User Profile:  root -->
+<SCRIPT SCRIPT_NAME="KeePass016" DOCUMENT_TYPE="Window" CLASS_NAME="server.Akin" METHOD="getAkinListByPwd" AUTO_REFRESH="false" ICON="WKP4.jpg" DESCRIPTION="Мой профиль Общие Пароль" Screen_Title="My Shared Password Profile" WIDTH="820" HEIGHT="524">
+  <ButtonBar>
+    <BarButton TYPE="FIND" DESCRIPTION="Поиск / Обновить" ICON="iFind.gif" METHOD="getAkinListByPwd" />
+  </ButtonBar>
+  <Panel POSITION="Left" HIDDEN="N">
+    <Table FIELDNAME="Table1" HEIGHT="12" WIDTH="0" POSITION="Left">
+      <TableTextField FIELDNAME="PasswordID" DESCRIPTION="ID" LENGTH="3" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="20" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableTextField FIELDNAME="a0" DESCRIPTION="Название" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableTextField FIELDNAME="b9" DESCRIPTION="Имя пользователя" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableTextField FIELDNAME="AkinID" DESCRIPTION="ID-" LENGTH="3" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="20" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
+      <TableTextField FIELDNAME="x2" DESCRIPTION="Пользователей / групп" LENGTH="7" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="40" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableTextField FIELDNAME="w3" DESCRIPTION="Доля Desc" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="40" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableCheckBox FIELDNAME="v4" DESCRIPTION="Доля активных" ENCRYPT="Y" />
+    </Table>
+  </Panel>
+  <Panel POSITION="Left" HIDDEN="N">
+    <Button FIELDNAME="shrepwd" DESCRIPTION="Доля Пароль?" POSITION="Left" LINK="KeePass007" PARAMETER="Table1" METHOD_CLASS="server.Akin" METHOD="initAkinList" />
+  </Panel>
+</SCRIPT>
+

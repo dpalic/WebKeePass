@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 2.1 *  -->
+<!--	 	 Script Name :  UserAdmin130 -->
+<!--	 	 Description :  Web User Profile -->
+<!--	 	 Server Class :  webBoltOns.server.UserSecurityManager -->
+<!--	 	 Initalization Method :   -->
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/UserAdmin130.xml -->
+<!--	 	 Last Update :  18-May-2008 -->
+<!--	 	 User Profile:  pjones -->
+<SCRIPT SCRIPT_NAME="UserAdmin130" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.UserSecurityManager" AUTO_REFRESH="false" ICON="WKPD.jpg" DESCRIPTION="Web User Profile" Screen_Title="Web User Profile" WIDTH="910" HEIGHT="595">
+  <ButtonBar>
+    <BarButton TYPE="CLEAR" DESCRIPTION="Duidelijk" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Vind-It!" ICON="iFind.gif" METHOD="getUserList" />
+  </ButtonBar>
+  <Panel DESCRIPTION="Zoek Waarden" POSITION="Left Fill" HIDDEN="N">
+    <SearchTextField FIELDNAME="@Description" DESCRIPTION="Beschrijving" LENGTH="15" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" ENCRYPT="N" ALIGNMENT="Left" />
+    <SearchTextField FIELDNAME="@Name" DESCRIPTION="Naam" LENGTH="15" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="N" ENCRYPT="N" ALIGNMENT="Left" />
+    <SearchTextField FIELDNAME="@GroupID" DESCRIPTION="Groeps-ID" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="N" ENCRYPT="N" ALIGNMENT="Left" />
+  </Panel>
+  <Table FIELDNAME="User" HEIGHT="15" WIDTH="0" POSITION="Left">
+    <TableTextField FIELDNAME="UserID" DESCRIPTION="Gebruikers-ID" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" />
+    <TableTextField FIELDNAME="UserDescription" DESCRIPTION="Beschrijving" LENGTH="15" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" />
+    <TableTextField FIELDNAME="Name" DESCRIPTION="Naam" LENGTH="15" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" />
+    <TableTextField FIELDNAME="GroupID" DESCRIPTION="Groeps-ID" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" />
+    <TableCheckBox FIELDNAME="ActiveUser" DESCRIPTION="Actief" ENCRYPT="N" />
+  </Table>
+  <Panel POSITION="Left" HIDDEN="N">
+    <Button DESCRIPTION="Wijzig gebruiker" POSITION="Left" LINK="UserAdmin110" METHOD="getUser" />
+    <Button DESCRIPTION="Edit User Group" LINK="UserAdmin100" METHOD="getUserGroup" />
+  </Panel>
+</SCRIPT>
+

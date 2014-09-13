@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 4.0 -  www.ossfree.net *  -->
+<!--	 	 Script Name :  CCMenu -->
+<!--	 	 Description :  Web Kee Pass -->
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/XML/ENG/CCMenu.xml -->
+<!--	 	 Last Update :  09-Aug-2010 -->
+<!--	 	 User Profile:  root -->
+<SCRIPT SCRIPT_NAME="CCMenu" DOCUMENT_TYPE="Menu" DESCRIPTION="Kee Web Pass" Screen_Title="Web Kee Pass">
+  <SubMenu DESCRIPTION="Travailler avec mes mots de passe" LINK="WKP-MyPasswords" QUICK_LINK="FALSE">
+    <Script DESCRIPTION="Mon profil mots de passe" ICON="WKP8.jpg" LINK="KeePass006" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Modifier mon mot de passe" ICON="WKP1.jpg" LINK="KeePass002" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Mon mot de passe par catégorie" ICON="WKP6.jpg" LINK="KeePass001" QUICK_LINK="TRUE" />
+  </SubMenu>
+  <SubMenu DESCRIPTION="Travailler avec des mots de passe partagés" LINK="WKP-SharePasswords" QUICK_LINK="FALSE">
+    <SubMenu DESCRIPTION="Les mots de passe, je le partage" LINK="WKP-MySharePasswords" QUICK_LINK="FALSE">
+      <Script DESCRIPTION="Partagez vos mots de passe" ICON="WKP2.jpg" LINK="KeePass007" QUICK_LINK="TRUE" />
+      <Script DESCRIPTION="Mon profil mot de passe partagé" ICON="WKP4.jpg" LINK="KeePass016" QUICK_LINK="TRUE" />
+    </SubMenu>
+    <SubMenu DESCRIPTION="Les mots de passe partagés To Me" LINK="WKP-MyOthersPasswords" QUICK_LINK="FALSE">
+      <Script DESCRIPTION="Les mots de passe partagés par d'autres" ICON="WKP9.jpg" LINK="KeePass008" QUICK_LINK="TRUE" />
+      <Script DESCRIPTION="Par catégorie de mots de passe partagés" ICON="WKP6.jpg" LINK="KeePass013" QUICK_LINK="TRUE" />
+    </SubMenu>
+    <Script DESCRIPTION="Groupes Partager Modifier" LINK="KeePass017" QUICK_LINK="FALSE" />
+    <Script DESCRIPTION="Catégories Partager Modifier" LINK="KeePass014" QUICK_LINK="FALSE" />
+  </SubMenu>
+  <SubMenu DESCRIPTION="Travailler avec les utilisateurs" LINK="WKP-Users" QUICK_LINK="FALSE">
+    <Script DESCRIPTION="Profil de l'utilisateur" ICON="WKPD.jpg" LINK="UserAdmin130" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Modifier les utilisateurs" ICON="WKPB.jpg" LINK="UserAdmin110" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Profil du groupe d'utilisateur" ICON="WKPC.jpg" LINK="UserAdmin120" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Modification des groupes utilisateurs" ICON="WKPA.jpg" LINK="UserAdmin100" QUICK_LINK="TRUE" />
+  </SubMenu>
+</SCRIPT>
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 2.1 *  -->
+<!--	 	 Script Name :  KeePass006 -->
+<!--	 	 Description :  My Password Profile -->
+<!--	 	 Server Class :  server.Crypt -->
+<!--	 	 Initalization Method :  getCryptSrch -->
+<!--	 	 File Path :  C:\WebKeePass\jakarta-tomcat-5.5.7\webapps\ROOT\XML\KeePass006.xml -->
+<!--	 	 Last Update :  31-Oct-2009 -->
+<!--	 	 User Profile:  root -->
+<SCRIPT SCRIPT_NAME="KeePass006" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" METHOD="getCryptSrch" AUTO_REFRESH="false" ICON="WKP8.jpg" DESCRIPTION="Mijn Wachtwoord Profiel" Screen_Title="My Password Profile" WIDTH="980" HEIGHT="500">
+  <ButtonBar>
+    <BarButton TYPE="CLEAR" DESCRIPTION="Duidelijk" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Zoek / Vernieuwen" ICON="iFind.gif" METHOD="getCryptSrch" />
+  </ButtonBar>
+  <Table FIELDNAME="Table1" HEIGHT="12" WIDTH="12" POSITION="Left">
+    <TableNavRow LENGTH="2" ENCRYPT="N" />
+    <TableTextField FIELDNAME="PasswordID" DESCRIPTION="-ID" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <TableImageField FIELDNAME="r3" DESCRIPTION="Icn" LENGTH="2" ENCRYPT="Y" />
+    <TableTextField FIELDNAME="a0" DESCRIPTION="Desc" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <TableTextField FIELDNAME="b9" DESCRIPTION="Gebruikersnaam" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <TableTextField FIELDNAME="d7" DESCRIPTION="Toegevoegd op" LENGTH="8" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
+    <TableTextField FIELDNAME="e6" DESCRIPTION="Gewijzigd op" LENGTH="8" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
+    <TableTextField FIELDNAME="f5" DESCRIPTION="Verloopt op" LENGTH="8" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
+  </Table>
+  <Panel POSITION="Left" HIDDEN="N">
+    <Button FIELDNAME="CrtGrp" DESCRIPTION="Update / Wachtwoord toevoegen" POSITION="Left" LINK="KeePass002" PARAMETER="Table1" METHOD_CLASS="server.Crypt" METHOD="getCrypt" />
+    <Button FIELDNAME="ShrPwd" DESCRIPTION="Delen van een wachtwoord" LINK="KeePass007" METHOD_CLASS="server.Akin" METHOD="initAkinList" />
+  </Panel>
+</SCRIPT>
+

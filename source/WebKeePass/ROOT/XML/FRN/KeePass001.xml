@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 2.1 *  -->
+<!--	 	 Script Name :  KeePass001 -->
+<!--	 	 Description :  My Passwords By Category -->
+<!--	 	 Server Class :  server.Crypt -->
+<!--	 	 Initalization Method :  getCryptList -->
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass001.xml -->
+<!--	 	 Last Update :  18-Mar-2009 -->
+<!--	 	 User Profile:  root -->
+<SCRIPT SCRIPT_NAME="KeePass001" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" METHOD="getCryptList" AUTO_REFRESH="false" ICON="WKP6.jpg" DESCRIPTION="Mon mot de passe par catégorie" Screen_Title="My Passwords By Category" WIDTH="1000" HEIGHT="570">
+  <ButtonBar>
+    <BarButton TYPE="CLEAR" DESCRIPTION="Claire" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Rafraîchir" ICON="iFind.gif" METHOD="getCryptList" />
+  </ButtonBar>
+  <TreeTable FIELDNAME="Table1" DESCRIPTION="Groupe" HEIGHT="0" WIDTH="0" METHOD="expandCryptList">
+    <TableTextField FIELDNAME="KeeperID" DESCRIPTION="+ ID" LENGTH="6" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
+    <TableTextField FIELDNAME="KeeperDesc" DESCRIPTION="Mot de passe Catégorie" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
+    <TableTextField FIELDNAME="CreateDate" DESCRIPTION="Date d'ajout" LENGTH="10" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Center" />
+    <TableImageField FIELDNAME="KepperIcon" DESCRIPTION="Icn" LENGTH="2" ENCRYPT="N" />
+    <TableTextField FIELDNAME="PasswordID" DESCRIPTION="-ID" LENGTH="10" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <TableTextField FIELDNAME="a0" DESCRIPTION="Titre" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <TableTextField FIELDNAME="b9" DESCRIPTION="Nom d'utilisateur" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+  </TreeTable>
+  <Panel POSITION="Left" HIDDEN="N">
+    <Button FIELDNAME="CrtGrp" DESCRIPTION="Ajouter une catégorie" POSITION="Left" LINK="KeePass004" PARAMETER="Table1" />
+    <Button FIELDNAME="UpdGrp" DESCRIPTION="Mise à jour de la catégorie A" LINK="KeePass005" PARAMETER="Table1" />
+    <Button FIELDNAME="UpdPwd" DESCRIPTION="Mise à jour / Ajouter un mot de passe" LINK="KeePass002" PARAMETER="Table1" METHOD_CLASS="server.Crypt" METHOD="getCrypt" />
+    <Button FIELDNAME="ShrPwd" DESCRIPTION="Partager un mot de passe" LINK="KeePass007" PARAMETER="Table1" METHOD_CLASS="server.Akin" METHOD="initAkinList" />
+  </Panel>
+</SCRIPT>
+

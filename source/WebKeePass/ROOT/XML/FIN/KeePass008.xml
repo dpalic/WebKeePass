@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 2.1 *  -->
+<!--	 	 Script Name :  KeePass008 -->
+<!--	 	 Description :  Passwords Shared By Others -->
+<!--	 	 Server Class :  server.Akin -->
+<!--	 	 Initalization Method :  getShareList -->
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass008.xml -->
+<!--	 	 Last Update :  18-Mar-2009 -->
+<!--	 	 User Profile:  root -->
+<SCRIPT SCRIPT_NAME="KeePass008" DOCUMENT_TYPE="Window" CLASS_NAME="server.Akin" METHOD="getShareList" AUTO_REFRESH="false" ICON="WKP9.jpg" DESCRIPTION="Salasanat jaetaan ym." Screen_Title="Passwords Shared By Others" WIDTH="990" HEIGHT="515">
+  <ButtonBar>
+    <BarButton TYPE="FIND" DESCRIPTION="Etsi / Päivitä" ICON="iFind.gif" METHOD="getShareList" />
+  </ButtonBar>
+  <Panel POSITION="Left" HIDDEN="N">
+    <Table FIELDNAME="Table1" HEIGHT="12" WIDTH="0" POSITION="Left">
+      <TableTextField FIELDNAME="PasswordID" DESCRIPTION="ID" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableTextField FIELDNAME="j1" DESCRIPTION="Yhteiset Käyttäjän" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="40" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableTextField FIELDNAME="aa" DESCRIPTION="KeePass Group" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="40" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableTextField FIELDNAME="x2" DESCRIPTION="Web Käyttäjä / Ryhmä" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="40" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableTextField FIELDNAME="w3" DESCRIPTION="Jaa desc" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="40" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableTextField FIELDNAME="b9" DESCRIPTION="Käyttäjätunnus" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="40" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableTextField FIELDNAME="a0" DESCRIPTION="PWD osasto" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="40" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    </Table>
+  </Panel>
+  <Panel POSITION="Left" HIDDEN="N">
+    <Button FIELDNAME="VPWD" DESCRIPTION="Näytä Salasana" POSITION="Left" LINK="KeePass012" PARAMETER="Table1" METHOD_CLASS="Crypt" METHOD="getSharedCrypt" />
+    <Button FIELDNAME="VPWD" DESCRIPTION="Luo jaetun luokan" LINK="KeePass014" />
+  </Panel>
+</SCRIPT>
+

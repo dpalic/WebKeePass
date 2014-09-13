@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 1.0 *  -->
+<!--	 	 Script Name :  Useradmin200 -->
+<!--	 	 Description :  Designt Screen  -->
+<!--	 	 Server Class :  webBoltOns.server.DevelopmentTools -->
+<!--	 	 Initalization Method :   -->
+<!--	 	 File Path :  C:\java\jakarta-tomcat-5.0.19\webapps\webboltons\scripts\Useradmin200.xml -->
+<!--	 	 Last Update :  30-Apr-2005 -->
+<!--	 	 User Profile:  DEFAULT -->
+<SCRIPT SCRIPT_NAME="Useradmin200" DESCRIPTION="Designt pantalla" Screen_Title="Designt Screen " WIDTH="1035" HEIGHT="850" CLASS_NAME="webBoltOns.server.DevelopmentTools">
+  <ButtonBar>
+    <BarButton TYPE="CLEAR" DESCRIPTION="Claro" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Carga" METHOD="getScriptDetails" ICON="iFind.gif" />
+    <BarButton TYPE="POST" DESCRIPTION="Guardar" METHOD="saveScriptDetails" ICON="iEdit.gif" />
+  </ButtonBar>
+  <Panel POSITION="Left">
+    <TextField DESCRIPTION="Nombre de secuencias de comandos" METHOD="getScriptDetails" FIELDNAME="ScriptID" LENGTH="10" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" LINK="Useradmin190" PARAMETER="@ScriptFileName" />
+    <SpinnerField DESCRIPTION="Ancho de pantalla" FIELDNAME="Wdth" LENGTH="7" POSITION="Right" />
+    <TextField DESCRIPTION="Descripción" FIELDNAME="DescID" LENGTH="25" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" />
+    <SpinnerField DESCRIPTION="Altura" FIELDNAME="Hght" LENGTH="7" POSITION="Right" />
+    <TextField DESCRIPTION="Class Server" FIELDNAME="ClassID" LENGTH="25" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" />
+    <TextField DESCRIPTION="Método de inicialización" FIELDNAME="MethodID" LENGTH="20" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" />
+  </Panel>
+  <Panel POSITION="Left">
+    <ScriptDesigner FIELDNAME="SEditor" HEIGHT="425" />
+  </Panel>
+</SCRIPT>
+

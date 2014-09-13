@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 2.1 *  -->
+<!--	 	 Script Name :  KeePass030 -->
+<!--	 	 Description :  Password Access Log -->
+<!--	 	 Server Class :  server.Crypt -->
+<!--	 	 Initalization Method :   -->
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp-001/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass030.xml -->
+<!--	 	 Last Update :  18-Nov-2009 -->
+<!--	 	 User Profile:  pjones -->
+<SCRIPT SCRIPT_NAME="KeePass030" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" AUTO_REFRESH="true" ICON="WKP2.jpg" DESCRIPTION="Password Access Log" Screen_Title="Password Access Log" WIDTH="890" HEIGHT="600">
+  <ButtonBar>
+    <BarButton TYPE="FIND" DESCRIPTION="Find/Refresh" ICON="iFind.gif" METHOD="getAccesslog" />
+  </ButtonBar>
+  <Panel POSITION="Left" HIDDEN="N">
+    <TextField FIELDNAME="PasswordID" DESCRIPTION="Password ID #" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="20" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" LINK="KeePass006" METHOD="initAkinList" />
+    <TextField FIELDNAME="a0" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" />
+  </Panel>
+  <Panel DESCRIPTION="Search Values" POSITION="Left Fill" HIDDEN="N">
+    <TextField FIELDNAME="@cc" DESCRIPTION="User" LENGTH="20" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="30" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+    <TextField FIELDNAME="@dd" DESCRIPTION="IP Address" LENGTH="20" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="20" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+    <TextField FIELDNAME="@ee" DESCRIPTION="Date Changed" LENGTH="20" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+  </Panel>
+  <Table FIELDNAME="Table1" HEIGHT="12" WIDTH="0" POSITION="Left">
+    <TableTextField FIELDNAME="AccessID" DESCRIPTION="ID" LENGTH="5" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="20" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Center" />
+    <TableTextField FIELDNAME="cc" DESCRIPTION="User ID" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="40" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <TableTextField FIELDNAME="dd" DESCRIPTION="IP Addr" LENGTH="9" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="40" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
+    <TableTextField FIELDNAME="ee" DESCRIPTION="Date" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="40" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
+    <TableTextField FIELDNAME="gg" DESCRIPTION="Time" LENGTH="5" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="12" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
+    <TableTextField FIELDNAME="ff" DESCRIPTION="Screen" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="12" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
+  </Table>
+</SCRIPT>
+

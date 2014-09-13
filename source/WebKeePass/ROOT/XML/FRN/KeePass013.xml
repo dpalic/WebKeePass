@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 2.1 *  -->
+<!--	 	 Script Name :  KeePass013 -->
+<!--	 	 Description :  Shared Passwords By Category -->
+<!--	 	 Server Class :  server.Akin -->
+<!--	 	 Initalization Method :  getMySharesList -->
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass013.xml -->
+<!--	 	 Last Update :  18-Mar-2009 -->
+<!--	 	 User Profile:  root -->
+<SCRIPT SCRIPT_NAME="KeePass013" DOCUMENT_TYPE="Window" CLASS_NAME="server.Akin" METHOD="getMySharesList" AUTO_REFRESH="false" ICON="WKP6.jpg" DESCRIPTION="Par catégorie de mots de passe partagés" Screen_Title="Shared Passwords By Category" WIDTH="1015" HEIGHT="680">
+  <ButtonBar>
+    <BarButton TYPE="CLEAR" DESCRIPTION="Claire" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Rafraîchir" ICON="iFind.gif" METHOD="getMySharesList" />
+  </ButtonBar>
+  <TreeTable FIELDNAME="Table1" DESCRIPTION="Groupe" HEIGHT="0" WIDTH="0" METHOD="expandMySharesList">
+    <TableTextField FIELDNAME="KeeperID" DESCRIPTION="+ ID" LENGTH="6" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
+    <TableTextField FIELDNAME="Category" DESCRIPTION="Catégorie" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
+    <TableTextField FIELDNAME="CreateDate" DESCRIPTION="Date d'ajout" LENGTH="8" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Center" />
+    <TableImageField FIELDNAME="KepperIcon" DESCRIPTION="Icn" LENGTH="2" ENCRYPT="N" />
+    <TableTextField FIELDNAME="PasswordID" DESCRIPTION="-ID" LENGTH="10" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <TableTextField FIELDNAME="a0" DESCRIPTION="Titre" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <TableTextField FIELDNAME="b9" DESCRIPTION="Nom d'utilisateur" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <TableTextField FIELDNAME="j1" DESCRIPTION="Partagé par l'" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <TableTextField FIELDNAME="w3" DESCRIPTION="Nom de partage" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+  </TreeTable>
+</SCRIPT>
+

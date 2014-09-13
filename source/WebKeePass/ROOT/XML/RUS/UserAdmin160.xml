@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 2.1 *  -->
+<!--	 	 Script Name :  UserAdmin160 -->
+<!--	 	 Description :  Menu Editor -->
+<!--	 	 Server Class :  webBoltOns.server.DevelopmentTools -->
+<!--	 	 Initalization Method :   -->
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/UserAdmin160.xml -->
+<!--	 	 Last Update :  18-May-2008 -->
+<!--	 	 User Profile:  pjones -->
+<SCRIPT SCRIPT_NAME="UserAdmin160" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.DevelopmentTools" AUTO_REFRESH="false" ICON="icon.jpg" DESCRIPTION="Редактор меню" Screen_Title="Menu Editor" WIDTH="700" HEIGHT="720">
+  <ButtonBar>
+    <BarButton TYPE="CLEAR" DESCRIPTION="Ясно" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Нагрузка" ICON="iFind.gif" METHOD="getScriptDetails" />
+    <BarButton TYPE="POST" DESCRIPTION="Экономить" ICON="iEdit.gif" METHOD="saveScriptDetails" />
+  </ButtonBar>
+  <Panel POSITION="Left Fill" HIDDEN="N">
+    <TextField FIELDNAME="ScriptID" DESCRIPTION="Имя сценария" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="UserAdmin190" PARAMETER="@ScriptFileName" METHOD="getScriptDetails" />
+    <TextField FIELDNAME="DescID" DESCRIPTION="Описание" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+  </Panel>
+  <Panel POSITION="Left" HIDDEN="N">
+    <MenuEditor FIELDNAME="SEditor" HEIGHT="375" />
+  </Panel>
+</SCRIPT>
+

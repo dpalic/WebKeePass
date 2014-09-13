@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 1.0 *  -->
+<!--	 	 Script Name :  useradmin170 -->
+<!--	 	 Description :  View Server Log -->
+<!--	 	 Server Class :  webBoltOns.server.DevelopmentTools -->
+<!--	 	 Initalization Method :   -->
+<!--	 	 File Path :  C:\jRivet-2.060109\jakarta-tomcat-5.5.7\webapps\jRivetExample1\WEB-INF\TrialScreens\useradmin170.xml -->
+<!--	 	 Last Update :  08-Jan-2006 -->
+<!--	 	 User Profile:  DEFAULT -->
+<SCRIPT SCRIPT_NAME="useradmin170" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.DevelopmentTools" AUTO_REFRESH="false" DESCRIPTION="Server-Log-View" Screen_Title="View Server Log" WIDTH="750" HEIGHT="670">
+  <ButtonBar />
+  <Panel POSITION="Left" Hidden="N">
+    <TextArea FIELDNAME="LogFile" HEIGHT="25" WIDTH="34" POSITION="Left" PROTECTED="Y" />
+  </Panel>
+</SCRIPT>
+
