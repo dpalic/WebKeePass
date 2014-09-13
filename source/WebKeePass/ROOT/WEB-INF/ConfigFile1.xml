@@ -1,51 +1,71 @@
-<?xml version="1.0"?> 
- <JRivet> 
+<?xml version="1.0"?>
+<JRivet>
 
-  <DATABASE_CONNECTION> 
-  
-   <DATABASE_NAME>WebTime Entry data source</DATABASE_NAME> 
-   
-   <DESCRIPTION>MySQL JDBC Data Source</DESCRIPTION> 
-   
-     <DRIVER>com.mysql.jdbc.Driver</DRIVER> 
-     <URL>jdbc:mysql://localhost/WebK3</URL> 
-     <USERID>root</USERID>  
-     <PASSWORD>powerful</PASSWORD> 
-     <CONNECTIONS>5</CONNECTIONS>  
-     <BANNER_TITLE>Web KeePass</BANNER_TITLE>  
-     <CONNECT_TYPE>HTTP</CONNECT_TYPE>  
-     <REGISTRY_PORT>2505</REGISTRY_PORT>  
-     <SOCKET_PORT>2506</SOCKET_PORT> 
-  
- </DATABASE_CONNECTION>  
- 
+ <!-- JDBC Data source info for the DataAccess object-->
+
+ <DATABASE_CONNECTION>
+
+  <DATABASE_NAME>Web Register</DATABASE_NAME>
+  <DESCRIPTION>Web Register</DESCRIPTION>
+  <DRIVER>com.mysql.jdbc.Driver</DRIVER>
+  <URL>jdbc:mysql://localhost/WebKeePassShare</URL>
+  <CONNECTIONS>5</CONNECTIONS>
+  <CONNECT_TYPE>HTTP</CONNECT_TYPE>
+  <REGISTRY_PORT>5555</REGISTRY_PORT>
+  <SOCKET_PORT>5556</SOCKET_PORT>
+  <USERID>root</USERID>
+  <PASSWORD>powerful</PASSWORD>
+
+ </DATABASE_CONNECTION>
+
+
+ <CONFIG>
+
+  <BANNER_TITLE>Web Register</BANNER_TITLE>
+
 
  <!-- XML folder locations - This is the path to the folder containing all jRivet XML files -->
+  <DATABASE_SCHEMA>/home/java/Projects/JavaProjects/WebKeePass-1.070905/jakarta-tomcat-5.5.7/webapps/ROOT/WEB-INF/Schema1.xml</DATABASE_SCHEMA>
+  <LITERALS>/home/java/Projects/JavaProjects/WebKeePass-1.070905/jakarta-tomcat-5.5.7/webapps/ROOT/WEB-INF/Literal1.xml</LITERALS>
+  
+  <SCRIPT_DIRECTORY>/home/java/Projects/JavaProjects/WebKeePass-1.070905/jakarta-tomcat-5.5.7/webapps/ROOT/XML/</SCRIPT_DIRECTORY>
+  <IMAGE_DIRECTORY>/home/java/Projects/JavaProjects/WebKeePass-1.070905/jakarta-tomcat-5.5.7/webapps/ROOT/XML/images/</IMAGE_DIRECTORY>
+  <LOG_DIRECTORY>/home/java/Projects/JavaProjects/WebKeePass-1.070905/jakarta-tomcat-5.5.7/logs/</LOG_DIRECTORY>
 
-   <SCRIPT_DIRECTORY>/home/java/Projects/JavaProjects/WebKeePass-1.070528/apache-tomcat-5.5.20/webapps/KeePass/WEB-INF/XML/</SCRIPT_DIRECTORY> 
-   <IMAGE_DIRECTORY>/home/java/Projects/JavaProjects/WebKeePass-1.070528/apache-tomcat-5.5.20/webapps/KeePass/WEB-INF/XML/images/</IMAGE_DIRECTORY> 
-   <LOG_DIRECTORY>/home/java/Projects/JavaProjects/jRivet-KeePas/jakarta-tomcat-5.5.7/logs/</LOG_DIRECTORY> 
-   <DATABASE_SCHEMA>/home/java/Projects/JavaProjects/WebKeePass-1.070528/apache-tomcat-5.5.20/webapps/KeePass/WEB-INF/Schema1.xml</DATABASE_SCHEMA>
-   <LITERALS>/home/java/Projects/JavaProjects/WebKeePass-1.070528/apache-tomcat-5.5.20/webapps/KeePass/WEB-INF/Literal1.xml</LITERALS>
+
 
 
  <!--  Email Server Location and system email from address -->
-   <Email_Server>mail.myServer.com</Email_Server>
-   <Email_Address>geekuser@mail.myServer.com</Email_Address>
-   <Email_User>geekuser</Email_User>
-   <Email_Password>geekpassword</Email_Password>
+  <Email_Server>mail.myServer.com</Email_Server>
+  <Email_Address>geekuser@mail.myServer.com</Email_Address>
+  <Email_User>user</Email_User>
+  <Email_Password>password</Email_Password>
+
+
+ 
 
 <!-- User Defaults -->
 
-  <MENU>CCMENU</MENU> 
-  <DATE_FORMAT>dd-MMM-yyyy</DATE_FORMAT> 
-  <SERVER_DATE_FORMAT>yyyyMMdd</SERVER_DATE_FORMAT> 
-  <DEBUG_LEVEL>0</DEBUG_LEVEL> 
-  <UserSecurityManager>JRIVET</UserSecurityManager> 
-  <UserSecurityKey>c52c008b5ee2eae889bb7112b4485ac12b5c3cc0</UserSecurityKey> 
+  <MENU>CCMenu</MENU>
+  <DATE_FORMAT>dd-MMM-yyyy</DATE_FORMAT>
+  <SERVER_DATE_FORMAT>yyyyMMdd</SERVER_DATE_FORMAT>
+  <DEBUG_LEVEL>0</DEBUG_LEVEL>
+
+ <!-- User Security Manager - Set 'ON' / 'OFF'  -->
+  <UserSecurityManager>JRIVET</UserSecurityManager>
+  <UserSecurityKey>14613a888647533f323f4c6a904ff83b1e9ae03f</UserSecurityKey>  
+ </CONFIG>
 
 
-  <!-- Desk top settings, defaults and icons --> 
+ 
+ <!-- Desk top settings, defaults and icons -->
+ 
+ <DESKTOP>
+
+
+
+ <!-- Images and icons -->
+
 
    <IMAGES> 
     <menuBannerImage>banner.jpg</menuBannerImage> 
@@ -76,20 +96,24 @@
     <menuScriptLinkIcon>webURL.gif</menuScriptLinkIcon>  
     <cIcon>treeCollapse.gif</cIcon> 
    </IMAGES> 
-  
-   <STANDARD_FONTS> 
-     <HeaderFont   FamilyName ='ARIAL'  PointSize= '11'   Italics='false'  Bolded='true' /> 
-     <RegularFont  FamilyName ='ARIAL'  PointSize= '11'   Italics='false'  Bolded='false' /> 
-   </STANDARD_FONTS> 
 
-   <DESKTOP_COLORS> 
-        <BackGroundColor Red='252' Green='252' Blue='250'/> 
-        <TitleBarColor Red='100' Green='100' Blue='255'/> 
-        <TitleBarFontColor Red='250' Green='250' Blue='250'/> 
-        <WindowTitleColor Red='235' Green='235' Blue='235'/> 
-        <WindowTitleFontColor Red='0' Green='0' Blue='0'/> 
-        <CursorColor Red='250' Green='250' Blue='220'/> 
-   </DESKTOP_COLORS> 
+ 
+  <STANDARD_FONTS>
+    <HeaderFont   FamilyName ='ARIAL'  PointSize= '11'   Italics='false'  Bolded='true' />
+    <RegularFont  FamilyName ='ARIAL'  PointSize= '11'   Italics='false'  Bolded='false' />
+  </STANDARD_FONTS>
+ 
+  <DESKTOP_COLORS>
+       <BackGroundColor Red='252' Green='252' Blue='250'/>
+       <TitleBarColor Red='100' Green='100' Blue='255'/>
+       <TitleBarFontColor Red='250' Green='250' Blue='250'/>
+       <WindowTitleColor Red='235' Green='235' Blue='235'/>
+       <WindowTitleFontColor Red='0' Green='0' Blue='0'/>
+       <CursorColor Red='250' Green='250' Blue='220'/>
+  </DESKTOP_COLORS>
 
-  </JRivet> 
 
+
+ </DESKTOP>
+
+</JRivet>

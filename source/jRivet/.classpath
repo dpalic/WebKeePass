@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry excluding="classes/" kind="src" path=""/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Servlets"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Applets"/>
-	<classpathentry kind="lib" path="/webkp/WEB-INF/classes"/>
-	<classpathentry kind="output" path="classes"/>
-</classpath>

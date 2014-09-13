@@ -72,6 +72,7 @@ import javax.xml.parsers.SAXParserFactory;
 import org.xml.sax.InputSource;
 
 import webBoltOns.ServletConnector;
+import webBoltOns.dataContol.CipherString.EncryptionException;
 
 /**
  * <h1>DataAccess</h1>
@@ -106,6 +107,8 @@ public class DataAccess {
 	private DataSet eOpts = new DataSet();
 
     public int registryPort, socketPort;
+    
+    private CipherString cipher;
 
 	public DataAccessConnectionPool pool = new DataAccessConnectionPool();
 
@@ -973,7 +976,14 @@ public class DataAccess {
 				jMnger = false;
 				cKey = "";
 			}	
-				
+			
+			
+			if(cKey.length() < 24)
+				cipher = new CipherString();
+			else
+				cipher = new CipherString(cKey);
+			
+			
 			registryPort = Integer.parseInt((String) cfgTable.get("REGISTRY_PORT"));
 			socketPort = Integer.parseInt((String) cfgTable.get("SOCKET_PORT"));
 
@@ -1058,6 +1068,22 @@ public class DataAccess {
 	}
 	
 	
+	public String encrypt(String s) {
+		try {
+			return cipher.encrypt(s);
+		} catch (EncryptionException e) {
+			return null;
+		}
+	}
+
+	
+	public String decrypt(String s) {
+		try {
+			return cipher.decrypt(s);
+		} catch (EncryptionException e) {
+			return null;
+		}
+	}
 	
 	/**
 	 * <h2><code>loadAllIcons</code></h2>

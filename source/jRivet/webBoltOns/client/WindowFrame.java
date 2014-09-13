@@ -170,6 +170,8 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 		} else if (cmpntTree[hl].getMethod().equals(WindowItem.CLIP_FIELD)) {
 			actionTempClip(hl);
 			
+		} else if (cmpntTree[hl].getMethod().equals(WindowItem.NEW_LINE)) {
+			actionNewTableLine();
 			
 		// -   Script Link
 		} else if (!cmpntTree[hl].getLink().equals("")) {
@@ -345,14 +347,12 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 			object = cmpntTree[x].getObjectName();
 			field = cmpntTree[x].getFieldName();
 			if (object != null) {
-				if (object.equals(WindowItem.TABLE_OBJECT)) {
+				if (object.equals(WindowItem.TABLE_OBJECT)  && !cmpntTree[x].isProtected()) {
 					if (linMthd != null && !linMthd.equals("")) {
-						reqFcs = ((CTableContainer) cmpntTree[x]
-								.getComponentObject()).setMoreTableData(
+						reqFcs = ((CTableContainer) cmpntTree[x].getComponentObject()).setMoreTableData(
 								(Vector) dSet.get(field.toString()),reqFcs);
 					} else {
-						reqFcs = ((CTableContainer) cmpntTree[x]
-								.getComponentObject()).setEmptyLine(reqFcs);
+						reqFcs = ((CTableContainer) cmpntTree[x].getComponentObject()).setEmptyLine(reqFcs);
 					}
 				}
 			}

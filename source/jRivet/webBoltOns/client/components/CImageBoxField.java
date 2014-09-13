@@ -78,11 +78,11 @@ import javax.swing.JToolBar;
 import webBoltOns.AppletConnector;
 import webBoltOns.client.WindowFrame;
 import webBoltOns.client.WindowItem;
-import webBoltOns.client.clientUtil.GIFEncoder;
-import webBoltOns.client.clientUtil.JPEGEncoder;
 import webBoltOns.client.clientUtil.SimpleFileFilter;
 import webBoltOns.client.components.componentRules.StandardComponentLayout;
 import webBoltOns.dataContol.DataSet;
+import webBoltOns.dataContol.GIFEncoder;
+import webBoltOns.dataContol.JPEGEncoder;
 
 
 public class CImageBoxField  extends JPanel implements StandardComponentLayout {

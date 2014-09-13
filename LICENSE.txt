@@ -1,6 +1,6 @@
-webkeepass-1.070905 - jRivet Framework -  Copyright  2003, 2004, 2005, 2006, 2007 -   All Rights Reserved 
+Web KeePass - Web Password Safe -  Copyright  2003, 2004, 2005, 2006, 2007 -   All Rights Reserved 
  
-   @ver - webkeepass-1.070905 --   http://sourceforge.net/projects/webkeepass
+   @ver - WebKeePass-1.07919 --   http://sourceforge.net/projects/webkeepass
  
    The contents of this file are subject to the Mozilla Public License Version 1.1
   (the "License"); you may not use this file except in compliance with the License.
@@ -10,7 +10,7 @@ webkeepass-1.070905 - jRivet Framework -  Copyright  2003, 2004, 2005, 2006, 200
   WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
   for the specific language governing rights and limitations under the License.
  
-  The Original Code is Web Register - 'jRivet Framework - Java Solutions for Enterprise Applications'.
+  The Original Code is Web KeePass - Web Password Safe 
  
   
    Copyright (C) 2003, 2004, 2005,2006, 2007 
@@ -43,5 +43,6 @@ webkeepass-1.070905 - jRivet Framework -  Copyright  2003, 2004, 2005, 2006, 200
   If you didn't download this code from the following link, you should check if
   you aren't using an obsolete version:
  
-  http://sourceforge.net/projects/webkeypass  
+  http://sourceforge.net/projects/webkeepass
+  
  

@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Vector;
 
-import webBoltOns.client.clientUtil.CipherString;
+ 
 import webBoltOns.dataContol.DBSchemaException;
 import webBoltOns.dataContol.DataAccess;
 import webBoltOns.dataContol.DataSet;
@@ -34,7 +34,8 @@ public class TheCrypt {
 							+ " And j1 = '" + dataSet.getScmbl() + "' ",
 					"wkpPasswordCrypt", dataSet)) {
 
-				dataSet = getCrypHistoryList(dataSet, dataAccss);
+			 	return getCrypHistoryList(dataSet, dataAccss);
+			
 			} else {
 				dataSet.remove("Table1");
 				dataSet.putIntegerField("PasswordID", 0);
@@ -46,6 +47,53 @@ public class TheCrypt {
 		return dataSet;
 	}
 
+	
+	/**/
+	public DataSet getSharedCrypt(DataSet dataSet, DataAccess dataAccss) {
+		try {
+			if (dataSet.containsKey("PasswordID") && dataAccss.executeQuery(
+					"Select * From wkpPasswordCrypt Where PasswordID =  "
+							+ dataSet.getStringField("PasswordID"),
+							  "wkpPasswordCrypt", dataSet)) {
+
+			 	return getCrypHistoryList(dataSet, dataAccss);
+			
+			} else {
+				dataSet.remove("Table1");
+				dataSet.putIntegerField("PasswordID", 0);
+				dataSet.addMessage("LIT0001");
+			}
+		} catch (DBSchemaException e) {
+			dataSet.addMessage("SVR0001");
+		}
+		return dataSet;
+	}
+	
+	
+	public DataSet getCryptDesc(DataSet dataSet, DataAccess dataAccss) {
+		try {
+			if (dataAccss.executeQuery(
+					"Select a0, b9, c8,  i2, j1  From wkpPasswordCrypt Where PasswordID =  "
+							+ dataSet.getStringField("PasswordID")
+							+ " And j1 = '" + dataSet.getScmbl() + "' ",			
+							new String[] {"a0", "b9", "c8", "i2", "j1"}, dataSet)) {
+
+				dataSet.putBooleanField("wkpPasswordCrypt", true);
+				
+			} else {
+				dataSet.putBooleanField("wkpPasswordCrypt", false);
+				dataSet.addMessage("WKP0002");
+			}
+			
+		} catch (DBSchemaException e) {
+			dataSet.putBooleanField("wkpPasswordCrypt", false);
+			dataSet.addMessage("WKP0002");
+		}
+		return dataSet;
+	}
+
+	
+	
 	/**/
 	public DataSet getCrypHistory(DataSet dataSet, DataAccess dataAccss) {
 		try {
@@ -131,7 +179,7 @@ public class TheCrypt {
 			else
 				dataSet = updateCrypt(dataSet, dataAccss);
 
-		// Wite a history record
+		// Write a history record
 		try {
 			dataSet.putIntegerField("HistoryID",
 					new Sequences().getNextSequences("wkpCryptHistory",
@@ -166,8 +214,8 @@ public class TheCrypt {
 	private DataSet insertCrypt(DataSet dataSet, DataAccess dataAccss) {
 		try {
 			String today = new SimpleDateFormat("yyyyMMdd").format(new Date());
-			dataSet.putStringField("d7", new CipherString().encrypt(today));
-			dataSet.putStringField("e6", new CipherString().encrypt(today));
+			dataSet.putStringField("d7", dataAccss.encrypt(today));
+			dataSet.putStringField("e6", dataAccss.encrypt(today));
 			dataSet.putStringField("j1", dataSet.getScmbl());
 			if (dataSet.get("Image") == null)
 				dataSet.remove("Image");
@@ -191,7 +239,7 @@ public class TheCrypt {
 	private DataSet updateCrypt(DataSet dataSet, DataAccess dataAccss) {
 		try {
 			String today = new SimpleDateFormat("yyyyMMdd").format(new Date());
-			dataSet.putStringField("e6", new CipherString().encrypt(today));
+			dataSet.putStringField("e6", dataAccss.encrypt(today));
 			dataSet.putStringField("j1", dataSet.getScmbl());
 			if (dataSet.get("Image") == null)
 				dataSet.remove("Image");
@@ -211,22 +259,31 @@ public class TheCrypt {
 
 	/**/
 	public DataSet delCrypt(DataSet dataSet, DataAccess dataAccss) {
-		Statement sqlStatement = dataAccss.execConnectUpdate();
+		Statement sql = dataAccss.execConnectUpdate();
 		try {
-			sqlStatement
-					.executeUpdate("Delete from wkpPasswordCrypt Where PasswordID =  "
-							+ dataSet.getStringField("PasswordID"
-									+ "  And j1 = '" + dataSet.getScmbl()
-									+ "' "));
+			sql.executeUpdate("Delete from wkpPasswordCrypt Where PasswordID =  "
+							+ dataSet.getStringField("PasswordID")
+									+ "  And j1 = '" + dataSet.getScmbl() + "' ");
+			
+			sql.executeUpdate("Delete from wkpCryptHistory Where PasswordID =  "
+					+ dataSet.getStringField("PasswordID"));
+			
+			sql.executeUpdate("Delete from wkpPasswordAKin Where PasswordID =  "
+					+ dataSet.getStringField("PasswordID"));
+			
+			
 			dataSet.addMessage("LIT0006");
 		} catch (Exception exception) {
 			dataSet.addMessage("SVR0001");
 		} finally {
-			dataAccss.execClose(sqlStatement);
+			dataAccss.execClose(sql);
 		}
 		return dataSet;
 	}
 
+	
+	
+	
 	/**/
 	public DataSet nxtCrypt(DataSet dataSet, DataAccess dataAccss) {
 		try {
@@ -237,7 +294,7 @@ public class TheCrypt {
 							+ "' Order By PasswordID ", "wkpPasswordCrypt",
 					dataSet)) {
 
-				dataSet = getCrypHistoryList(dataSet, dataAccss);
+				return getCrypHistoryList(dataSet, dataAccss);
 			} else {
 				dataSet.addMessage("LIT0002");
 			}
@@ -257,7 +314,7 @@ public class TheCrypt {
 							+ "' Order By PasswordID Desc ",
 					"wkpPasswordCrypt", dataSet)) {
 
-				dataSet = getCrypHistoryList(dataSet, dataAccss);
+				return getCrypHistoryList(dataSet, dataAccss);
 			} else {
 				dataSet.addMessage("LIT0003");
 			}
@@ -297,7 +354,7 @@ public class TheCrypt {
 				row[0] = new Boolean(true);
 				row[1] = "0";
 				row[2] = "     Web-KeePass Password";
-				row[3] = new CipherString().decrypt(resultSet.getString("d7"));
+				row[3] = dataAccss.decrypt(resultSet.getString("d7"));
 				row[4] = "dot.gif";
 				row[5] = Integer.toString(resultSet.getInt("PasswordID"));
 				row[6] = resultSet.getString("a0");
@@ -348,7 +405,7 @@ public class TheCrypt {
 				row[0] = new Boolean(true);
 				row[1] = "0";
 				row[2] = "     Web-KeePass Password";
-				row[3] = new CipherString().decrypt(resultSet.getString("d7"));
+				row[3] = dataAccss.decrypt(resultSet.getString("d7"));
 				row[4] = "dot.gif";
 				row[5] = Integer.toString(resultSet.getInt("PasswordID"));
 				row[6] = resultSet.getString("a0");
@@ -396,4 +453,8 @@ public class TheCrypt {
 		}
 		return dataSet;
 	}
+	
+	
+
+	 
 }

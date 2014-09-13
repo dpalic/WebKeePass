@@ -225,6 +225,22 @@ public class UserSecurityManager {
 
 	
 	
+	/**/
+	public DataSet deleteUser(DataSet user, DataAccess dataAccss) {
+		Statement sql = dataAccss.execConnectUpdate();
+		try {
+			sql.executeUpdate("Delete from jrUsers  Where UserID = '"+ user.getStringField("UserID") + "'");
+			
+			user.addMessage("LIT0006");
+		} catch (Exception exception) {
+			user.addMessage("SVR0001");
+		} finally {
+			dataAccss.execClose(sql);
+		}
+		return user;
+	}
+
+	
 	/* */	
 	public DataSet getUserGroup(DataSet userGroup, DataAccess dataAccess) {
 			try {
@@ -255,14 +271,19 @@ public class UserSecurityManager {
 	
 	/* */
 	public DataSet getUserGroupList(DataSet groupSet, DataAccess dataAccess) {
-		String desc = groupSet.getStringField("@Description");
-		String menu = groupSet.getStringField("@MenuXML");
+		//String desc = groupSet.getStringField("@Description");
+		//String menu = groupSet.getStringField("@MenuXML");
 
 		String sql = "Select GroupID, GroupDescription, MenuXML, ActiveGroup, "
 		  		     + "Administrator, DeskTopTheme, TipAccess from jrUserGroups ";
-		sql = DataAccess.addToSearchWhereClause(sql, "GroupDescription", "CHR", desc );
-		sql = DataAccess.addToSearchWhereClause(sql, "MenuXML", "CHR", menu);
 		
+		//sql = DataAccess.addToSearchWhereClause(sql, "GroupDescription", "CHR", desc );
+		//sql = DataAccess.addToSearchWhereClause(sql, "MenuXML", "CHR", menu);
+		
+		sql = DataAccess.addToSearchWhereClause(sql, "GroupDescription", 
+						groupSet.getSearchTextField("@Description"));
+		sql = DataAccess.addToSearchWhereClause(sql, "MenuXML", 
+						groupSet.getSearchTextField("@MenuXML"));
 		try {
 			groupSet.putTableVector("UserGroup",  dataAccess.executeVectorQuery(sql, 
 					  	new String[] {"GroupID", "GroupDescription","MenuXML", "ActiveGroup", 
@@ -277,15 +298,22 @@ public class UserSecurityManager {
 	
 	/* */
 	public DataSet getUserList(DataSet user, DataAccess dataAccess) {
-		String desc = user.getStringField("@Description");
-		String name = user.getStringField("@Name");
-		String group = user.getStringField("@Group");
-		String sql = "Select UserID, UserDescription, Name, GroupID, "
-				+ "ActiveUser  from jrUsers ";
-		sql = DataAccess.addToSearchWhereClause(sql, "UserDescription", "CHR", desc );
-		sql = DataAccess.addToSearchWhereClause(sql, "Name", "CHR", name );
-		sql = DataAccess.addToSearchWhereClause(sql, "GroupID", "CHR", group );
-
+		//String desc = user.getStringField("@Description");
+		//String name = user.getStringField("@Name");
+		//String group = user.getStringField("@Group");
+		
+		String sql = "Select UserID, UserDescription, Name, GroupID, ActiveUser  from jrUsers ";
+		
+		//sql = DataAccess.addToSearchWhereClause(sql, "UserDescription", "CHR", desc );
+		//sql = DataAccess.addToSearchWhereClause(sql, "Name", "CHR", name );
+		//sql = DataAccess.addToSearchWhereClause(sql, "GroupID", "CHR", group );
+		
+		sql = DataAccess.addToSearchWhereClause(sql, "UserDescription", 
+						user.getSearchTextField("@Description"));
+		sql = DataAccess.addToSearchWhereClause(sql, "Name", 
+						user.getSearchTextField("@Name"));
+		sql = DataAccess.addToSearchWhereClause(sql, "GroupID", 
+						user.getSearchTextField("@GroupID"));
 		try {
 			user.putTableVector("User", dataAccess.executeVectorQuery(sql, 
 					new String[] { "UserID", "UserDescription","Name", "GroupID", "ActiveUser" } ));

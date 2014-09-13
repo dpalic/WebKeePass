@@ -88,15 +88,15 @@ import netscape.javascript.JSObject;
 import webBoltOns.client.MenuFrame;
 import webBoltOns.client.MenuItem;
 import webBoltOns.client.WindowItem;
-import webBoltOns.client.clientUtil.CipherString;
-import webBoltOns.client.clientUtil.CipherString.EncryptionException;
 import webBoltOns.client.components.CDialog;
 import webBoltOns.client.components.CSHAPasswordField;
 import webBoltOns.client.components.componentRules.ComManager;
 import webBoltOns.client.components.componentRules.MenuRules;
 import webBoltOns.client.components.componentRules.ReportRules;
 import webBoltOns.client.components.componentRules.ScriptRules;
+import webBoltOns.dataContol.CipherString;
 import webBoltOns.dataContol.DataSet;
+import webBoltOns.dataContol.CipherString.EncryptionException;
 import webBoltOns.server.ServletInterface;
 import webBoltOns.server.servletUtil.HttpMessage;
 

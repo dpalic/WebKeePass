@@ -74,10 +74,11 @@ public class TheCryptKeeper {
 
 	private DataSet insertCryptKeeper(DataSet dataSet, DataAccess dataAccss) {
 		try {
-			dataSet.putStringField("CreateDate", new SimpleDateFormat(
-					"yyyyMMdd").format(new Date()));
-			dataSet.putStringField("LastUpdate", new SimpleDateFormat(
-					"yyyyMMdd").format(new Date()));
+			dataSet.putStringField("CreateDate", 
+					new SimpleDateFormat("yyyyMMdd").format(new Date()) );
+			
+			dataSet.putStringField("LastUpdate",  
+					new SimpleDateFormat("yyyyMMdd").format(new Date()) );
 			dataSet.putStringField("j1", dataSet.getScmbl());
 			if (dataSet.getIntegerField("KeeperID") == 0)
 				dataSet.putIntegerField("KeeperID", new Sequences()
@@ -95,8 +96,8 @@ public class TheCryptKeeper {
 	private DataSet updateCryptKeeper(DataSet dataSet, DataAccess dataAccss) {
 		try {
 
-			dataSet.putStringField("LastUpdate", new SimpleDateFormat(
-					"yyyyMMdd").format(new Date()));
+			dataSet.putStringField("LastUpdate",
+					new SimpleDateFormat("yyyyMMdd").format(new Date()));
 			dataSet.putStringField("j1", dataSet.getScmbl());
 			dataAccss.executeUpdateQuery("wkpGroups", dataSet,
 					"Where KeeperID = " + dataSet.getStringField("KeeperID")
@@ -111,10 +112,9 @@ public class TheCryptKeeper {
 
 	/**/
 	public DataSet delCryptKeeper(DataSet dataSet, DataAccess dataAccss) {
-		Statement sqlStatement = dataAccss.execConnectUpdate();
+		Statement sql = dataAccss.execConnectUpdate();
 		try {
-			sqlStatement
-					.executeUpdate("Delete from wkpGroups Where KeeperID = "
+			sql.executeUpdate("Delete from wkpGroups Where KeeperID = "
 							+ dataSet.getStringField("KeeperID" + " And j1 = '"
 									+ dataSet.getScmbl() + "' "));
 			dataSet.addMessage("Record Deleted", "10", null, null);
@@ -123,7 +123,7 @@ public class TheCryptKeeper {
 					"Database Error - Please contact systems administrator",
 					"30", null, null);
 		} finally {
-			dataAccss.execClose(sqlStatement);
+			dataAccss.execClose(sql);
 		}
 		return dataSet;
 	}

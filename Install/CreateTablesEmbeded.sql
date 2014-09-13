@@ -207,4 +207,20 @@ CREATE TABLE wkpPasswordCrypt (
   KeeperID int 
 );
 
- 
+CREATE TABLE  wkpPasswordAKin  (
+   AKinID  int NOT NULL PRIMARY KEY,
+   z0  varchar(50) default NULL,
+   y1  varchar(50) default NULL,
+   x2  varchar(50) default NULL,
+   w3  varchar(50) default NULL,
+   v4  varchar(50) default NULL,
+   u5  varchar(50) default NULL,
+   t6  varchar(50) default NULL,
+   s7  varchar(50) default NULL,
+   t8  varchar(50) default NULL,
+   r9  varchar(50) default NULL,
+   PasswordID int);
+
+
+
+

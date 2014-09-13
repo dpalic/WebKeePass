@@ -244,7 +244,7 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 		Vector changed = new Vector();
 		for (int r = 0; r < tableView.getRowCount(); r++) {
 			if (dataModel.rowHasChanged(r, nextChange)) {
-				changed.add(getStringRecordAt(r));
+				changed.add(getStringRecordAt(r, true));
 			}
 		}
 		return changed;
@@ -256,7 +256,7 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 		int editRow = tableView.getEditingRow();
 		commitEditing();
 		if(editRow != -1)
-			return getStringRecordAt(editRow);
+			return getStringRecordAt(editRow, true);
 		else
 			return null;
 	}
@@ -306,7 +306,7 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 		Vector selected = new Vector();
 		if (row.length > 0) {
 			for (int x = 0; x < row.length; x++) {
-				selected.addElement(getStringRecordAt(row[x]));
+				selected.addElement(getStringRecordAt(row[x], true));
 			}
 			return selected;
 		} else {
@@ -326,13 +326,13 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 
 	
 		
-	private String[] getStringRecordAt(int row) {
+	private String[] getStringRecordAt(int row, boolean encode) {
 			String[] rowString = new String[tableColumns.length];
 			for (int col = 0; col < tableColumns.length; col++) {
 				Object value = dataModel.getValueAt(row,col);
 				if (value != null) {
 					
-					if(cnct.strictEncoding && tableColumns[col].getAppletComponent().isEncrypted())
+					if(encode && cnct.strictEncoding && tableColumns[col].getAppletComponent().isEncrypted())
 						rowString[col] = cnct.encrypt(value.toString());
 					else if(tableColumns[col].getAppletComponent().getDataType().equals("DAT"))
 						rowString[col] = DataSet.formatDateField(value.toString(), cnct.serverDateFormat);
@@ -340,7 +340,6 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 						rowString[col] = DataSet.formatTimeField(value.toString(), "kkmmss");
 					else	
 						rowString[col] = value.toString();
-					
 				}
 			}
 			return rowString;
@@ -463,10 +462,10 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 			return dataSet;
 			
 		else if (action.equals(WindowItem.EDIT_RECORD))
-			dataSet.putTableVector(tablename,getChangedRecords(false));	
+			dataSet.putTableVector(tablename, getChangedRecords(false));	
 						
 		else if (action.equals(WindowItem.POST_RECORD))
-			dataSet.putTableVector(tablename,getChangedRecords(true));	
+			dataSet.putTableVector(tablename, getChangedRecords(true));	
 			
 		else if (action.equals(WindowItem.TABLE_PROMPT))	
 			dataSet.putCurrentTableRow(tablename,  getEditingRow());
@@ -619,13 +618,11 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 		
 		for (int r = 0; r < tableView.getRowCount(); r++) {
 			if (dataModel.rowHasChanged(r, true)) {
-				String [] record = getStringRecordAt(r);
+				String [] record = getStringRecordAt(r, false);
 				 for(int c = 0;c < tableColumns.length; c++ ) {
 					WindowItem i =  tableColumns[c].getAppletComponent();
-					//((StandardComponentLayout) i.getComponentObject()).setValid(true);
-				 	if(!mFrm.isVaildValue(record[c], i.getObjectHL())) {
-				 	// ((StandardComponentLayout) i.getComponentObject()).setValid(false);
-				 		return false;
+ 				 	if(!mFrm.isVaildValue(record[c], i.getObjectHL())) {
+ 				 		return false;
 				 	}
 				 }
 			}

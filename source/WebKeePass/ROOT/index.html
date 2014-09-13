@@ -14,9 +14,10 @@
           if( navigator.appVersion.indexOf("MSIE 6") > 0  ||  navigator.appVersion.indexOf("MSIE 7") > 0) {
             win = window.open("msie.html","",s);
             win.moveTo(0,0);
-            win.focus();
-            window.opener = self;
-            window.close();
+            win.focus();           
+		window.opener='X';
+		window.open('','_parent','');
+		window.close();  
           } else {
             closeWin.Click();
             win = window.open("netscape.html","",s);
@@ -54,7 +55,11 @@
         document.write("    </p>  ");
       }  
       
-       function closeWin() {  window.close(); }
+       function closeWin() {  
+            window.opener='X';
+		window.open('','_parent','');
+		window.close(); 
+	 }
        
        
    }

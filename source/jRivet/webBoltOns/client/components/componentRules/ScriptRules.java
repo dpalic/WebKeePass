@@ -619,7 +619,6 @@ public  class ScriptRules {
 				"F", // 23 Component Orientation
 				"F", // 24 Default Value
 				"F", // 25 Hidden Object 
-				"F", // 25 Hidden Object 
 				"F", // 26 Zero Fill Value
 				"F", // 27 Commit Class 
 				"F", // 28 Commit Method
@@ -657,7 +656,6 @@ public  class ScriptRules {
 				"F", // 28 Commit Method
 				"F", // 29 Encrypted
 		});
-
 		propertyRules.put(WindowItem.BUTTON_OBJECT, new  String[] { 
 				"T", // Component
 				"F", // 00 Type
