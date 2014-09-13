@@ -19,6 +19,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -27,6 +28,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -54,6 +56,10 @@ public class InstallerMain implements ActionListener, MouseListener{
 	
 	JTextField key_A = new JTextField(40);
 	JTextField key_B = new JTextField(40);
+	
+	ButtonGroup bgroup = new ButtonGroup();
+	
+	String key1; 
 	
 	JFrame main_F; 
  
@@ -160,6 +166,8 @@ public class InstallerMain implements ActionListener, MouseListener{
 		main_F.setVisible(true);
 	}
 
+	
+	
 	public JPanel buildPanel1() {
 		
 		if(fs.equals("/"))
@@ -167,8 +175,12 @@ public class InstallerMain implements ActionListener, MouseListener{
 		else
 			path_T.setText("C:\\WebKeePass");
 		
-		db_T.setText("WebKeePass");
-		usr_DB.setText("root");
+		db_T.setText(null);
+		db_T.setEditable(false);
+		usr_DB.setText(null);
+		usr_DB.setEditable(false);
+		pw_DB.setText(null);
+		pw_DB.setEditable(false);
 		
 		JPanel main_P = new JPanel(new GridFlowLayout(10, 10));
 
@@ -185,6 +197,24 @@ public class InstallerMain implements ActionListener, MouseListener{
 		l2.setName("JAVA_HOME.Action");
 		main_P.add(l2, new GridFlowLayoutParameter(true, 1));
 		main_P.add(jh_T, new GridFlowLayoutParameter(false, 2));
+		
+		JRadioButton rb1 = new JRadioButton("Use an embedded WebKeePass data source");
+		rb1.setName("Embedded.Action");		
+		rb1.setActionCommand("Embedded.Action");
+		rb1.addActionListener(this);
+		
+		bgroup.add(rb1);
+
+		JRadioButton rb2 = new JRadioButton("Use a new MySQL database data source");
+		rb2.setName("MySQL.Action");
+		rb2.setActionCommand("MySQL.Action");
+		rb2.addActionListener(this);
+		bgroup.add(rb2);
+
+		
+		main_P.add(rb1, new GridFlowLayoutParameter(true, 2));
+		main_P.add(rb2, new GridFlowLayoutParameter(true, 2));
+		bgroup.setSelected(rb1.getModel(), true);
 		
 		main_P.add(new JLabel("MySQL Database/Schema:"), new GridFlowLayoutParameter(true, 1));
 		main_P.add(db_T, new GridFlowLayoutParameter(false, 2));
@@ -212,23 +242,28 @@ public class InstallerMain implements ActionListener, MouseListener{
 		 	JOptionPane.showMessageDialog(null, "Invalid JAVA_HOME Path",
 		 		"Path Error", JOptionPane.ERROR_MESSAGE);
 		    return false;		 
-		 	
-		} else if (db_T.getText() == null || db_T.getText().equals("")) {
-			JOptionPane.showMessageDialog(null, "Invalid Database Name",
-					"Input Error", JOptionPane.ERROR_MESSAGE);
-			return false;
-			
-		} else if (usr_DB.getText() == null || usr_DB.getText().equals("")) {
-			JOptionPane.showMessageDialog(null, "Invalid Database User",
-					"Input Error", JOptionPane.ERROR_MESSAGE);
-			return false;
-			
-		} else if (pw_DB.getText() == null || pw_DB.getText().equals("")) {
-			JOptionPane.showMessageDialog(null, "Invalid Database Password",
-					"Input Error", JOptionPane.ERROR_MESSAGE);
-			return false;
-		}
 		
+		    
+		} 
+		 
+		 
+		if(db_T.isEditable()) { 
+			if (db_T.getText() == null || db_T.getText().equals("")) {
+				JOptionPane.showMessageDialog(null, "Invalid Database Name",
+					"Input Error", JOptionPane.ERROR_MESSAGE);
+				return false;
+			
+			} else if (usr_DB.getText() == null || usr_DB.getText().equals("")) {
+				JOptionPane.showMessageDialog(null, "Invalid Database User",
+					"Input Error", JOptionPane.ERROR_MESSAGE);
+				return false;
+			
+			} else if (pw_DB.getText() == null || pw_DB.getText().equals("")) {
+				JOptionPane.showMessageDialog(null, "Invalid Database Password",
+					"Input Error", JOptionPane.ERROR_MESSAGE);
+				return false;
+			}
+		}
 		
 		return true;
 	}
@@ -380,30 +415,56 @@ public class InstallerMain implements ActionListener, MouseListener{
 	
 	
 	public void actionPerformed(ActionEvent e) {
-	    if (e.getActionCommand().equals("Next1.Action") )
+	   
+		
+		
+		if (e.getActionCommand().equals("Next1.Action") ) {
 			showScreen1();
 				
-	    else if (e.getActionCommand().equals("Next2.Action") && editScreen1()  )
+		} else if (e.getActionCommand().equals("Next2.Action") && editScreen1()  ) {
 			showScreen2();
 	    
-	    if (e.getActionCommand().equals("Next3.Action") && editScreen2()  )
+		} else if (e.getActionCommand().equals("Next3.Action") && editScreen2()  ) {
 			showScreen3();
 	    
-		else if (e.getActionCommand().equals("Install.Action")&& editScreen3())
+	    } else if (e.getActionCommand().equals("Install.Action") && editScreen3()) {
 			installAction();
 
-		else if (e.getActionCommand().equals("Cancel.Action"))
+		} else if (e.getActionCommand().equals("Cancel.Action")) {
 			main_F.dispose();
+	    
+		} else if(e.getActionCommand().equals("Embedded.Action")) {
+			db_T.setText(null);
+			db_T.setEditable(false);
+			usr_DB.setText(null);
+			usr_DB.setEditable(false);
+			pw_DB.setText(null);
+			pw_DB.setEditable(false);
+		 
+	    } else if(e.getActionCommand().equals("MySQL.Action")) {
+			db_T.setText("WebKeePass");
+			db_T.setEditable(true);
+			usr_DB.setText("root");
+			usr_DB.setEditable(true);
+			pw_DB.setText(null);
+			pw_DB.setEditable(true);					 
+			 
+		 }	    
+	    
 	}
 
 
 
 	public void mouseClicked(MouseEvent e) {
-		 if(e.getComponent().getName().equals("Path.Action"))
-		 	pathAction();
+		 if(e.getComponent().getName().equals("Path.Action")) {
+		 		pathAction();
 		
-		 else if(e.getComponent().getName().equals("JAVA_HOME.Action"))
+		 } else if(e.getComponent().getName().equals("JAVA_HOME.Action")) {
 			 java_homeAction();
+		 	 
+		 }
+		 
+		 
 	}
 
 	public void mousePressed(MouseEvent e) {}
@@ -442,14 +503,26 @@ public class InstallerMain implements ActionListener, MouseListener{
 
 	
 	public boolean installDB() {	
-		if(!data.installDB(
+		if(db_T.isEditable()) {
+			if(!data.installDB(
 				db_T.getText().trim(), 
-				usr_DB.getText().trim(), pw_DB.getText().trim(),
-				"Install/CreateTables.sql", 
+				usr_DB.getText().trim(), pw_DB.getText().trim(),"Install/CreateTablesMySQL.sql", 
 				usr_ADM.getText().trim(), sha1(pw_ADM.getText().trim()),
 				usr_USR.getText().trim(), sha1(pw_USR.getText().trim()))
 				)
-			return false;
+				return false;
+			
+		} else {
+			if(!data.installEmbeded(
+					path_T.getText(), key1,
+					"webkeepass", "passkeeweb" ,"Install/CreateTablesEmbeded.sql", 
+					usr_ADM.getText().trim(), sha1(pw_ADM.getText().trim()),
+					usr_USR.getText().trim(), sha1(pw_USR.getText().trim()))
+					)
+				return false;			
+			
+		}
+		
 		return true;
 	}
 	
@@ -458,19 +531,34 @@ public class InstallerMain implements ActionListener, MouseListener{
 	public boolean createConfig() {	
 	
 		String javaHome = jh_T.getText().trim();
-		String path = path_T.getText().trim(); 
-		String url = db_T.getText().trim();
+		String path = path_T.getText().trim();
 		String user = usr_DB.getText().trim();
 		String pwrd = pw_DB.getText().trim();    
 		String port = port_A.getText().trim();
-		String key1 = sha1(key_A.getText().trim());        
+		key1 = sha1(key_A.getText().trim());      
+		
 		
 		if(!fi.readFile("Install/ConfigFile1.xml"))
 			return false;
-		fi.mergeTag("{db}", url);
-		fi.mergeTag("{user}", user);
+		
+		
+		if(db_T.isEditable()) {
+		    fi.mergeTag("{dvr}", "com.mysql.jdbc.Driver");
+		    fi.mergeTag("{db}", "jdbc:mysql://localhost/"+db_T.getText().trim());
+			fi.mergeTag("{user}", user);
+			fi.mergeTag("{password}", pwrd);
+
+		} else {
+			fi.mergeTag("{dvr}", "org.apache.derby.jdbc.EmbeddedDriver");
+			fi.mergeTag("{db}", "jdbc:derby:" + path + 
+					"datasrc;dataEncryption=true;encryptionAlgorithm=DES/CBC/NoPadding;encryptionKey=" + key1.trim() );
+			fi.mergeTag("{user}", "webkeepass");
+			fi.mergeTag("{password}", "passkeeweb");
+
+		}
+		
+
 		fi.mergeTag("{eKey}", key1);
-		fi.mergeTag("{password}", pwrd);
 		fi.mergeTag( "{scripts}", 
 				path + "jakarta-tomcat-5.5.7"+ fs + "webapps" + fs +"ROOT" +  fs + "XML" + fs);
 		fi.mergeTag("{images}", 

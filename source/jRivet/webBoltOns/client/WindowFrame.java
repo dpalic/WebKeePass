@@ -138,11 +138,9 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 	private JSplitPane mainSpltPn;
 	private JFrame mFrm;
 	private int height=200, width= 200; 
-	protected int totObj = 0, rtFldLvl = 0, msgGap = 65,
-			itmAcsLvl = 1;
+	protected int totObj = 0, rtFldLvl = 0, msgGap = 65, itmAcsLvl = 1;
 	private JDialog infoWndw;
 	private JCheckBox tips; 
-	private CDialog optCfm;
 	public boolean lfEnable = true;
 	
 	
@@ -370,6 +368,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 			JComponent sce = ((JComponent)e.getSource()); 
 			sce.setCursor(new Cursor(Cursor.WAIT_CURSOR));
 			String cmd = e.getActionCommand();
+			CDialog optCfm = new CDialog(getWindowFrame(), cntr);
 			
 			if(DataSet.checkInteger(cmd) > 0 ) {
 				if(validFrm(sce)) 
@@ -1039,8 +1038,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 		mainSpltPn.validate();
 
 		mPnl.add(BorderLayout.CENTER,((CPanelContainer) cmpntTree[0].getComponentObject()));
-		optCfm  = new CDialog(mFrm, cntr);
-		
+ 		
  		((JComponent) mainSpltPn).getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
 				KeyStroke.getKeyStroke(KeyEvent.VK_F3, 0), "F3" );
 		((JComponent) mainSpltPn).getActionMap().put( "F3",  new AbstractAction() {
@@ -1127,6 +1125,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 	 *
 	 */	
 	private void buildMessagePopup (String text, String field) {			
+		 		CDialog optCfm = new CDialog(getWindowFrame(), cntr);
 				mFrm.getToolkit().beep();
 				if(field != null)
 					optCfm.showMessageDialog(field, text);
@@ -1369,6 +1368,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 					
 		if(response != null)  {
 			String cmd = source.getActionCommand();
+			CDialog optCfm = new CDialog(getWindowFrame(), cntr);
 			dSet =	response; 
 			if (more != null) more.setEnabled(dSet.getMoreButtonStatus());
 			
@@ -1694,6 +1694,8 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 	 *  
 	 */
 	 public boolean isVaildCharacter(KeyEvent e, int hl, boolean allSelected ) {
+		CDialog optCfm = new CDialog(getWindowFrame(), cntr);
+		
 		final char nchr = e.getKeyChar();
 		final String dataType = cmpntTree[hl].getDataType();
 		final int datalength = cmpntTree[hl].getDataLength();
@@ -1772,6 +1774,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 	 */
 	
 	  public boolean isVaildValue(String value, int hl) {
+		CDialog optCfm = new CDialog(getWindowFrame(), cntr);
 		String dataType = cmpntTree[hl].getDataType();
 		if(value == null) value = "";
 		
@@ -1815,6 +1818,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 			return true;
 	}
 
+	  
 	/**
 	 * <h2><code>loadAdminScript</code></h2>
 	 * 
@@ -1834,6 +1838,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 		}
 	}
 
+	
 	public void locateCursor(){	}
 	public void lostOwnership(Clipboard clip, Transferable transferable) {}
 		

@@ -809,7 +809,7 @@ public class CDialog extends JDialog  implements ActionListener, KeyListener,
 
 	
 	public void showWaringDialog(String message) {
-		showMessageDialog("A Word Of Wanring!", message);
+		showMessageDialog("A Word Of Warning!", message);
 	}	
 				
 		

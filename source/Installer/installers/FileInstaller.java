@@ -23,6 +23,8 @@ public class FileInstaller {
 	    		buffer.append(b,0,n);
 	    	file.close();
 	    	
+	    	
+	    	
 		} catch (Exception er) {
 			er.printStackTrace();
 			msg.append("Error Reading File - " + er.getMessage());

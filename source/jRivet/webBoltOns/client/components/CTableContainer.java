@@ -82,6 +82,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
+import javax.swing.border.EtchedBorder;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
@@ -148,7 +149,8 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 	public void addPopUpButton(WindowItem btn) {
 		if(popUp == null) { 
 			popUp = new JPopupMenu();
-			popUp.add(new JLabel("  Options"));
+			JLabel opt = new JLabel("  Options");
+			popUp.add(opt);
 			popUp.add(new JPopupMenu.Separator());
 		}
 		

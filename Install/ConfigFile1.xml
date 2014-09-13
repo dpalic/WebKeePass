@@ -7,8 +7,8 @@
 
   <DATABASE_NAME>Web Register</DATABASE_NAME>
   <DESCRIPTION>Web Register</DESCRIPTION>
-  <DRIVER>com.mysql.jdbc.Driver</DRIVER>
-  <URL>jdbc:mysql://localhost/{db}</URL>
+  <DRIVER>{dvr}</DRIVER>
+  <URL>{db}</URL>
   <CONNECTIONS>5</CONNECTIONS>
   <CONNECT_TYPE>HTTP</CONNECT_TYPE>
   <REGISTRY_PORT>5555</REGISTRY_PORT>

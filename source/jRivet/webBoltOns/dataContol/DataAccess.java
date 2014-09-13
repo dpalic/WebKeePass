@@ -665,7 +665,7 @@ public class DataAccess {
 				}
 			}
 			
-			qry = "Insert Into "+ table + " (" + fl + " ) Values (" + vl + ");";
+			qry = "Insert Into "+ table + " (" + fl + " ) Values (" + vl + ") ";
 			stmt = execPreparedConnect(qry);
 			
 			for (x = 0; x < columns.length; x++) 
