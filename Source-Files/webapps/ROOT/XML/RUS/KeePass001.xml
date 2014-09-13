@@ -10,13 +10,13 @@
 <!--	 	 User Profile:  root -->
 <SCRIPT SCRIPT_NAME="KeePass001" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" METHOD="getCryptList" AUTO_REFRESH="false" ICON="WKP6.jpg" DESCRIPTION="Мои пароли по категориям" Screen_Title="My Passwords By Category" WIDTH="1000" HEIGHT="570">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Очистить" ICON="iClear.gif" />
-    <BarButton TYPE="FIND" DESCRIPTION="Обновить" ICON="iFind.gif" METHOD="getCryptList" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Ясно" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Обновление" ICON="iFind.gif" METHOD="getCryptList" />
   </ButtonBar>
   <TreeTable FIELDNAME="Table1" DESCRIPTION="Группа" HEIGHT="0" WIDTH="0" METHOD="expandCryptList">
     <TableTextField FIELDNAME="KeeperID" DESCRIPTION="+ ID" LENGTH="6" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
     <TableTextField FIELDNAME="KeeperDesc" DESCRIPTION="Пароль категории" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
-    <TableTextField FIELDNAME="CreateDate" DESCRIPTION="Добавлено" LENGTH="10" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Center" />
+    <TableTextField FIELDNAME="CreateDate" DESCRIPTION="Дата добавления" LENGTH="10" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Center" />
     <TableImageField FIELDNAME="KepperIcon" DESCRIPTION="Icn" LENGTH="2" ENCRYPT="N" />
     <TableTextField FIELDNAME="PasswordID" DESCRIPTION="-ID" LENGTH="10" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
     <TableTextField FIELDNAME="a0" DESCRIPTION="Название" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />

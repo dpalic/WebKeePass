@@ -6,39 +6,36 @@
 <!--	 	 Server Class :  server.Crypt -->
 <!--	 	 Initalization Method :   -->
 <!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/XML/ENG/KeePass002.xml -->
-<!--	 	 Last Update :  26-Nov-2010 -->
+<!--	 	 Last Update :  05-Sep-2011 -->
 <!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="KeePass002" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" AUTO_REFRESH="false" ICON="WKP1.jpg" DESCRIPTION="Bewerk mijn wachtwoorden" Screen_Title="Edit My Passwords" WIDTH="800" HEIGHT="740">
+<SCRIPT SCRIPT_NAME="KeePass002" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" AUTO_REFRESH="true" ICON="WKP1.jpg" DESCRIPTION="Bewerk mijn wachtwoorden" Screen_Title="Edit My Passwords" WIDTH="800" HEIGHT="740">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Duidelijke / Nieuw" ICON="iClear.gif" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Clear / Nieuwe" ICON="iClear.gif" />
     <BarButton TYPE="FIND" DESCRIPTION="Zoek / Vernieuwen" ICON="iFind.gif" METHOD="getCrypt" />
     <BarButton TYPE="DELETE" DESCRIPTION="Verwijderen" ICON="iDelete.gif" METHOD="delCrypt" />
-    <BarButton TYPE="PREV" DESCRIPTION="Vorige" ICON="iPrev.gif" METHOD="prvCrypt" />
+    <BarButton TYPE="PREV" DESCRIPTION="Vorig" ICON="iPrev.gif" METHOD="prvCrypt" />
     <BarButton TYPE="NEXT" DESCRIPTION="Volgende" ICON="iNext.gif" METHOD="nxtCrypt" />
-    <BarButton TYPE="POST" DESCRIPTION="Update Wijzigingen" ICON="iEdit.gif" METHOD="updCrypt" />
+    <BarButton TYPE="POST" DESCRIPTION="Wijzigingen bijwerken" ICON="iEdit.gif" METHOD="updCrypt" />
   </ButtonBar>
   <Panel POSITION="Left" HIDDEN="N">
     <TextField FIELDNAME="PasswordID" DESCRIPTION="Wachtwoord ID #" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="20" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" LINK="KeePass006" METHOD="getCrypt" />
   </Panel>
   <Panel POSITION="Left" HIDDEN="N">
-    <TextField FIELDNAME="b9" DESCRIPTION="User Name" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <TextField FIELDNAME="b9" DESCRIPTION="Gebruikersnaam" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
     <Button FIELDNAME="b9" DESCRIPTION="Kopiëren naar Timer Clip" ICON="clip.gif" POSITION="Center" METHOD="CLIP_FIELD" />
     <PasswordEditor FIELDNAME="c8" DESCRIPTION="Wachtwoord" LENGTH="25" DATA_LEN="50" POSITION="Left" HIDDEN="N" ENCRYPT="Y" ALIGNMENT="Left" />
     <Button FIELDNAME="c8" DESCRIPTION="Kopiëren naar Timer Clip" ICON="clip.gif" POSITION="Center" METHOD="CLIP_FIELD" />
   </Panel>
-  <Panel POSITION="Left" HIDDEN="N">
-    <MacroEditor FIELDNAME="q4" DESCRIPTION="Vorm Robot" LENGTH="65" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="120" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-  </Panel>
   <TabGroup HEIGHT="0" WIDTH="0" POSITION="Left" COMPONENT_ORIENTATION="Top">
-    <TabItem DESCRIPTION="Invoeren van een wachtwoord" ICON="tdot.gif">
+    <TabItem DESCRIPTION="Wachtwoord Entry" ICON="tdot.gif">
       <Panel POSITION="Left" HIDDEN="N">
 	<TextField FIELDNAME="a0" DESCRIPTION="Beschrijving" LENGTH="50" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="100" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" />
 	<TextField FIELDNAME="o6" LENGTH="50" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="100" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" />
       </Panel>
       <Panel POSITION="Left" HIDDEN="N">
-	<TextField FIELDNAME="n7" DESCRIPTION="Website" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TextField FIELDNAME="n7" DESCRIPTION="Web Site" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<Button FIELDNAME="n7" ICON="MNode2.gif" METHOD="URL" />
-	<TextField FIELDNAME="i2" DESCRIPTION="Alt Website" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TextField FIELDNAME="i2" DESCRIPTION="Alt Web Site" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<Button FIELDNAME="i2" ICON="MNode2.gif" METHOD="URL" />
 	<TextField FIELDNAME="k0" DESCRIPTION="Support Site" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<Button FIELDNAME="k0" ICON="MNode2.gif" METHOD="URL" />
@@ -49,7 +46,7 @@
       </Panel>
       <Panel POSITION="Left" HIDDEN="N">
 	<ComboBox FIELDNAME="KeeperID" DESCRIPTION="Categorie" LENGTH="20" DATA_TYPE="CHR" POSITION="Left" ENCRYPT="N" LIST_TABLE_NAME="wkpGroups" LIST_TABLE_FIELD="KeeperID" LIST_TABLE_DESCRIPTION="KeeperDesc" LIST_TABLE_SELECTTION="j1 = :Scmbl:" />
-	<ComboBox FIELDNAME="r3" DESCRIPTION="Icoon" LENGTH="8" DATA_TYPE="CHR" POSITION="Center" ENCRYPT="Y">
+	<ComboBox FIELDNAME="r3" DESCRIPTION="Icon" LENGTH="4" DATA_TYPE="CHR" POSITION="Center" ENCRYPT="Y">
 	  <ComboItem DESCRIPTION="- 1" ICON="acon01.gif" DEFAULT_VALUE="acon01.gif" />
 	  <ComboItem DESCRIPTION="- 2" ICON="acon02.gif" DEFAULT_VALUE="acon02.gif" />
 	  <ComboItem DESCRIPTION="- 3" ICON="acon03.gif" DEFAULT_VALUE="acon03.gif" />
@@ -72,33 +69,36 @@
 	  <ComboItem DESCRIPTION="- 20" ICON="acon20.gif" DEFAULT_VALUE="acon20.gif" />
 	</ComboBox>
 	<TextField FIELDNAME="d7" DESCRIPTION="Maak Datum" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-	<TextField FIELDNAME="e6" DESCRIPTION="Laatste update" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TextField FIELDNAME="e6" DESCRIPTION="Laatste Update" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<TextField FIELDNAME="f5" DESCRIPTION="Verloopt" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<CheckBox FIELDNAME="g4" DESCRIPTION="Verloopt nooit" ENCRYPT="Y" />
       </Panel>
       <Panel POSITION="Left" HIDDEN="N">
-	<Button FIELDNAME="PwdShare" DESCRIPTION="Aandeel van dit wachtwoord met anderen" POSITION="Left" LINK="KeePass007" METHOD="initAkinList" />
-	<Button FIELDNAME="LnkShare" DESCRIPTION="Link Files om dit wachtwoord" LINK="KeePass020" METHOD_CLASS="server.Doc" METHOD="getDocList" />
-	<Button FIELDNAME="AccssLof" DESCRIPTION="Log toegang" POSITION="Left" LINK="KeePass030" METHOD_CLASS="server.Crypt" METHOD="getAccesslog" />
+	<Button FIELDNAME="PwdShare" DESCRIPTION="Deel dit wachtwoord met anderen" POSITION="Left" LINK="KeePass007" METHOD="initAkinList" />
+	<Button FIELDNAME="LnkShare" DESCRIPTION="Link-bestanden om dit wachtwoord" LINK="KeePass020" METHOD_CLASS="server.Doc" METHOD="getDocList" />
+	<Button FIELDNAME="AccssLof" DESCRIPTION="Toegang Log" LINK="KeePass030" METHOD_CLASS="server.Crypt" METHOD="getAccesslog" />
       </Panel>
     </TabItem>
-    <TabItem DESCRIPTION="Notities" ICON="tdot.gif">
-      <TextRTFArea FIELDNAME="Notes" DESCRIPTION="Notities" HEIGHT="14" WIDTH="33" POSITION="Left" PROTECTED="N" />
+    <TabItem DESCRIPTION="Auto Type - Formulier Robot" ICON="tdot.gif">
+      <MacroEditor FIELDNAME="q4" DESCRIPTION="" LENGTH="65" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="140" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    </TabItem>
+    <TabItem DESCRIPTION="Opmerkingen" ICON="tdot.gif">
+      <TextRTFArea FIELDNAME="Notes" DESCRIPTION="Opmerkingen" HEIGHT="14" WIDTH="33" POSITION="Left" PROTECTED="N" />
     </TabItem>
     <TabItem DESCRIPTION="Geschiedenis" ICON="tdot.gif">
       <Table FIELDNAME="Table1" HEIGHT="15" WIDTH="0" POSITION="Left">
 	<TableTextField FIELDNAME="HistoryID" DESCRIPTION="ID" LENGTH="3" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="5" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
 	<TableTextField FIELDNAME="a0t" DESCRIPTION="Titel" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-	<TableTextField FIELDNAME="b9t" DESCRIPTION="User Name" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TableTextField FIELDNAME="b9t" DESCRIPTION="Gebruikersnaam" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<TableTextField FIELDNAME="e6t" DESCRIPTION="Datum" LENGTH="8" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
 	<TableTextField FIELDNAME="s2t" DESCRIPTION="IP" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
       </Table>
       <Panel POSITION="Left" HIDDEN="N">
-	<Button FIELDNAME="ViewDtl" DESCRIPTION="Bekijk / Restore Geschiedenis" POSITION="Left" LINK="KeePass003" METHOD="getCrypHistory" />
+	<Button FIELDNAME="ViewDtl" DESCRIPTION="Bekijk / herstellen Geschiedenis" POSITION="Left" LINK="KeePass003" METHOD="getCrypHistory" />
       </Panel>
     </TabItem>
     <TabItem DESCRIPTION="Afbeelding - Afbeelding" ICON="tdot.gif">
-      <ImageBox FIELDNAME="Image" LENGTH="33" HEIGHT="17" WIDTH="0" POSITION="Left" PROTECTED="N" ENCRYPT="N" />
+      <ImageBox FIELDNAME="Image" LENGTH="33" HEIGHT="15" WIDTH="0" POSITION="Left" PROTECTED="N" ENCRYPT="N" />
     </TabItem>
   </TabGroup>
 </SCRIPT>

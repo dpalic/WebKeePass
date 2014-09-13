@@ -83,9 +83,7 @@ public class JPEGEncoder {
 		encoder.setJPEGEncodeParam(param);
 		try {
 			encoder.encode(bimg);
-		} catch (ImageFormatException e) {
-			return false;
-		} catch (IOException e) {
+		} catch (Exception e) {
 			return false;
 		}
 		return true;

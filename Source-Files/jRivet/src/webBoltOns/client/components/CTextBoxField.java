@@ -315,7 +315,6 @@ public class CTextBoxField extends JTextField
 		// is the text field editable?
 		if (!comp.isProtected()) {
 			addKeyListener(this);
-
 			if (!comp.getLink().equals("") || dataType.equals("DAT") || dataType.equals("FLT")) 
 				addMouseListener(this);
 			
@@ -409,8 +408,9 @@ public class CTextBoxField extends JTextField
 
 	
 	public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == 10) {
+		if (e.getKeyCode() == 10) {	 
 			commitEditing(getText());
+			 
 		} else if (e.getKeyCode() == 27) {
 			return;
 		} else if (e.getModifiers() == 0 && e.getKeyCode() == 115) {

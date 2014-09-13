@@ -51,22 +51,12 @@ package webBoltOns.server;
  *
  * http://www.jRivet.com/download/
  */
-import com.google.api.translate.Language;
-import com.google.api.translate.Translate;
+ 
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.Reader;
-import java.io.Writer;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Enumeration;
@@ -80,7 +70,8 @@ import org.xml.sax.InputSource;
 
 import webBoltOns.client.WindowItem;
 import webBoltOns.dataContol.DataAccess;
-import webBoltOns.dataContol.DataSet; 
+import webBoltOns.dataContol.DataSet;
+
 import com.sun.xml.tree.XmlDocument;
 
 public class DevelopmentTools {
@@ -380,57 +371,8 @@ public class DevelopmentTools {
 			elmnt.setAttribute(attrName, attrValue);
 	}	
 
-	
-	
-
-	public void transScripts(DataAccess dataAccess) {
-		 
-		try {
-			String dir [] = new File(dataAccess.getScriptPath() + "ENG" + fs).list();
-		    for (int x =0; x< dir.length; x++) {
-		    	String rec[] = new String[3];
-		    	StringBuilder outb = new StringBuilder();
-		    	String line = null;
-		    	File file = new File(dataAccess.getScriptPath() + "ENG" + fs + dir[x]);
-		    	BufferedReader input =  new BufferedReader(new FileReader(file));
-		        while (( line = input.readLine()) != null){
-		        	outb.append(translate(line));
-		        	outb.append(System.getProperty("line.separator"));
-		          }
-		        input.close();
-
-		        file = new File(dataAccess.getScriptPath() + "FRN" + fs + dir[x]);
-		        Writer output = new BufferedWriter(new FileWriter(file));
-		        
-		       output.write(input.toString());
-		       output.close();       
-		    }
-		    
-		
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		    
-	}
-	
-	  public String translate(String in)  {
-		  String out = in;
-		  int a = in.indexOf("DESCRIPTION=\"");
-		  if(a != -1) {
-			  int b = in.indexOf("\"" ,a + 13);
-			  String trans = in.substring(a + 13, b); 
-			    Translate.setHttpReferrer("http://ossfree.net");
-			    String translatedText;
-				try {
-					translatedText = Translate.execute(trans, Language.ENGLISH, Language.FRENCH);
-					out = in.substring(0, a + 13) + translatedText + in.substring(b);
-				} catch (Exception e) {
-				}
-			    System.out.println(in);
-			    System.out.println(out);
-		  }
-		    return out;
-	  }	
+ 
+ 
 
 }
 

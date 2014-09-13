@@ -16,7 +16,7 @@
 <!--	 	 File Path :  C:\java\myProjects\scripts\UserReport1.xml -->
 <!--	 	 Last Update :  11-Jul-2005 -->
 <!--	 	 User Profile:  DEFAULT -->
-<SCRIPT SCRIPT_NAME="UserReport1" DESCRIPTION="User Access-rapport">
+<SCRIPT SCRIPT_NAME="UserReport1" DESCRIPTION="User Access Report">
   <SqlQuery>SELECT DISTINCTROW jrusers.UserID, jrusers.GroupID, jrusers.UserDescription, jrusers.Name, 
 	jrgroupaccess.MenuItem, jrgroupaccess.GroupItemDescription, 
 	jrgroupaccess.ItemAccessLevel, 

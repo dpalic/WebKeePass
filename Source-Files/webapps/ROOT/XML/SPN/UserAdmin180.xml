@@ -8,10 +8,10 @@
 <!--	 	 File Path :  /usr/jRivet-2.060206-Linux/jakarta-tomcat-5.5.7/webapps/jRivetExample1/WEB-INF/XML/UserAdmin180.xml -->
 <!--	 	 Last Update :  05-Feb-2006 -->
 <!--	 	 User Profile:  GENERAL -->
-<SCRIPT SCRIPT_NAME="UserAdmin180" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.DevelopmentTools" AUTO_REFRESH="false" DESCRIPTION="Generar Base Fuente Java" Screen_Title="Generate Base Java Source " WIDTH="700" HEIGHT="546">
+<SCRIPT SCRIPT_NAME="UserAdmin180" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.DevelopmentTools" AUTO_REFRESH="false" DESCRIPTION="Generar base de la fuente de Java" Screen_Title="Generate Base Java Source " WIDTH="700" HEIGHT="546">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Borrar" ICON="iClear.gif" />
-    <BarButton TYPE="POST" DESCRIPTION="Crear archivo Java Fuente" METHOD="createJavaSourceFile" ICON="iEdit.gif" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Claro" ICON="iClear.gif" />
+    <BarButton TYPE="POST" DESCRIPTION="Crear archivos fuente de Java" METHOD="createJavaSourceFile" ICON="iEdit.gif" />
   </ButtonBar>
   <Panel POSITION="Left" Hidden="N">
     <TextField DESCRIPTION="Nombre de clase" FIELDNAME="ClassName" LENGTH="22" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
@@ -20,8 +20,8 @@
   </Panel>
   <TabGroup HEIGHT="0" WIDTH="0" POSITION="Left" COMPONENT_ORIENTATION="Top">
     <TabItem DESCRIPTION="Base de datos de la Tabla">
-      <Panel DESCRIPTION="Nombre de tabla" POSITION="Left Fill" Hidden="N">
-	<TextField DESCRIPTION="Nombre de tabla" FIELDNAME="TableName" LENGTH="20" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
+      <Panel DESCRIPTION="Nombre de la tabla" POSITION="Left Fill" Hidden="N">
+	<TextField DESCRIPTION="Nombre de la tabla" FIELDNAME="TableName" LENGTH="20" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
 	<TextField DESCRIPTION="Campo clave" FIELDNAME="KeyField1" LENGTH="15" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
 	<ComboBox FIELDNAME="KeyType" LENGTH="6" DATATYPE="CHR">
 	  <ComboItem DESCRIPTION="Comisión de Derechos Humanos" />
@@ -29,27 +29,27 @@
 	  <ComboItem DESCRIPTION="FLT" />
 	</ComboBox>
       </Panel>
-      <Panel DESCRIPTION="Tabla Descripción" POSITION="Left" Hidden="N">
+      <Panel DESCRIPTION="Descripción Tabla" POSITION="Left" Hidden="N">
 	<TextArea FIELDNAME="TableDescription" HEIGHT="6" WIDTH="20" POSITION="Left" PROTECTED="N" />
       </Panel>
     </TabItem>
     <TabItem DESCRIPTION="Opciones de archivo de origen">
-      <CheckBox DESCRIPTION="Detalle Obtener Método" FIELDNAME="CreateGetMethod" POSITION="Left" />
+      <CheckBox DESCRIPTION="Detalle método Get" FIELDNAME="CreateGetMethod" POSITION="Left" />
       <TextField FIELDNAME="GetMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
-      <CheckBox DESCRIPTION="Detalle Obtener Método Siguiente" FIELDNAME="CreateGetNextMethod" POSITION="Left" />
+      <CheckBox DESCRIPTION="Detalles Obtenga Método Siguiente" FIELDNAME="CreateGetNextMethod" POSITION="Left" />
       <TextField FIELDNAME="GetNextMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
-      <CheckBox DESCRIPTION="Detalle Obtener Método Anterior" FIELDNAME="CreateGetPrevMethod" POSITION="Left" />
+      <CheckBox DESCRIPTION="Detalles Obtenga método anterior" FIELDNAME="CreateGetPrevMethod" POSITION="Left" />
       <TextField FIELDNAME="GetPrevMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
-      <CheckBox DESCRIPTION="Método de actualización de Detalle" FIELDNAME="CreateUpdateMethod" POSITION="Left" />
+      <CheckBox DESCRIPTION="Información sobre métodos de actualización" FIELDNAME="CreateUpdateMethod" POSITION="Left" />
       <TextField FIELDNAME="UpdateMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
-      <CheckBox DESCRIPTION="Eliminar detalles Método" FIELDNAME="CreateDeleteMethod" POSITION="Left" />
+      <CheckBox DESCRIPTION="Información sobre métodos Eliminar" FIELDNAME="CreateDeleteMethod" POSITION="Left" />
       <TextField FIELDNAME="DeleteMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
-      <CheckBox DESCRIPTION="Tabla método de la lista" FIELDNAME="CreateTableListMethod" POSITION="Left" />
+      <CheckBox DESCRIPTION="La tabla de métodos de lista" FIELDNAME="CreateTableListMethod" POSITION="Left" />
       <TextField FIELDNAME="TableListMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
-      <CheckBox DESCRIPTION="Método de actualización de la Tabla" FIELDNAME="CreateTableUpdateMethod" POSITION="Left" />
+      <CheckBox DESCRIPTION="La tabla de métodos de actualización" FIELDNAME="CreateTableUpdateMethod" POSITION="Left" />
       <TextField FIELDNAME="TableUpdateMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
     </TabItem>
-    <TabItem DESCRIPTION="Comentarios Fuente de cabecera">
+    <TabItem DESCRIPTION="Comentarios Fuente Encabezado">
       <TextArea FIELDNAME="Comments" HEIGHT="11" WIDTH="20" POSITION="Left" PROTECTED="N" />
     </TabItem>
   </TabGroup>

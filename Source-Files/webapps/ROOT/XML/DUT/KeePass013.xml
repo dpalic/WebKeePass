@@ -8,19 +8,19 @@
 <!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass013.xml -->
 <!--	 	 Last Update :  18-Mar-2009 -->
 <!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="KeePass013" DOCUMENT_TYPE="Window" CLASS_NAME="server.Akin" METHOD="getMySharesList" AUTO_REFRESH="false" ICON="WKP6.jpg" DESCRIPTION="Gedeelde wachtwoorden door Categorie" Screen_Title="Shared Passwords By Category" WIDTH="1015" HEIGHT="680">
+<SCRIPT SCRIPT_NAME="KeePass013" DOCUMENT_TYPE="Window" CLASS_NAME="server.Akin" METHOD="getMySharesList" AUTO_REFRESH="false" ICON="WKP6.jpg" DESCRIPTION="Gedeelde Wachtwoorden Op categorie" Screen_Title="Shared Passwords By Category" WIDTH="1015" HEIGHT="680">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Duidelijke" ICON="iClear.gif" />
-    <BarButton TYPE="FIND" DESCRIPTION="Vernieuwen" ICON="iFind.gif" METHOD="getMySharesList" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Duidelijk" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Verversen" ICON="iFind.gif" METHOD="getMySharesList" />
   </ButtonBar>
   <TreeTable FIELDNAME="Table1" DESCRIPTION="Groep" HEIGHT="0" WIDTH="0" METHOD="expandMySharesList">
     <TableTextField FIELDNAME="KeeperID" DESCRIPTION="+ ID" LENGTH="6" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
     <TableTextField FIELDNAME="Category" DESCRIPTION="Categorie" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
-    <TableTextField FIELDNAME="CreateDate" DESCRIPTION="Toegevoegd op" LENGTH="8" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Center" />
+    <TableTextField FIELDNAME="CreateDate" DESCRIPTION="Datum toegevoegd" LENGTH="8" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Center" />
     <TableImageField FIELDNAME="KepperIcon" DESCRIPTION="Icn" LENGTH="2" ENCRYPT="N" />
     <TableTextField FIELDNAME="PasswordID" DESCRIPTION="-ID" LENGTH="10" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
     <TableTextField FIELDNAME="a0" DESCRIPTION="Titel" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-    <TableTextField FIELDNAME="b9" DESCRIPTION="User Name" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <TableTextField FIELDNAME="b9" DESCRIPTION="Gebruikersnaam" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
     <TableTextField FIELDNAME="j1" DESCRIPTION="Gedeeld door" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
     <TableTextField FIELDNAME="w3" DESCRIPTION="Share-naam" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
   </TreeTable>

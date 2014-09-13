@@ -10,15 +10,15 @@
 <!--	 	 User Profile:  admin -->
 <SCRIPT SCRIPT_NAME="UserAdmin220" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.UserSecurityManager" METHOD="getBUnitList" AUTO_REFRESH="false" DESCRIPTION="Perfiles de Empresas" Screen_Title="Company Profiles" WIDTH="860" HEIGHT="650">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Borrar" ICON="iClear.gif" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Claro" ICON="iClear.gif" />
     <BarButton TYPE="FIND" DESCRIPTION="Find It!" ICON="iFind.gif" METHOD="getBUnitList" />
-    <BarButton TYPE="POST" DESCRIPTION="Añadir / actualizar" ICON="iEdit.gif" METHOD="updateBUnitList" />
+    <BarButton TYPE="POST" DESCRIPTION="Agregar / actualizar" ICON="iEdit.gif" METHOD="updateBUnitList" />
     <BarButton TYPE="NEW-LINE" DESCRIPTION="Nuevo" ICON="iNew.gif" />
   </ButtonBar>
   <Table FIELDNAME="[BUnitList/]" HEIGHT="22" WIDTH="0" POSITION="Left">
-    <TableTextField FIELDNAME="BUnit" DESCRIPTION="Número de compensación" LENGTH="9" DECIMALS="0" DATATYPE="CHR" DATA_LEN="20" PROTECTED="N" ZERO_FILL_VALUE="N" ALIGNMENT="Center" />
+    <TableTextField FIELDNAME="BUnit" DESCRIPTION="Comp Número" LENGTH="9" DECIMALS="0" DATATYPE="CHR" DATA_LEN="20" PROTECTED="N" ZERO_FILL_VALUE="N" ALIGNMENT="Center" />
     <TableTextField FIELDNAME="BUnitDesc" DESCRIPTION="Descripción" LENGTH="30" DECIMALS="0" DATATYPE="CHR" DATA_LEN="60" PROTECTED="N" ZERO_FILL_VALUE="N" />
-    <TableTextField FIELDNAME="LastUpdate" DESCRIPTION="Ultima actualización de la" LENGTH="8" DECIMALS="0" DATATYPE="DAT" DATA_LEN="20" PROTECTED="Y" ZERO_FILL_VALUE="N" ALIGNMENT="Center" />
+    <TableTextField FIELDNAME="LastUpdate" DESCRIPTION="Última actualización" LENGTH="8" DECIMALS="0" DATATYPE="DAT" DATA_LEN="20" PROTECTED="Y" ZERO_FILL_VALUE="N" ALIGNMENT="Center" />
   </Table>
 </SCRIPT>
 

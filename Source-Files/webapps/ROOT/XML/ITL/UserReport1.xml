@@ -16,7 +16,7 @@
 <!--	 	 File Path :  C:\java\myProjects\scripts\UserReport1.xml -->
 <!--	 	 Last Update :  11-Jul-2005 -->
 <!--	 	 User Profile:  DEFAULT -->
-<SCRIPT SCRIPT_NAME="UserReport1" DESCRIPTION="User Access Report">
+<SCRIPT SCRIPT_NAME="UserReport1" DESCRIPTION="Rapporto di accesso utente">
   <SqlQuery>SELECT DISTINCTROW jrusers.UserID, jrusers.GroupID, jrusers.UserDescription, jrusers.Name, 
 	jrgroupaccess.MenuItem, jrgroupaccess.GroupItemDescription, 
 	jrgroupaccess.ItemAccessLevel, 
@@ -28,6 +28,6 @@
   <Column FIELDNAME="UserDescription" DESCRIPTION="Descrizione" DATATYPE="CHR" LENGTH="22" DECIMALS="0" ALIGNMENT="Left" LEVELBREAK="2" SUBTOTAL="N" />
   <Column FIELDNAME="MenuItem" DESCRIPTION="Voce di menu" DATATYPE="CHR" LENGTH="20" DECIMALS="0" ALIGNMENT="Left" LEVELBREAK="0" SUBTOTAL="N" />
   <Column FIELDNAME="GroupItemDescription" DESCRIPTION="Menu Descrizione" DATATYPE="CHR" LENGTH="33" DECIMALS="0" ALIGNMENT="Left" LEVELBREAK="0" SUBTOTAL="N" />
-  <Column FIELDNAME="ItemAccessLevel" DESCRIPTION="Access" DATATYPE="INT" LENGTH="6" DECIMALS="0" ALIGNMENT="Center" LEVELBREAK="0" SUBTOTAL="N" />
+  <Column FIELDNAME="ItemAccessLevel" DESCRIPTION="Accesso" DATATYPE="INT" LENGTH="6" DECIMALS="0" ALIGNMENT="Center" LEVELBREAK="0" SUBTOTAL="N" />
 </SCRIPT>
 

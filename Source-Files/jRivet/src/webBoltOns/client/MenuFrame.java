@@ -103,6 +103,7 @@ import javax.swing.JTree;
 import javax.swing.KeyStroke;
 import javax.swing.RepaintManager;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.ToolTipManager;
 import javax.swing.UIManager;
 import javax.swing.border.BevelBorder;
@@ -492,6 +493,8 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 			"UAD0100", "UAD0120", "UAD0150", "UAD0160",
 			"UAD0190" };
 
+	private String startup = "KeePass006";
+	
 	private AppletConnector cntr;
 
 	private String bt;
@@ -530,7 +533,7 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 
 	private JComboBox srvrLgs, combomode;
 
-	private JLabel stdFtNm, hdeFtNm, bTitle, cpyL;
+	private JLabel stdFtNm, hdeFtNm, bTitle, cpyL, robotL;
 
 	private CTabbedControlPane mainTab = new CTabbedControlPane();
 
@@ -611,13 +614,12 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 	}
 
 	
-	public void copyToClipTimer(String clip) {
-		
+	
+	public void copyToClipTimer(String clipName, String clipVal) {		
 			if (cpyBar.isVisible() && timer != null) {
  		 		endTimer = true;
  		 		while(timer.isAlive()); 
 			}
-
 			
 			timer = new Thread()  {			 
              public void run() {
@@ -643,7 +645,10 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
          	   }
              }
 			};
-			clpbrd.setContents(new StringSelection(clip), MenuFrame.this);
+			
+			clpbrd.setContents(new StringSelection(clipVal), MenuFrame.this);
+			cpyL.setText(clipName + " -- " + cntr.getMsgText("TXT0055"));
+			
 			timer.start();	 
 	}
 	
@@ -919,24 +924,25 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 		infoT.setActionCommand("infoT");
 		infoT.addActionListener(this);
 
-
-		
 		logot = cntr.buildFancyButton("", "logout.gif", cntr.getMsgText("TXT0054"), ' ');
 		logot.setActionCommand("logOut");
 		logot.addActionListener(this);
 		
 		if (checkSecurity()) clpbrd = cntr.getToolkit().getSystemClipboard();
 	
+		robotL = new JLabel("");
 		cpyL = new JLabel(cntr.getMsgText("TXT0055"));
 		cpyL.setFont(new java.awt.Font("Arial", 1, 8));
 		cpyBar = new JProgressBar(0, 10);
 		cpyBar.setPreferredSize(new Dimension(50, 10));
 		cpyBar.setStringPainted(false);
 
+		robotL.setVisible(true);
 		cpyL.setVisible(false);
 		cpyBar.setVisible(false);	
-		
+	    	
 		final JPanel controls = new JPanel();
+		controls.add(robotL);
 		controls.add(cpyL);
 		controls.add(cpyBar);
 		controls.add(logot);
@@ -1001,12 +1007,20 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 			}
 		});
 	
+		
+		if(startup != "") loadScript(MenuItem.SCRIPT_TO_RUN_OBJECT, "KeePass006", 3);
 	}
 	
 	
+	public void displayRobot(boolean t) { 
+		if(t)
+			robotL.setIcon(cntr.getImageIcon("run.jpg"));
+		else
+			robotL.setIcon(null);
+	}
+		
 	
-	
-/*  */
+ 
 	public void setSplit() {
 		if (horSplit.getDividerLocation() > 10) {
 			horSplit.setDividerLocation(0);

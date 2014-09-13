@@ -287,7 +287,7 @@ public class CDocManager  extends CTableContainer implements StandardComponentLa
 		
 	  isp.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 	  isp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-	  isp.setPreferredSize(new Dimension(totwidth + 40, totlenght + 15));
+	  isp.setPreferredSize(new Dimension(tbWidth + 40, tbHeight + 15));
 	  
 	  tabs = new JTabbedPane();
 	  tabs.addTab(cnct.getMsgText("TXT0099"), cnct.getImageIcon("dot.gif"), this);

@@ -1,76 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Literals>
-  <Literal LiteralID = "SVR0001"  Text="Data Base Fout - Database Error - Neem contact op met de systeembeheerder"  Severity="30" Type="MessageBar"/>
+  <Literal LiteralID = "SVR0001"  Text="Data Base Error - Database Error - Please contact systems administrator"  Severity="30" Type="MessageBar"/>
 
-  <Literal LiteralID = "SVR0002"  Text="Afgesloten server verzoek" Severity="00" Type="Pop-Up" />
+  <Literal LiteralID = "SVR0002"  Text="Verzoek server Voltooid" Severity="00" Type="Pop-Up" />
 
-  <Literal LiteralID = "SVR0003"  Text="Verzoek niet compleet: Review onderstaande fouten" Severity="00" Type="Pop-Up" /> 
+  <Literal LiteralID = "SVR0003"  Text="Aanvraag niet compleet: Review fouten Hieronder" Severity="00" Type="Pop-Up" /> 
   
-  <Literal LiteralID = "SVR0004"  Text="Klasse niet gevonden - Neem contact op met de systeembeheerder"  Severity="30" Type="MessageBar" />
+  <Literal LiteralID = "SVR0004"  Text="Class Not Found - Please contact systems administrator"  Severity="30" Type="MessageBar" />
 
   <Literal LiteralID = "SVR0005"  Text="Server Security Uitzondering - Neem contact op met de systeembeheerder"  Severity="30" Type="MessageBar" />
   
-  <Literal LiteralID = "SVR0006"  Text="Methode niet gevonden - Neem contact op met de systeembeheerder"   Severity="30" Type="MessageBar" />
+  <Literal LiteralID = "SVR0006"  Text="Method Not Found - Neem contact op met de systeembeheerder"   Severity="30" Type="MessageBar" />
 
-  <Literal LiteralID = "SVR0007"  Text="Instantiatie Fout - Neem contact op met de systeembeheerder"  Severity="30" Type="MessageBar" />
+  <Literal LiteralID = "SVR0007"  Text="Instantiation Error - Please contact systems administrator"  Severity="30" Type="MessageBar" />
 	
-  <Literal LiteralID = "SVR0008"  Text="Server Security Error-Neem contact op met de systeembeheerder"  Severity="30" Type="MessageBar" />
+  <Literal LiteralID = "SVR0008"  Text="Server Security Error- Please contact systems administrator"  Severity="30" Type="MessageBar" />
 
-  <Literal LiteralID = "SVR0009"  Text="Invocation Target / Stack Trap Fout - Neem contact op met de systeembeheerder"  Severity="30" Type="MessageBar" />
+  <Literal LiteralID = "SVR0009"  Text="Invocation Target / Stack Trap Error - Please contact systems administrator"  Severity="30" Type="MessageBar" />
 
   <Literal LiteralID = "SVR0011"  Text="Het menu Bestand niet gevonden"  Severity="30" Type="MessageBar" /> 
   
-  <Literal LiteralID = "SVR0012"  Text="Het menu Bestand XML Parse Error"  Severity="30" Type="MessageBar" />			
+  <Literal LiteralID = "SVR0012"  Text="Menu File XML Parse Error"  Severity="30" Type="MessageBar" />			
 			
-  <Literal LiteralID = "SVR0014"  Text="Menu Bestand I / O-fout"  Severity="30" Type="MessageBar" />
+  <Literal LiteralID = "SVR0014"  Text="Menu File I / O-fout"  Severity="30" Type="MessageBar" />
   
-  <Literal LiteralID = "SVR0015"  Text="Script niet gevonden - Neem contact op met de systeembeheerder"  Severity="30" Type="MessageBar" /> 
+  <Literal LiteralID = "SVR0015"  Text="Script Not Found  - Please contact systems administrator"  Severity="30" Type="MessageBar" /> 
 
   <Literal LiteralID = "SVR0016"  Text="Script XML Parse Error - Neem contact op met de systeembeheerder"  Severity="30" Type="MessageBar" /> 
   
-  <Literal LiteralID = "SVR0017"  Text="Scriptbestand Fout - Neem contact op met de systeembeheerder"  Severity="30" Type="MessageBar" /> 
+  <Literal LiteralID = "SVR0017"  Text="Script File Error - Neem contact op met de systeembeheerder"  Severity="30" Type="MessageBar" /> 
 
 
 
 
 
-  <Literal LiteralID = "LIT0001"  Text="Item niet gevonden - Nieuw bericht"  Severity="10" Type="MessageBar"/>
+  <Literal LiteralID = "LIT0001"  Text="Item Not Found - New Entry"  Severity="10" Type="MessageBar"/>
 
-  <Literal LiteralID = "LIT0002"  Text="Item niet gevonden - Per einde van het Bestand"   Severity="30" Type="MessageBar"/>
+  <Literal LiteralID = "LIT0002"  Text="Item niet gevonden - Aan het einde van bestand"   Severity="30" Type="MessageBar"/>
 
-  <Literal LiteralID = "LIT0003"  Text="Item niet gevonden - bij het begin van File"  Severity="30" Type="MessageBar" />
+  <Literal LiteralID = "LIT0003"  Text="Item Not Found - At Start of File"  Severity="30" Type="MessageBar" />
 
   <Literal LiteralID = "LIT0004"  Text="Item is bijgewerkt" Severity="00" Type="MessageBar" />
 
   <Literal LiteralID = "LIT0005"  Text="Item toegevoegd"  Severity="00" Type="MessageBar"/>
 
-  <Literal LiteralID = "LIT0006"  Text="Item (s) Weggelaten"  Severity="00" Type="MessageBar"/>
+  <Literal LiteralID = "LIT0006"  Text="Item (s) Geschrapt"  Severity="00" Type="MessageBar"/>
  
-  <Literal LiteralID = "LIT0007"  Text="Database Error - Neem contact op met de systeembeheerder"  Severity="30" Type="MessageBar"/>
+  <Literal LiteralID = "LIT0007"  Text="Database Error - Please contact systems administrator"  Severity="30" Type="MessageBar"/>
 
-  <Literal LiteralID = "LIT0008"  Text="Geëxporteerde item"  Severity="00" Type="MessageBar"/>
+  <Literal LiteralID = "LIT0008"  Text="Item Exported"  Severity="00" Type="MessageBar"/>
 
-  <Literal LiteralID = "LIT0009"  Text="Geïmporteerde item"  Severity="00" Type="MessageBar"/>
+  <Literal LiteralID = "LIT0009"  Text="Item Geïmporteerde"  Severity="00" Type="MessageBar"/>
  
-  <Literal LiteralID = "LIT0010"  Text="Script niet gevonden"  Severity="30" Type="MessageBar"/>
+  <Literal LiteralID = "LIT0010"  Text="Script Not Found"  Severity="30" Type="MessageBar"/>
 
   <Literal LiteralID = "LIT0011"  Text="Item niet gevonden"  Severity="30" Type="MessageBar"/>
  
-  <Literal LiteralID = "LIT0012"  Text="Ongeldige groep ID"  Severity="30" Type="MessageBar"/>
+  <Literal LiteralID = "LIT0012"  Text="Groeps-ID ongeldig"  Severity="30" Type="MessageBar"/>
 
   <Literal LiteralID = "LIT0013"  Text="Ongeldige Server Access"  Severity="30" Type="MessageBar"/>
 
-  <Literal LiteralID = "LIT0014"  Text="Ongeldige datum opmaak"  Severity="30" Type="MessageBar"/>
+  <Literal LiteralID = "LIT0014"  Text="Ongeldige Datumnotatie"  Severity="30" Type="MessageBar"/>
 
-  <Literal LiteralID = "LIT0015"  Text="Ongeldige Menu XML-bestand"  Severity="30" Type="MessageBar"/>
+  <Literal LiteralID = "LIT0015"  Text="Invalid Menu XML File"  Severity="30" Type="MessageBar"/>
 
  
-  <Literal LiteralID = "WKP0001"  Text="Ongeldige Web User / Group"  Severity="30" Type="MessageBar"/>
+  <Literal LiteralID = "WKP0001"  Text="Invalid Web User/Group"  Severity="30" Type="MessageBar"/>
  
-  <Literal LiteralID = "WKP0002"  Text="Wachtwoord Post niet geldig"  Severity="30" Type="MessageBar"/>
+  <Literal LiteralID = "WKP0002"  Text="Item wachtwoord niet geldig"  Severity="30" Type="MessageBar"/>
  
-  <Literal LiteralID = "WKP0003"  Text="Ongeldig of-actieve KeePass Groep"  Severity="30" Type="MessageBar"/>
+  <Literal LiteralID = "WKP0003"  Text="Ongeldige of in-actieve KeePass Group"  Severity="30" Type="MessageBar"/>
   
   <Literal LiteralID = "WKP0004"  Text="Wachtwoord ID is blanks"  Severity="30" Type="MessageBar"/>
 
@@ -78,16 +78,16 @@
 
   <Literal LiteralID = "OSS0001"  Text="Java Solutions Voor Enterprise Applications" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "OSS0002"  Text="Nog een gratis Toepassing Door:" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "OSS0002"  Text="Nog een gratis applicatie Door:" Severity="00" Type="MessageText"/>
 
 
-  <Literal LiteralID = "UAD0110"  Text="Edit Web User"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "UAD0110"  Text="Bewerk Web User"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "UAD0130"  Text="Web User Profiles"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "UAD0100"  Text="Edit Web User Group"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "UAD0100"  Text="Bewerk Web User Group"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "UAD0120"  Text="Web User Group Profielen"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "UAD0120"  Text="Web User Group Profiles"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "UAD0150"  Text="Script bewerken"  Severity="00" Type="MessageText"/>
 
@@ -98,7 +98,7 @@
 
 
 
-  <Literal LiteralID = "MTH0001"  Text="Januari"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "MTH0001"  Text="January"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "MTH0002"  Text="Februari"  Severity="00" Type="MessageText"/>
 
@@ -106,11 +106,11 @@
 
   <Literal LiteralID = "MTH0004"  Text="April"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "MTH0005"  Text="Kan"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "MTH0005"  Text="Kunnen"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "MTH0006"  Text="Juni"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "MTH0006"  Text="June"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "MTH0007"  Text="Juli"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "MTH0007"  Text="July"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "MTH0008"  Text="Augustus"  Severity="00" Type="MessageText"/>
 
@@ -125,19 +125,19 @@
 
 
 
-  <Literal LiteralID = "PWD0001"  Text="Boven-en kleine letters"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "PWD0001"  Text="Upper and Lower Letters "  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "PWD0002"  Text="Lagere Letters"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "PWD0003"  Text="Lagere Letters en cijfers"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "PWD0003"  Text="Lower Letters and Numbers"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "PWD0004"  Text="Opper-en Neder Letters en cijfers"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "PWD0004"  Text="Upper and Lower Letters and Numbers"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "PWD0005"  Text="Alle afdrukbare tekens"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "PWD0006"  Text="Bovenste Letters"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "PWD0006"  Text="Upper Letters"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "PWD0007"  Text="Bovenste Letters en cijfers"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "PWD0007"  Text="De bovenste Letters en cijfers"  Severity="00" Type="MessageText"/>
 
 
 
@@ -145,81 +145,81 @@
 
   <Literal LiteralID = "TXT0002"  Text="Selecteer Kleur"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0003"  Text="Selecteer Datum"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0003"  Text="Select Date"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0004"  Text="Vandaag"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0004"  Text="Today"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0005"  Text="Calculator"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0006"  Text="Return waarde"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0006"  Text="Return Value"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0007"  Text="Lettertype selecteren"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0007"  Text="Select Font"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0008"  Text="Tekstkleur"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0008"  Text=" Font Color "  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0009"  Text="Voorbeeld tekst"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0009"  Text=" Sample Text "  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0010"  Text="Preview"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0010"  Text=" Preview "  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0011"  Text="Bevestiging verwijderen"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0011"  Text="Delete Confirmation"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0012"  Text="Geselecteerde items verwijderen?"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0012"  Text="Delete Selected Items?"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0013"  Text="Ja"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0013"  Text=" Yes "  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0014"  Text="Geen"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0015"  Text="Session Time Out"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0016"  Text="Uw sessie zal nu een einde"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0016"  Text="Uw sessie zal nu eind"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0017"  Text="Log-Out"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0018"  Text="Log-out Bevestiging"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0018"  Text="Log-out Confirmation"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0019"  Text="Log-off van deze sessie?"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0019"  Text="Log-off deze sessie?"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0020"  Text="Hoofdlettergevoelig"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0020"  Text="Match case"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0021"  Text="Alleen hele woorden"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0022"  Text="Zoeken naar beneden"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0022"  Text="Search down"  Severity="00" Type="MessageText"/>
  
-  <Literal LiteralID = "TXT0023"  Text="Opties"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0023"  Text="Options"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0024"  Text="Vervangen:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0024"  Text="Replace:"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0025"  Text="Alleen hele woorden"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0025"  Text="Whole words only"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0026"  Text="Zoek je"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0026"  Text="Zoek op"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0027"  Text="Zoek Zoekreeks"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0027"  Text="Find Search String"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0028"  Text="Vervang String"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0028"  Text="Replace String"  Severity="00" Type="MessageText"/>
   
-  <Literal LiteralID = "TXT0029"  Text="Alles vervangen"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0029"  Text="Replace All"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0030"  Text="Zoek / Vervang"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0030"  Text="Find / Replace"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0031"  Text="Verzoek van het netwerk"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0031"  Text="Netwerk Aanvraag"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0032"  Text="Ongeldige Field Entry"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0033"  Text="Verzoeken om bevestiging"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0033"  Text="Bevestiging vragen"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0034"  Text="Een woord van waarschuwing"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0034"  Text="A Word Of Warning    "  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0035"  Text="Gebruikersnaam:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0035"  Text="Username:"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0036"  Text="Wachtwoord:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0036"  Text="Password:"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0038"  Text="Server Connection Reset-Probeer het later opnieuw"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0038"  Text="Server Connection later opnieuw Reset-Try"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0039"  Text="HTTP-fout"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0040"  Text="Verzoek Wachtwoord wijzigen"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0040"  Text="Request Change Password"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0041"  Text="Verander mijn wachtwoord"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0041"  Text="Change My Password"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0042"  Text="Wachtwoord kan niet worden spaties"  Severity="00" Type="MessageText"/>
 
@@ -229,77 +229,77 @@
 
   <Literal LiteralID = "TXT0045"  Text="Open verbindingen:"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0046"  Text="Objecten:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0046"  Text="Objects: "  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0047"  Text="Menu XML:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0047"  Text="Menu XML: "  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0048"  Text="Datum Formaat:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0048"  Text="Date Format: "  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0049"  Text="Servlet Bereikbaarheid:" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0049"  Text="Servlet Access:" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0050"  Text="Servlet Logs:" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0051"  Text="Bekijk Server Log" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0051"  Text="View Server Log" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0052"  Text="User Security en bewerken XML" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0052"  Text="User Security And Edit XML" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0053"  Text="Tools" Severity="00" Type="MessageText"/>
  
   <Literal LiteralID = "TXT0054"  Text="Log-off" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0055"  Text="Klembord gewist in:" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0055"  Text="Clipboard cleared in:" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0056"  Text="Stel Split"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0056"  Text="Set Split"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0057"  Text="Gebruiker:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0057"  Text="   User: "  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0058"  Text="Datum:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0058"  Text="   Date: "  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0059"  Text="Aanpassen Desk Top"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0059"  Text="Customize Desk Top"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0060"  Text="Kleur"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0060"  Text="Color"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0061"  Text="Lettertype"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0061"  Text="Font"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0062"  Text="Achtergrond:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0062"  Text="Background: "  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0063"  Text="Std lettertype:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0063"  Text="Std font: "  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0064"  Text="Titelbalk Lettertype:"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0065"  Text="Titel Lettertype:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0065"  Text="Lettertype:"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0066"  Text="Titelbalk:"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0067"  Text="Cursor:"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0068"  Text="Opslaan Desktop"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0068"  Text="Op te slaan Desktop"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0069"  Text="Verander mijn wachtwoord"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0069"  Text="Password veranderen"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0070"  Text="Huidig wachtwoord:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0070"  Text="Huidig ​​wachtwoord:"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0071"  Text="Nieuwe wachtwoord:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0071"  Text="Nieuw wachtwoord:"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0072"  Text="Herhaal nieuwe wachtwoord:"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0073"  Text="Wachtwoord wijzigen"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0074"  Text="Start Administratieve Taken"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0074"  Text="Start beheertaken"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0075"  Text="Over"  Severity="00" Type="MessageText"/>
  
-  <Literal LiteralID = "TXT0076"  Text="Verander mijn wachtwoord"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0076"  Text="Password veranderen"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0077"  Text="Gratis Thema s"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0077"  Text="Desktop Themes"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0078"  Text="Script Details"  Severity="00" Type="MessageText"/>
  
   <Literal LiteralID = "TXT0079"  Text="Dock Venster"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0080"  Text="Screen Name:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0080"  Text="Schermnaam:"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0081"  Text="Command-toets:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0081"  Text="Command Keys:"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0082"  Text="Titel:"  Severity="00" Type="MessageText"/>
 
@@ -313,23 +313,23 @@
 
   <Literal LiteralID = "TXT0087"  Text="F4 = Prompt" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0088"  Text="Totaal Screen Objecten:" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0088"  Text="Totaal Scherm Objecten:" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0089"  Text="F5 = Uitvouwen Berichten" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0089"  Text="F5 = Uitvouwen berichten" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0090"  Text="Toon Script Tips:" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0091"  Text="Annuleren" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0092"  Text="Verzoek niet compleet: Review onderstaande fouten" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0092"  Text="Aanvraag niet compleet: Review fouten Hieronder" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0093"  Text="Afgesloten server verzoek" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0093"  Text="Verzoek server Voltooid" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0094"  Text="moet numeriek zijn" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0095"  Text="moet een geldige datum" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0095"  Text="moet een geldige datum te worden" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0096"  Text="moet een geldige tijd worden" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0096"  Text="moet een geldig tijd worden" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0097"  Text="Volgende zoeken" Severity="00" Type="MessageText"/>
 
@@ -355,13 +355,13 @@
 
   <Literal LiteralID = "TXT0108"  Text="Export" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0109"  Text="Bestandsindeling niet correct" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0109"  Text="Bestandsformaat niet correct" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0110"  Text="tonen / verbergen vergeten" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0110"  Text="tonen / verbergen wachtwoord" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0111"  Text="Maak een wachtwoord" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0112"  Text="Net" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0112"  Text="Zoals" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0113"  Text="Begint met" Severity="00" Type="MessageText"/>
 
@@ -375,15 +375,15 @@
 
   <Literal LiteralID = "TXT0118"  Text="Niet gelijk aan" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0119"  Text="Print" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0119"  Text="Afdrukken" Severity="00" Type="MessageText"/>
  
-  <Literal LiteralID = "TXT0120"  Text="Tabel kopiëren naar het klembord" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0120"  Text="Kopieer tabel naar het klembord" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0121"  Text="Gesneden" Severity="00" Type="MessageText"/>
  
-  <Literal LiteralID = "TXT0122"  Text="Kopie" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0122"  Text="Kopiëren" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0123"  Text="Plak" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0123"  Text="Pasta" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0124"  Text="Bron" Severity="00" Type="MessageText"/>
 
@@ -391,47 +391,47 @@
 
   <Literal LiteralID = "TXT0126"  Text="Zoeken en vervangen" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0127"  Text="Gratis Thema s" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0127"  Text="Desktop Themes" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0128"  Text="F1 = Dock Venster" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0129"  Text="F2 = Selecteer Menu" Severity="00" Type="MessageText"/>
   
-  <Literal LiteralID = "TXT0130"  Text="Robot bewerken" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0130"  Text="Edit Robot" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0131"  Text="Duidelijke Robot" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0131"  Text="Duidelijk Robot" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0132"  Text="Run Robot" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0133"  Text="Steek User-id" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0133"  Text="Plaats Gebruikers-id" Severity="00" Type="MessageText"/>
   
-  <Literal LiteralID = "TXT0134"  Text="Steek Wachtwoord Id" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0134"  Text="Plaats Wachtwoord Id" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0135"  Text="Steek Wachtwoord" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0135"  Text="Plaats Wachtwoord" Severity="00" Type="MessageText"/>
   
   <Literal LiteralID = "TXT0136"  Text="Voeg e-mail" Severity="00" Type="MessageText"/>
  
-  <Literal LiteralID = "TXT0137"  Text="Tabblad invoegen Key"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0137"  Text="Tabblad Invoegen Key"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0138"  Text="Steek Vertraging voor 2 Seconds"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0138"  Text="Plaats Vertraging voor 2 seconden"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0139"  Text="Steek Vertraging voor 5 seconden"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0139"  Text="Plaats Vertraging voor 5 seconden"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0140"  Text="Steek Vertraging voor 10 seconden"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0140"  Text="Vertraging invoegen voor 10 seconden"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0141"  Text="Steek Vertraging voor 20 seconden"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0141"  Text="Vertraging invoegen voor 20 seconden"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0142"  Text="Steek Enter-toets"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0142"  Text="Plaats Enter-toets"  Severity="00" Type="MessageText"/>
   
-  <Literal LiteralID = "TXT0143"  Text="Belasting Website"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0143"  Text="Belasting Web Site"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0144"  Text="Laad Alt-Web Site"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0145"  Text="Run Program"  Severity="00" Type="MessageText"/>
   
-  <Literal LiteralID = "TXT0146"  Text="Steek Terug Tab-toets"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0146"  Text="Plaats Terug naar Tab-toets"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0147"  Text="Steek Home Key"  Severity="00" Type="MessageText"/> 
+  <Literal LiteralID = "TXT0147"  Text="Plaats Home-toets"  Severity="00" Type="MessageText"/> 
 
 </Literals>
 

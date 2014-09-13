@@ -8,11 +8,11 @@
 <!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/XML/ENG/KeePass035.xml -->
 <!--	 	 Last Update :  26-Nov-2010 -->
 <!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="KeePass035" DOCUMENT_TYPE="Window" CLASS_NAME="server.Doc" AUTO_REFRESH="true" ICON="WKP4.jpg" DESCRIPTION="Export mijn wachtwoorden" Screen_Title="Export My Passwords" WIDTH="800" HEIGHT="470">
+<SCRIPT SCRIPT_NAME="KeePass035" DOCUMENT_TYPE="Window" CLASS_NAME="server.Doc" AUTO_REFRESH="true" ICON="WKP4.jpg" DESCRIPTION="Export My Passwords" Screen_Title="Export My Passwords" WIDTH="800" HEIGHT="470">
   <ButtonBar />
   <Panel POSITION="Left" HIDDEN="N">
-    <FilePrompt FIELDNAME="exportPath" DESCRIPTION="Exporteren naar bestand XML" POSITION="Left" METHOD="ExportFile" />
-    <Button FIELDNAME="exportToXml" DESCRIPTION="Exporteren naar XML Keepass" ICON="exprt.gif" POSITION="Center" METHOD_CLASS="server.Doc" METHOD="exportXML" />
+    <FilePrompt FIELDNAME="exportPath" DESCRIPTION="Exporteren naar XML-bestand" POSITION="Left" METHOD="ExportFile" />
+    <Button FIELDNAME="exportToXml" DESCRIPTION="Export to Keepass XML" ICON="exprt.gif" POSITION="Center" METHOD_CLASS="server.Doc" METHOD="exportXML" />
   </Panel>
 </SCRIPT>
 

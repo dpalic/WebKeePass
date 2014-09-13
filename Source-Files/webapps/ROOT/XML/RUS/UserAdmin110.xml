@@ -8,22 +8,22 @@
 <!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/UserAdmin110.xml -->
 <!--	 	 Last Update :  18-May-2008 -->
 <!--	 	 User Profile:  pjones -->
-<SCRIPT SCRIPT_NAME="UserAdmin110" DOCUMENT_TYPE="Window" CLASS_NAME="server.Adherent" AUTO_REFRESH="false" ICON="WKPB.jpg" DESCRIPTION="Изменить Пользователь" Screen_Title="Edit User" WIDTH="830" HEIGHT="730">
+<SCRIPT SCRIPT_NAME="UserAdmin110" DOCUMENT_TYPE="Window" CLASS_NAME="server.Adherent" AUTO_REFRESH="false" ICON="WKPB.jpg" DESCRIPTION="Редактировать пользователя" Screen_Title="Edit User" WIDTH="830" HEIGHT="730">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Очистить" ICON="iClear.gif" />
-    <BarButton TYPE="FIND" DESCRIPTION="Найти-он!" ICON="iFind.gif" METHOD="getUser" />
-    <BarButton TYPE="DELETE" DESCRIPTION="Удалить" ICON="iDelete.gif" METHOD="deleteUser" />
-    <BarButton TYPE="PREV" DESCRIPTION="Предыдущая" ICON="iPrev.gif" METHOD="prvUser" />
-    <BarButton TYPE="NEXT" DESCRIPTION="Следующая" ICON="iNext.gif" METHOD="nxtUser" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Ясно" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Найти-то!" ICON="iFind.gif" METHOD="getUser" />
+    <BarButton TYPE="DELETE" DESCRIPTION="Удалять" ICON="iDelete.gif" METHOD="deleteUser" />
+    <BarButton TYPE="PREV" DESCRIPTION="Предыдущий" ICON="iPrev.gif" METHOD="prvUser" />
+    <BarButton TYPE="NEXT" DESCRIPTION="Следующий" ICON="iNext.gif" METHOD="nxtUser" />
     <BarButton TYPE="POST" DESCRIPTION="Добавить / обновить" ICON="iEdit.gif" METHOD="updUser" />
     <BarButton TYPE="NEW-LINE" DESCRIPTION="Новые KeePass Grp" ICON="iNew.gif" />
-    <BarButton TYPE="DEL-LINE" DESCRIPTION="Удалить Grp KeePass" ICON="iNew.gif" METHOD="deleteAdherent" />
+    <BarButton TYPE="DEL-LINE" DESCRIPTION="Удалить KeePass Grp" ICON="iNew.gif" METHOD="deleteAdherent" />
   </ButtonBar>
   <Panel HIDDEN="N">
     <TextField FIELDNAME="UserID" DESCRIPTION="Идентификатор пользователя" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="UserAdmin130" METHOD="getUser" />
     <TextField FIELDNAME="UserDescription" DESCRIPTION="Описание" LENGTH="20" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
     <PasswordField FIELDNAME="Password" DESCRIPTION="Пароль" LENGTH="20" DATA_LEN="30" POSITION="Left" HIDDEN="N" ENCRYPT="N" ALIGNMENT="Left" />
-    <CheckBox FIELDNAME="UpdPW" DESCRIPTION="Обновление пароля" ENCRYPT="N" />
+    <CheckBox FIELDNAME="UpdPW" DESCRIPTION="Обновить пароль" ENCRYPT="N" />
   </Panel>
   <Panel POSITION="Left" HIDDEN="N">
     <TextField FIELDNAME="WebSite" DESCRIPTION="Веб-сайт" LENGTH="47" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="100" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
@@ -34,7 +34,7 @@
   <TabGroup HEIGHT="0" WIDTH="0" POSITION="Left" COMPONENT_ORIENTATION="Bottom">
     <TabItem DESCRIPTION="Адрес">
       <Panel DESCRIPTION="Адресная информация" POSITION="Left Fill" HIDDEN="N">
-	<TextField FIELDNAME="Name" DESCRIPTION="Название" LENGTH="25" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+	<TextField FIELDNAME="Name" DESCRIPTION="Имя" LENGTH="25" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
 	<TextField FIELDNAME="Address1" DESCRIPTION="Адрес" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
 	<TextField FIELDNAME="Address2" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
 	<TextField FIELDNAME="Address3" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
@@ -44,7 +44,7 @@
       </Panel>
       <Panel DESCRIPTION="Доступ к информации" POSITION="Right Fill" HIDDEN="N">
 	<Panel HIDDEN="N">
-	  <CheckBox FIELDNAME="ActiveUser" DESCRIPTION="Пользователь Active" POSITION="Left" ENCRYPT="N" />
+	  <CheckBox FIELDNAME="ActiveUser" DESCRIPTION="Пользователь активность" POSITION="Left" ENCRYPT="N" />
 	</Panel>
 	<Panel HIDDEN="N">
 	  <TextField FIELDNAME="GroupID" DESCRIPTION="Группа пользователей" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="UserAdmin120" PARAMETER="GroupID" />
@@ -53,7 +53,7 @@
 	</Panel>
       </Panel>
     </TabItem>
-    <TabItem DESCRIPTION="KeePass группы">
+    <TabItem DESCRIPTION="KeePass Группы">
       <Panel FIELDNAME="Bundles" DESCRIPTION="KeePass Группы Этот пользователь находится в" POSITION="Left Fill" HIDDEN="N">
 	<Table FIELDNAME="Table1" HEIGHT="10" WIDTH="15" POSITION="Left Fill">
 	  <TableTextField FIELDNAME="cc" DESCRIPTION="KeePass группы" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="30" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" LINK="KeePass018" PARAMETER="@aa" />
@@ -64,7 +64,7 @@
     </TabItem>
   </TabGroup>
   <Panel POSITION="Left Fill" HIDDEN="N">
-    <Button FIELDNAME="pbndles" DESCRIPTION="Создать KeePass группы" POSITION="Left" LINK="KeePass017" METHOD_CLASS="server.Akin" METHOD="getBndList" />
+    <Button FIELDNAME="pbndles" DESCRIPTION="Создать группу KeePass" POSITION="Left" LINK="KeePass017" METHOD_CLASS="server.Akin" METHOD="getBndList" />
   </Panel>
 </SCRIPT>
 

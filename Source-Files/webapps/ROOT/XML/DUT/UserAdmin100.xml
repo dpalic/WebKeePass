@@ -8,16 +8,16 @@
 <!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/XML/ENG/UserAdmin100.xml -->
 <!--	 	 Last Update :  10-Aug-2010 -->
 <!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="UserAdmin100" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.UserSecurityManager" AUTO_REFRESH="false" ICON="WKPA.jpg" DESCRIPTION="Edit User Groups" Screen_Title="Edit User Groups" WIDTH="1015" HEIGHT="680">
+<SCRIPT SCRIPT_NAME="UserAdmin100" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.UserSecurityManager" AUTO_REFRESH="false" ICON="WKPA.jpg" DESCRIPTION="Bewerk User Groups" Screen_Title="Edit User Groups" WIDTH="1015" HEIGHT="680">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Duidelijke" ICON="iClear.gif" />
-    <BarButton TYPE="FIND" DESCRIPTION="Vind-It!" ICON="iFind.gif" METHOD="getUserGroup" />
-    <BarButton TYPE="PREV" DESCRIPTION="Vorige" ICON="iPrev.gif" METHOD="prvUserGroup" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Duidelijk" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Vind-it!" ICON="iFind.gif" METHOD="getUserGroup" />
+    <BarButton TYPE="PREV" DESCRIPTION="Vorig" ICON="iPrev.gif" METHOD="prvUserGroup" />
     <BarButton TYPE="NEXT" DESCRIPTION="Volgende" ICON="iNext.gif" METHOD="nxtUserGroup" />
     <BarButton TYPE="POST" DESCRIPTION="Toevoegen / bijwerken" ICON="iEdit.gif" METHOD="updUserGroup" />
   </ButtonBar>
   <Panel POSITION="Left" HIDDEN="N">
-    <TextField FIELDNAME="GroupID" DESCRIPTION="User Group" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="UserAdmin120" METHOD="getUserGroup" />
+    <TextField FIELDNAME="GroupID" DESCRIPTION="Gebruikers Groep" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="UserAdmin120" METHOD="getUserGroup" />
     <TextField FIELDNAME="GroupDescription" DESCRIPTION="Beschrijving" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
   </Panel>
   <Panel DESCRIPTION="Taal en tijdige" POSITION="Right Fill" HIDDEN="N">
@@ -31,13 +31,13 @@
       <ComboItem DESCRIPTION="GER" DEFAULT_VALUE="GER" />
       <ComboItem DESCRIPTION="ITL" DEFAULT_VALUE="ITL" />
     </ComboBox>
-    <SpinnerField FIELDNAME="TimeOut" DESCRIPTION="Auto Log na" LENGTH="4" DATA_LEN="5" POSITION="Left" ALIGNMENT="Left" />
+    <SpinnerField FIELDNAME="TimeOut" DESCRIPTION="Auto te melden na" LENGTH="4" DATA_LEN="5" POSITION="Left" ALIGNMENT="Left" />
   </Panel>
   <Panel DESCRIPTION="Toegang tot het menu Niveaus" POSITION="Left Fill" HIDDEN="N">
     <MenuExplorer FIELDNAME="MenuStruct" HEIGHT="0" WIDTH="0">
       <TableTextField FIELDNAME="GroupItemDescription" DESCRIPTION="Menu-optie" LENGTH="15" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="N" ZERO_FILL="N" ENCRYPT="N" />
-      <TableTextField FIELDNAME="MenuItem" DESCRIPTION="Menunaam" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" />
-      <TableTextField FIELDNAME="Type" DESCRIPTION="Type het menu" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Center" />
+      <TableTextField FIELDNAME="MenuItem" DESCRIPTION="Het menu Naam" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" />
+      <TableTextField FIELDNAME="Type" DESCRIPTION="Het menu Type" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Center" />
       <TableComboBox FIELDNAME="AccessLevel" DESCRIPTION="Toegang" LENGTH="10" PROTECTED="N" ENCRYPT="N" ALIGNMENT="Left">
 	<ComboItem DESCRIPTION="Geen toegang" />
 	<ComboItem DESCRIPTION="Alleen onderzoek" />
@@ -48,21 +48,21 @@
       <Button FIELDNAME="MenuItem" DESCRIPTION="Script bewerken" POSITION="Left" LINK="UserAdmin150" METHOD="getScriptLink" />
     </Panel>
   </Panel>
-  <Panel DESCRIPTION="Groep Toegang Niveaus" POSITION="Right Fill" HIDDEN="N">
+  <Panel DESCRIPTION="Groep Toegangsniveaus" POSITION="Right Fill" HIDDEN="N">
     <Panel HIDDEN="N">
       <CheckBox FIELDNAME="ActiveGroup" DESCRIPTION="Groep actief" POSITION="Left" ENCRYPT="N" />
       <CheckBox FIELDNAME="Administrator" DESCRIPTION="Administrator Access" POSITION="Left" ENCRYPT="N" />
       <CheckBox FIELDNAME="DeskTopTheme" DESCRIPTION="Desk Top Thema Access" POSITION="Left" ENCRYPT="N" />
       <CheckBox FIELDNAME="TipAccess" DESCRIPTION="Script Tips" POSITION="Left" ENCRYPT="N" />
-      <CheckBox FIELDNAME="CopyAccess" DESCRIPTION="Tabel Toegangsbeheer kopiëren" POSITION="Left" ENCRYPT="N" />
+      <CheckBox FIELDNAME="CopyAccess" DESCRIPTION="Tabel kopiëren Access" POSITION="Left" ENCRYPT="N" />
       <CheckBox FIELDNAME="PrintAccess" DESCRIPTION="Tabel Print Access" POSITION="Left" ENCRYPT="N" />
     </Panel>
     <Panel HIDDEN="N">
       <TextField FIELDNAME="MenuXML" DESCRIPTION="Menu XML" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="UserAdmin190" PARAMETER="@ScriptFileName" />
       <TextField FIELDNAME="DateFormat" DESCRIPTION="Datumnotatie" LENGTH="9" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
-      <TextField FIELDNAME="LastChangeDate" DESCRIPTION="Laatste update" LENGTH="9" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+      <TextField FIELDNAME="LastChangeDate" DESCRIPTION="Laatste Update" LENGTH="9" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
       <TextField FIELDNAME="InActiveDate" DESCRIPTION="Datum Inactieve" LENGTH="9" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
-      <TextField FIELDNAME="ActiveDate" DESCRIPTION="Actief Datum" LENGTH="9" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+      <TextField FIELDNAME="ActiveDate" DESCRIPTION="Actieve Datum" LENGTH="9" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
       <ComboBox FIELDNAME="AccessMethod" DESCRIPTION="Server Acccess" LENGTH="4" DATA_TYPE="CHR" POSITION="Left" ENCRYPT="N">
 	<ComboItem DESCRIPTION="HTTP" />
 	<ComboItem DESCRIPTION="RMI" />

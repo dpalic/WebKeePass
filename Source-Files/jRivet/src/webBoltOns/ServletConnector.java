@@ -231,7 +231,7 @@ import webBoltOns.server.servletUtil.NativeExecutable;
 			arglist[0] = dataSet;
 			arglist[1] = dataAccess;
 			Object retobj = meth.invoke(methodObject, arglist);
-			dataSet = (DataSet) retobj;
+			dataSet = (DataSet) retobj;	
 
 		} catch (ClassNotFoundException e) {
 			log("Class Not Found: " + e.getMessage());
@@ -394,29 +394,32 @@ import webBoltOns.server.servletUtil.NativeExecutable;
 		if (configHome != null)
 			dataAccess = new DataAccess(configHome + configFile, configHome + keyFile, this);
 		else
-			dataAccess = new DataAccess("/java/" + configFile, "/java/" + keyFile, this);
+			//dataAccess = new DataAccess("C:\\java\\Projects\\WKP\\" + configFile, 
+			//							"C:\\java\\Projects\\WKP\\" + keyFile, this);
+
+			dataAccess = new DataAccess("/home/pjones/Projects/JavaProjects/WebKeepass/wkp/conf/" + configFile, 
+										"/home/pjones/Projects/JavaProjects/WebKeepass/wkp/conf/" + keyFile, this);
+
 			
 		if (dataAccess.initDataAccess()) { 
 			super.init(config, dataAccess.registryPort, dataAccess.socketPort);
 			dataAccess.logMessage(jRivetVersion);
-			dataAccess.logMessage(".....Server Starting");
-			dataAccess.logMessage(".....Database pool opening" );
-			dataAccess.logMessage(".....Conf-Home : " + configHome);
-			dataAccess.logMessage(".....Conf-File : " + configFile);
-			dataAccess.logMessage(".....Script-Path : " + dataAccess.getScriptPath());
-			dataAccess.logMessage(".....Image-Path : " + dataAccess.getImagePath());
-			dataAccess.logMessage(".....Log-Path : " + dataAccess.getServerLogsPath());
-			dataAccess.logMessage(".....Menu-Path " + dataAccess.getMenuPath());
-			dataAccess.logMessage(".....Connection :" + dataAccess.getConnectionType());
-
-			dataAccess.logMessage(".....Opening SecurityManager ");
+			dataAccess.logMessage(".Server Starting");
+			dataAccess.logMessage("..Database pool opening" );
+			dataAccess.logMessage("..Conf-Home : " + configHome);
+			dataAccess.logMessage("..Conf-File : " + configFile);
+			dataAccess.logMessage("..Script-Path : " + dataAccess.getScriptPath());
+			dataAccess.logMessage("..Image-Path : " + dataAccess.getImagePath());
+			dataAccess.logMessage("..Log-Path : " + dataAccess.getServerLogsPath());
+			dataAccess.logMessage("..Menu-Path " + dataAccess.getMenuPath());
+			dataAccess.logMessage("..Connection :" + dataAccess.getConnectionType());
+			dataAccess.logMessage("..Opening SecurityManager ");
 			userSecurityManager = new UserSecurityManager();
 			userSecurityManager.setLdapLogin(dataAccess.getEOpts().getBooleanField("LDAP")); 
-			
-			dataAccess.logMessage(".....SecurityManager open");
-			dataAccess.logMessage(".....Get all Image Icons");
-			dataAccess.logMessage(".....Icon Table Loaded");
-			dataAccess.logMessage(".....Server Started");
+			dataAccess.logMessage("..SecurityManager open");
+			dataAccess.logMessage("..Get all Image Icons");
+			dataAccess.logMessage("..Icon Table Loaded");
+			dataAccess.logMessage("..Server Started");
 		}
 	}
 	

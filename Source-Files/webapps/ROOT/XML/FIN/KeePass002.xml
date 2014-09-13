@@ -6,28 +6,25 @@
 <!--	 	 Server Class :  server.Crypt -->
 <!--	 	 Initalization Method :   -->
 <!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/XML/ENG/KeePass002.xml -->
-<!--	 	 Last Update :  26-Nov-2010 -->
+<!--	 	 Last Update :  05-Sep-2011 -->
 <!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="KeePass002" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" AUTO_REFRESH="false" ICON="WKP1.jpg" DESCRIPTION="Muokkaa minun salasanoja" Screen_Title="Edit My Passwords" WIDTH="800" HEIGHT="740">
+<SCRIPT SCRIPT_NAME="KeePass002" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" AUTO_REFRESH="true" ICON="WKP1.jpg" DESCRIPTION="Muokkaa Omat salasanat" Screen_Title="Edit My Passwords" WIDTH="800" HEIGHT="740">
   <ButtonBar>
     <BarButton TYPE="CLEAR" DESCRIPTION="Clear / Uusi" ICON="iClear.gif" />
-    <BarButton TYPE="FIND" DESCRIPTION="Etsi / Päivitä" ICON="iFind.gif" METHOD="getCrypt" />
+    <BarButton TYPE="FIND" DESCRIPTION="Etsi / Refresh" ICON="iFind.gif" METHOD="getCrypt" />
     <BarButton TYPE="DELETE" DESCRIPTION="Poista" ICON="iDelete.gif" METHOD="delCrypt" />
     <BarButton TYPE="PREV" DESCRIPTION="Edellinen" ICON="iPrev.gif" METHOD="prvCrypt" />
     <BarButton TYPE="NEXT" DESCRIPTION="Seuraava" ICON="iNext.gif" METHOD="nxtCrypt" />
-    <BarButton TYPE="POST" DESCRIPTION="Päivitä muutokset" ICON="iEdit.gif" METHOD="updCrypt" />
+    <BarButton TYPE="POST" DESCRIPTION="Päivitys muuttaa" ICON="iEdit.gif" METHOD="updCrypt" />
   </ButtonBar>
   <Panel POSITION="Left" HIDDEN="N">
     <TextField FIELDNAME="PasswordID" DESCRIPTION="Salasana ID #" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="20" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" LINK="KeePass006" METHOD="getCrypt" />
   </Panel>
   <Panel POSITION="Left" HIDDEN="N">
-    <TextField FIELDNAME="b9" DESCRIPTION="Käyttäjän nimi" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-    <Button FIELDNAME="b9" DESCRIPTION="Kopioi Clip Ajastin" ICON="clip.gif" POSITION="Center" METHOD="CLIP_FIELD" />
+    <TextField FIELDNAME="b9" DESCRIPTION="Käyttäjätunnus" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <Button FIELDNAME="b9" DESCRIPTION="Kopioi Clip Timer" ICON="clip.gif" POSITION="Center" METHOD="CLIP_FIELD" />
     <PasswordEditor FIELDNAME="c8" DESCRIPTION="Salasana" LENGTH="25" DATA_LEN="50" POSITION="Left" HIDDEN="N" ENCRYPT="Y" ALIGNMENT="Left" />
-    <Button FIELDNAME="c8" DESCRIPTION="Kopioi Clip Ajastin" ICON="clip.gif" POSITION="Center" METHOD="CLIP_FIELD" />
-  </Panel>
-  <Panel POSITION="Left" HIDDEN="N">
-    <MacroEditor FIELDNAME="q4" DESCRIPTION="Lomake Robot" LENGTH="65" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="120" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <Button FIELDNAME="c8" DESCRIPTION="Kopioi Clip Timer" ICON="clip.gif" POSITION="Center" METHOD="CLIP_FIELD" />
   </Panel>
   <TabGroup HEIGHT="0" WIDTH="0" POSITION="Left" COMPONENT_ORIENTATION="Top">
     <TabItem DESCRIPTION="Salasana Entry" ICON="tdot.gif">
@@ -38,18 +35,18 @@
       <Panel POSITION="Left" HIDDEN="N">
 	<TextField FIELDNAME="n7" DESCRIPTION="Sivuston" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<Button FIELDNAME="n7" ICON="MNode2.gif" METHOD="URL" />
-	<TextField FIELDNAME="i2" DESCRIPTION="Alt Sivuston" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TextField FIELDNAME="i2" DESCRIPTION="Alt Web Site" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<Button FIELDNAME="i2" ICON="MNode2.gif" METHOD="URL" />
 	<TextField FIELDNAME="k0" DESCRIPTION="Tukisivusto" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<Button FIELDNAME="k0" ICON="MNode2.gif" METHOD="URL" />
 	<TextField FIELDNAME="m8" DESCRIPTION="Sähköposti" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<Button FIELDNAME="m8" ICON="MNode2.gif" METHOD="EMAIL" />
-	<TextField FIELDNAME="p5" DESCRIPTION="Ohjelma käyttää" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TextField FIELDNAME="p5" DESCRIPTION="Ohjelma suorittaa" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<Button FIELDNAME="p5" ICON="MNode2.gif" METHOD="RUNPGM" />
       </Panel>
       <Panel POSITION="Left" HIDDEN="N">
 	<ComboBox FIELDNAME="KeeperID" DESCRIPTION="Luokka" LENGTH="20" DATA_TYPE="CHR" POSITION="Left" ENCRYPT="N" LIST_TABLE_NAME="wkpGroups" LIST_TABLE_FIELD="KeeperID" LIST_TABLE_DESCRIPTION="KeeperDesc" LIST_TABLE_SELECTTION="j1 = :Scmbl:" />
-	<ComboBox FIELDNAME="r3" DESCRIPTION="Icon" LENGTH="8" DATA_TYPE="CHR" POSITION="Center" ENCRYPT="Y">
+	<ComboBox FIELDNAME="r3" DESCRIPTION="Kuvake" LENGTH="4" DATA_TYPE="CHR" POSITION="Center" ENCRYPT="Y">
 	  <ComboItem DESCRIPTION="- 1" ICON="acon01.gif" DEFAULT_VALUE="acon01.gif" />
 	  <ComboItem DESCRIPTION="- 2" ICON="acon02.gif" DEFAULT_VALUE="acon02.gif" />
 	  <ComboItem DESCRIPTION="- 3" ICON="acon03.gif" DEFAULT_VALUE="acon03.gif" />
@@ -72,24 +69,27 @@
 	  <ComboItem DESCRIPTION="- 20" ICON="acon20.gif" DEFAULT_VALUE="acon20.gif" />
 	</ComboBox>
 	<TextField FIELDNAME="d7" DESCRIPTION="Luo pvm" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-	<TextField FIELDNAME="e6" DESCRIPTION="Viimeisin päivitys" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-	<TextField FIELDNAME="f5" DESCRIPTION="Vanhenee" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TextField FIELDNAME="e6" DESCRIPTION="Last Update" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TextField FIELDNAME="f5" DESCRIPTION="Erääntyy" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<CheckBox FIELDNAME="g4" DESCRIPTION="Ei vanhene koskaan" ENCRYPT="Y" />
       </Panel>
       <Panel POSITION="Left" HIDDEN="N">
-	<Button FIELDNAME="PwdShare" DESCRIPTION="Jaa Tämä salasanan muiden kanssa" POSITION="Left" LINK="KeePass007" METHOD="initAkinList" />
-	<Button FIELDNAME="LnkShare" DESCRIPTION="Linkki tiedostoja tähän salasana" LINK="KeePass020" METHOD_CLASS="server.Doc" METHOD="getDocList" />
-	<Button FIELDNAME="AccssLof" DESCRIPTION="Access Log" POSITION="Left" LINK="KeePass030" METHOD_CLASS="server.Crypt" METHOD="getAccesslog" />
+	<Button FIELDNAME="PwdShare" DESCRIPTION="Jaa tämä salasanan muiden kanssa" POSITION="Left" LINK="KeePass007" METHOD="initAkinList" />
+	<Button FIELDNAME="LnkShare" DESCRIPTION="Linkki tiedostoja tähän Salasana" LINK="KeePass020" METHOD_CLASS="server.Doc" METHOD="getDocList" />
+	<Button FIELDNAME="AccssLof" DESCRIPTION="Access Log" LINK="KeePass030" METHOD_CLASS="server.Crypt" METHOD="getAccesslog" />
       </Panel>
+    </TabItem>
+    <TabItem DESCRIPTION="Auto Tyyppi - Lomake Robot" ICON="tdot.gif">
+      <MacroEditor FIELDNAME="q4" DESCRIPTION="" LENGTH="65" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="140" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
     </TabItem>
     <TabItem DESCRIPTION="Huomautuksia" ICON="tdot.gif">
       <TextRTFArea FIELDNAME="Notes" DESCRIPTION="Huomautuksia" HEIGHT="14" WIDTH="33" POSITION="Left" PROTECTED="N" />
     </TabItem>
-    <TabItem DESCRIPTION="Historia" ICON="tdot.gif">
+    <TabItem DESCRIPTION="History" ICON="tdot.gif">
       <Table FIELDNAME="Table1" HEIGHT="15" WIDTH="0" POSITION="Left">
-	<TableTextField FIELDNAME="HistoryID" DESCRIPTION="Tunnus" LENGTH="3" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="5" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
+	<TableTextField FIELDNAME="HistoryID" DESCRIPTION="ID" LENGTH="3" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="5" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
 	<TableTextField FIELDNAME="a0t" DESCRIPTION="Otsikko" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-	<TableTextField FIELDNAME="b9t" DESCRIPTION="Käyttäjän nimi" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TableTextField FIELDNAME="b9t" DESCRIPTION="Käyttäjätunnus" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<TableTextField FIELDNAME="e6t" DESCRIPTION="Päivämäärä" LENGTH="8" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
 	<TableTextField FIELDNAME="s2t" DESCRIPTION="IP" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
       </Table>
@@ -98,7 +98,7 @@
       </Panel>
     </TabItem>
     <TabItem DESCRIPTION="Kuva - Kuva" ICON="tdot.gif">
-      <ImageBox FIELDNAME="Image" LENGTH="33" HEIGHT="17" WIDTH="0" POSITION="Left" PROTECTED="N" ENCRYPT="N" />
+      <ImageBox FIELDNAME="Image" LENGTH="33" HEIGHT="15" WIDTH="0" POSITION="Left" PROTECTED="N" ENCRYPT="N" />
     </TabItem>
   </TabGroup>
 </SCRIPT>

@@ -92,7 +92,7 @@ public class CButton extends JButton{
 	/**
 	 * UI for buttons in <b>Substance</b> look and feel.
 	 * 
-	 * @author P. Jones Kirill Grouchnikov
+	 * @author P. Jones 
 	 */
 	
 }

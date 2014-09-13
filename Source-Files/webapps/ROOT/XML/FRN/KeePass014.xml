@@ -10,11 +10,11 @@
 <!--	 	 User Profile:  root -->
 <SCRIPT SCRIPT_NAME="KeePass014" DOCUMENT_TYPE="Window" CLASS_NAME="server.CryptKp" AUTO_REFRESH="true" ICON="icon.jpg" DESCRIPTION="Créer une catégorie Partager" Screen_Title="Create Share Category" WIDTH="630" HEIGHT="390">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Clear / New" ICON="iClear.gif" />
-    <BarButton TYPE="FIND" DESCRIPTION="Trouver / Refresh" ICON="iFind.gif" METHOD="getCryptKeeper" />
-    <BarButton TYPE="PREV" DESCRIPTION="Précédent" ICON="iPrev.gif" METHOD="prvCryptKeeper" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Effacer / Nouveau" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Rechercher / Actualiser" ICON="iFind.gif" METHOD="getCryptKeeper" />
+    <BarButton TYPE="PREV" DESCRIPTION="Précédente" ICON="iPrev.gif" METHOD="prvCryptKeeper" />
     <BarButton TYPE="NEXT" DESCRIPTION="Suivant" ICON="iNext.gif" METHOD="nxtCryptKeeper" />
-    <BarButton TYPE="POST" DESCRIPTION="Changements Mise à jour" ICON="iEdit.gif" METHOD="updCryptKeeper" />
+    <BarButton TYPE="POST" DESCRIPTION="Modifications à jour" ICON="iEdit.gif" METHOD="updCryptKeeper" />
   </ButtonBar>
   <Panel POSITION="Left" HIDDEN="N">
     <TextField FIELDNAME="KeeperID" DESCRIPTION="ID #" LENGTH="4" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="5" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />

@@ -10,17 +10,17 @@
 <!--	 	 User Profile:  pjones -->
 <SCRIPT SCRIPT_NAME="KeePass017" DOCUMENT_TYPE="Window" CLASS_NAME="server.Akin" METHOD="getBndList" AUTO_REFRESH="false" ICON="icon.jpg" DESCRIPTION="Erstellen KeePass Gruppen" Screen_Title="Create KeePass Groups" WIDTH="560" HEIGHT="640">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Clear" ICON="iClear.gif" />
-    <BarButton TYPE="FIND" DESCRIPTION="Suchen / Aktualisieren" ICON="iFind.gif" METHOD="getBndList" />
-    <BarButton TYPE="POST" DESCRIPTION="Hinzufügen / Aktualisieren" ICON="iEdit.gif" METHOD="updBndList" />
-    <BarButton TYPE="NEW-LINE" DESCRIPTION="Neue" ICON="iNew.gif" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Klar" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Find / Refresh" ICON="iFind.gif" METHOD="getBndList" />
+    <BarButton TYPE="POST" DESCRIPTION="Add / Update" ICON="iEdit.gif" METHOD="updBndList" />
+    <BarButton TYPE="NEW-LINE" DESCRIPTION="Neu" ICON="iNew.gif" />
     <BarButton TYPE="DEL-LINE" DESCRIPTION="Löschen" ICON="iDelete.gif" METHOD="delBndList" />
   </ButtonBar>
   <Table FIELDNAME="Table1" HEIGHT="20" WIDTH="20" POSITION="Left">
     <TableTextField FIELDNAME="BundleID" DESCRIPTION="-ID" LENGTH="2" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="10" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
-    <TableTextField FIELDNAME="aa" DESCRIPTION="KeePass Group" LENGTH="6" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" PARAMETER="@aa" />
+    <TableTextField FIELDNAME="aa" DESCRIPTION="KeePass Gruppe" LENGTH="6" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" PARAMETER="@aa" />
     <TableTextField FIELDNAME="bb" DESCRIPTION="Beschreibung" LENGTH="15" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-    <TableCheckBox FIELDNAME="cc" DESCRIPTION="KeePass Active" ENCRYPT="Y" />
+    <TableCheckBox FIELDNAME="cc" DESCRIPTION="KeePass Aktive" ENCRYPT="Y" />
   </Table>
 </SCRIPT>
 

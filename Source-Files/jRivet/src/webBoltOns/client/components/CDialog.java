@@ -1372,8 +1372,8 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 
 	public void mouseDragged(MouseEvent e) {
 		setCursor(Cursor.getPredefinedCursor(13));
-		Point p = e.getLocationOnScreen();
-		setLocation(p.x - (getWidth() / 2),  p.y - 10 );	
+//		Point p = e.getLocationOnScreen();
+//		setLocation(p.x - (getWidth() / 2),  p.y - 10 );	
 	}
 
 	public void mouseMoved(MouseEvent e) {

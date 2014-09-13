@@ -118,7 +118,7 @@ public class CTreeTableContainer extends CTableContainer implements
 	public void mouseReleased(final MouseEvent e) {
 		if (mFrm != null && e.getClickCount() > 1
 				&& e.getButton() == MouseEvent.BUTTON1) {
-			mFrm.fireWindowReturning();
+			mFrm.fireWindowReturning("", null);
 			
 		} else if(e.getButton() == MouseEvent.BUTTON3 && popUp != null) {
 			 SwingUtilities.invokeLater(new Runnable() {
@@ -187,7 +187,7 @@ public class CTreeTableContainer extends CTableContainer implements
 			}
 
 			if (mFrm != null && e.getKeyCode() == 83) {
-				mFrm.fireWindowReturning();
+				mFrm.fireWindowReturning("", null);
 			}
 		}
 	}
@@ -289,10 +289,10 @@ public class CTreeTableContainer extends CTableContainer implements
 					.getFieldName();
 			fieldParameter[curcol] = tableColumns[curcol].getAppletComponent()
 					.getFieldParameterName();
-			totwidth += tableColumns[curcol].getAppletComponent().getLength() + 5;
+			tbWidth += tableColumns[curcol].getAppletComponent().getLength() + 5;
 			curcol++;
 		}
-		totwidth += 10;
+		tbWidth += 10;
 
 		dataModel = new CTreeTableModel(mFrm, comp,
 				tableColumns, null);
@@ -313,7 +313,7 @@ public class CTreeTableContainer extends CTableContainer implements
 				scrollpane.getBorder()));
 
 		scrollpane.setPreferredSize(new Dimension(
-				tableView.getPreferredSize().width + 40, totlenght + 15));
+				tableView.getPreferredSize().width + 40, tbHeight + 15));
 
 		tableView.addMouseListener(this);
 		tableView.addKeyListener(this);

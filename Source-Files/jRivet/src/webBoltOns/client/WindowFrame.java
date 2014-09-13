@@ -53,7 +53,6 @@ package webBoltOns.client;
  */
 
 
-import java.awt.AWTException;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -95,13 +94,13 @@ import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import webBoltOns.AppletConnector;
+import webBoltOns.client.clientUtil.AutoType;
 import webBoltOns.client.components.CButton;
 import webBoltOns.client.components.CComboBoxField;
 import webBoltOns.client.components.CDialog;
 import webBoltOns.client.components.CListBoxField;
+import webBoltOns.client.components.CMacroEditor;
 import webBoltOns.client.components.CPanelContainer;
 import webBoltOns.client.components.CRadioGroupContainer;
 import webBoltOns.client.components.CSpinnerField;
@@ -164,60 +163,25 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 	 * <p> called when a user buttons is selected 
 	 */	
 	private void actionButtonPerformed(int hl, ActionEvent e) {
-		// -   Web Document
-		if (cmpntTree[hl].getMethod().equals(WindowItem.GET_URL)) {
-			actionWebDoc(hl);
-			
-		// -   Email Document
-		} else if (cmpntTree[hl].getMethod().equals(WindowItem.GET_EMAIL)) {
-			actionEmailDoc(hl);
+		 
+		if (cmpntTree[hl].getMethod().equals(WindowItem.GET_URL))               actionWebDoc(hl);
+		 
+		else if (cmpntTree[hl].getMethod().equals(WindowItem.GET_EMAIL))        actionEmailDoc(hl);
 	
-		} else if (cmpntTree[hl].getMethod().equals(WindowItem.CLIP_FIELD)) {
-			actionTempClip(hl);
+		else if (cmpntTree[hl].getMethod().equals(WindowItem.CLIP_FIELD))       actionTempClip(hl);
 
-		} else if (cmpntTree[hl].getMethod().equals(WindowItem.GET_RUN)) {
-			actionRunPgm(hl);
+		else if (cmpntTree[hl].getMethod().equals("AUTO_TYPE"))       			actionAutoType();
+		
+		else if (cmpntTree[hl].getMethod().equals(WindowItem.GET_RUN))          actionRunPgm(hl);
 
-		} else if (cmpntTree[hl].getMethod().equals(WindowItem.NEW_LINE)) {
-			actionNewTableLine();
-
-			
-
-		} else if (!cmpntTree[hl].getLink().equals("")) {
-			DataSet scrnSt = new DataSet();
-			scrnSt.putStringField("[SCREEN_SCRIPT/]", cmpntTree[hl].getLink());
-			scrnSt.putIntegerField("[ScriptAccessLevel/]", cmpntTree[hl].getUserAccessLevel());
-			final WindowFrame aa = new WindowFrame(cntr);
-			scrnSt = aa.setWindow(scrnSt, this, "", 0);
-			aa.showWindow();
-			scrnSt = getSelectedTableRows(scrnSt);
-			scrnSt = getSelectedTextFields(scrnSt);
-			aa.startWindowFrame(scrnSt, cmpntTree[hl].getMethod());
-			mFrm.addWindowListener(new WindowListener(){
-				public void windowActivated(WindowEvent arg0) {}
-				public void windowClosed(WindowEvent arg0) {}
-				public void windowClosing(WindowEvent arg0) {
-					if(aa.mFrm != null){
-						aa.mFrm.dispatchEvent(arg0);
-						aa.mFrm.dispose();
-						aa.mFrm = null;
-				 	}
-				}
-				public void windowDeactivated(WindowEvent arg0) {}
-				public void windowDeiconified(WindowEvent arg0) {}
-				public void windowIconified(WindowEvent arg0) {}
-				public void windowOpened(WindowEvent arg0) {}});
-			
-			
-		// -  webBoltOnsServer Method
-		} else if (!cmpntTree[hl].getMethod().equals("")) {
-			
-			if(cmpntTree[hl].getMethodClass().equals(""))
-				actionSendServerLater(clsNme,cmpntTree[hl].getMethod(), e);
-			else	
-				actionSendServerLater(cmpntTree[hl].getMethodClass(),cmpntTree[hl].getMethod(), e);
-		}
-
+		else if (cmpntTree[hl].getMethod().equals(WindowItem.NEW_LINE))   	    actionNewTableLine();
+		
+		else if (!cmpntTree[hl].getLink().equals(""))							actionButtonLink(hl);
+		
+		else if (!cmpntTree[hl].getMethod().equals(""))               			actionButtonMethod(hl, e);
+		
+		
+	
 		if(e != null) ((JComponent)e.getSource()).setCursor(new Cursor(Cursor.HAND_CURSOR));
 	}
 	
@@ -278,7 +242,43 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 	}
 	
 	
+	public void actionButtonLink(int hl){
+		DataSet scrnSt = new DataSet();
+		scrnSt.putStringField("[SCREEN_SCRIPT/]", cmpntTree[hl].getLink());
+		scrnSt.putIntegerField("[ScriptAccessLevel/]", cmpntTree[hl].getUserAccessLevel());
+		final WindowFrame aa = new WindowFrame(cntr);
+		scrnSt = aa.setWindow(scrnSt, this, "", 0);
+		aa.showWindow();
+		scrnSt = getSelectedTableRows(scrnSt);
+		scrnSt = getSelectedTextFields(scrnSt);
+		aa.startWindowFrame(scrnSt, cmpntTree[hl].getMethod());
+		mFrm.addWindowListener(new WindowListener(){
+			public void windowActivated(WindowEvent arg0) {}
+			public void windowClosed(WindowEvent arg0) {}
+			public void windowClosing(WindowEvent arg0) {
+				if(aa.mFrm != null){
+					aa.mFrm.dispatchEvent(arg0);
+					aa.mFrm.dispose();
+					aa.mFrm = null;
+			 	}
+			}
+			public void windowDeactivated(WindowEvent arg0) {}
+			public void windowDeiconified(WindowEvent arg0) {}
+			public void windowIconified(WindowEvent arg0) {}
+			public void windowOpened(WindowEvent arg0) {}});
+	}
 	 
+	
+	
+	
+	public void actionButtonMethod(int hl, ActionEvent e) {
+		if(cmpntTree[hl].getMethodClass().equals(""))
+			actionSendServerLater(clsNme,cmpntTree[hl].getMethod(), e);
+		else	
+			actionSendServerLater(cmpntTree[hl].getMethodClass(),cmpntTree[hl].getMethod(), e);
+	}
+
+	
 	public DataSet actionCompRequest(DataSet componentData) {
 		cntr.showWebStatus("Opening webBoltOnsServer.ServletConnetor");
 		componentData.putStringField(WindowItem.CLASSNAME, clsNme);
@@ -352,6 +352,28 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 	}
 	
 	
+	private void actionAutoType() {
+		getMenuObject().displayRobot(true);
+		SwingUtilities.invokeLater(new Runnable(){
+			public void run() {
+				DataSet ds = new DataSet();
+				ds = getSelectedTableRows(ds);
+				if(ds.containsKey("q4")){
+					AutoType rr = new AutoType();
+					rr.autoTypeRobort(cntr.decrypt(ds.getStringField("q4")), WindowFrame.this,
+							cntr.decrypt(ds.getStringField("b9")), 
+							cntr.decrypt(ds.getStringField("c8")),
+							cntr.decrypt(ds.getStringField("PasswordID")),  
+							cntr.decrypt(ds.getStringField("m8")),
+							cntr.decrypt(ds.getStringField("n7")),
+							cntr.decrypt(ds.getStringField("i2")),
+							cntr.decrypt(ds.getStringField("p5")) );
+				}  
+				getMenuObject().displayRobot(false);
+			}});
+	}
+	
+	
 	private void actionTempClip(int hl) {	 
 		if (cntr.checkTimeout())  return;
 		for (int c = 0; c < cmpntTree.length; c++) {
@@ -360,8 +382,10 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 					cmpntTree[c].getComponentObject() instanceof StandardComponentLayout &&
 					cmpntTree[c].getFieldName().equals(cmpntTree[hl].getFieldName())  ){
 				
-				mMnu.copyToClipTimer( ((StandardComponentLayout) cmpntTree[c].getComponentObject()).getString());
-					c = cmpntTree.length;
+				mMnu.copyToClipTimer(cmpntTree[c].getDescription(), 
+						((StandardComponentLayout) cmpntTree[c].getComponentObject()).getString());
+				
+				c = cmpntTree.length;
 				
 			}
 			}
@@ -1602,13 +1626,16 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 	 * Pass any parms back to parent frame
 	 *  
 	 */
-	public void fireWindowReturning() {
+	public void fireWindowReturning(String ColumnName, Object value) {
 		if (calngFrm != null && !rtnField.equals("") && dock.isVisible()) {
 			DataSet returnDataSet = new DataSet();
 			returnDataSet = getSelectedTableRows(returnDataSet);
 			calngFrm.fireWindowReturned(returnDataSet, rtnField, rtFldLvl);
 			mFrm.dispose();
 			calngFrm.mFrm.requestFocus();
+		}  else if (value != null && value instanceof String ){
+			mMnu.copyToClipTimer(ColumnName, (String)value);
+
 		}
 	}
 
@@ -1650,15 +1677,13 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 			if (windowComponentObject != null && 
 					  windowComponentObject  instanceof CTableContainer ) {
 		 
-				String fieldNames[] = ((CTableContainer) cmpntTree[x]
-						             .getComponentObject()).getFieldNames();
-			 	     
-				String fieldParameters [] =  ((CTableContainer) cmpntTree[x]
-									 .getComponentObject()).getFieldParameters();
-				
+				String fieldNames [] =  ((CTableContainer) cmpntTree[x].getComponentObject()).getFieldNames();     
+				String fieldParms [] =  ((CTableContainer) cmpntTree[x].getComponentObject()).getFieldParameters();
 				Vector selected = new Vector();
-				selected = ((CTableContainer) cmpntTree[x]
-						.getComponentObject()).getSelectedRecords();
+				selected = ((CTableContainer) cmpntTree[x].getComponentObject()).getSelectedRecords();
+				
+				System.out.println(((CTableContainer) cmpntTree[x].getComponentObject()).getSelectedComponentItem());
+				
 				if (selected != null) {
 					if (!selected.isEmpty()) {
 						String[] row = (String[]) selected.elementAt(0);
@@ -1667,8 +1692,8 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 							if(cntr.strictEncoding && cmpntTree[x].isEncrypted())
 								row[r] = cntr.decrypt(row[r]);
 							
-							  if(!fieldParameters[r].equals("") )
-							  	 	hs.putStringField(fieldParameters[r], row[r]);
+							  if(!fieldParms[r].equals("") )
+							  	 	hs.putStringField(fieldParms[r], row[r]);
 								 else
 								 	hs.putStringField(fieldNames[r], row[r]);
 							}

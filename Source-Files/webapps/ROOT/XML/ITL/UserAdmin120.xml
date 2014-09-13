@@ -8,10 +8,10 @@
 <!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/XML/UserAdmin120.xml -->
 <!--	 	 Last Update :  09-Aug-2010 -->
 <!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="UserAdmin120" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.UserSecurityManager" AUTO_REFRESH="false" ICON="WKPC.jpg" DESCRIPTION="Web User Profile Group" Screen_Title="Web User Group Profile" WIDTH="915" HEIGHT="595">
+<SCRIPT SCRIPT_NAME="UserAdmin120" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.UserSecurityManager" AUTO_REFRESH="false" ICON="WKPC.jpg" DESCRIPTION="Web Profilo Utente Gruppo" Screen_Title="Web User Group Profile" WIDTH="915" HEIGHT="595">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Cancella" ICON="iClear.gif" />
-    <BarButton TYPE="FIND" DESCRIPTION="Find-it!" ICON="iFind.gif" METHOD="getUserGroupList" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Chiaro" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Trova-it!" ICON="iFind.gif" METHOD="getUserGroupList" />
   </ButtonBar>
   <Panel DESCRIPTION="Cerca Valori" POSITION="Left Fill" HIDDEN="N">
     <SearchTextField FIELDNAME="@Description" DESCRIPTION="Descrizione" LENGTH="20" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" ENCRYPT="N" ALIGNMENT="Left" />
@@ -28,7 +28,7 @@
     <TableCheckBox FIELDNAME="TipAccess" DESCRIPTION="Consigli" ENCRYPT="N" />
   </Table>
   <Panel POSITION="Left" HIDDEN="N">
-    <Button DESCRIPTION="Edit User Group" POSITION="Left" LINK="UserAdmin100" METHOD="getUserGroup" />
+    <Button DESCRIPTION="Modifica User Group" POSITION="Left" LINK="UserAdmin100" METHOD="getUserGroup" />
   </Panel>
 </SCRIPT>
 

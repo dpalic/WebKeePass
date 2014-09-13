@@ -8,20 +8,20 @@
 <!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/UserAdmin110.xml -->
 <!--	 	 Last Update :  18-May-2008 -->
 <!--	 	 User Profile:  pjones -->
-<SCRIPT SCRIPT_NAME="UserAdmin110" DOCUMENT_TYPE="Window" CLASS_NAME="server.Adherent" AUTO_REFRESH="false" ICON="WKPB.jpg" DESCRIPTION="Modifier l utilisateur" Screen_Title="Edit User" WIDTH="830" HEIGHT="730">
+<SCRIPT SCRIPT_NAME="UserAdmin110" DOCUMENT_TYPE="Window" CLASS_NAME="server.Adherent" AUTO_REFRESH="false" ICON="WKPB.jpg" DESCRIPTION="Modifier un utilisateur" Screen_Title="Edit User" WIDTH="830" HEIGHT="730">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Clear" ICON="iClear.gif" />
-    <BarButton TYPE="FIND" DESCRIPTION="Trouvez-le!" ICON="iFind.gif" METHOD="getUser" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Effacer" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Trouvez-lui!" ICON="iFind.gif" METHOD="getUser" />
     <BarButton TYPE="DELETE" DESCRIPTION="Supprimer" ICON="iDelete.gif" METHOD="deleteUser" />
-    <BarButton TYPE="PREV" DESCRIPTION="Précédent" ICON="iPrev.gif" METHOD="prvUser" />
+    <BarButton TYPE="PREV" DESCRIPTION="Précédente" ICON="iPrev.gif" METHOD="prvUser" />
     <BarButton TYPE="NEXT" DESCRIPTION="Suivant" ICON="iNext.gif" METHOD="nxtUser" />
     <BarButton TYPE="POST" DESCRIPTION="Ajouter / Mettre à jour" ICON="iEdit.gif" METHOD="updUser" />
-    <BarButton TYPE="NEW-LINE" DESCRIPTION="Grp KeePass Nouveau" ICON="iNew.gif" />
-    <BarButton TYPE="DEL-LINE" DESCRIPTION="Grp KeePass Supprimer" ICON="iNew.gif" METHOD="deleteAdherent" />
+    <BarButton TYPE="NEW-LINE" DESCRIPTION="Nouveau KeePass Grp" ICON="iNew.gif" />
+    <BarButton TYPE="DEL-LINE" DESCRIPTION="Supprimer KeePass Grp" ICON="iNew.gif" METHOD="deleteAdherent" />
   </ButtonBar>
   <Panel HIDDEN="N">
     <TextField FIELDNAME="UserID" DESCRIPTION="ID utilisateur" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="UserAdmin130" METHOD="getUser" />
-    <TextField FIELDNAME="UserDescription" DESCRIPTION="Description" LENGTH="20" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+    <TextField FIELDNAME="UserDescription" DESCRIPTION="Descriptif" LENGTH="20" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
     <PasswordField FIELDNAME="Password" DESCRIPTION="Mot de passe" LENGTH="20" DATA_LEN="30" POSITION="Left" HIDDEN="N" ENCRYPT="N" ALIGNMENT="Left" />
     <CheckBox FIELDNAME="UpdPW" DESCRIPTION="Mise à jour Mot de passe" ENCRYPT="N" />
   </Panel>
@@ -33,7 +33,7 @@
   </Panel>
   <TabGroup HEIGHT="0" WIDTH="0" POSITION="Left" COMPONENT_ORIENTATION="Bottom">
     <TabItem DESCRIPTION="Adresse">
-      <Panel DESCRIPTION="Adresse de l information" POSITION="Left Fill" HIDDEN="N">
+      <Panel DESCRIPTION="Renseignements sur l adresse" POSITION="Left Fill" HIDDEN="N">
 	<TextField FIELDNAME="Name" DESCRIPTION="Nom" LENGTH="25" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
 	<TextField FIELDNAME="Address1" DESCRIPTION="Adresse" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
 	<TextField FIELDNAME="Address2" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
@@ -44,12 +44,12 @@
       </Panel>
       <Panel DESCRIPTION="Accès à l information" POSITION="Right Fill" HIDDEN="N">
 	<Panel HIDDEN="N">
-	  <CheckBox FIELDNAME="ActiveUser" DESCRIPTION="Utilisateur Active" POSITION="Left" ENCRYPT="N" />
+	  <CheckBox FIELDNAME="ActiveUser" DESCRIPTION="Utilisateur actif" POSITION="Left" ENCRYPT="N" />
 	</Panel>
 	<Panel HIDDEN="N">
 	  <TextField FIELDNAME="GroupID" DESCRIPTION="Groupe d utilisateurs" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="UserAdmin120" PARAMETER="GroupID" />
 	  <TextField FIELDNAME="LastChangeDate" DESCRIPTION="Dernière mise à jour" LENGTH="9" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
-	  <TextField FIELDNAME="InActiveDate" DESCRIPTION="Date InActive" LENGTH="9" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+	  <TextField FIELDNAME="InActiveDate" DESCRIPTION="Date de InActive" LENGTH="9" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
 	</Panel>
       </Panel>
     </TabItem>
@@ -57,8 +57,8 @@
       <Panel FIELDNAME="Bundles" DESCRIPTION="Groupes KeePass Cette utilisateur est en" POSITION="Left Fill" HIDDEN="N">
 	<Table FIELDNAME="Table1" HEIGHT="10" WIDTH="15" POSITION="Left Fill">
 	  <TableTextField FIELDNAME="cc" DESCRIPTION="KeePass Groupe" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="30" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" LINK="KeePass018" PARAMETER="@aa" />
-	  <TableTextField FIELDNAME="dd" DESCRIPTION="Description" LENGTH="25" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="30" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
-	  <TableCheckBox FIELDNAME="ee" DESCRIPTION="Active" ENCRYPT="Y" />
+	  <TableTextField FIELDNAME="dd" DESCRIPTION="Descriptif" LENGTH="25" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="30" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
+	  <TableCheckBox FIELDNAME="ee" DESCRIPTION="Actif" ENCRYPT="Y" />
 	</Table>
       </Panel>
     </TabItem>

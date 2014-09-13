@@ -14,10 +14,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Enumeration;
 import java.util.Vector;
 
- 
 import webBoltOns.dataContol.DBSchemaException;
 import webBoltOns.dataContol.DataAccess;
 import webBoltOns.dataContol.DataSet;
@@ -447,34 +445,56 @@ public class Crypt {
 	}
 
 	/**/
-	public DataSet getCryptSrch(DataSet dataSet, DataAccess dataAccss) {
-		Vector<String[]> cstmrv1 = new Vector<String[]>();
-		String[] tblCols = (String[]) dataSet.getTableColumnFields("Table1");
-		ResultSet resultSet;
-		Statement sqlStatement = dataAccss.execConnectReadOnly();
+	public DataSet getCryptSrch(DataSet dtSet, DataAccess dtAccs) {
+		
+		Vector<String[]> tbl1 = new Vector<String[]>();
+		Vector<String[]> tbl2 = new Vector<String[]>();
+		String[] cls1 = (String[]) dtSet.getTableColumnFields("Table1");
+		String[] cls2 = (String[]) dtSet.getTableColumnFields("Table2");
+		ResultSet rs;
+		Statement stmt = dtAccs.execConnectReadOnly();
 
 		try {
-			String sql = "Select * From wkpPasswordCrypt Where j1 ='" + dataSet.getScmbl()
-					+ "' ";
+			String sql = "Select * From wkpPasswordCrypt Where j1 ='" + dtSet.getScmbl() + "' ";
+			rs = stmt.executeQuery(sql);
+			while (rs.next()) {
 
-			resultSet = sqlStatement.executeQuery(sql);
-			while (resultSet.next()) {
-				String[] row1 = new String[tblCols.length];
-				for (int x = 1; x < tblCols.length; x++)
-					row1[x] = (String) DataAccess.getFieldValue(resultSet,
-							tblCols[x], dataAccss.getDataType(tblCols[x]));
+				String[] row1 = new String[cls1.length];
+				for (int x = 1; x < cls1.length; x++)
+					row1[x] = (String) DataAccess.getFieldValue(rs,
+							cls1[x], dtAccs.getDataType(cls1[x]));
 
-				cstmrv1.addElement(row1);
+				String[] row2 = new String[cls2.length];
+				row2[0] = row1[1];
+				for (int x = 1; x < cls2.length; x++)
+					row2[x] = (String) DataAccess.getFieldValue(rs,
+							cls2[x], dtAccs.getDataType(cls2[x]));
+
+			    
+				if (    (row1[1] == null || dtSet.getStringField("@pwdID") == null || dtSet.getStringField("@pwdID").equals("") 
+						          || dtAccs.decrypt(row1[1]).contains(dtSet.getStringField("@pwdID") ))	
+						      
+					 &&  (row1[3] == null || dtSet.getStringField("@desc") == null || dtSet.getStringField("@desc").equals("") 
+							      || dtAccs.decrypt(row1[3]).contains(dtSet.getStringField("@desc") ))
+							      
+				     &&  (row1[4] == null || dtSet.getStringField("@userName") == null || dtSet.getStringField("@userName").equals("") 
+								  || dtAccs.decrypt(row1[4]).contains(dtSet.getStringField("@userName") )) ) {	
+			    		
+					tbl1.addElement(row1);
+					tbl2.addElement(row2);
+			    }
 			}
-			resultSet.close();
-			dataSet.put("Table1", cstmrv1);
+			
+			rs.close();
+			dtSet.put("Table1", tbl1);
+			dtSet.put("Table2", tbl2);
 
 		} catch (Exception exception) {
-			dataSet.addMessage("SVR0001");
+			dtSet.addMessage("SVR0001");
 		} finally {
-			dataAccss.execClose(sqlStatement);
+			dtAccs.execClose(stmt);
 		}
-		return dataSet;
+		return dtSet;
 	}
 	 
 	

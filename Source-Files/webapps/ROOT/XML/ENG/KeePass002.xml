@@ -6,9 +6,9 @@
 <!--	 	 Server Class :  server.Crypt -->
 <!--	 	 Initalization Method :   -->
 <!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/XML/ENG/KeePass002.xml -->
-<!--	 	 Last Update :  26-Nov-2010 -->
+<!--	 	 Last Update :  05-Sep-2011 -->
 <!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="KeePass002" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" AUTO_REFRESH="false" ICON="WKP1.jpg" DESCRIPTION="Edit My Passwords" Screen_Title="Edit My Passwords" WIDTH="800" HEIGHT="740">
+<SCRIPT SCRIPT_NAME="KeePass002" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" AUTO_REFRESH="true" ICON="WKP1.jpg" DESCRIPTION="Edit My Passwords" Screen_Title="Edit My Passwords" WIDTH="800" HEIGHT="740">
   <ButtonBar>
     <BarButton TYPE="CLEAR" DESCRIPTION="Clear/New " ICON="iClear.gif" />
     <BarButton TYPE="FIND" DESCRIPTION="Find/Refresh" ICON="iFind.gif" METHOD="getCrypt" />
@@ -25,9 +25,6 @@
     <Button FIELDNAME="b9" DESCRIPTION="Copy to Clip Timer" ICON="clip.gif" POSITION="Center" METHOD="CLIP_FIELD" />
     <PasswordEditor FIELDNAME="c8" DESCRIPTION="Password" LENGTH="25" DATA_LEN="50" POSITION="Left" HIDDEN="N" ENCRYPT="Y" ALIGNMENT="Left" />
     <Button FIELDNAME="c8" DESCRIPTION="Copy to Clip Timer" ICON="clip.gif" POSITION="Center" METHOD="CLIP_FIELD" />
-  </Panel>
-  <Panel POSITION="Left" HIDDEN="N">
-    <MacroEditor FIELDNAME="q4" DESCRIPTION="Form Robot" LENGTH="65" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="120" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
   </Panel>
   <TabGroup HEIGHT="0" WIDTH="0" POSITION="Left" COMPONENT_ORIENTATION="Top">
     <TabItem DESCRIPTION="Password Entry" ICON="tdot.gif">
@@ -49,7 +46,7 @@
       </Panel>
       <Panel POSITION="Left" HIDDEN="N">
 	<ComboBox FIELDNAME="KeeperID" DESCRIPTION="Category" LENGTH="20" DATA_TYPE="CHR" POSITION="Left" ENCRYPT="N" LIST_TABLE_NAME="wkpGroups" LIST_TABLE_FIELD="KeeperID" LIST_TABLE_DESCRIPTION="KeeperDesc" LIST_TABLE_SELECTTION="j1 = :Scmbl:" />
-	<ComboBox FIELDNAME="r3" DESCRIPTION="Icon" LENGTH="8" DATA_TYPE="CHR" POSITION="Center" ENCRYPT="Y">
+	<ComboBox FIELDNAME="r3" DESCRIPTION="Icon" LENGTH="4" DATA_TYPE="CHR" POSITION="Center" ENCRYPT="Y">
 	  <ComboItem DESCRIPTION=" -  1 " ICON="acon01.gif" DEFAULT_VALUE="acon01.gif" />
 	  <ComboItem DESCRIPTION=" -  2 " ICON="acon02.gif" DEFAULT_VALUE="acon02.gif" />
 	  <ComboItem DESCRIPTION=" -  3 " ICON="acon03.gif" DEFAULT_VALUE="acon03.gif" />
@@ -79,8 +76,11 @@
       <Panel POSITION="Left" HIDDEN="N">
 	<Button FIELDNAME="PwdShare" DESCRIPTION="Share This Password With Others" POSITION="Left" LINK="KeePass007" METHOD="initAkinList" />
 	<Button FIELDNAME="LnkShare" DESCRIPTION="Link  Files To This Password" LINK="KeePass020" METHOD_CLASS="server.Doc" METHOD="getDocList" />
-	<Button FIELDNAME="AccssLof" DESCRIPTION="Access Log" POSITION="Left" LINK="KeePass030" METHOD_CLASS="server.Crypt" METHOD="getAccesslog" />
+	<Button FIELDNAME="AccssLof" DESCRIPTION="Access Log" LINK="KeePass030" METHOD_CLASS="server.Crypt" METHOD="getAccesslog" />
       </Panel>
+    </TabItem>
+    <TabItem DESCRIPTION="Auto Type - Form Robot" ICON="tdot.gif">
+      <MacroEditor FIELDNAME="q4" DESCRIPTION="  " LENGTH="65" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="140" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
     </TabItem>
     <TabItem DESCRIPTION="Notes" ICON="tdot.gif">
       <TextRTFArea FIELDNAME="Notes" DESCRIPTION=" Notes" HEIGHT="14" WIDTH="33" POSITION="Left" PROTECTED="N" />
@@ -98,7 +98,7 @@
       </Panel>
     </TabItem>
     <TabItem DESCRIPTION="Image - Picture" ICON="tdot.gif">
-      <ImageBox FIELDNAME="Image" LENGTH="33" HEIGHT="17" WIDTH="0" POSITION="Left" PROTECTED="N" ENCRYPT="N" />
+      <ImageBox FIELDNAME="Image" LENGTH="33" HEIGHT="15" WIDTH="0" POSITION="Left" PROTECTED="N" ENCRYPT="N" />
     </TabItem>
   </TabGroup>
 </SCRIPT>

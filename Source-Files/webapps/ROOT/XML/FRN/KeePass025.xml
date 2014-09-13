@@ -11,8 +11,8 @@
 <SCRIPT SCRIPT_NAME="KeePass025" DOCUMENT_TYPE="Window" CLASS_NAME="server.Doc" AUTO_REFRESH="true" ICON="WKP5.jpg" DESCRIPTION="Importer mes mots de passe" Screen_Title="Import My Passwords" WIDTH="800" HEIGHT="470">
   <ButtonBar />
   <Panel POSITION="Left" HIDDEN="N">
-    <FilePrompt FIELDNAME="importPath" DESCRIPTION="Import du fichier XML" POSITION="Left" METHOD="ImportFile" />
-    <Button FIELDNAME="importToXml" DESCRIPTION="Importer à partir de XML KeePass" ICON="import.gif" POSITION="Center" METHOD_CLASS="server.Doc" METHOD="importXML" />
+    <FilePrompt FIELDNAME="importPath" DESCRIPTION="Importer depuis un fichier XML" POSITION="Left" METHOD="ImportFile" />
+    <Button FIELDNAME="importToXml" DESCRIPTION="Importer à partir de KeePass XML" ICON="import.gif" POSITION="Center" METHOD_CLASS="server.Doc" METHOD="importXML" />
   </Panel>
 </SCRIPT>
 

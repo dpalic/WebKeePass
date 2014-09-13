@@ -10,8 +10,8 @@
 <!--	 	 User Profile:  root -->
 <SCRIPT SCRIPT_NAME="KeePass013" DOCUMENT_TYPE="Window" CLASS_NAME="server.Akin" METHOD="getMySharesList" AUTO_REFRESH="false" ICON="WKP6.jpg" DESCRIPTION="Las contraseñas compartidas por categoría" Screen_Title="Shared Passwords By Category" WIDTH="1015" HEIGHT="680">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Borrar" ICON="iClear.gif" />
-    <BarButton TYPE="FIND" DESCRIPTION="Actualizar" ICON="iFind.gif" METHOD="getMySharesList" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Claro" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Refrescar" ICON="iFind.gif" METHOD="getMySharesList" />
   </ButtonBar>
   <TreeTable FIELDNAME="Table1" DESCRIPTION="Grupo" HEIGHT="0" WIDTH="0" METHOD="expandMySharesList">
     <TableTextField FIELDNAME="KeeperID" DESCRIPTION="+ ID" LENGTH="6" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
@@ -22,7 +22,7 @@
     <TableTextField FIELDNAME="a0" DESCRIPTION="Título" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
     <TableTextField FIELDNAME="b9" DESCRIPTION="Nombre de usuario" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
     <TableTextField FIELDNAME="j1" DESCRIPTION="Compartida por" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-    <TableTextField FIELDNAME="w3" DESCRIPTION="Compartir Nombre" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <TableTextField FIELDNAME="w3" DESCRIPTION="Nombre del recurso compartido" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
   </TreeTable>
 </SCRIPT>
 

@@ -8,10 +8,10 @@
 <!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/XML/ENG/KeePass025.xml -->
 <!--	 	 Last Update :  26-Nov-2010 -->
 <!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="KeePass025" DOCUMENT_TYPE="Window" CLASS_NAME="server.Doc" AUTO_REFRESH="true" ICON="WKP5.jpg" DESCRIPTION="Importa mie password" Screen_Title="Import My Passwords" WIDTH="800" HEIGHT="470">
+<SCRIPT SCRIPT_NAME="KeePass025" DOCUMENT_TYPE="Window" CLASS_NAME="server.Doc" AUTO_REFRESH="true" ICON="WKP5.jpg" DESCRIPTION="Importa mia password" Screen_Title="Import My Passwords" WIDTH="800" HEIGHT="470">
   <ButtonBar />
   <Panel POSITION="Left" HIDDEN="N">
-    <FilePrompt FIELDNAME="importPath" DESCRIPTION="Importa da file XML" POSITION="Left" METHOD="ImportFile" />
+    <FilePrompt FIELDNAME="importPath" DESCRIPTION="Importazione da file XML" POSITION="Left" METHOD="ImportFile" />
     <Button FIELDNAME="importToXml" DESCRIPTION="Importa da KeePass XML" ICON="import.gif" POSITION="Center" METHOD_CLASS="server.Doc" METHOD="importXML" />
   </Panel>
 </SCRIPT>

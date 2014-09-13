@@ -8,19 +8,19 @@
 <!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/UserAdmin190.xml -->
 <!--	 	 Last Update :  18-May-2008 -->
 <!--	 	 User Profile:  pjones -->
-<SCRIPT SCRIPT_NAME="UserAdmin190" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.DevelopmentTools" AUTO_REFRESH="false" ICON="icon.jpg" DESCRIPTION="Script profils" Screen_Title="Script  Profiles " WIDTH="755" HEIGHT="635">
+<SCRIPT SCRIPT_NAME="UserAdmin190" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.DevelopmentTools" AUTO_REFRESH="false" ICON="icon.jpg" DESCRIPTION="Profils Script" Screen_Title="Script  Profiles " WIDTH="755" HEIGHT="635">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Clear" ICON="iClear.gif" />
-    <BarButton TYPE="FIND" DESCRIPTION="Trouvez-le!" ICON="iFind.gif" METHOD="getScriptFileList" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Effacer" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Trouvez-lui!" ICON="iFind.gif" METHOD="getScriptFileList" />
   </ButtonBar>
   <Table FIELDNAME="ScriptFiles" HEIGHT="20" WIDTH="0" POSITION="Left">
     <TableTextField FIELDNAME="ScriptName" DESCRIPTION="Nom du script" LENGTH="20" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" PARAMETER="@ScriptFileName" />
-    <TableTextField FIELDNAME="LastChanged" DESCRIPTION="Dernière GMT Changé" LENGTH="18" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" />
-    <TableTextField FIELDNAME="Length" DESCRIPTION="Longueur du fichier" LENGTH="7" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Right" />
+    <TableTextField FIELDNAME="LastChanged" DESCRIPTION="Dernier changement GMT" LENGTH="18" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" />
+    <TableTextField FIELDNAME="Length" DESCRIPTION="Longueur de fichier" LENGTH="7" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Right" />
   </Table>
   <Panel POSITION="Left" HIDDEN="N">
-    <Button DESCRIPTION="Modifier le script de l écran" POSITION="Left" LINK="UserAdmin150" METHOD="getScreenScriptDetails" />
-    <Button DESCRIPTION="Modifier le script Menu" LINK="UserAdmin160" METHOD="getMenuScriptDetails" />
+    <Button DESCRIPTION="Script écran Modifier" POSITION="Left" LINK="UserAdmin150" METHOD="getScreenScriptDetails" />
+    <Button DESCRIPTION="Script Edit Menu" LINK="UserAdmin160" METHOD="getMenuScriptDetails" />
   </Panel>
 </SCRIPT>
 

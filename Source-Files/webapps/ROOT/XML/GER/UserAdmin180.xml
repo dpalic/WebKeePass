@@ -8,10 +8,10 @@
 <!--	 	 File Path :  /usr/jRivet-2.060206-Linux/jakarta-tomcat-5.5.7/webapps/jRivetExample1/WEB-INF/XML/UserAdmin180.xml -->
 <!--	 	 Last Update :  05-Feb-2006 -->
 <!--	 	 User Profile:  GENERAL -->
-<SCRIPT SCRIPT_NAME="UserAdmin180" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.DevelopmentTools" AUTO_REFRESH="false" DESCRIPTION="Generieren Base Java Source" Screen_Title="Generate Base Java Source " WIDTH="700" HEIGHT="546">
+<SCRIPT SCRIPT_NAME="UserAdmin180" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.DevelopmentTools" AUTO_REFRESH="false" DESCRIPTION="Generieren Basis Java Source" Screen_Title="Generate Base Java Source " WIDTH="700" HEIGHT="546">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Clear" ICON="iClear.gif" />
-    <BarButton TYPE="POST" DESCRIPTION="Erstellen Java-Quelldatei" METHOD="createJavaSourceFile" ICON="iEdit.gif" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Klar" ICON="iClear.gif" />
+    <BarButton TYPE="POST" DESCRIPTION="Neues Java-Quelldatei" METHOD="createJavaSourceFile" ICON="iEdit.gif" />
   </ButtonBar>
   <Panel POSITION="Left" Hidden="N">
     <TextField DESCRIPTION="Class Name" FIELDNAME="ClassName" LENGTH="22" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
@@ -33,23 +33,23 @@
 	<TextArea FIELDNAME="TableDescription" HEIGHT="6" WIDTH="20" POSITION="Left" PROTECTED="N" />
       </Panel>
     </TabItem>
-    <TabItem DESCRIPTION="Quelle Dateioptionen">
+    <TabItem DESCRIPTION="Source File Options">
       <CheckBox DESCRIPTION="Detail Get-Methode" FIELDNAME="CreateGetMethod" POSITION="Left" />
       <TextField FIELDNAME="GetMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
       <CheckBox DESCRIPTION="Detail Get Next-Methode" FIELDNAME="CreateGetNextMethod" POSITION="Left" />
       <TextField FIELDNAME="GetNextMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
-      <CheckBox DESCRIPTION="Detail Holen Zurück Methode" FIELDNAME="CreateGetPrevMethod" POSITION="Left" />
+      <CheckBox DESCRIPTION="Detail Get Prev Methode" FIELDNAME="CreateGetPrevMethod" POSITION="Left" />
       <TextField FIELDNAME="GetPrevMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
       <CheckBox DESCRIPTION="Detail Update-Methode" FIELDNAME="CreateUpdateMethod" POSITION="Left" />
       <TextField FIELDNAME="UpdateMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
       <CheckBox DESCRIPTION="Detail Delete-Methode" FIELDNAME="CreateDeleteMethod" POSITION="Left" />
       <TextField FIELDNAME="DeleteMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
-      <CheckBox DESCRIPTION="Tabelle List Method" FIELDNAME="CreateTableListMethod" POSITION="Left" />
+      <CheckBox DESCRIPTION="Table List Method" FIELDNAME="CreateTableListMethod" POSITION="Left" />
       <TextField FIELDNAME="TableListMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
       <CheckBox DESCRIPTION="Tabelle Update-Methode" FIELDNAME="CreateTableUpdateMethod" POSITION="Left" />
       <TextField FIELDNAME="TableUpdateMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
     </TabItem>
-    <TabItem DESCRIPTION="Quelle Header Kommentare">
+    <TabItem DESCRIPTION="Source Header-Kommentare">
       <TextArea FIELDNAME="Comments" HEIGHT="11" WIDTH="20" POSITION="Left" PROTECTED="N" />
     </TabItem>
   </TabGroup>

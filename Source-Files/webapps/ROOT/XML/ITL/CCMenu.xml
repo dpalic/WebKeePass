@@ -6,15 +6,15 @@
 <!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/XML/ENG/CCMenu.xml -->
 <!--	 	 Last Update :  26-Nov-2010 -->
 <!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="CCMenu" DOCUMENT_TYPE="Menu" DESCRIPTION="Kee Pass Web" Screen_Title="Web Kee Pass">
-  <SubMenu DESCRIPTION="Lavoro con la mia password" LINK="WKP-MyPasswords" QUICK_LINK="FALSE">
+<SCRIPT SCRIPT_NAME="CCMenu" DOCUMENT_TYPE="Menu" DESCRIPTION="Web Kee pass" Screen_Title="Web Kee Pass">
+  <SubMenu DESCRIPTION="Lavora con la mia password" LINK="WKP-MyPasswords" QUICK_LINK="FALSE">
     <Script DESCRIPTION="La mia password" ICON="WKP8.jpg" LINK="KeePass006" QUICK_LINK="TRUE" />
-    <Script DESCRIPTION="Modifica la mia password" ICON="WKP1.jpg" LINK="KeePass002" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Modificare la mia password" ICON="WKP1.jpg" LINK="KeePass002" QUICK_LINK="TRUE" />
     <Script DESCRIPTION="La mia password per categoria" ICON="WKP6.jpg" LINK="KeePass001" QUICK_LINK="FALSE" />
   </SubMenu>
   <SubMenu DESCRIPTION="Lavora con password condivisa" LINK="WKP-SharePasswords" QUICK_LINK="FALSE">
-    <SubMenu DESCRIPTION="Io condivido le password" LINK="WKP-MySharePasswords" QUICK_LINK="FALSE">
-      <Script DESCRIPTION="Condividi le mie password" ICON="WKP2.jpg" LINK="KeePass007" QUICK_LINK="TRUE" />
+    <SubMenu DESCRIPTION="Le password I Am Condivisione" LINK="WKP-MySharePasswords" QUICK_LINK="FALSE">
+      <Script DESCRIPTION="Condividi la mia password" ICON="WKP2.jpg" LINK="KeePass007" QUICK_LINK="TRUE" />
       <Script DESCRIPTION="Il mio profilo password condivisa" ICON="WKP4.jpg" LINK="KeePass016" QUICK_LINK="FALSE" />
     </SubMenu>
     <SubMenu DESCRIPTION="Le password condivisa To Me" LINK="WKP-MyOthersPasswords" QUICK_LINK="FALSE">
@@ -25,14 +25,14 @@
     <Script DESCRIPTION="Modifica categorie Condividi" LINK="KeePass014" QUICK_LINK="FALSE" />
   </SubMenu>
   <SubMenu DESCRIPTION="Importa / Esporta password" LINK="impexp" QUICK_LINK="FALSE">
-    <Script DESCRIPTION="Importa mie password" ICON="WKP5.JPG" LINK="KeePass025" QUICK_LINK="TRUE" />
-    <Script DESCRIPTION="Esportare le password" ICON="WKP4.jpg" LINK="KeePass035" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Importa mia password" ICON="WKP5.JPG" LINK="KeePass025" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Esportare la mia password" ICON="WKP4.jpg" LINK="KeePass035" QUICK_LINK="TRUE" />
   </SubMenu>
-  <SubMenu DESCRIPTION="Lavorare con gli utenti" LINK="WKP-Users" QUICK_LINK="FALSE">
-    <Script DESCRIPTION="Profilo Utente" ICON="WKPD.jpg" LINK="UserAdmin130" QUICK_LINK="FALSE" />
+  <SubMenu DESCRIPTION="Lavora con Utenti" LINK="WKP-Users" QUICK_LINK="FALSE">
+    <Script DESCRIPTION="Profilo utente" ICON="WKPD.jpg" LINK="UserAdmin130" QUICK_LINK="FALSE" />
     <Script DESCRIPTION="Modifica utenti" ICON="WKPB.jpg" LINK="UserAdmin110" QUICK_LINK="TRUE" />
-    <Script DESCRIPTION="User Group Profile" ICON="WKPC.jpg" LINK="UserAdmin120" QUICK_LINK="FALSE" />
-    <Script DESCRIPTION="Crea gruppi di utenti Web" ICON="WKPA.jpg" LINK="UserAdmin100" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="User Group profilo" ICON="WKPC.jpg" LINK="UserAdmin120" QUICK_LINK="FALSE" />
+    <Script DESCRIPTION="Modifica gruppi di utenti web" ICON="WKPA.jpg" LINK="UserAdmin100" QUICK_LINK="TRUE" />
   </SubMenu>
 </SCRIPT>
 

@@ -58,3 +58,6 @@ public interface PasswordVerifier {
 	public boolean verify(char[] password);
 
 }
+
+
+

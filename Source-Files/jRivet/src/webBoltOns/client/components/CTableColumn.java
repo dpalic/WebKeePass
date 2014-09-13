@@ -67,8 +67,6 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 import java.io.Serializable;
 import java.util.Enumeration;
 import java.util.EventObject;
@@ -85,12 +83,9 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.event.MouseInputListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
-
-import com.sun.org.apache.xalan.internal.xsltc.runtime.Hashtable;
 
 import webBoltOns.AppletConnector;
 import webBoltOns.client.WindowFrame;
@@ -98,6 +93,8 @@ import webBoltOns.client.WindowItem;
 import webBoltOns.client.components.CComboBoxField.ComboItem;
 import webBoltOns.client.components.componentRules.StandardComponentLayout;
 import webBoltOns.dataContol.DataSet;
+
+import com.sun.org.apache.xalan.internal.xsltc.runtime.Hashtable;
 
 public class CTableColumn extends JComponent implements StandardComponentLayout  {
 
@@ -154,6 +151,15 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 				// 5- Add An Image Object 
 		} else if (thisItem.getObjectName().equals(WindowItem.TABLE_IMAGE_OBJECT  )) {
 			thisItem.setDataType("IMG");
+			thisItem.setProtected(true);
+			JTextField imageField = new JTextField();
+			imageField.setEditable(false);
+			imageField.setFocusable(false);
+			thisItem.setComponentObject(imageField);
+			
+			// 5- Add An PWS Object 
+		} else if (thisItem.getObjectName().equals(WindowItem.TABLE_PWD_OBJECT  )) {
+			thisItem.setDataType("PWD");
 			thisItem.setProtected(true);
 			JTextField imageField = new JTextField();
 			imageField.setEditable(false);
@@ -426,8 +432,14 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 				setText(null);
 				setIcon(cnct.getImageIcon((String) value));
 				setHorizontalAlignment(JTextField.CENTER);
- 
-						
+
+
+			} else if (dataType.equals("PWD")) {
+				setText(null);
+				setIcon(cnct.getImageIcon("idots.gif"));
+				setHorizontalAlignment(JTextField.CENTER);
+
+				
 			} else if(value  instanceof String ) {
 				setIcon(null);
 				if(dataType.equals("CMB")) 
@@ -482,9 +494,9 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 				}
 
 				public boolean isCellEditable(EventObject anEvent) {
-					if(comp.isProtected())
+					if(comp.isProtected()) {  			 
 						return false;
-					if (anEvent instanceof MouseEvent) {
+					}	if (anEvent instanceof MouseEvent) {
 						return ((MouseEvent) anEvent).getClickCount() >= clickCountToStart;
 					}
 					return true;

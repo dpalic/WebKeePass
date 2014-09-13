@@ -8,13 +8,13 @@
 <!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass020.xml -->
 <!--	 	 Last Update :  17-Mar-2009 -->
 <!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="KeePass020" DOCUMENT_TYPE="Window" CLASS_NAME="server.Doc" AUTO_REFRESH="true" ICON="WTE1B.jpg" DESCRIPTION="File di collegamento a Password" Screen_Title="Link Files To Password" WIDTH="960" HEIGHT="610">
+<SCRIPT SCRIPT_NAME="KeePass020" DOCUMENT_TYPE="Window" CLASS_NAME="server.Doc" AUTO_REFRESH="true" ICON="WTE1B.jpg" DESCRIPTION="File Link password" Screen_Title="Link Files To Password" WIDTH="960" HEIGHT="610">
   <ButtonBar>
-    <BarButton TYPE="FIND" DESCRIPTION="Trova / Aggiorna" ICON="iFind.gif" METHOD="getDocList" />
+    <BarButton TYPE="FIND" DESCRIPTION="Trova / Refresh" ICON="iFind.gif" METHOD="getDocList" />
     <BarButton TYPE="POST" DESCRIPTION="Aggiornamento Descrizioni" ICON="iEdit.gif" METHOD="updDocList" />
   </ButtonBar>
   <Panel POSITION="Left" HIDDEN="N">
-    <TextField FIELDNAME="PasswordID" DESCRIPTION="Password ID #" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="20" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" LINK="KeePass006" METHOD="getDocList" />
+    <TextField FIELDNAME="PasswordID" DESCRIPTION="La password ID #" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="20" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" LINK="KeePass006" METHOD="getDocList" />
     <TextField FIELDNAME="a0" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" />
   </Panel>
   <DocumentManagerTable FIELDNAME="DocMngr" HEIGHT="0" WIDTH="0" POSITION="Left" COMMIT_CLASS="server.Doc" COMMIT_METHOD="importDoc" COMPONENT_ORIENTATION="Top">

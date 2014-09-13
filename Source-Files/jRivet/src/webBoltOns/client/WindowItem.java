@@ -164,6 +164,7 @@ public class WindowItem {
 	public static final String TABLE_CHECKBOX_OBJECT = "TableCheckBox";
 	public static final String TABLE_COMBOBOX_OBJECT = "TableComboBox";
 	public static final String TABLE_IMAGE_OBJECT = "TableImageField";
+	public static final String TABLE_PWD_OBJECT = "TablePwdField";
 	public static final String TABLE_OBJECT = "Table";
 	public static final String TABLE_PROMPT = "TABLE_PROMPT";
 	public static final String TABLE_SPINNER_OBJECT = "TableSpinnerField";

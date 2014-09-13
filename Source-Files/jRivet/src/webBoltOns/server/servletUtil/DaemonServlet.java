@@ -106,7 +106,7 @@ public abstract class DaemonServlet extends HttpServlet {
 		super.init(config);
 		this.socketPort = socketPort;
 		try {
-			log("Starting Socket Services - on Port: " + getSocketPort());
+			//log("Starting Socket Services - on Port: " + getSocketPort());
 			daemonRunner = new DaemonRunner(this);
 			daemonRunner.start();
 		} catch (Exception e) {

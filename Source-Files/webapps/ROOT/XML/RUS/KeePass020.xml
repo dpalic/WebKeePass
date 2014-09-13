@@ -8,9 +8,9 @@
 <!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass020.xml -->
 <!--	 	 Last Update :  17-Mar-2009 -->
 <!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="KeePass020" DOCUMENT_TYPE="Window" CLASS_NAME="server.Doc" AUTO_REFRESH="true" ICON="WTE1B.jpg" DESCRIPTION="Связать файлы с паролем" Screen_Title="Link Files To Password" WIDTH="960" HEIGHT="610">
+<SCRIPT SCRIPT_NAME="KeePass020" DOCUMENT_TYPE="Window" CLASS_NAME="server.Doc" AUTO_REFRESH="true" ICON="WTE1B.jpg" DESCRIPTION="Связать файлы с паролями" Screen_Title="Link Files To Password" WIDTH="960" HEIGHT="610">
   <ButtonBar>
-    <BarButton TYPE="FIND" DESCRIPTION="Найти / Обновить" ICON="iFind.gif" METHOD="getDocList" />
+    <BarButton TYPE="FIND" DESCRIPTION="Поиск / Обновить" ICON="iFind.gif" METHOD="getDocList" />
     <BarButton TYPE="POST" DESCRIPTION="Обновление описаний" ICON="iEdit.gif" METHOD="updDocList" />
   </ButtonBar>
   <Panel POSITION="Left" HIDDEN="N">
@@ -21,7 +21,7 @@
     <TableNavRow FIELDNAME="nav" DESCRIPTION="-" LENGTH="2" ENCRYPT="N" />
     <TableTextField FIELDNAME="DocumentID" DESCRIPTION="ID" LENGTH="3" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="10" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Center" />
     <TableTextField FIELDNAME="DocumentFile" DESCRIPTION="Файл" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="60" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
-    <TableTextField FIELDNAME="DocumentDesc" DESCRIPTION="Desc" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="60" PROTECTED="N" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
+    <TableTextField FIELDNAME="DocumentDesc" DESCRIPTION="Описание" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="60" PROTECTED="N" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
     <TableTextField FIELDNAME="DocumentDate" DESCRIPTION="Дата" LENGTH="10" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
   </DocumentManagerTable>
 </SCRIPT>

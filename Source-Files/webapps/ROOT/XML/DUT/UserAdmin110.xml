@@ -10,10 +10,10 @@
 <!--	 	 User Profile:  pjones -->
 <SCRIPT SCRIPT_NAME="UserAdmin110" DOCUMENT_TYPE="Window" CLASS_NAME="server.Adherent" AUTO_REFRESH="false" ICON="WKPB.jpg" DESCRIPTION="Gebruiker bewerken" Screen_Title="Edit User" WIDTH="830" HEIGHT="730">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Duidelijke" ICON="iClear.gif" />
-    <BarButton TYPE="FIND" DESCRIPTION="Vind-It!" ICON="iFind.gif" METHOD="getUser" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Duidelijk" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Vind-it!" ICON="iFind.gif" METHOD="getUser" />
     <BarButton TYPE="DELETE" DESCRIPTION="Verwijderen" ICON="iDelete.gif" METHOD="deleteUser" />
-    <BarButton TYPE="PREV" DESCRIPTION="Vorige" ICON="iPrev.gif" METHOD="prvUser" />
+    <BarButton TYPE="PREV" DESCRIPTION="Vorig" ICON="iPrev.gif" METHOD="prvUser" />
     <BarButton TYPE="NEXT" DESCRIPTION="Volgende" ICON="iNext.gif" METHOD="nxtUser" />
     <BarButton TYPE="POST" DESCRIPTION="Toevoegen / bijwerken" ICON="iEdit.gif" METHOD="updUser" />
     <BarButton TYPE="NEW-LINE" DESCRIPTION="Nieuwe KeePass Grp" ICON="iNew.gif" />
@@ -26,9 +26,9 @@
     <CheckBox FIELDNAME="UpdPW" DESCRIPTION="Update Wachtwoord" ENCRYPT="N" />
   </Panel>
   <Panel POSITION="Left" HIDDEN="N">
-    <TextField FIELDNAME="WebSite" DESCRIPTION="Website" LENGTH="47" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="100" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+    <TextField FIELDNAME="WebSite" DESCRIPTION="Web Site" LENGTH="47" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="100" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
     <Button FIELDNAME="WebSite" METHOD="URL" />
-    <TextField FIELDNAME="Email" DESCRIPTION="E-mail adres" LENGTH="47" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="100" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+    <TextField FIELDNAME="Email" DESCRIPTION="E-mailadres" LENGTH="47" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="100" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
     <Button FIELDNAME="Email" ICON="webEMAIL.gif" METHOD="EMAIL" />
   </Panel>
   <TabGroup HEIGHT="0" WIDTH="0" POSITION="Left" COMPONENT_ORIENTATION="Bottom">
@@ -44,27 +44,27 @@
       </Panel>
       <Panel DESCRIPTION="Toegang tot informatie" POSITION="Right Fill" HIDDEN="N">
 	<Panel HIDDEN="N">
-	  <CheckBox FIELDNAME="ActiveUser" DESCRIPTION="Gebruiker actief" POSITION="Left" ENCRYPT="N" />
+	  <CheckBox FIELDNAME="ActiveUser" DESCRIPTION="Actieve gebruikers" POSITION="Left" ENCRYPT="N" />
 	</Panel>
 	<Panel HIDDEN="N">
-	  <TextField FIELDNAME="GroupID" DESCRIPTION="User Group" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="UserAdmin120" PARAMETER="GroupID" />
-	  <TextField FIELDNAME="LastChangeDate" DESCRIPTION="Laatste update" LENGTH="9" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+	  <TextField FIELDNAME="GroupID" DESCRIPTION="Gebruikers Groep" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="UserAdmin120" PARAMETER="GroupID" />
+	  <TextField FIELDNAME="LastChangeDate" DESCRIPTION="Laatste Update" LENGTH="9" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
 	  <TextField FIELDNAME="InActiveDate" DESCRIPTION="Datum Inactieve" LENGTH="9" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
 	</Panel>
       </Panel>
     </TabItem>
     <TabItem DESCRIPTION="KeePass Groepen">
-      <Panel FIELDNAME="Bundles" DESCRIPTION="KeePass Groepen Deze gebruiker zich in" POSITION="Left Fill" HIDDEN="N">
+      <Panel FIELDNAME="Bundles" DESCRIPTION="KeePass groepen deze gebruiker is in" POSITION="Left Fill" HIDDEN="N">
 	<Table FIELDNAME="Table1" HEIGHT="10" WIDTH="15" POSITION="Left Fill">
-	  <TableTextField FIELDNAME="cc" DESCRIPTION="KeePass Groep" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="30" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" LINK="KeePass018" PARAMETER="@aa" />
-	  <TableTextField FIELDNAME="dd" DESCRIPTION="Beschrijving" LENGTH="25" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="30" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
+	  <TableTextField FIELDNAME="cc" DESCRIPTION="KeePass Group" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="30" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" LINK="KeePass018" PARAMETER="@aa" />
+	  <TableTextField FIELDNAME="dd" DESCRIPTION="Description" LENGTH="25" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="30" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
 	  <TableCheckBox FIELDNAME="ee" DESCRIPTION="Actief" ENCRYPT="Y" />
 	</Table>
       </Panel>
     </TabItem>
   </TabGroup>
   <Panel POSITION="Left Fill" HIDDEN="N">
-    <Button FIELDNAME="pbndles" DESCRIPTION="Maak KeePass Groep" POSITION="Left" LINK="KeePass017" METHOD_CLASS="server.Akin" METHOD="getBndList" />
+    <Button FIELDNAME="pbndles" DESCRIPTION="Maak een KeePass-groep" POSITION="Left" LINK="KeePass017" METHOD_CLASS="server.Akin" METHOD="getBndList" />
   </Panel>
 </SCRIPT>
 

@@ -107,7 +107,7 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 	protected String tableTitle = "";
 	private JTable tableView;
 	public CTabTableContainer tabTable;
-	protected int totcol = 0, curcol = 0, totwidth = 0, totlenght = 0;
+	protected int totcol = 0, curcol = 0, tbWidth = 0, tbHeight = 0;
 	protected WindowFrame mFrm;
 	protected WindowItem comp;
 	protected JButton print, copy;
@@ -139,9 +139,9 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 			}
 		}
 		if (thisItem.getHeight() == 0) 
-			totlenght = 300;
+			tbHeight = 300;
 		else 
-			totlenght = thisItem.getHeight() * 20;
+			tbHeight = thisItem.getHeight() * 20;
 	}
 
 
@@ -390,7 +390,7 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 					.getFieldName();
 			fieldParameter[curcol] = tableColumns[curcol].getAppletComponent()
 					.getFieldParameterName();
-			totwidth += tableColumns[curcol].getAppletComponent().getLength() + 5;
+			tbWidth += tableColumns[curcol].getAppletComponent().getLength() + 5;
 			curcol++;
 		}
 		
@@ -418,7 +418,7 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 				.createCompoundBorder(BorderFactory.createTitledBorder(""),
 						BorderFactory.createEmptyBorder(5, 5, 5, 5)), scrollpane.getBorder())); 
 		scrollpane.setPreferredSize(new Dimension(
-				tableView.getPreferredSize().width + 40, totlenght + 15));
+				tableView.getPreferredSize().width + 40, tbHeight + 15));
 		
 		scrollpane.getVerticalScrollBar().addAdjustmentListener(this);
 		tableView.addMouseListener(this);
@@ -433,7 +433,9 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 			scrollpane.setCorner(JScrollPane.LOWER_RIGHT_CORNER, print);
 		if (cnct.tableCopyAccess)
 			scrollpane.setCorner(JScrollPane.UPPER_RIGHT_CORNER, copy);
-		add(scrollpane, BorderLayout.CENTER);
+	//	add(scrollpane, BorderLayout.CENTER);
+	add(scrollpane);
+
 	}
 
 	
@@ -666,7 +668,7 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 		}
 		if (tableView.getSelectedColumn() != -1) {
 			if (mFrm != null && e.getKeyCode() == 83) {
-				mFrm.fireWindowReturning();
+				mFrm.fireWindowReturning("", null);
 			}
 		}
 	}
@@ -694,10 +696,16 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 					scrollpane.getVerticalScrollBar().getValue(),
 					tableView.getSelectedRows());
 		}
-	
-		if (mFrm != null && e.getClickCount() > 1 && e.getButton() == MouseEvent.BUTTON1) {
-			mFrm.fireWindowReturning();
-			
+	 
+		
+		if (mFrm != null && e.getClickCount() > 1 && e.getButton() == MouseEvent.BUTTON1) {		
+			int r = tableView.rowAtPoint(e.getPoint());
+			int c = tableView.columnAtPoint(e.getPoint());
+        	if(c >= 0 && r >= 0)      	 
+        		mFrm.fireWindowReturning(fieldDescription[c], tableView.getValueAt(r, c));
+        	else
+        		mFrm.fireWindowReturning("", null);
+        		
 		} else if(e.getButton() == MouseEvent.BUTTON3 && popUp != null) {
 			 SwingUtilities.invokeLater(new Runnable() {
                  public void run() {
@@ -714,6 +722,8 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
              	}
 			 });	 
 		}
+	
+		
 		
 	}
 

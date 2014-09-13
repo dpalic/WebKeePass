@@ -10,7 +10,7 @@
 <!--	 	 User Profile:  root -->
 <SCRIPT SCRIPT_NAME="KeePass016" DOCUMENT_TYPE="Window" CLASS_NAME="server.Akin" METHOD="getAkinListByPwd" AUTO_REFRESH="false" ICON="WKP4.jpg" DESCRIPTION="Il mio profilo password condivisa" Screen_Title="My Shared Password Profile" WIDTH="820" HEIGHT="524">
   <ButtonBar>
-    <BarButton TYPE="FIND" DESCRIPTION="Trova / Aggiorna" ICON="iFind.gif" METHOD="getAkinListByPwd" />
+    <BarButton TYPE="FIND" DESCRIPTION="Trova / Refresh" ICON="iFind.gif" METHOD="getAkinListByPwd" />
   </ButtonBar>
   <Panel POSITION="Left" HIDDEN="N">
     <Table FIELDNAME="Table1" HEIGHT="12" WIDTH="0" POSITION="Left">
@@ -20,11 +20,11 @@
       <TableTextField FIELDNAME="AkinID" DESCRIPTION="ID-" LENGTH="3" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="20" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
       <TableTextField FIELDNAME="x2" DESCRIPTION="Utente / gruppo" LENGTH="7" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="40" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
       <TableTextField FIELDNAME="w3" DESCRIPTION="Condividi Desc" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="40" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-      <TableCheckBox FIELDNAME="v4" DESCRIPTION="Condividi Active" ENCRYPT="Y" />
+      <TableCheckBox FIELDNAME="v4" DESCRIPTION="Condividi Attivo" ENCRYPT="Y" />
     </Table>
   </Panel>
   <Panel POSITION="Left" HIDDEN="N">
-    <Button FIELDNAME="shrepwd" DESCRIPTION="Condividi la mia Password" POSITION="Left" LINK="KeePass007" PARAMETER="Table1" METHOD_CLASS="server.Akin" METHOD="initAkinList" />
+    <Button FIELDNAME="shrepwd" DESCRIPTION="Condividi la mia password" POSITION="Left" LINK="KeePass007" PARAMETER="Table1" METHOD_CLASS="server.Akin" METHOD="initAkinList" />
   </Panel>
 </SCRIPT>
 

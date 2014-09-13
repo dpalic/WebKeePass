@@ -290,7 +290,7 @@ public class CPasswordEditor extends JPasswordField implements StandardComponent
 
 		} else if(ae.getActionCommand().equals(ClipPW)) {		
 			commitEditing(new String (getPassword()));
-			mFrm.getMenuObject().copyToClipTimer(commitValue);
+			mFrm.getMenuObject().copyToClipTimer("PssWrd", commitValue);
 
 			
 		} else if(ae.getActionCommand().equals(CrtPW)) {

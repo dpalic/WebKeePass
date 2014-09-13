@@ -10,8 +10,8 @@
 <!--	 	 User Profile:  pjones -->
 <SCRIPT SCRIPT_NAME="UserAdmin110" DOCUMENT_TYPE="Window" CLASS_NAME="server.Adherent" AUTO_REFRESH="false" ICON="WKPB.jpg" DESCRIPTION="Muokkaa käyttäjää" Screen_Title="Edit User" WIDTH="830" HEIGHT="730">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Tyhjennä" ICON="iClear.gif" />
-    <BarButton TYPE="FIND" DESCRIPTION="Etsi-it!" ICON="iFind.gif" METHOD="getUser" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Selkeä" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Etsi-se!" ICON="iFind.gif" METHOD="getUser" />
     <BarButton TYPE="DELETE" DESCRIPTION="Poista" ICON="iDelete.gif" METHOD="deleteUser" />
     <BarButton TYPE="PREV" DESCRIPTION="Edellinen" ICON="iPrev.gif" METHOD="prvUser" />
     <BarButton TYPE="NEXT" DESCRIPTION="Seuraava" ICON="iNext.gif" METHOD="nxtUser" />
@@ -23,7 +23,7 @@
     <TextField FIELDNAME="UserID" DESCRIPTION="Käyttäjätunnus" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="UserAdmin130" METHOD="getUser" />
     <TextField FIELDNAME="UserDescription" DESCRIPTION="Kuvaus" LENGTH="20" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
     <PasswordField FIELDNAME="Password" DESCRIPTION="Salasana" LENGTH="20" DATA_LEN="30" POSITION="Left" HIDDEN="N" ENCRYPT="N" ALIGNMENT="Left" />
-    <CheckBox FIELDNAME="UpdPW" DESCRIPTION="Päivitä salasana" ENCRYPT="N" />
+    <CheckBox FIELDNAME="UpdPW" DESCRIPTION="Päivitä Salasana" ENCRYPT="N" />
   </Panel>
   <Panel POSITION="Left" HIDDEN="N">
     <TextField FIELDNAME="WebSite" DESCRIPTION="Sivuston" LENGTH="47" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="100" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
@@ -42,13 +42,13 @@
 	<TextField FIELDNAME="Phone1" DESCRIPTION="Puhelinnumero" LENGTH="25" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
 	<TextField FIELDNAME="Fax" DESCRIPTION="Faksinumero" LENGTH="25" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
       </Panel>
-      <Panel DESCRIPTION="Access tiedot" POSITION="Right Fill" HIDDEN="N">
+      <Panel DESCRIPTION="Saada tietoja" POSITION="Right Fill" HIDDEN="N">
 	<Panel HIDDEN="N">
-	  <CheckBox FIELDNAME="ActiveUser" DESCRIPTION="Käyttäjä Aktiivinen" POSITION="Left" ENCRYPT="N" />
+	  <CheckBox FIELDNAME="ActiveUser" DESCRIPTION="Käyttäjä aktiivinen" POSITION="Left" ENCRYPT="N" />
 	</Panel>
 	<Panel HIDDEN="N">
 	  <TextField FIELDNAME="GroupID" DESCRIPTION="Käyttäjäryhmä" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="UserAdmin120" PARAMETER="GroupID" />
-	  <TextField FIELDNAME="LastChangeDate" DESCRIPTION="Viimeisin päivitys" LENGTH="9" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+	  <TextField FIELDNAME="LastChangeDate" DESCRIPTION="Last Update" LENGTH="9" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
 	  <TextField FIELDNAME="InActiveDate" DESCRIPTION="Päivämäärä aktiivinen" LENGTH="9" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
 	</Panel>
       </Panel>

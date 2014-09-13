@@ -8,12 +8,12 @@
 <!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/XML/ENG/KeePass003.xml -->
 <!--	 	 Last Update :  26-Nov-2010 -->
 <!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="KeePass003" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" AUTO_REFRESH="false" DESCRIPTION="Visualizza Storia" Screen_Title="View History" WIDTH="750" HEIGHT="680">
+<SCRIPT SCRIPT_NAME="KeePass003" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" AUTO_REFRESH="false" DESCRIPTION="Visualizza cronologia" Screen_Title="View History" WIDTH="750" HEIGHT="680">
   <ButtonBar>
-    <BarButton TYPE="FIND" DESCRIPTION="Trova / Aggiorna" ICON="iFind.gif" METHOD="getCrypHistory" />
+    <BarButton TYPE="FIND" DESCRIPTION="Trova / Refresh" ICON="iFind.gif" METHOD="getCrypHistory" />
     <BarButton TYPE="PREV" DESCRIPTION="Precedente" ICON="iPrev.gif" METHOD="prvCrypHistory" />
     <BarButton TYPE="NEXT" DESCRIPTION="Prossimo" ICON="iNext.gif" METHOD="nxtCrypHistory" />
-    <BarButton TYPE="POST" DESCRIPTION="Ripristinare questo punto" ICON="iEdit.gif" METHOD="restoreCrypt" />
+    <BarButton TYPE="POST" DESCRIPTION="Ripristinare questo elemento" ICON="iEdit.gif" METHOD="restoreCrypt" />
   </ButtonBar>
   <Panel POSITION="Left" HIDDEN="N">
     <TextField FIELDNAME="HistoryID" DESCRIPTION="HistoryID" LENGTH="4" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="5" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="KeePass001" METHOD="getPassword" />
@@ -21,7 +21,7 @@
     <TextField FIELDNAME="a0" LENGTH="25" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" />
   </Panel>
   <TabGroup HEIGHT="0" WIDTH="0" POSITION="Left" COMPONENT_ORIENTATION="Top">
-    <TabItem DESCRIPTION="Inserimento password" ICON="tdot.gif">
+    <TabItem DESCRIPTION="Immissione password" ICON="tdot.gif">
       <Panel POSITION="Left" HIDDEN="N">
 	<TextField FIELDNAME="GroupID" DESCRIPTION="Gruppo" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<TextField FIELDNAME="b9" DESCRIPTION="Nome Utente" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
@@ -32,7 +32,7 @@
 	<CheckBox FIELDNAME="g4" DESCRIPTION="Nessuna scadenza" POSITION="Left" ENCRYPT="Y" />
       </Panel>
       <Panel POSITION="Left" HIDDEN="N">
-	<TextField FIELDNAME="n7" DESCRIPTION="Sito Web" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TextField FIELDNAME="n7" DESCRIPTION="Web Site" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<TextField FIELDNAME="i2" DESCRIPTION="Alt Sito Web" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<TextField FIELDNAME="k0" DESCRIPTION="Sito di supporto" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<TextField FIELDNAME="m8" DESCRIPTION="E-mail" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />

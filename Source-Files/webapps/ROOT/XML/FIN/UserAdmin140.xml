@@ -10,7 +10,7 @@
 <!--	 	 User Profile:  DEFAULT -->
 <SCRIPT SCRIPT_NAME="UserAdmin140" DESCRIPTION="Käyttäjä / Ryhmä Word Pad" Screen_Title="User/Group Word Pad" WIDTH="445" HEIGHT="580" CLASS_NAME="webBoltOns.server.UserSecurityManager">
   <ButtonBar>
-    <BarButton TYPE="FIND" DESCRIPTION="Etsi-it!" METHOD="getNotes" ICON="iFind.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Etsi-se!" METHOD="getNotes" ICON="iFind.gif" />
     <BarButton TYPE="EDIT" DESCRIPTION="Lisää / Päivitä" METHOD="updNotes" ICON="iEdit.gif" />
   </ButtonBar>
   <Panel POSITION="Left">

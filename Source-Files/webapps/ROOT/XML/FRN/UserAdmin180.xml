@@ -8,21 +8,21 @@
 <!--	 	 File Path :  /usr/jRivet-2.060206-Linux/jakarta-tomcat-5.5.7/webapps/jRivetExample1/WEB-INF/XML/UserAdmin180.xml -->
 <!--	 	 Last Update :  05-Feb-2006 -->
 <!--	 	 User Profile:  GENERAL -->
-<SCRIPT SCRIPT_NAME="UserAdmin180" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.DevelopmentTools" AUTO_REFRESH="false" DESCRIPTION="Générer Source Java de base" Screen_Title="Generate Base Java Source " WIDTH="700" HEIGHT="546">
+<SCRIPT SCRIPT_NAME="UserAdmin180" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.DevelopmentTools" AUTO_REFRESH="false" DESCRIPTION="Générer de la Base de Java Source" Screen_Title="Generate Base Java Source " WIDTH="700" HEIGHT="546">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Clear" ICON="iClear.gif" />
-    <BarButton TYPE="POST" DESCRIPTION="Créer un fichier source Java" METHOD="createJavaSourceFile" ICON="iEdit.gif" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Effacer" ICON="iClear.gif" />
+    <BarButton TYPE="POST" DESCRIPTION="Créer fichier source Java" METHOD="createJavaSourceFile" ICON="iEdit.gif" />
   </ButtonBar>
   <Panel POSITION="Left" Hidden="N">
-    <TextField DESCRIPTION="Nom de la classe" FIELDNAME="ClassName" LENGTH="22" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
-    <TextField DESCRIPTION="Description" FIELDNAME="Description" LENGTH="50" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
-    <TextField DESCRIPTION="Chemin Source" FIELDNAME="SourcePath" LENGTH="50" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
+    <TextField DESCRIPTION="Nom de classe" FIELDNAME="ClassName" LENGTH="22" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
+    <TextField DESCRIPTION="Descriptif" FIELDNAME="Description" LENGTH="50" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
+    <TextField DESCRIPTION="Source Path" FIELDNAME="SourcePath" LENGTH="50" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
   </Panel>
   <TabGroup HEIGHT="0" WIDTH="0" POSITION="Left" COMPONENT_ORIENTATION="Top">
-    <TabItem DESCRIPTION="Base de données sur le tableau">
+    <TabItem DESCRIPTION="Tableau base de données">
       <Panel DESCRIPTION="Nom de la table" POSITION="Left Fill" Hidden="N">
 	<TextField DESCRIPTION="Nom de la table" FIELDNAME="TableName" LENGTH="20" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
-	<TextField DESCRIPTION="Key Field" FIELDNAME="KeyField1" LENGTH="15" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
+	<TextField DESCRIPTION="Champ clé" FIELDNAME="KeyField1" LENGTH="15" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
 	<ComboBox FIELDNAME="KeyType" LENGTH="6" DATATYPE="CHR">
 	  <ComboItem DESCRIPTION="CHR" />
 	  <ComboItem DESCRIPTION="INT" />
@@ -33,20 +33,20 @@
 	<TextArea FIELDNAME="TableDescription" HEIGHT="6" WIDTH="20" POSITION="Left" PROTECTED="N" />
       </Panel>
     </TabItem>
-    <TabItem DESCRIPTION="Fichier d options Source">
-      <CheckBox DESCRIPTION="Détails méthode Get" FIELDNAME="CreateGetMethod" POSITION="Left" />
+    <TabItem DESCRIPTION="Options du fichier source">
+      <CheckBox DESCRIPTION="Détail Get Méthode" FIELDNAME="CreateGetMethod" POSITION="Left" />
       <TextField FIELDNAME="GetMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
-      <CheckBox DESCRIPTION="Détails méthode Get Next" FIELDNAME="CreateGetNextMethod" POSITION="Left" />
+      <CheckBox DESCRIPTION="Détail Obtenez méthode suivante" FIELDNAME="CreateGetNextMethod" POSITION="Left" />
       <TextField FIELDNAME="GetNextMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
-      <CheckBox DESCRIPTION="Détails méthode Get Préc" FIELDNAME="CreateGetPrevMethod" POSITION="Left" />
+      <CheckBox DESCRIPTION="Détail Get Méthode Précédente" FIELDNAME="CreateGetPrevMethod" POSITION="Left" />
       <TextField FIELDNAME="GetPrevMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
-      <CheckBox DESCRIPTION="Méthode de mise à jour détaillée" FIELDNAME="CreateUpdateMethod" POSITION="Left" />
+      <CheckBox DESCRIPTION="Méthode mise à jour de Détail" FIELDNAME="CreateUpdateMethod" POSITION="Left" />
       <TextField FIELDNAME="UpdateMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
-      <CheckBox DESCRIPTION="Supprimer détail Méthode" FIELDNAME="CreateDeleteMethod" POSITION="Left" />
+      <CheckBox DESCRIPTION="Méthode Supprimer détail" FIELDNAME="CreateDeleteMethod" POSITION="Left" />
       <TextField FIELDNAME="DeleteMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
       <CheckBox DESCRIPTION="Méthode Tableau Liste" FIELDNAME="CreateTableListMethod" POSITION="Left" />
       <TextField FIELDNAME="TableListMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
-      <CheckBox DESCRIPTION="Méthode de mise à jour le tableau" FIELDNAME="CreateTableUpdateMethod" POSITION="Left" />
+      <CheckBox DESCRIPTION="Méthode mise à jour le tableau" FIELDNAME="CreateTableUpdateMethod" POSITION="Left" />
       <TextField FIELDNAME="TableUpdateMethodComment" LENGTH="35" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Right" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" ALIGNMENT="Left" />
     </TabItem>
     <TabItem DESCRIPTION="Commentaires tête Source">

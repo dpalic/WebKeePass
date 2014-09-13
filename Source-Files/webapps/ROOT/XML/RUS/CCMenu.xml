@@ -7,32 +7,32 @@
 <!--	 	 Last Update :  26-Nov-2010 -->
 <!--	 	 User Profile:  root -->
 <SCRIPT SCRIPT_NAME="CCMenu" DOCUMENT_TYPE="Menu" DESCRIPTION="Веб Kee Pass" Screen_Title="Web Kee Pass">
-  <SubMenu DESCRIPTION="Работа с паролями" LINK="WKP-MyPasswords" QUICK_LINK="FALSE">
+  <SubMenu DESCRIPTION="Работать с моими паролями" LINK="WKP-MyPasswords" QUICK_LINK="FALSE">
     <Script DESCRIPTION="Мои пароли" ICON="WKP8.jpg" LINK="KeePass006" QUICK_LINK="TRUE" />
-    <Script DESCRIPTION="Изменить свой пароль" ICON="WKP1.jpg" LINK="KeePass002" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Изменить мой пароль" ICON="WKP1.jpg" LINK="KeePass002" QUICK_LINK="TRUE" />
     <Script DESCRIPTION="Мои пароли по категориям" ICON="WKP6.jpg" LINK="KeePass001" QUICK_LINK="FALSE" />
   </SubMenu>
   <SubMenu DESCRIPTION="Работа с общими паролями" LINK="WKP-SharePasswords" QUICK_LINK="FALSE">
-    <SubMenu DESCRIPTION="Пароли я делюсь" LINK="WKP-MySharePasswords" QUICK_LINK="FALSE">
-      <Script DESCRIPTION="Доля мои пароли" ICON="WKP2.jpg" LINK="KeePass007" QUICK_LINK="TRUE" />
-      <Script DESCRIPTION="Мой общий пароль профиль" ICON="WKP4.jpg" LINK="KeePass016" QUICK_LINK="FALSE" />
+    <SubMenu DESCRIPTION="Пароли Я делюсь" LINK="WKP-MySharePasswords" QUICK_LINK="FALSE">
+      <Script DESCRIPTION="Share Мои пароли" ICON="WKP2.jpg" LINK="KeePass007" QUICK_LINK="TRUE" />
+      <Script DESCRIPTION="Мой общий пароль профиля" ICON="WKP4.jpg" LINK="KeePass016" QUICK_LINK="FALSE" />
     </SubMenu>
     <SubMenu DESCRIPTION="Пароли Общие To Me" LINK="WKP-MyOthersPasswords" QUICK_LINK="FALSE">
       <Script DESCRIPTION="Пароли разделяют другие" ICON="WKP9.jpg" LINK="KeePass008" QUICK_LINK="TRUE" />
       <Script DESCRIPTION="Общие пароли по категориям" ICON="WKP6.jpg" LINK="KeePass013" QUICK_LINK="FALSE" />
     </SubMenu>
     <Script DESCRIPTION="Изменить Доля Группы" LINK="KeePass017" QUICK_LINK="FALSE" />
-    <Script DESCRIPTION="Изменить Доля Категории" LINK="KeePass014" QUICK_LINK="FALSE" />
+    <Script DESCRIPTION="Изменить Share Категории" LINK="KeePass014" QUICK_LINK="FALSE" />
   </SubMenu>
-  <SubMenu DESCRIPTION="Импорт / Экспорт паролей" LINK="impexp" QUICK_LINK="FALSE">
-    <Script DESCRIPTION="Импорт мои пароли" ICON="WKP5.JPG" LINK="KeePass025" QUICK_LINK="TRUE" />
-    <Script DESCRIPTION="Экспорт мои пароли" ICON="WKP4.jpg" LINK="KeePass035" QUICK_LINK="TRUE" />
+  <SubMenu DESCRIPTION="Импорт / экспорт паролей" LINK="impexp" QUICK_LINK="FALSE">
+    <Script DESCRIPTION="Импорт Мои пароли" ICON="WKP5.JPG" LINK="KeePass025" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Экспорт Мои пароли" ICON="WKP4.jpg" LINK="KeePass035" QUICK_LINK="TRUE" />
   </SubMenu>
-  <SubMenu DESCRIPTION="Работа с пользователями" LINK="WKP-Users" QUICK_LINK="FALSE">
+  <SubMenu DESCRIPTION="Работы с пользователями" LINK="WKP-Users" QUICK_LINK="FALSE">
     <Script DESCRIPTION="Профиль пользователя" ICON="WKPD.jpg" LINK="UserAdmin130" QUICK_LINK="FALSE" />
-    <Script DESCRIPTION="Изменить пользователя" ICON="WKPB.jpg" LINK="UserAdmin110" QUICK_LINK="TRUE" />
-    <Script DESCRIPTION="Пользователь Группа профиль" ICON="WKPC.jpg" LINK="UserAdmin120" QUICK_LINK="FALSE" />
-    <Script DESCRIPTION="Изменить группы веб Пользователь" ICON="WKPA.jpg" LINK="UserAdmin100" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Редактирование пользователей" ICON="WKPB.jpg" LINK="UserAdmin110" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Профиль группы" ICON="WKPC.jpg" LINK="UserAdmin120" QUICK_LINK="FALSE" />
+    <Script DESCRIPTION="Редактирование групп пользователей веб" ICON="WKPA.jpg" LINK="UserAdmin100" QUICK_LINK="TRUE" />
   </SubMenu>
 </SCRIPT>
 

@@ -98,8 +98,7 @@ public class CTabTableContainer extends JPanel implements StandardComponentLayou
 	public void addTab(CTableContainer table, String desc, String iconName) {
 		vtabs.add(table);
 		ImageIcon tabIcon = null;
-		if(!iconName.equals(""))
-			tabIcon = cnct.getImageIcon(iconName);
+		if(!iconName.equals("")) tabIcon = cnct.getImageIcon(iconName);
 		tabtable.addTab(desc, tabIcon, table);
 	}
 
@@ -113,8 +112,7 @@ public class CTabTableContainer extends JPanel implements StandardComponentLayou
 		tabtable.setFont(cnct.headerFont);
 		tabtable.setDoubleBuffered(true);
 		this.setLayout(new GridFlowLayout(0, 0));
-		add(tabtable, new GridFlowParm(
-				GridFlowParm.NEXT_ROW, 0));
+		add(tabtable, new GridFlowParm(GridFlowParm.NEXT_ROW, 0));
 		setName(Integer.toString(comp.getObjectHL()));
 		
 		if(comp.getOrientation().equals(WindowItem.BOTTOM))

@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Literals>
-  <Literal LiteralID = "SVR0001"  Text="Data Base Error - Errore database - Si prega di contattare l amministratore di sistema"  Severity="30" Type="MessageBar"/>
+  <Literal LiteralID = "SVR0001"  Text="Errore di Data Base - Errore database - Si prega di contattare l amministratore di sistema"  Severity="30" Type="MessageBar"/>
 
-  <Literal LiteralID = "SVR0002"  Text="Server di richiesta completo" Severity="00" Type="Pop-Up" />
+  <Literal LiteralID = "SVR0002"  Text="Richiesta di server completato" Severity="00" Type="Pop-Up" />
 
-  <Literal LiteralID = "SVR0003"  Text="Richiesta non completo: gli errori revisione qui sotto" Severity="00" Type="Pop-Up" /> 
+  <Literal LiteralID = "SVR0003"  Text="Non è richiesta completa: Errori Recensione di sotto" Severity="00" Type="Pop-Up" /> 
   
   <Literal LiteralID = "SVR0004"  Text="Class Not Found - Si prega di contattare l amministratore di sistema"  Severity="30" Type="MessageBar" />
 
-  <Literal LiteralID = "SVR0005"  Text="Server Security Eccezione - Si prega di contattare l amministratore di sistema"  Severity="30" Type="MessageBar" />
+  <Literal LiteralID = "SVR0005"  Text="Sicurezza Eccezione server - Si prega di contattare l amministratore di sistema"  Severity="30" Type="MessageBar" />
   
   <Literal LiteralID = "SVR0006"  Text="Metodo Not Found - Si prega di contattare l amministratore di sistema"   Severity="30" Type="MessageBar" />
 
-  <Literal LiteralID = "SVR0007"  Text="Istanze di errore - Si prega di contattare l amministratore di sistema"  Severity="30" Type="MessageBar" />
+  <Literal LiteralID = "SVR0007"  Text="Istanziazione di errore - Si prega di contattare l amministratore di sistema"  Severity="30" Type="MessageBar" />
 	
-  <Literal LiteralID = "SVR0008"  Text="Security Server Error-Si prega di contattare l amministratore di sistema"  Severity="30" Type="MessageBar" />
+  <Literal LiteralID = "SVR0008"  Text="Security Server Error-Si prega di contattare l amministratore dei sistemi"  Severity="30" Type="MessageBar" />
 
-  <Literal LiteralID = "SVR0009"  Text="Invocazione Target / Stack Trap Error - Si prega di contattare l amministratore di sistema"  Severity="30" Type="MessageBar" />
+  <Literal LiteralID = "SVR0009"  Text="Invocazione Target / trap di errore Stack - Si prega di contattare l amministratore di sistema"  Severity="30" Type="MessageBar" />
 
   <Literal LiteralID = "SVR0011"  Text="Menu File Not Found"  Severity="30" Type="MessageBar" /> 
   
-  <Literal LiteralID = "SVR0012"  Text="Menu File errore di analisi XML"  Severity="30" Type="MessageBar" />			
+  <Literal LiteralID = "SVR0012"  Text="Menu File XML Parse Error"  Severity="30" Type="MessageBar" />			
 			
-  <Literal LiteralID = "SVR0014"  Text="Menu File Errore I / O"  Severity="30" Type="MessageBar" />
+  <Literal LiteralID = "SVR0014"  Text="Menu File I / O Error"  Severity="30" Type="MessageBar" />
   
   <Literal LiteralID = "SVR0015"  Text="Script non trovato - Si prega di contattare l amministratore di sistema"  Severity="30" Type="MessageBar" /> 
 
-  <Literal LiteralID = "SVR0016"  Text="Script XML Errore di analisi - Si prega di contattare l amministratore di sistema"  Severity="30" Type="MessageBar" /> 
+  <Literal LiteralID = "SVR0016"  Text="Script XML Parse Error - Si prega di contattare l amministratore di sistema"  Severity="30" Type="MessageBar" /> 
   
   <Literal LiteralID = "SVR0017"  Text="Script File Error - Si prega di contattare l amministratore di sistema"  Severity="30" Type="MessageBar" /> 
 
@@ -35,31 +35,31 @@
 
 
 
-  <Literal LiteralID = "LIT0001"  Text="Elemento non trovato - Nuova voce"  Severity="10" Type="MessageBar"/>
+  <Literal LiteralID = "LIT0001"  Text="Articolo non trovato - New Entry"  Severity="10" Type="MessageBar"/>
 
-  <Literal LiteralID = "LIT0002"  Text="Elemento non trovato - alla fine del file"   Severity="30" Type="MessageBar"/>
+  <Literal LiteralID = "LIT0002"  Text="Articolo non trovato - alla fine del file"   Severity="30" Type="MessageBar"/>
 
-  <Literal LiteralID = "LIT0003"  Text="Elemento non trovato - all inizio del file"  Severity="30" Type="MessageBar" />
+  <Literal LiteralID = "LIT0003"  Text="Articolo non trovato - A inizio del file"  Severity="30" Type="MessageBar" />
 
-  <Literal LiteralID = "LIT0004"  Text="Luogo in cui si Aggiornato" Severity="00" Type="MessageBar" />
+  <Literal LiteralID = "LIT0004"  Text="Elemento aggiornato" Severity="00" Type="MessageBar" />
 
-  <Literal LiteralID = "LIT0005"  Text="Luogo in cui Aggiunto"  Severity="00" Type="MessageBar"/>
+  <Literal LiteralID = "LIT0005"  Text="Articolo Aggiunto"  Severity="00" Type="MessageBar"/>
 
-  <Literal LiteralID = "LIT0006"  Text="Luogo in cui si (s) Soppresso"  Severity="00" Type="MessageBar"/>
+  <Literal LiteralID = "LIT0006"  Text="Item (s) cancellati"  Severity="00" Type="MessageBar"/>
  
   <Literal LiteralID = "LIT0007"  Text="Errore database - Si prega di contattare l amministratore di sistema"  Severity="30" Type="MessageBar"/>
 
-  <Literal LiteralID = "LIT0008"  Text="Luogo in cui si esportati"  Severity="00" Type="MessageBar"/>
+  <Literal LiteralID = "LIT0008"  Text="Articolo esportati"  Severity="00" Type="MessageBar"/>
 
-  <Literal LiteralID = "LIT0009"  Text="Luogo in cui si Importato"  Severity="00" Type="MessageBar"/>
+  <Literal LiteralID = "LIT0009"  Text="Articolo importati"  Severity="00" Type="MessageBar"/>
  
   <Literal LiteralID = "LIT0010"  Text="Script non trovato"  Severity="30" Type="MessageBar"/>
 
-  <Literal LiteralID = "LIT0011"  Text="Elemento non trovato"  Severity="30" Type="MessageBar"/>
+  <Literal LiteralID = "LIT0011"  Text="Articolo non trovato"  Severity="30" Type="MessageBar"/>
  
-  <Literal LiteralID = "LIT0012"  Text="ID Gruppo non valido"  Severity="30" Type="MessageBar"/>
+  <Literal LiteralID = "LIT0012"  Text="Non valido ID gruppo"  Severity="30" Type="MessageBar"/>
 
-  <Literal LiteralID = "LIT0013"  Text="Server di accesso non valido"  Severity="30" Type="MessageBar"/>
+  <Literal LiteralID = "LIT0013"  Text="Access Server non valido"  Severity="30" Type="MessageBar"/>
 
   <Literal LiteralID = "LIT0014"  Text="Formato data non valido"  Severity="30" Type="MessageBar"/>
 
@@ -68,24 +68,24 @@
  
   <Literal LiteralID = "WKP0001"  Text="Utente non valido Web / Gruppo"  Severity="30" Type="MessageBar"/>
  
-  <Literal LiteralID = "WKP0002"  Text="Luogo in cui password non valida"  Severity="30" Type="MessageBar"/>
+  <Literal LiteralID = "WKP0002"  Text="Articolo password non valida"  Severity="30" Type="MessageBar"/>
  
-  <Literal LiteralID = "WKP0003"  Text="Invalide e attivi KeePass Group"  Severity="30" Type="MessageBar"/>
+  <Literal LiteralID = "WKP0003"  Text="KeePass Gruppo invalide e-attivo"  Severity="30" Type="MessageBar"/>
   
-  <Literal LiteralID = "WKP0004"  Text="Password ID è spazi"  Severity="30" Type="MessageBar"/>
+  <Literal LiteralID = "WKP0004"  Text="ID password è spazi"  Severity="30" Type="MessageBar"/>
 
 
 
-  <Literal LiteralID = "OSS0001"  Text="Soluzioni di Java per applicazioni aziendali" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "OSS0001"  Text="Soluzioni Java per le applicazioni aziendali" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "OSS0002"  Text="Un altra applicazione gratuita per:" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "OSS0002"  Text="Un altra applicazione gratuita da:" Severity="00" Type="MessageText"/>
 
 
   <Literal LiteralID = "UAD0110"  Text="Modifica utente Web"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "UAD0130"  Text="Web Profili utente"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "UAD0100"  Text="Edit User Group Web"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "UAD0100"  Text="Modifica Web User Group"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "UAD0120"  Text="Web User Group profili"  Severity="00" Type="MessageText"/>
 
@@ -125,17 +125,17 @@
 
 
 
-  <Literal LiteralID = "PWD0001"  Text="Alta e Bassa Lettere"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "PWD0001"  Text="Lettere Superiore e Inferiore"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "PWD0002"  Text="Bassa Lettere"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "PWD0002"  Text="Inferiore Lettere"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "PWD0003"  Text="Bassa Lettere e numeri"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "PWD0003"  Text="Inferiore lettere e numeri"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "PWD0004"  Text="Alta e Bassa Lettere e numeri"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "PWD0004"  Text="Lettere maiuscole e minuscole e numeri"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "PWD0005"  Text="Tutti i caratteri stampabili"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "PWD0006"  Text="Upper Lettere"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "PWD0006"  Text="Lettere superiore"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "PWD0007"  Text="Lettere maiuscole e numeri"  Severity="00" Type="MessageText"/>
 
@@ -143,25 +143,25 @@
 
   <Literal LiteralID = "TXT0001"  Text="OK" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0002"  Text="Scegli il colore"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0002"  Text="Seleziona Colore"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0003"  Text="Seleziona Data"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0003"  Text="Selezionare Data"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0004"  Text="Oggi"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0005"  Text="Calcolatore"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0005"  Text="Calcolatrice"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0006"  Text="Return Value"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0006"  Text="Valore restituito"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0007"  Text="Seleziona carattere"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0007"  Text="Selezionare Carattere"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0008"  Text="Colore carattere"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0009"  Text="Testo di esempio"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0009"  Text="Esempio di testo"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0010"  Text="Anteprima"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0011"  Text="Conferma Elimina"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0011"  Text="Eliminare conferma"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0012"  Text="Elimina gli elementi selezionati?"  Severity="00" Type="MessageText"/>
 
@@ -169,21 +169,21 @@
 
   <Literal LiteralID = "TXT0014"  Text="No"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0015"  Text="Session Time Out"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0015"  Text="Sessione di Time Out"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0016"  Text="La tua sessione sarà ora finale"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0016"  Text="La sessione sarà ora fine"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0017"  Text="Log-Out"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0018"  Text="Log-out Conferma"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0018"  Text="Log-out di conferma"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0019"  Text="Log-off di questa sessione?"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0020"  Text="Match caso"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0020"  Text="Incontro caso"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0021"  Text="Solo parole intere"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0022"  Text="Cerca di giù"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0022"  Text="Cerca giù"  Severity="00" Type="MessageText"/>
  
   <Literal LiteralID = "TXT0023"  Text="Opzioni"  Severity="00" Type="MessageText"/>
 
@@ -195,7 +195,7 @@
 
   <Literal LiteralID = "TXT0027"  Text="Trova di Ricerca"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0028"  Text="Sostituire String"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0028"  Text="Sostituire stringhe"  Severity="00" Type="MessageText"/>
   
   <Literal LiteralID = "TXT0029"  Text="Sostituisci tutto"  Severity="00" Type="MessageText"/>
 
@@ -203,7 +203,7 @@
 
   <Literal LiteralID = "TXT0031"  Text="Richiesta di rete"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0032"  Text="Di campo non valido Entry"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0032"  Text="Valido campo di immissione"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0033"  Text="Richiesta di conferma"  Severity="00" Type="MessageText"/>
 
@@ -213,21 +213,21 @@
 
   <Literal LiteralID = "TXT0036"  Text="Password:"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0038"  Text="Server Connection reset-Riprovare più tardi"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0038"  Text="Connessione server Reset-Riprovare più tardi"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0039"  Text="Errore HTTP"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0040"  Text="Richiesta di modifica password"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0041"  Text="Cambia password"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0041"  Text="Cambia la mia password"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0042"  Text="Password non possono essere lasciati in bianco"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0042"  Text="Password non può essere lasciati in bianco"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0043"  Text="Nuova password non valida"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0044"  Text="Informazioni sul server"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0044"  Text="Information Server"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0045"  Text="Aprire Connessioni:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0045"  Text="Connessioni aperto:"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0046"  Text="Oggetti:"  Severity="00" Type="MessageText"/>
 
@@ -235,13 +235,13 @@
 
   <Literal LiteralID = "TXT0048"  Text="Formato data:"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0049"  Text="Servlet di accesso:" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0049"  Text="Accesso servlet:" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0050"  Text="Servlet Logs:" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0051"  Text="Visualizza log server" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0051"  Text="Visualizza Log Server" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0052"  Text="Protezione dell utente e modificare il codice XML" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0052"  Text="Sicurezza utente e modifica XML" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0053"  Text="Strumenti" Severity="00" Type="MessageText"/>
  
@@ -249,7 +249,7 @@
 
   <Literal LiteralID = "TXT0055"  Text="Appunti cancellati in:" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0056"  Text="Set Split"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0056"  Text="Set Spalato"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0057"  Text="Utente:"  Severity="00" Type="MessageText"/>
 
@@ -261,13 +261,13 @@
 
   <Literal LiteralID = "TXT0061"  Text="Font"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0062"  Text="Background:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0062"  Text="Di fondo:"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0063"  Text="Std font:"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0064"  Text="Barra del titolo di carattere:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0064"  Text="Barra del titolo carattere:"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0065"  Text="Titolo di carattere:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0065"  Text="Carattere titolo:"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0066"  Text="Barra del titolo:"  Severity="00" Type="MessageText"/>
 
@@ -275,29 +275,29 @@
 
   <Literal LiteralID = "TXT0068"  Text="Salva Desktop"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0069"  Text="Cambia password"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0069"  Text="Cambia la mia password"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0070"  Text="Password attuale:"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0071"  Text="Nuova password:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0071"  Text="Nuova Password:"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0072"  Text="Ripeti la nuova password:"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0073"  Text="Cambia password"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0074"  Text="Inizio delle attività amministrative"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0074"  Text="Inizio attività amministrative"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0075"  Text="Informazioni su"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0075"  Text="Circa"  Severity="00" Type="MessageText"/>
  
-  <Literal LiteralID = "TXT0076"  Text="Cambia password"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0076"  Text="Cambia la mia password"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0077"  Text="Temi del desktop"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0078"  Text="Script Dettagli"  Severity="00" Type="MessageText"/>
  
-  <Literal LiteralID = "TXT0079"  Text="Dock Window"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0079"  Text="Dock Finestra"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0080"  Text="Screen Name:"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0080"  Text="Nick:"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0081"  Text="Tasti di comando:"  Severity="00" Type="MessageText"/>
 
@@ -311,19 +311,19 @@
 
   <Literal LiteralID = "TXT0086"  Text="Altezza:" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0087"  Text="F4 = Prompt" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0087"  Text="F4 = Richiesta" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0088"  Text="Oggetti Schermo Totale:" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0089"  Text="F5 = Expand Messaggi" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0089"  Text="F5 = Espandi messaggi" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0090"  Text="Mostra Script Suggerimenti:" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0090"  Text="Mostra Consigli Script:" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0091"  Text="Annulla" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0091"  Text="Annullare" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0092"  Text="Richiesta non completo: gli errori revisione qui sotto" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0092"  Text="Non è richiesta completa: Errori Recensione di sotto" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0093"  Text="Server di richiesta completo" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0093"  Text="Richiesta di server completato" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0094"  Text="deve essere numerico" Severity="00" Type="MessageText"/>
 
@@ -345,21 +345,21 @@
 
   <Literal LiteralID = "TXT0103"  Text="Elimina documento" Severity="00" Type="MessageText"/>
  
-  <Literal LiteralID = "TXT0104"  Text="Sfoglia" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0104"  Text="Sfogliare" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0105"  Text="File non trovato" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0106"  Text="Il file non può essere salvato" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0107"  Text="Importa" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0107"  Text="Importazione" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0108"  Text="Export" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0108"  Text="Esportazione" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0109"  Text="Formato di file non corretto" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0109"  Text="File di formato non corretto" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0110"  Text="Mostra / Nascondi password" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0110"  Text="mostra / nascondi la password" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0111"  Text="Creare password" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0111"  Text="Crea password" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0112"  Text="Come" Severity="00" Type="MessageText"/>
 
@@ -379,11 +379,11 @@
  
   <Literal LiteralID = "TXT0120"  Text="Copia tabella negli appunti" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0121"  Text="Cut" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0121"  Text="Taglio" Severity="00" Type="MessageText"/>
  
   <Literal LiteralID = "TXT0122"  Text="Copia" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0123"  Text="Incolla" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0123"  Text="Pasta" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0124"  Text="Fonte" Severity="00" Type="MessageText"/>
 
@@ -393,43 +393,43 @@
 
   <Literal LiteralID = "TXT0127"  Text="Temi del desktop" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0128"  Text="F1 = Dock finestra" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0128"  Text="F1 = Dock Finestra" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0129"  Text="F2 = Selezionare Menu" Severity="00" Type="MessageText"/>
   
   <Literal LiteralID = "TXT0130"  Text="Modifica Robot" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0131"  Text="Clear Robot" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0131"  Text="Robot chiaro" Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0132"  Text="Run Robot" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0133"  Text="Inserisci User Id" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0133"  Text="Inserire User Id" Severity="00" Type="MessageText"/>
   
-  <Literal LiteralID = "TXT0134"  Text="Inserisci la password ID" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0134"  Text="Inserire id Password" Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0135"  Text="Inserisci la password" Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0135"  Text="Inserire la password" Severity="00" Type="MessageText"/>
   
   <Literal LiteralID = "TXT0136"  Text="Inserisci e-mail" Severity="00" Type="MessageText"/>
  
-  <Literal LiteralID = "TXT0137"  Text="Inserisci tasto Tab"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0137"  Text="Inserire tasto Tab"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0138"  Text="Ritardo Inserisci per 2 secondi"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0138"  Text="Inserire ritardato di 2 secondi"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0139"  Text="Ritardo Inserisci per 5 secondi"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0139"  Text="Inserisci per 5 secondi di ritardo"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0140"  Text="Ritardo Inserisci per 10 secondi"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0140"  Text="Inserire ritardato di 10 secondi"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0141"  Text="Ritardo Inserisci per 20 secondi"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0141"  Text="Inserisci per 20 secondi di ritardo"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0142"  Text="Inserisci Enter Key"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0142"  Text="Inserire Inserire la chiave"  Severity="00" Type="MessageText"/>
   
   <Literal LiteralID = "TXT0143"  Text="Carico Sito Web"  Severity="00" Type="MessageText"/>
 
-  <Literal LiteralID = "TXT0144"  Text="Carico di Alt-Sito Web"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0144"  Text="Carico Alt-Sito Web"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0145"  Text="Esegui programma"  Severity="00" Type="MessageText"/>
   
-  <Literal LiteralID = "TXT0146"  Text="Inserire il tasto Tab Back"  Severity="00" Type="MessageText"/>
+  <Literal LiteralID = "TXT0146"  Text="Inserire Indietro tasto Tab"  Severity="00" Type="MessageText"/>
 
   <Literal LiteralID = "TXT0147"  Text="Inserire Home Key"  Severity="00" Type="MessageText"/> 
 

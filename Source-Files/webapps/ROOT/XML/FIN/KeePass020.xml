@@ -10,8 +10,8 @@
 <!--	 	 User Profile:  root -->
 <SCRIPT SCRIPT_NAME="KeePass020" DOCUMENT_TYPE="Window" CLASS_NAME="server.Doc" AUTO_REFRESH="true" ICON="WTE1B.jpg" DESCRIPTION="Linkki tiedostot salasanalla" Screen_Title="Link Files To Password" WIDTH="960" HEIGHT="610">
   <ButtonBar>
-    <BarButton TYPE="FIND" DESCRIPTION="Etsi / Päivitä" ICON="iFind.gif" METHOD="getDocList" />
-    <BarButton TYPE="POST" DESCRIPTION="Päivitä kuvaukset" ICON="iEdit.gif" METHOD="updDocList" />
+    <BarButton TYPE="FIND" DESCRIPTION="Etsi / Refresh" ICON="iFind.gif" METHOD="getDocList" />
+    <BarButton TYPE="POST" DESCRIPTION="Päivitä Kuvaukset" ICON="iEdit.gif" METHOD="updDocList" />
   </ButtonBar>
   <Panel POSITION="Left" HIDDEN="N">
     <TextField FIELDNAME="PasswordID" DESCRIPTION="Salasana ID #" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="20" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" LINK="KeePass006" METHOD="getDocList" />
@@ -19,7 +19,7 @@
   </Panel>
   <DocumentManagerTable FIELDNAME="DocMngr" HEIGHT="0" WIDTH="0" POSITION="Left" COMMIT_CLASS="server.Doc" COMMIT_METHOD="importDoc" COMPONENT_ORIENTATION="Top">
     <TableNavRow FIELDNAME="nav" DESCRIPTION="-" LENGTH="2" ENCRYPT="N" />
-    <TableTextField FIELDNAME="DocumentID" DESCRIPTION="Tunnus" LENGTH="3" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="10" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Center" />
+    <TableTextField FIELDNAME="DocumentID" DESCRIPTION="ID" LENGTH="3" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="10" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Center" />
     <TableTextField FIELDNAME="DocumentFile" DESCRIPTION="Tiedosto" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="60" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
     <TableTextField FIELDNAME="DocumentDesc" DESCRIPTION="Desc" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="60" PROTECTED="N" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
     <TableTextField FIELDNAME="DocumentDate" DESCRIPTION="Päivämäärä" LENGTH="10" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />

@@ -1,31 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--	 **Script Builder 2.1 *  -->
+<!--	 **Script Builder 4.0 - www.ossfree.net *  -->
 <!--	 	 Script Name :  KeePass006 -->
 <!--	 	 Description :  My Password Profile -->
 <!--	 	 Server Class :  server.Crypt -->
 <!--	 	 Initalization Method :  getCryptSrch -->
-<!--	 	 File Path :  C:\WebKeePass\jakarta-tomcat-5.5.7\webapps\ROOT\XML\KeePass006.xml -->
-<!--	 	 Last Update :  31-Oct-2009 -->
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/XML/ENG/KeePass006.xml -->
+<!--	 	 Last Update :  05-Sep-2011 -->
 <!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="KeePass006" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" METHOD="getCryptSrch" AUTO_REFRESH="false" ICON="WKP8.jpg" DESCRIPTION="La mia password di un profilo" Screen_Title="My Password Profile" WIDTH="980" HEIGHT="500">
+<SCRIPT SCRIPT_NAME="KeePass006" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" METHOD="getCryptSrch" AUTO_REFRESH="true" ICON="WKP8.jpg" DESCRIPTION="La mia password di un profilo" Screen_Title="My Password Profile" WIDTH="980" HEIGHT="650">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Cancella" ICON="iClear.gif" />
-    <BarButton TYPE="FIND" DESCRIPTION="Trova / Aggiorna" ICON="iFind.gif" METHOD="getCryptSrch" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Chiaro" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Trova / Refresh" ICON="iFind.gif" METHOD="getCryptSrch" />
   </ButtonBar>
-  <Table FIELDNAME="Table1" HEIGHT="12" WIDTH="12" POSITION="Left">
-    <TableNavRow LENGTH="2" ENCRYPT="N" />
-    <TableTextField FIELDNAME="PasswordID" DESCRIPTION="-ID" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-    <TableImageField FIELDNAME="r3" DESCRIPTION="Icn" LENGTH="2" ENCRYPT="Y" />
-    <TableTextField FIELDNAME="a0" DESCRIPTION="Desc" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-    <TableTextField FIELDNAME="b9" DESCRIPTION="Nome Utente" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-    <TableTextField FIELDNAME="d7" DESCRIPTION="Aggiunto il" LENGTH="8" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
-    <TableTextField FIELDNAME="e6" DESCRIPTION="Modifica" LENGTH="8" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
-    <TableTextField FIELDNAME="f5" DESCRIPTION="Scade il" LENGTH="8" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
-  </Table>
+  <Panel DESCRIPTION="Ricerca per" POSITION="Left Fill" HIDDEN="N">
+    <TextField FIELDNAME="@pwdID" DESCRIPTION="La password ID" LENGTH="20" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" COMMIT_CLASS="server.Crypt" COMMIT_METHOD="getCryptSrch" />
+    <TextField FIELDNAME="@desc" DESCRIPTION="Descrizione" LENGTH="22" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+    <TextField FIELDNAME="@userName" DESCRIPTION="Utente Naume" LENGTH="20" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+  </Panel>
+  <TabTable HEIGHT="10" WIDTH="10" POSITION="Left" COMPONENT_ORIENTATION="Top">
+    <Table FIELDNAME="Table1" DESCRIPTION="Password" HEIGHT="16" WIDTH="16" POSITION="Left">
+      <TableNavRow LENGTH="3" ENCRYPT="N" />
+      <TableTextField FIELDNAME="PasswordID" DESCRIPTION="-ID" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableImageField FIELDNAME="r3" DESCRIPTION="Icn" LENGTH="2" ENCRYPT="Y" />
+      <TableTextField FIELDNAME="a0" DESCRIPTION="Desc" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableTextField FIELDNAME="b9" DESCRIPTION="Nome Utente" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TablePwdField FIELDNAME="c8" DESCRIPTION="Password" LENGTH="4" ENCRYPT="Y" />
+      <TablePwdField FIELDNAME="q4" DESCRIPTION="Robot" LENGTH="4" ENCRYPT="Y" />
+      <TableTextField FIELDNAME="f5" DESCRIPTION="Scade il" LENGTH="8" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
+    </Table>
+    <Table FIELDNAME="Table2" DESCRIPTION="Internet" HEIGHT="12" WIDTH="12" POSITION="Left">
+      <TableTextField FIELDNAME="PasswordID" DESCRIPTION="-ID" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableTextField FIELDNAME="n7" DESCRIPTION="Web Site" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableTextField FIELDNAME="i2" DESCRIPTION="Alt del sito" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableTextField FIELDNAME="k0" DESCRIPTION="Sprt sito" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableTextField FIELDNAME="m8" DESCRIPTION="E-mail" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableTextField FIELDNAME="p5" DESCRIPTION="Pgm" LENGTH="7" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    </Table>
+  </TabTable>
   <Panel POSITION="Left" HIDDEN="N">
     <Button FIELDNAME="CrtGrp" DESCRIPTION="Aggiornamento / Aggiunta password" POSITION="Left" LINK="KeePass002" PARAMETER="Table1" METHOD_CLASS="server.Crypt" METHOD="getCrypt" />
-    <Button FIELDNAME="ShrPwd" DESCRIPTION="Condividere la password" LINK="KeePass007" METHOD_CLASS="server.Akin" METHOD="initAkinList" />
+    <Button FIELDNAME="ShrPwd" DESCRIPTION="Auto Tipo / forma di robot" PARAMETER="Table1" METHOD="AUTO_TYPE" />
   </Panel>
 </SCRIPT>
 

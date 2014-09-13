@@ -6,37 +6,34 @@
 <!--	 	 Server Class :  server.Crypt -->
 <!--	 	 Initalization Method :   -->
 <!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/XML/ENG/KeePass002.xml -->
-<!--	 	 Last Update :  26-Nov-2010 -->
+<!--	 	 Last Update :  05-Sep-2011 -->
 <!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="KeePass002" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" AUTO_REFRESH="false" ICON="WKP1.jpg" DESCRIPTION="Modifica la mia password" Screen_Title="Edit My Passwords" WIDTH="800" HEIGHT="740">
+<SCRIPT SCRIPT_NAME="KeePass002" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" AUTO_REFRESH="true" ICON="WKP1.jpg" DESCRIPTION="Modificare la mia password" Screen_Title="Edit My Passwords" WIDTH="800" HEIGHT="740">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Clear / New" ICON="iClear.gif" />
-    <BarButton TYPE="FIND" DESCRIPTION="Trova / Aggiorna" ICON="iFind.gif" METHOD="getCrypt" />
-    <BarButton TYPE="DELETE" DESCRIPTION="Elimina" ICON="iDelete.gif" METHOD="delCrypt" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Cancella / New" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Trova / Refresh" ICON="iFind.gif" METHOD="getCrypt" />
+    <BarButton TYPE="DELETE" DESCRIPTION="Cancellare" ICON="iDelete.gif" METHOD="delCrypt" />
     <BarButton TYPE="PREV" DESCRIPTION="Precedente" ICON="iPrev.gif" METHOD="prvCrypt" />
     <BarButton TYPE="NEXT" DESCRIPTION="Prossimo" ICON="iNext.gif" METHOD="nxtCrypt" />
-    <BarButton TYPE="POST" DESCRIPTION="Aggiornamento modifica" ICON="iEdit.gif" METHOD="updCrypt" />
+    <BarButton TYPE="POST" DESCRIPTION="Modifiche aggiornamento" ICON="iEdit.gif" METHOD="updCrypt" />
   </ButtonBar>
   <Panel POSITION="Left" HIDDEN="N">
-    <TextField FIELDNAME="PasswordID" DESCRIPTION="Password ID #" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="20" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" LINK="KeePass006" METHOD="getCrypt" />
+    <TextField FIELDNAME="PasswordID" DESCRIPTION="La password ID #" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="20" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" LINK="KeePass006" METHOD="getCrypt" />
   </Panel>
   <Panel POSITION="Left" HIDDEN="N">
     <TextField FIELDNAME="b9" DESCRIPTION="Nome Utente" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-    <Button FIELDNAME="b9" DESCRIPTION="Copia in Clip Timer" ICON="clip.gif" POSITION="Center" METHOD="CLIP_FIELD" />
+    <Button FIELDNAME="b9" DESCRIPTION="Copia clip Timer" ICON="clip.gif" POSITION="Center" METHOD="CLIP_FIELD" />
     <PasswordEditor FIELDNAME="c8" DESCRIPTION="Password" LENGTH="25" DATA_LEN="50" POSITION="Left" HIDDEN="N" ENCRYPT="Y" ALIGNMENT="Left" />
-    <Button FIELDNAME="c8" DESCRIPTION="Copia in Clip Timer" ICON="clip.gif" POSITION="Center" METHOD="CLIP_FIELD" />
-  </Panel>
-  <Panel POSITION="Left" HIDDEN="N">
-    <MacroEditor FIELDNAME="q4" DESCRIPTION="Forma di robot" LENGTH="65" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="120" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <Button FIELDNAME="c8" DESCRIPTION="Copia clip Timer" ICON="clip.gif" POSITION="Center" METHOD="CLIP_FIELD" />
   </Panel>
   <TabGroup HEIGHT="0" WIDTH="0" POSITION="Left" COMPONENT_ORIENTATION="Top">
-    <TabItem DESCRIPTION="Inserimento password" ICON="tdot.gif">
+    <TabItem DESCRIPTION="Immissione password" ICON="tdot.gif">
       <Panel POSITION="Left" HIDDEN="N">
 	<TextField FIELDNAME="a0" DESCRIPTION="Descrizione" LENGTH="50" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="100" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" />
 	<TextField FIELDNAME="o6" LENGTH="50" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="100" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" />
       </Panel>
       <Panel POSITION="Left" HIDDEN="N">
-	<TextField FIELDNAME="n7" DESCRIPTION="Sito Web" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TextField FIELDNAME="n7" DESCRIPTION="Web Site" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<Button FIELDNAME="n7" ICON="MNode2.gif" METHOD="URL" />
 	<TextField FIELDNAME="i2" DESCRIPTION="Alt Sito Web" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<Button FIELDNAME="i2" ICON="MNode2.gif" METHOD="URL" />
@@ -49,7 +46,7 @@
       </Panel>
       <Panel POSITION="Left" HIDDEN="N">
 	<ComboBox FIELDNAME="KeeperID" DESCRIPTION="Categoria" LENGTH="20" DATA_TYPE="CHR" POSITION="Left" ENCRYPT="N" LIST_TABLE_NAME="wkpGroups" LIST_TABLE_FIELD="KeeperID" LIST_TABLE_DESCRIPTION="KeeperDesc" LIST_TABLE_SELECTTION="j1 = :Scmbl:" />
-	<ComboBox FIELDNAME="r3" DESCRIPTION="Icona" LENGTH="8" DATA_TYPE="CHR" POSITION="Center" ENCRYPT="Y">
+	<ComboBox FIELDNAME="r3" DESCRIPTION="Icona" LENGTH="4" DATA_TYPE="CHR" POSITION="Center" ENCRYPT="Y">
 	  <ComboItem DESCRIPTION="- 1" ICON="acon01.gif" DEFAULT_VALUE="acon01.gif" />
 	  <ComboItem DESCRIPTION="- 2" ICON="acon02.gif" DEFAULT_VALUE="acon02.gif" />
 	  <ComboItem DESCRIPTION="- 3" ICON="acon03.gif" DEFAULT_VALUE="acon03.gif" />
@@ -77,10 +74,13 @@
 	<CheckBox FIELDNAME="g4" DESCRIPTION="Nessuna scadenza" ENCRYPT="Y" />
       </Panel>
       <Panel POSITION="Left" HIDDEN="N">
-	<Button FIELDNAME="PwdShare" DESCRIPTION="Condividi questa password con altri" POSITION="Left" LINK="KeePass007" METHOD="initAkinList" />
-	<Button FIELDNAME="LnkShare" DESCRIPTION="File di collegamento alla password" LINK="KeePass020" METHOD_CLASS="server.Doc" METHOD="getDocList" />
-	<Button FIELDNAME="AccssLof" DESCRIPTION="Log di accesso" POSITION="Left" LINK="KeePass030" METHOD_CLASS="server.Crypt" METHOD="getAccesslog" />
+	<Button FIELDNAME="PwdShare" DESCRIPTION="Condividi questa password con gli altri" POSITION="Left" LINK="KeePass007" METHOD="initAkinList" />
+	<Button FIELDNAME="LnkShare" DESCRIPTION="File di collegamento a questo password" LINK="KeePass020" METHOD_CLASS="server.Doc" METHOD="getDocList" />
+	<Button FIELDNAME="AccssLof" DESCRIPTION="Log di accesso" LINK="KeePass030" METHOD_CLASS="server.Crypt" METHOD="getAccesslog" />
       </Panel>
+    </TabItem>
+    <TabItem DESCRIPTION="Tipo di auto - Robot Form" ICON="tdot.gif">
+      <MacroEditor FIELDNAME="q4" DESCRIPTION="" LENGTH="65" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="140" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
     </TabItem>
     <TabItem DESCRIPTION="Note" ICON="tdot.gif">
       <TextRTFArea FIELDNAME="Notes" DESCRIPTION="Note" HEIGHT="14" WIDTH="33" POSITION="Left" PROTECTED="N" />
@@ -94,11 +94,11 @@
 	<TableTextField FIELDNAME="s2t" DESCRIPTION="IP" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
       </Table>
       <Panel POSITION="Left" HIDDEN="N">
-	<Button FIELDNAME="ViewDtl" DESCRIPTION="Visualizza / Restore Storia" POSITION="Left" LINK="KeePass003" METHOD="getCrypHistory" />
+	<Button FIELDNAME="ViewDtl" DESCRIPTION="Visualizza / Ripristina Storia" POSITION="Left" LINK="KeePass003" METHOD="getCrypHistory" />
       </Panel>
     </TabItem>
     <TabItem DESCRIPTION="Immagine - Immagine" ICON="tdot.gif">
-      <ImageBox FIELDNAME="Image" LENGTH="33" HEIGHT="17" WIDTH="0" POSITION="Left" PROTECTED="N" ENCRYPT="N" />
+      <ImageBox FIELDNAME="Image" LENGTH="33" HEIGHT="15" WIDTH="0" POSITION="Left" PROTECTED="N" ENCRYPT="N" />
     </TabItem>
   </TabGroup>
 </SCRIPT>

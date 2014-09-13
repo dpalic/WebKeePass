@@ -10,13 +10,13 @@
 <!--	 	 User Profile:  pjones -->
 <SCRIPT SCRIPT_NAME="UserAdmin160" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.DevelopmentTools" AUTO_REFRESH="false" ICON="icon.jpg" DESCRIPTION="Menu Editor" Screen_Title="Menu Editor" WIDTH="700" HEIGHT="720">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Clear" ICON="iClear.gif" />
-    <BarButton TYPE="FIND" DESCRIPTION="Charge" ICON="iFind.gif" METHOD="getScriptDetails" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Effacer" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Load    " ICON="iFind.gif" METHOD="getScriptDetails" />
     <BarButton TYPE="POST" DESCRIPTION="Enregistrer" ICON="iEdit.gif" METHOD="saveScriptDetails" />
   </ButtonBar>
   <Panel POSITION="Left Fill" HIDDEN="N">
     <TextField FIELDNAME="ScriptID" DESCRIPTION="Nom du script" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="UserAdmin190" PARAMETER="@ScriptFileName" METHOD="getScriptDetails" />
-    <TextField FIELDNAME="DescID" DESCRIPTION="Description" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+    <TextField FIELDNAME="DescID" DESCRIPTION="Descriptif" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
   </Panel>
   <Panel POSITION="Left" HIDDEN="N">
     <MenuEditor FIELDNAME="SEditor" HEIGHT="375" />

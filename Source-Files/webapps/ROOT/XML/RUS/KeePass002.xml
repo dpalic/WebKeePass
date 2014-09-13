@@ -6,28 +6,25 @@
 <!--	 	 Server Class :  server.Crypt -->
 <!--	 	 Initalization Method :   -->
 <!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/XML/ENG/KeePass002.xml -->
-<!--	 	 Last Update :  26-Nov-2010 -->
+<!--	 	 Last Update :  05-Sep-2011 -->
 <!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="KeePass002" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" AUTO_REFRESH="false" ICON="WKP1.jpg" DESCRIPTION="Изменить мои пароли" Screen_Title="Edit My Passwords" WIDTH="800" HEIGHT="740">
+<SCRIPT SCRIPT_NAME="KeePass002" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" AUTO_REFRESH="true" ICON="WKP1.jpg" DESCRIPTION="Мои Пароли" Screen_Title="Edit My Passwords" WIDTH="800" HEIGHT="740">
   <ButtonBar>
-    <BarButton TYPE="CLEAR" DESCRIPTION="Очистить / Новый" ICON="iClear.gif" />
-    <BarButton TYPE="FIND" DESCRIPTION="Найти / Обновить" ICON="iFind.gif" METHOD="getCrypt" />
-    <BarButton TYPE="DELETE" DESCRIPTION="Удалить" ICON="iDelete.gif" METHOD="delCrypt" />
-    <BarButton TYPE="PREV" DESCRIPTION="Предыдущая" ICON="iPrev.gif" METHOD="prvCrypt" />
-    <BarButton TYPE="NEXT" DESCRIPTION="Следующая" ICON="iNext.gif" METHOD="nxtCrypt" />
-    <BarButton TYPE="POST" DESCRIPTION="Информация об изменениях" ICON="iEdit.gif" METHOD="updCrypt" />
+    <BarButton TYPE="CLEAR" DESCRIPTION="Очистить / Новые" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Поиск / Обновить" ICON="iFind.gif" METHOD="getCrypt" />
+    <BarButton TYPE="DELETE" DESCRIPTION="Удалять" ICON="iDelete.gif" METHOD="delCrypt" />
+    <BarButton TYPE="PREV" DESCRIPTION="Предыдущий" ICON="iPrev.gif" METHOD="prvCrypt" />
+    <BarButton TYPE="NEXT" DESCRIPTION="Следующий" ICON="iNext.gif" METHOD="nxtCrypt" />
+    <BarButton TYPE="POST" DESCRIPTION="Обновление изменений" ICON="iEdit.gif" METHOD="updCrypt" />
   </ButtonBar>
   <Panel POSITION="Left" HIDDEN="N">
     <TextField FIELDNAME="PasswordID" DESCRIPTION="Пароль ID #" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="20" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" LINK="KeePass006" METHOD="getCrypt" />
   </Panel>
   <Panel POSITION="Left" HIDDEN="N">
     <TextField FIELDNAME="b9" DESCRIPTION="Имя пользователя" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-    <Button FIELDNAME="b9" DESCRIPTION="Копировать в Clip Таймер" ICON="clip.gif" POSITION="Center" METHOD="CLIP_FIELD" />
+    <Button FIELDNAME="b9" DESCRIPTION="Копировать в клип Таймер" ICON="clip.gif" POSITION="Center" METHOD="CLIP_FIELD" />
     <PasswordEditor FIELDNAME="c8" DESCRIPTION="Пароль" LENGTH="25" DATA_LEN="50" POSITION="Left" HIDDEN="N" ENCRYPT="Y" ALIGNMENT="Left" />
-    <Button FIELDNAME="c8" DESCRIPTION="Копировать в Clip Таймер" ICON="clip.gif" POSITION="Center" METHOD="CLIP_FIELD" />
-  </Panel>
-  <Panel POSITION="Left" HIDDEN="N">
-    <MacroEditor FIELDNAME="q4" DESCRIPTION="Форма робота" LENGTH="65" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="120" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <Button FIELDNAME="c8" DESCRIPTION="Копировать в клип Таймер" ICON="clip.gif" POSITION="Center" METHOD="CLIP_FIELD" />
   </Panel>
   <TabGroup HEIGHT="0" WIDTH="0" POSITION="Left" COMPONENT_ORIENTATION="Top">
     <TabItem DESCRIPTION="Ввод пароля" ICON="tdot.gif">
@@ -42,14 +39,14 @@
 	<Button FIELDNAME="i2" ICON="MNode2.gif" METHOD="URL" />
 	<TextField FIELDNAME="k0" DESCRIPTION="Поддержка сайта" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<Button FIELDNAME="k0" ICON="MNode2.gif" METHOD="URL" />
-	<TextField FIELDNAME="m8" DESCRIPTION="Электронная почта" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TextField FIELDNAME="m8" DESCRIPTION="Email" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<Button FIELDNAME="m8" ICON="MNode2.gif" METHOD="EMAIL" />
 	<TextField FIELDNAME="p5" DESCRIPTION="Программа для запуска" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<Button FIELDNAME="p5" ICON="MNode2.gif" METHOD="RUNPGM" />
       </Panel>
       <Panel POSITION="Left" HIDDEN="N">
 	<ComboBox FIELDNAME="KeeperID" DESCRIPTION="Категория" LENGTH="20" DATA_TYPE="CHR" POSITION="Left" ENCRYPT="N" LIST_TABLE_NAME="wkpGroups" LIST_TABLE_FIELD="KeeperID" LIST_TABLE_DESCRIPTION="KeeperDesc" LIST_TABLE_SELECTTION="j1 = :Scmbl:" />
-	<ComboBox FIELDNAME="r3" DESCRIPTION="Иконка" LENGTH="8" DATA_TYPE="CHR" POSITION="Center" ENCRYPT="Y">
+	<ComboBox FIELDNAME="r3" DESCRIPTION="Значок" LENGTH="4" DATA_TYPE="CHR" POSITION="Center" ENCRYPT="Y">
 	  <ComboItem DESCRIPTION="- 1" ICON="acon01.gif" DEFAULT_VALUE="acon01.gif" />
 	  <ComboItem DESCRIPTION="- 2" ICON="acon02.gif" DEFAULT_VALUE="acon02.gif" />
 	  <ComboItem DESCRIPTION="- 3" ICON="acon03.gif" DEFAULT_VALUE="acon03.gif" />
@@ -74,13 +71,16 @@
 	<TextField FIELDNAME="d7" DESCRIPTION="Дата создания" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<TextField FIELDNAME="e6" DESCRIPTION="Последнее обновление" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<TextField FIELDNAME="f5" DESCRIPTION="Истекает" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-	<CheckBox FIELDNAME="g4" DESCRIPTION="Никогда не выдыхать" ENCRYPT="Y" />
+	<CheckBox FIELDNAME="g4" DESCRIPTION="Бесконечный срок хранения" ENCRYPT="Y" />
       </Panel>
       <Panel POSITION="Left" HIDDEN="N">
-	<Button FIELDNAME="PwdShare" DESCRIPTION="Ссылки пароль Другие" POSITION="Left" LINK="KeePass007" METHOD="initAkinList" />
-	<Button FIELDNAME="LnkShare" DESCRIPTION="Ссылка файлы на этот пароль" LINK="KeePass020" METHOD_CLASS="server.Doc" METHOD="getDocList" />
-	<Button FIELDNAME="AccssLof" DESCRIPTION="Доступ Войти" POSITION="Left" LINK="KeePass030" METHOD_CLASS="server.Crypt" METHOD="getAccesslog" />
+	<Button FIELDNAME="PwdShare" DESCRIPTION="Ссылки Пароль совместно с другими лицами" POSITION="Left" LINK="KeePass007" METHOD="initAkinList" />
+	<Button FIELDNAME="LnkShare" DESCRIPTION="Связать файлы на эту Пароль" LINK="KeePass020" METHOD_CLASS="server.Doc" METHOD="getDocList" />
+	<Button FIELDNAME="AccssLof" DESCRIPTION="Доступ Вход" LINK="KeePass030" METHOD_CLASS="server.Crypt" METHOD="getAccesslog" />
       </Panel>
+    </TabItem>
+    <TabItem DESCRIPTION="Auto Тип - Форма робота" ICON="tdot.gif">
+      <MacroEditor FIELDNAME="q4" DESCRIPTION="" LENGTH="65" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="140" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
     </TabItem>
     <TabItem DESCRIPTION="Примечания" ICON="tdot.gif">
       <TextRTFArea FIELDNAME="Notes" DESCRIPTION="Примечания" HEIGHT="14" WIDTH="33" POSITION="Left" PROTECTED="N" />
@@ -94,11 +94,11 @@
 	<TableTextField FIELDNAME="s2t" DESCRIPTION="IP" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
       </Table>
       <Panel POSITION="Left" HIDDEN="N">
-	<Button FIELDNAME="ViewDtl" DESCRIPTION="Открыть / Восстановление истории" POSITION="Left" LINK="KeePass003" METHOD="getCrypHistory" />
+	<Button FIELDNAME="ViewDtl" DESCRIPTION="Посмотреть / Восстановление истории" POSITION="Left" LINK="KeePass003" METHOD="getCrypHistory" />
       </Panel>
     </TabItem>
-    <TabItem DESCRIPTION="Изображение - Фото" ICON="tdot.gif">
-      <ImageBox FIELDNAME="Image" LENGTH="33" HEIGHT="17" WIDTH="0" POSITION="Left" PROTECTED="N" ENCRYPT="N" />
+    <TabItem DESCRIPTION="Изображение - Изображение" ICON="tdot.gif">
+      <ImageBox FIELDNAME="Image" LENGTH="33" HEIGHT="15" WIDTH="0" POSITION="Left" PROTECTED="N" ENCRYPT="N" />
     </TabItem>
   </TabGroup>
 </SCRIPT>

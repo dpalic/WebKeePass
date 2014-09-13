@@ -12,7 +12,7 @@
   <ButtonBar />
   <Panel POSITION="Left" HIDDEN="N">
     <FilePrompt FIELDNAME="exportPath" DESCRIPTION="Export in XML-Datei" POSITION="Left" METHOD="ExportFile" />
-    <Button FIELDNAME="exportToXml" DESCRIPTION="Export in XML Keepass" ICON="exprt.gif" POSITION="Center" METHOD_CLASS="server.Doc" METHOD="exportXML" />
+    <Button FIELDNAME="exportToXml" DESCRIPTION="Export zu XML Keepass" ICON="exprt.gif" POSITION="Center" METHOD_CLASS="server.Doc" METHOD="exportXML" />
   </Panel>
 </SCRIPT>
 

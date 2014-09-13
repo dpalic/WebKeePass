@@ -8,10 +8,10 @@
 <!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/XML/ENG/KeePass003.xml -->
 <!--	 	 Last Update :  26-Nov-2010 -->
 <!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="KeePass003" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" AUTO_REFRESH="false" DESCRIPTION="Afficher l historique" Screen_Title="View History" WIDTH="750" HEIGHT="680">
+<SCRIPT SCRIPT_NAME="KeePass003" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" AUTO_REFRESH="false" DESCRIPTION="Voir l historique" Screen_Title="View History" WIDTH="750" HEIGHT="680">
   <ButtonBar>
-    <BarButton TYPE="FIND" DESCRIPTION="Trouver / Refresh" ICON="iFind.gif" METHOD="getCrypHistory" />
-    <BarButton TYPE="PREV" DESCRIPTION="Précédent" ICON="iPrev.gif" METHOD="prvCrypHistory" />
+    <BarButton TYPE="FIND" DESCRIPTION="Rechercher / Actualiser" ICON="iFind.gif" METHOD="getCrypHistory" />
+    <BarButton TYPE="PREV" DESCRIPTION="Précédente" ICON="iPrev.gif" METHOD="prvCrypHistory" />
     <BarButton TYPE="NEXT" DESCRIPTION="Suivant" ICON="iNext.gif" METHOD="nxtCrypHistory" />
     <BarButton TYPE="POST" DESCRIPTION="Restaurer cet article" ICON="iEdit.gif" METHOD="restoreCrypt" />
   </ButtonBar>
@@ -21,28 +21,28 @@
     <TextField FIELDNAME="a0" LENGTH="25" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" />
   </Panel>
   <TabGroup HEIGHT="0" WIDTH="0" POSITION="Left" COMPONENT_ORIENTATION="Top">
-    <TabItem DESCRIPTION="Mot de passe d entrée" ICON="tdot.gif">
+    <TabItem DESCRIPTION="Entrée Mot de passe" ICON="tdot.gif">
       <Panel POSITION="Left" HIDDEN="N">
 	<TextField FIELDNAME="GroupID" DESCRIPTION="Groupe" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<TextField FIELDNAME="b9" DESCRIPTION="Nom d utilisateur" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<PasswordEditor FIELDNAME="c8" DESCRIPTION="Mot de passe" LENGTH="25" DATA_LEN="50" POSITION="Left" HIDDEN="N" ENCRYPT="Y" ALIGNMENT="Left" />
-	<TextField FIELDNAME="d7" DESCRIPTION="Date de création" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TextField FIELDNAME="d7" DESCRIPTION="Créez date" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<TextField FIELDNAME="e6" DESCRIPTION="Dernière mise à jour" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-	<TextField FIELDNAME="f5" DESCRIPTION="Expires" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TextField FIELDNAME="f5" DESCRIPTION="Expire" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<CheckBox FIELDNAME="g4" DESCRIPTION="N expire jamais" POSITION="Left" ENCRYPT="Y" />
       </Panel>
       <Panel POSITION="Left" HIDDEN="N">
 	<TextField FIELDNAME="n7" DESCRIPTION="Site Web" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-	<TextField FIELDNAME="i2" DESCRIPTION="Site Web Alt" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-	<TextField FIELDNAME="k0" DESCRIPTION="Support du site" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TextField FIELDNAME="i2" DESCRIPTION="Alt Site Web" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TextField FIELDNAME="k0" DESCRIPTION="Site de soutien" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<TextField FIELDNAME="m8" DESCRIPTION="Email" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<TextField FIELDNAME="p5" DESCRIPTION="Programme à exécuter" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
       </Panel>
     </TabItem>
-    <TabItem DESCRIPTION="Notes" ICON="tdot.gif">
-      <TextRTFArea FIELDNAME="Notes" DESCRIPTION="Notes" HEIGHT="15" WIDTH="15" POSITION="Left" PROTECTED="N" />
+    <TabItem DESCRIPTION="Remarques" ICON="tdot.gif">
+      <TextRTFArea FIELDNAME="Notes" DESCRIPTION="Remarques" HEIGHT="15" WIDTH="15" POSITION="Left" PROTECTED="N" />
     </TabItem>
-    <TabItem DESCRIPTION="Image / Icon" ICON="tdot.gif">
+    <TabItem DESCRIPTION="Image / Icône" ICON="tdot.gif">
       <ImageBox FIELDNAME="Image" LENGTH="25" HEIGHT="15" WIDTH="0" POSITION="Left" PROTECTED="N" ENCRYPT="N" />
     </TabItem>
   </TabGroup>

@@ -837,42 +837,40 @@ public class AppletConnector extends JApplet {
 	private void setIcons(DataSet dataSet) {			
 			DataSet eOptions = (DataSet) dataSet.get("[Environment_Options/]");
 			
-			
 			cipher = new CipherString((SecretKey) eOptions.get("[cipher_key/]") );
 			eOptions.remove("[cipher_key/]");
 			
-			
-			environmentIcons = (DataSet) eOptions.get("[iconTable/]");
-			serverDateFormat = eOptions.getStringField("[serverDateFormat/]");	
-			banner = getImageIcon(eOptions.getStringField("[menuBannerImage/]"));
-			quickLinkIcon = getImageIcon(eOptions.getStringField("[menuQuickLinkIcon/]"));
-			menuOpenIcon = getImageIcon(eOptions.getStringField("[menuOpenedIcon/]"));
-			menuClosedIcon = getImageIcon(eOptions.getStringField("[menuClosedIcon/]"));
-			menuScriptIcon = getImageIcon(eOptions.getStringField("[menuScriptIcon/]"));
-			menuDocumentIcon = getImageIcon(eOptions.getStringField("[menuDocumentIcon/]"));
-			scriptIcon = getImageIcon(eOptions.getStringField("[menuScriptLinkIcon/]"));
-			documentIcon = getImageIcon(eOptions.getStringField("[webDocumentURLIcon/]"));
-			upIcon = getImageIcon(eOptions.getStringField("[upMessageArrowIcon/]"));
-			downIcon = getImageIcon(eOptions.getStringField("[downMessageArrowIcon/]"));
-			linkButtonIcon = getImageIcon(eOptions.getStringField("[link_Icon/]"));
-			postButtonIcon = getImageIcon(eOptions.getStringField("[post_Icon/]"));
-			errorIcon = getImageIcon(eOptions.getStringField("[Error_Icon/]"));
-			warnIcon = getImageIcon(eOptions.getStringField("[warn_Icon/]"));
-			messageIcon = getImageIcon(eOptions.getStringField("[message_Icon/]"));
-			treeTableOpenIcon = getImageIcon(eOptions.getStringField("[treeOpenIcon/]"));
-			treeTableClosedIcon = getImageIcon(eOptions.getStringField("[treeClosedIcon/]"));
-			treeTableLeafIcon = getImageIcon(eOptions.getStringField("[treeLeafIcon/]"));
-			webEmailIcon = getImageIcon(eOptions.getStringField("[emailDocumentURLIcon/]"));
-			webDocumentIcon = getImageIcon(eOptions.getStringField("[webDocumentURLIcon/]"));
-			tableCopyIcon = getImageIcon(eOptions.getStringField("[tableCopyIcon/]"));
-			tablePrintIcon = getImageIcon(eOptions.getStringField("[tablePrintIcon/]"));
-			optionQuestionIcon = getImageIcon(eOptions.getStringField("[optionQuestionIcon/]"));
-			optionMessageIcon = getImageIcon(eOptions.getStringField("[optionMessageIcon/]"));
-			menuExpandIcon = getImageIcon(eOptions.getStringField("[menuExpandIcon/]"));
-			menuCollapseIcon = getImageIcon(eOptions.getStringField("[menuCollapseIcon/]"));
-			logoImageIcon = getImageIcon(eOptions.getStringField("[logo/]"));
-			logoImagePanel = getImageIcon(eOptions.getStringField("[logoPanel/]"));			
-	}
+			environmentIcons     = (DataSet) eOptions.get("[iconTable/]");
+			serverDateFormat     = eOptions.getStringField("[serverDateFormat/]");	
+			banner               = getImageIcon(eOptions.getStringField("[menuBannerImage/]"));
+			quickLinkIcon        = getImageIcon(eOptions.getStringField("[menuQuickLinkIcon/]"));
+			menuOpenIcon         = getImageIcon(eOptions.getStringField("[menuOpenedIcon/]"));
+			menuClosedIcon       = getImageIcon(eOptions.getStringField("[menuClosedIcon/]"));
+			menuScriptIcon       = getImageIcon(eOptions.getStringField("[menuScriptIcon/]"));
+			menuDocumentIcon     = getImageIcon(eOptions.getStringField("[menuDocumentIcon/]"));
+			scriptIcon           = getImageIcon(eOptions.getStringField("[menuScriptLinkIcon/]"));
+			documentIcon         = getImageIcon(eOptions.getStringField("[webDocumentURLIcon/]"));
+			upIcon               = getImageIcon(eOptions.getStringField("[upMessageArrowIcon/]"));
+			downIcon             = getImageIcon(eOptions.getStringField("[downMessageArrowIcon/]"));
+			linkButtonIcon       = getImageIcon(eOptions.getStringField("[link_Icon/]"));
+			postButtonIcon       = getImageIcon(eOptions.getStringField("[post_Icon/]"));
+			errorIcon            = getImageIcon(eOptions.getStringField("[Error_Icon/]"));
+			warnIcon             = getImageIcon(eOptions.getStringField("[warn_Icon/]"));
+			messageIcon          = getImageIcon(eOptions.getStringField("[message_Icon/]"));
+			treeTableOpenIcon    = getImageIcon(eOptions.getStringField("[treeOpenIcon/]"));
+			treeTableClosedIcon  = getImageIcon(eOptions.getStringField("[treeClosedIcon/]"));
+			treeTableLeafIcon    = getImageIcon(eOptions.getStringField("[treeLeafIcon/]"));
+			webEmailIcon         = getImageIcon(eOptions.getStringField("[emailDocumentURLIcon/]"));
+			webDocumentIcon      = getImageIcon(eOptions.getStringField("[webDocumentURLIcon/]"));
+			tableCopyIcon        = getImageIcon(eOptions.getStringField("[tableCopyIcon/]"));
+			tablePrintIcon       = getImageIcon(eOptions.getStringField("[tablePrintIcon/]"));
+			optionQuestionIcon   = getImageIcon(eOptions.getStringField("[optionQuestionIcon/]"));
+			optionMessageIcon    = getImageIcon(eOptions.getStringField("[optionMessageIcon/]"));
+			menuExpandIcon       = getImageIcon(eOptions.getStringField("[menuExpandIcon/]"));
+			menuCollapseIcon     = getImageIcon(eOptions.getStringField("[menuCollapseIcon/]"));
+			logoImageIcon        = getImageIcon(eOptions.getStringField("[logo/]"));
+			logoImagePanel       = getImageIcon(eOptions.getStringField("[logoPanel/]"));			
+	} 
 	
 	
 	private void loadGuestEnvironment(DataSet ds) throws Exception {
