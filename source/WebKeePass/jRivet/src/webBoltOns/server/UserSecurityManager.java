@@ -177,6 +177,9 @@ public class UserSecurityManager {
 	private boolean  comfirmLDAP(String username, String password, DataAccess dataAccess) {		
 		try {
 			
+			if(username == null || password == null  || username.equals("") || password.equals(""))
+				return false;
+			
 			Properties env = new Properties();
 			// Set defaults for key values if they are missing
 			String factoryName = dataAccess.getEOpts().getStringField(Context.INITIAL_CONTEXT_FACTORY);

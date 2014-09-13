@@ -10,7 +10,6 @@ All rights reserved.
 
 *** Requirements ***
 
-    This version of jRivet requires;
       -75 Meg of free hard drive space
       -128 Meg Ram
       -Sun's JDK 1.5.0 or greater
