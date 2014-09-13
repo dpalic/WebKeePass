@@ -55,6 +55,8 @@ CREATE TABLE `jrUserGroups` (
   `ActiveDate` varchar(10) default NULL,
   `InActiveDate` varchar(20) default NULL,
   `LastChangeDate` varchar(20) default NULL,
+  `TimeOut` integer,
+  `Language` varchar(100) default NULL,
   `Notes` mediumtext,
   `ActiveGroup` smallint(6) default NULL,
   `Administrator` smallint(6) default NULL,
@@ -66,11 +68,6 @@ CREATE TABLE `jrUserGroups` (
   `BUnit` varchar(250) default NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
- 
-INSERT INTO `jrUserGroups` (`GroupID`,`GroupDescription`,`MenuXML`,`DateFormat`,`CreateDate`,`ActiveDate`,`InActiveDate`,`LastChangeDate`,`Notes`,`ActiveGroup`,`Administrator`,`DeskTopTheme`,`TipAccess`,`CopyAccess`,`PrintAccess`,`AccessMethod`,`BUnit`) VALUES 
- ('Admins','Admin Group','CCMenu','dd MMM yyyy',NULL,'20050130','20050130','20050130','',1,1,1,1,1,1,'HTTP','1'),
- ('Users','Users Group','CCMenu','dd MMM yyyy',NULL,'20050130','20050130','20050130',NULL,1,0,1,1,1,1,'HTTP',NULL);
- 
  
 CREATE TABLE `jrUsers` (
   `UserID` varchar(20) default NULL,
@@ -234,6 +231,21 @@ CREATE TABLE `wkpBundle` (
   `gg` varchar(250) default NULL,
   `hh` varchar(250) default NULL,
    PRIMARY KEY  (`BundleID`)
+ ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+CREATE TABLE `wkpAccess` (
+  `AccessID` int(11)  NOT NULL,
+  `aa` varchar(250) default NULL,
+  `bb` varchar(250) default NULL,
+  `cc` varchar(250) default NULL,
+  `dd` varchar(250) default NULL,
+  `ee` varchar(250) default NULL,
+  `ff` varchar(250) default NULL,
+  `gg` varchar(250) default NULL,
+  `hh` varchar(250) default NULL,
+   PRIMARY KEY  (`AccessID`)
  ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 

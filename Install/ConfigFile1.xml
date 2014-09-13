@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <JRivet>
 
- <!-- JDBC Data source info for the DataAccess object-->
-
+<!-- JDBC Data source info for the DataAccess object-->
  <DATABASE_CONNECTION>
 
   <DATABASE_NAME>WebKeePass - Password Safe</DATABASE_NAME>
@@ -21,22 +20,17 @@
 
  <CONFIG>
 
-  <BANNER_TITLE>WebKeePass - Password Safe</BANNER_TITLE>
+  <BANNER_TITLE>WebKeePass</BANNER_TITLE>
 
-
- <!-- XML folder locations - This is the path to the folder containing all jRivet XML files -->
-  <DATABASE_SCHEMA>{schm}</DATABASE_SCHEMA>
-  <LITERALS>{lits}</LITERALS>
-  
+<!-- XML folder locations - This is the path to the folder containing all jRivet XML files -->
+  <DATABASE_SCHEMA>{schm}</DATABASE_SCHEMA>  
   <SCRIPT_DIRECTORY>{scripts}</SCRIPT_DIRECTORY>
   <IMAGE_DIRECTORY>{images}</IMAGE_DIRECTORY>
   <LOG_DIRECTORY>{logs}</LOG_DIRECTORY>
-
   <DOC_DIRECTORY>{docs}</DOC_DIRECTORY>
 
 
-
- <!-- LDAP   -->  
+<!-- LDAP   -->  
   <LDAP_CONFIG>
     <LDAP>false</LDAP>
     <LDAP_Group>Users</LDAP_Group>	
@@ -48,9 +42,7 @@
   </LDAP_CONFIG>
   
 
-
-
- <!--  Email Server Location and system email from address -->
+<!--  Email Server Location and system email from address -->
   <Email_Server>mail.myServer.com</Email_Server>
   <Email_Address>geekuser@mail.myServer.com</Email_Address>
   <Email_User>user</Email_User>
@@ -60,26 +52,22 @@
  
 
 <!-- User Defaults -->
-
   <MENU>CCMenu</MENU>
   <DATE_FORMAT>dd-MMM-yyyy</DATE_FORMAT>
   <SERVER_DATE_FORMAT>yyyyMMdd</SERVER_DATE_FORMAT>
   <DEBUG_LEVEL>0</DEBUG_LEVEL>
 
- <!-- User Security Manager - Set 'ON' / 'OFF'  -->
-  <UserSecurityManager>JRIVET</UserSecurityManager>
-  <UserSecurityKey>{eKey}</UserSecurityKey>  
+<!-- User Security Manager   -->
+  <UserSecurityManager>JRIVET</UserSecurityManager> 
  </CONFIG>
 
 
  
- <!-- Desk top settings, defaults and icons -->
- 
+<!-- Desk top settings, defaults and icons --> 
  <DESKTOP>
 
-
-
- <!-- Images and icons -->   <IMAGES> 
+<!-- Images and icons -->
+   <IMAGES> 
     <menuBannerImage>banner.jpg</menuBannerImage> 
     <logo_Icon>oDot.gif</logo_Icon> 
     <link_Icon>Link.gif</link_Icon> 
@@ -121,8 +109,7 @@
        <WindowTitleColor Red='235' Green='235' Blue='235'/>
        <WindowTitleFontColor Red='0' Green='0' Blue='0'/>
        <CursorColor Red='250' Green='250' Blue='220'/>
-  </DESKTOP_COLORS>
-
+  </DESKTOP_COLORS> 
  </DESKTOP>
 
 </JRivet>

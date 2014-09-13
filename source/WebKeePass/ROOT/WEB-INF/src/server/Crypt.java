@@ -9,10 +9,12 @@ package server;
  * @version 1.0
  */
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.Vector;
 
  
@@ -34,11 +36,13 @@ public class Crypt {
 							+ "' And j1 = '" + dataSet.getScmbl() + "' ",
 					"wkpPasswordCrypt", dataSet)) {
 
+				dataSet = addAccessItem(dataSet, dataAccss, "KeePass002");
+
 			 	return getCrypHistoryList(dataSet, dataAccss);
 			
 			} else {
 				dataSet.remove("Table1");
-				dataSet.putIntegerField("PasswordID", 0);
+				dataSet.remove("PasswordID");
 				dataSet.addMessage("LIT0001");
 			}
 		} catch (DBSchemaException e) {
@@ -53,9 +57,13 @@ public class Crypt {
 		try {
 			if (dataSet.containsKey("PasswordID") && dataAccss.executeQuery(
 					"Select * From wkpPasswordCrypt Where PasswordID =  '"
-							+ dataSet.getStringField("PasswordID") + "' ",
-							  "wkpPasswordCrypt", dataSet)) {
-
+							+  dataSet.getStringField("PasswordID") 
+							+ "' And  j1 = '" + dataSet.getStringField("j1") +"' ",
+							 
+							"wkpPasswordCrypt", dataSet)) {
+				
+				dataSet = addAccessItem(dataSet, dataAccss, "KeePass012");
+				
 			 	return getCrypHistoryList(dataSet, dataAccss);
 			
 			} else {
@@ -68,6 +76,9 @@ public class Crypt {
 		}
 		return dataSet;
 	}
+	
+
+	
 	
 	
 	public DataSet getCryptDesc(DataSet dataSet, DataAccess dataAccss) {
@@ -173,22 +184,22 @@ public class Crypt {
 
 	/**/
 	public DataSet updCrypt(DataSet dataSet, DataAccess dataAccss) {
-		
+
 		dataSet.putStringField("s2", dataAccss.encrypt(dataSet.getUserIP()));
 		dataSet.putStringField("t1", dataAccss.encrypt(dataSet.getRmtHost()));
-		
-		if (editCrypt(dataSet, dataAccss))
-			if (isNewCrypt(dataSet, dataAccss))
-				dataSet = insertCrypt(dataSet, dataAccss);
-			else
-				dataSet = updateCrypt(dataSet, dataAccss);
 
-		// Write a history record
 		try {
-			dataSet.putIntegerField("HistoryID",
-					new Sequences().getNextSequences("wkpCryptHistory", "HistoryID", dataAccss));
-			
-			dataAccss.executeInsertQuery("wkpCryptHistory", dataSet);
+			if (editCrypt(dataSet, dataAccss)) {
+				if (isNewCrypt(dataSet, dataAccss))
+					dataSet = insertCrypt(dataSet, dataAccss);
+				else
+					dataSet = updateCrypt(dataSet, dataAccss);
+
+				dataSet.putIntegerField("HistoryID",
+						new Sequences().getNextSequences("wkpCryptHistory", "HistoryID", dataAccss));
+				dataAccss.executeInsertQuery("wkpCryptHistory", dataSet);
+			}
+
 		} catch (DBSchemaException e) {
 			dataSet.addMessage("SVR0001");
 		}
@@ -272,11 +283,11 @@ public class Crypt {
 							+ dataSet.getStringField("PasswordID")
 									+ "'  And j1 = '" + dataSet.getScmbl() + "' ");
 			
-			sql.executeUpdate("Delete from wkpCryptHistory Where PasswordID =  "
-					+ dataSet.getStringField("PasswordID"));
+			sql.executeUpdate("Delete from wkpCryptHistory Where PasswordID =  '"
+					+ dataSet.getStringField("PasswordID") + "' ") ;
 			
-			sql.executeUpdate("Delete from wkpPasswordAKin Where PasswordID =  "
-					+ dataSet.getStringField("PasswordID"));
+			sql.executeUpdate("Delete from wkpPasswordAKin Where PasswordID = '"
+					+ dataSet.getStringField("PasswordID") + "' ");
 			
 			
 			dataSet.addMessage("LIT0006");
@@ -301,6 +312,8 @@ public class Crypt {
 							+ "' Order By PasswordID ", "wkpPasswordCrypt",
 					dataSet)) {
 
+				dataSet = addAccessItem(dataSet, dataAccss, "KeePass002");
+				
 				return getCrypHistoryList(dataSet, dataAccss);
 			} else {
 				dataSet.addMessage("LIT0002");
@@ -321,6 +334,8 @@ public class Crypt {
 							+ "' Order By PasswordID Desc ",
 					"wkpPasswordCrypt", dataSet)) {
 
+				dataSet = addAccessItem(dataSet, dataAccss, "KeePass002");
+				
 				return getCrypHistoryList(dataSet, dataAccss);
 			} else {
 				dataSet.addMessage("LIT0003");
@@ -443,7 +458,7 @@ public class Crypt {
 			resultSet = sqlStatement.executeQuery(sql);
 			while (resultSet.next()) {
 				String[] row1 = new String[tblCols.length];
-				for (int x = 0; x < tblCols.length; x++)
+				for (int x = 1; x < tblCols.length; x++)
 					row1[x] = (String) DataAccess.getFieldValue(resultSet,
 							tblCols[x], dataAccss.getDataType(tblCols[x]));
 
@@ -460,4 +475,64 @@ public class Crypt {
 		return dataSet;
 	}
 	 
+	
+	
+	public DataSet addAccessItem(DataSet dtSet, DataAccess dtAccss, String script) {
+		PreparedStatement insQry = dtAccss.execPreparedConnect(
+				"Insert Into wkpAccess (AccessID, aa, bb, cc, dd, ee, ff, gg) " +
+				" Values (?, ?, ?, ?, ?, ?, ?, ? ) "); 
+		try {
+	
+			insQry.setInt(1, new Sequences().getNextSequences("wkpAccess", "AccessID", dtAccss));
+	 		insQry.setString(2, dtSet.getStringField("PasswordID"));
+	 		insQry.setString(3, dtSet.getStringField("j1"));
+	 		insQry.setString(4, dtSet.getScmbl());
+	 		insQry.setString(5, dtAccss.encrypt(dtSet.getUserIP()));
+	 		insQry.setString(6, dtAccss.encrypt(
+	 				new SimpleDateFormat("yyyyMMdd").format(new Date()) ));
+	 		insQry.setString(7, dtAccss.encrypt(new SimpleDateFormat("HH:mm:ss").format(new Date()) ));
+	 		insQry.setString(8, dtAccss.encrypt(script));
+			
+	 		insQry.executeUpdate();
+			 
+		} catch (Exception e) {
+			dtAccss.logMessage(" Adherent -- " + e);
+			dtSet.addMessage("SVR0001");
+		} finally {
+			dtAccss.execClose(insQry);
+		}
+
+		return dtSet;
+	}
+	
+	
+	/**/
+	public DataSet getAccesslog(DataSet dataSet, DataAccess dataAccss) {
+		try {
+			String[] tb = new String[] { "AccessID", "cc", "dd", "ee", "ff", "gg" };
+			
+			String sql =  " Select * From wkpAccess Where  aa = '" 
+				+ dataSet.getStringField("PasswordID")
+				+ "' And bb = '" + dataSet.getScmbl() + "' ";
+			
+			String cc = dataSet.getStringField("@cc");
+			if(cc != null && !cc.equals(""))
+				sql += " And cc = '" + dataAccss.encrypt(cc) + "' ";
+	
+			String ee = dataSet.getStringField("@ee");
+			if(ee != null && !ee.equals(""))
+				sql += " And ee = '" + dataAccss.encrypt(ee) + "' ";
+			
+			String dd = dataSet.getStringField("@dd");
+			if(dd != null && !dd.equals(""))
+				sql += " And dd = '" + dataAccss.encrypt(dd) + "' ";
+			
+			dataSet.putTableVector("Table1", dataAccss.executeVectorQuery(sql, tb));
+
+		} catch (DBSchemaException e) {
+			dataSet.addMessage("SVR0001");
+		}
+		return dataSet;
+	}
+	
 }

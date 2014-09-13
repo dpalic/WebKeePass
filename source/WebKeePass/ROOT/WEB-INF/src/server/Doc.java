@@ -189,7 +189,7 @@ public class Doc {
 			ByteArrayOutputStream o = new ByteArrayOutputStream();
 			xml.write(o);
 			exprt.putStreamArray("exportPath", o.toByteArray());
-			exprt.addMessage("Exported", "10", null, null);
+			exprt.addMessage("LIT0008");
 
 		} catch (Exception e) {
 			exprt.addMessage("SVR0001");
@@ -198,6 +198,7 @@ public class Doc {
 			dataAccess.execClose(qry);
 		}
 		 
+		exprt.putStringField("importPath","");
 		return exprt;
 	}
 	
@@ -251,8 +252,9 @@ public class Doc {
 			}
 		} catch (Exception e) {
 			imprt.put("SEditor", null);
-			imprt.addMessage("Script Not Found", "30", null, null);
+			imprt.addMessage("LIT0010");
 		}
+		imprt.putStringField("exportPath","");
 		return imprt;
 	}
 

@@ -85,7 +85,7 @@ public class CryptKp {
 						.getNextSequences("wkpGroups", "KeeperID", dataAccss));
 
 			dataAccss.executeInsertQuery("wkpGroups", dataSet);
-			dataSet.addMessage("Record Added", "10", null, null);
+			dataSet.addMessage("LIT0005");
 		} catch (Exception exception) {
 			dataSet.addMessage("SVR0001");
 		}
@@ -103,7 +103,7 @@ public class CryptKp {
 					"Where KeeperID = " + dataSet.getIntegerField("KeeperID")
 							+ " And j1 = '" + dataSet.getScmbl() + "' ");
 
-			dataSet.addMessage("Record Updated", "10", null, null);
+			dataSet.addMessage("LIT0004");
 		} catch (Exception exception) {
 			dataSet.addMessage("SVR0001");
 		}
@@ -119,9 +119,7 @@ public class CryptKp {
 									+ dataSet.getScmbl() + "' "));
 			dataSet.addMessage("Record Deleted", "10", null, null);
 		} catch (Exception exception) {
-			dataSet.addMessage(
-					"Database Error - Please contact systems administrator",
-					"30", null, null);
+			dataSet.addMessage("LIT0007");
 		} finally {
 			dataAccss.execClose(sql);
 		}

@@ -55,6 +55,8 @@ CREATE TABLE jrUserGroups (
   ActiveDate varchar(250),
   InActiveDate varchar(250),
   LastChangeDate varchar(250),
+  TimeOut int,
+  Language varchar(100),
   Notes varchar(500),
   ActiveGroup integer, 
   Administrator integer, 
@@ -66,12 +68,6 @@ CREATE TABLE jrUserGroups (
   BUnit varchar(250)  
 );
 
- 
-INSERT INTO jrUserGroups (GroupID,GroupDescription,MenuXML,DateFormat,CreateDate,ActiveDate,InActiveDate,LastChangeDate,Notes,ActiveGroup,Administrator,DeskTopTheme,TipAccess,CopyAccess,PrintAccess,AccessMethod,BUnit) VALUES 
- ('Admins','Admin Group','CCMenu','dd MMM yyyy',NULL,'20070101','20070101','20070101','',1,1,1,1,1,1,'HTTP','1');
-
-INSERT INTO jrUserGroups (GroupID,GroupDescription,MenuXML,DateFormat,CreateDate,ActiveDate,InActiveDate,LastChangeDate,Notes,ActiveGroup,Administrator,DeskTopTheme,TipAccess,CopyAccess,PrintAccess,AccessMethod,BUnit) VALUES 
- ('Users','Users Group','CCMenu','dd MMM yyyy',NULL,'20070101','20070101','20070101',NULL,1,0,1,1,1,1,'HTTP',NULL);
  
 
  
@@ -234,6 +230,21 @@ CREATE TABLE wkpBundle (
   gg varchar(250),
   hh varchar(250)
  );
+ 
+ 
+ 
+CREATE TABLE wkpAccess (
+  AccessID int  NOT NULL PRIMARY KEY,
+  aa varchar(250),
+  bb varchar(250),
+  cc varchar(250),
+  dd varchar(250),
+  ee varchar(250),
+  ff varchar(250),
+  gg varchar(250),
+  hh varchar(250)
+ );
+
 
 
 CREATE TABLE documents (

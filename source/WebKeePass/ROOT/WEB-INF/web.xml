@@ -11,7 +11,7 @@
 		<init-param>
 			<!-- ConfigFile1.XML location for screens & menus-->
 			<param-name>configHome</param-name>
-			<param-value>/home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/WEB-INF/</param-value>
+			<param-value>/home/pjones/Projects/JavaProjects/WebKeepass/wkp/conf/</param-value>
 			 
 		</init-param>
 	</servlet>
@@ -21,19 +21,36 @@
 		<servlet-class>webBoltOns.ReportWriter</servlet-class>
 		<init-param>
 			<param-name>configHome</param-name>
-			<param-value>/home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/WEB-INF/</param-value>
+			<param-value>/home/pjones/Projects/JavaProjects/WebKeepass/wkp/conf/</param-value>
 
 		</init-param>
 	</servlet>
+
+	<servlet>
+		<servlet-name>iphone</servlet-name>
+		<servlet-class>server.iphone.IPhone</servlet-class>
+		<init-param>
+			<param-name>configHome</param-name>
+			<param-value>/home/pjones/Projects/JavaProjects/WebKeepass/wkp/conf/</param-value>
+		</init-param>
+	</servlet>
+
 
 
 	<servlet-mapping>
 		<servlet-name>ServletConnector</servlet-name>
 		<url-pattern>/ServletConnector</url-pattern>
 	</servlet-mapping>
+
 	<servlet-mapping>
 		<servlet-name>ReportWriter</servlet-name>
 		<url-pattern>/ReportWriter</url-pattern>
 	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>iphone</servlet-name>
+		<url-pattern>/iphone</url-pattern>
+	</servlet-mapping>
+	
 
 </web-app>

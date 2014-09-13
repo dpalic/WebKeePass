@@ -200,7 +200,7 @@ public class Akin {
 		while (table.hasMoreElements()) {
 			String[] row = (String[]) table.nextElement();
 			String ug = dtAccss.decrypt(row[1]);
-			if (row[1] != null && !row[1].equals("")
+			if (row[1] != null && ! dtAccss.decrypt(row[1]).equals("")
 					&& !dtAccss.executeQuery(
 							"Select UserID From jrUsers Where UserID = '" + ug + "' ", "", null)
 					&& !dtAccss.executeQuery(
@@ -210,13 +210,13 @@ public class Akin {
 				return false;
 			}
 
-			if (row[2] != null && !row[2].equals("") && editBnd(row[2], dtAccss)){
+			if (row[2] != null && ! dtAccss.decrypt(row[2]).equals("") && editBnd(row[2], dtAccss)){
 				dtSet.addMessage("WKP0003");
 				return false;
 			}
 			
 			
-			if (row[2] != null && !row[2].equals("")
+			if (row[2] != null && ! dtAccss.decrypt(row[2]).equals("")
 					&& !dtAccss.executeQuery(
 							"Select BundleID From wkpBundle Where aa = '" + row[2] + "' ", "", null)) {
 				dtSet.addMessage("WKP0003");
