@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 4.0 - www.ossfree.net *  -->
+<!--	 	 Script Name :  KeePass025 -->
+<!--	 	 Description :  Import My Passwords -->
+<!--	 	 Server Class :  server.Doc -->
+<!--	 	 Initalization Method :   -->
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/XML/ENG/KeePass025.xml -->
+<!--	 	 Last Update :  26-Nov-2010 -->
+<!--	 	 User Profile:  root -->
+<SCRIPT SCRIPT_NAME="KeePass025" DOCUMENT_TYPE="Window" CLASS_NAME="server.Doc" AUTO_REFRESH="true" ICON="WKP5.jpg" DESCRIPTION="Importar mis contraseñas" Screen_Title="Import My Passwords" WIDTH="800" HEIGHT="470">
+  <ButtonBar />
+  <Panel POSITION="Left" HIDDEN="N">
+    <FilePrompt FIELDNAME="importPath" DESCRIPTION="Importar desde un archivo XML" POSITION="Left" METHOD="ImportFile" />
+    <Button FIELDNAME="importToXml" DESCRIPTION="Importar desde XML KeePass" ICON="import.gif" POSITION="Center" METHOD_CLASS="server.Doc" METHOD="importXML" />
+  </Panel>
+</SCRIPT>
+

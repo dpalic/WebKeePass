@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 2.1 *  -->
+<!--	 	 Script Name :  KeePass007 -->
+<!--	 	 Description :  Share My Password -->
+<!--	 	 Server Class :  server.Akin -->
+<!--	 	 Initalization Method :   -->
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp-001/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass007.xml -->
+<!--	 	 Last Update :  18-Nov-2009 -->
+<!--	 	 User Profile:  pjones -->
+<SCRIPT SCRIPT_NAME="KeePass007" DOCUMENT_TYPE="Window" CLASS_NAME="server.Akin" AUTO_REFRESH="true" ICON="WKP2.jpg" DESCRIPTION="Condividi la mia Password" Screen_Title="Share My Password" WIDTH="960" HEIGHT="540">
+  <ButtonBar>
+    <BarButton TYPE="FIND" DESCRIPTION="Trova / Aggiorna" ICON="iFind.gif" METHOD="initAkinList" />
+    <BarButton TYPE="POST" DESCRIPTION="Aggiornamento modifica" ICON="iEdit.gif" METHOD="updAkinList" />
+    <BarButton TYPE="NEW-LINE" DESCRIPTION="Nuovo Condividi" ICON="iEdit.gif" />
+  </ButtonBar>
+  <Panel POSITION="Left" HIDDEN="N">
+    <TextField FIELDNAME="PasswordID" DESCRIPTION="Password ID #" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="20" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" LINK="KeePass006" METHOD="initAkinList" />
+    <TextField FIELDNAME="a0" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" />
+  </Panel>
+  <Panel POSITION="Left" HIDDEN="N">
+    <Table FIELDNAME="Table1" HEIGHT="12" WIDTH="0" POSITION="Left">
+      <TableTextField FIELDNAME="AKinID" DESCRIPTION="ID" LENGTH="3" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="20" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Center" />
+      <TableTextField FIELDNAME="x2" DESCRIPTION="Web Utente / User Group Web" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="40" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableTextField FIELDNAME="t6" DESCRIPTION="KeePass Group" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="40" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" LINK="KeePass018" PARAMETER="@aa" />
+      <TableTextField FIELDNAME="w3" DESCRIPTION="Condividi Desc" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableCheckBox FIELDNAME="v4" DESCRIPTION="Condividi Active" ENCRYPT="Y" />
+      <TableTextField FIELDNAME="r9" DESCRIPTION="Scade il" LENGTH="8" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
+      <TableComboBox FIELDNAME="U5" DESCRIPTION="Condividi Categoria" LENGTH="8" PROTECTED="N" ENCRYPT="Y" ALIGNMENT="Left" LIST_TABLE_NAME="wkpGroups" LIST_TABLE_FIELD="KeeperID" LIST_TABLE_DESCRIPTION="KeeperDesc" LIST_TABLE_SELECTTION=" j1=:[Share-Group/]:">
+	<ComboItem DESCRIPTION="" DEFAULT_VALUE=" " />
+      </TableComboBox>
+    </Table>
+  </Panel>
+  <Panel POSITION="Left" HIDDEN="N">
+    <Button FIELDNAME="pbndles" DESCRIPTION="Creare gruppi di KeePass" POSITION="Left" LINK="KeePass017" METHOD_CLASS="server.Akin" METHOD="getBndList" />
+  </Panel>
+</SCRIPT>
+

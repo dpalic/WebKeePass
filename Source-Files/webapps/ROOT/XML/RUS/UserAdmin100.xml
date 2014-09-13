@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 4.0 - www.ossfree.net *  -->
+<!--	 	 Script Name :  UserAdmin100 -->
+<!--	 	 Description :  Edit User Groups -->
+<!--	 	 Server Class :  webBoltOns.server.UserSecurityManager -->
+<!--	 	 Initalization Method :   -->
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/XML/ENG/UserAdmin100.xml -->
+<!--	 	 Last Update :  10-Aug-2010 -->
+<!--	 	 User Profile:  root -->
+<SCRIPT SCRIPT_NAME="UserAdmin100" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.UserSecurityManager" AUTO_REFRESH="false" ICON="WKPA.jpg" DESCRIPTION="Изменить группы пользователей" Screen_Title="Edit User Groups" WIDTH="1015" HEIGHT="680">
+  <ButtonBar>
+    <BarButton TYPE="CLEAR" DESCRIPTION="Очистить" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Найти-он!" ICON="iFind.gif" METHOD="getUserGroup" />
+    <BarButton TYPE="PREV" DESCRIPTION="Предыдущая" ICON="iPrev.gif" METHOD="prvUserGroup" />
+    <BarButton TYPE="NEXT" DESCRIPTION="Следующая" ICON="iNext.gif" METHOD="nxtUserGroup" />
+    <BarButton TYPE="POST" DESCRIPTION="Добавить / обновить" ICON="iEdit.gif" METHOD="updUserGroup" />
+  </ButtonBar>
+  <Panel POSITION="Left" HIDDEN="N">
+    <TextField FIELDNAME="GroupID" DESCRIPTION="Группа пользователей" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="UserAdmin120" METHOD="getUserGroup" />
+    <TextField FIELDNAME="GroupDescription" DESCRIPTION="Описание" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+  </Panel>
+  <Panel DESCRIPTION="Язык и своевременный" POSITION="Right Fill" HIDDEN="N">
+    <ComboBox FIELDNAME="Language" DESCRIPTION="Язык" LENGTH="5" DATA_TYPE="CHR" POSITION="Left" ENCRYPT="N">
+      <ComboItem DESCRIPTION="ENG" DEFAULT_VALUE="ENG" />
+      <ComboItem DESCRIPTION="FRN" DEFAULT_VALUE="FRN" />
+      <ComboItem DESCRIPTION="DUT" DEFAULT_VALUE="DUT" />
+      <ComboItem DESCRIPTION="FIN" DEFAULT_VALUE="FIN" />
+      <ComboItem DESCRIPTION="RUS" DEFAULT_VALUE="RUS" />
+      <ComboItem DESCRIPTION="SPN" DEFAULT_VALUE="SPN" />
+      <ComboItem DESCRIPTION="GER" DEFAULT_VALUE="GER" />
+      <ComboItem DESCRIPTION="ITL" DEFAULT_VALUE="ITL" />
+    </ComboBox>
+    <SpinnerField FIELDNAME="TimeOut" DESCRIPTION="Auto Log после" LENGTH="4" DATA_LEN="5" POSITION="Left" ALIGNMENT="Left" />
+  </Panel>
+  <Panel DESCRIPTION="Уровни Доступ к меню" POSITION="Left Fill" HIDDEN="N">
+    <MenuExplorer FIELDNAME="MenuStruct" HEIGHT="0" WIDTH="0">
+      <TableTextField FIELDNAME="GroupItemDescription" DESCRIPTION="Меню Вариант" LENGTH="15" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="N" ZERO_FILL="N" ENCRYPT="N" />
+      <TableTextField FIELDNAME="MenuItem" DESCRIPTION="Название меню" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" />
+      <TableTextField FIELDNAME="Type" DESCRIPTION="Меню типа" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Center" />
+      <TableComboBox FIELDNAME="AccessLevel" DESCRIPTION="Доступ" LENGTH="10" PROTECTED="N" ENCRYPT="N" ALIGNMENT="Left">
+	<ComboItem DESCRIPTION="Нет доступа" />
+	<ComboItem DESCRIPTION="Запрос только" />
+	<ComboItem DESCRIPTION="Запрос / Обновление" />
+      </TableComboBox>
+    </MenuExplorer>
+    <Panel POSITION="Left" HIDDEN="N">
+      <Button FIELDNAME="MenuItem" DESCRIPTION="Изменить сценарий" POSITION="Left" LINK="UserAdmin150" METHOD="getScriptLink" />
+    </Panel>
+  </Panel>
+  <Panel DESCRIPTION="Уровни доступа к группе" POSITION="Right Fill" HIDDEN="N">
+    <Panel HIDDEN="N">
+      <CheckBox FIELDNAME="ActiveGroup" DESCRIPTION="Группа активных" POSITION="Left" ENCRYPT="N" />
+      <CheckBox FIELDNAME="Administrator" DESCRIPTION="Доступ администратора" POSITION="Left" ENCRYPT="N" />
+      <CheckBox FIELDNAME="DeskTopTheme" DESCRIPTION="Настольный доступа тема" POSITION="Left" ENCRYPT="N" />
+      <CheckBox FIELDNAME="TipAccess" DESCRIPTION="Сценарий Советы" POSITION="Left" ENCRYPT="N" />
+      <CheckBox FIELDNAME="CopyAccess" DESCRIPTION="Копирования таблицы доступа" POSITION="Left" ENCRYPT="N" />
+      <CheckBox FIELDNAME="PrintAccess" DESCRIPTION="Таблица печати доступа" POSITION="Left" ENCRYPT="N" />
+    </Panel>
+    <Panel HIDDEN="N">
+      <TextField FIELDNAME="MenuXML" DESCRIPTION="Меню XML" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="UserAdmin190" PARAMETER="@ScriptFileName" />
+      <TextField FIELDNAME="DateFormat" DESCRIPTION="Формат даты" LENGTH="9" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+      <TextField FIELDNAME="LastChangeDate" DESCRIPTION="Последнее обновление" LENGTH="9" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+      <TextField FIELDNAME="InActiveDate" DESCRIPTION="Дата Неактивированные" LENGTH="9" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+      <TextField FIELDNAME="ActiveDate" DESCRIPTION="Активный Дата" LENGTH="9" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+      <ComboBox FIELDNAME="AccessMethod" DESCRIPTION="Сервер Acccess" LENGTH="4" DATA_TYPE="CHR" POSITION="Left" ENCRYPT="N">
+	<ComboItem DESCRIPTION="HTTP" />
+	<ComboItem DESCRIPTION="RMI" />
+	<ComboItem DESCRIPTION="ГНЕЗДО" />
+      </ComboBox>
+    </Panel>
+  </Panel>
+</SCRIPT>
+

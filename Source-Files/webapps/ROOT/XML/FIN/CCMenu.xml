@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 4.0 - www.ossfree.net *  -->
+<!--	 	 Script Name :  CCMenu -->
+<!--	 	 Description :  Web Kee Pass -->
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/XML/ENG/CCMenu.xml -->
+<!--	 	 Last Update :  26-Nov-2010 -->
+<!--	 	 User Profile:  root -->
+<SCRIPT SCRIPT_NAME="CCMenu" DOCUMENT_TYPE="Menu" DESCRIPTION="Web Kee Pass" Screen_Title="Web Kee Pass">
+  <SubMenu DESCRIPTION="Toimi minun salasanat" LINK="WKP-MyPasswords" QUICK_LINK="FALSE">
+    <Script DESCRIPTION="Omat salasanat" ICON="WKP8.jpg" LINK="KeePass006" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Muokkaa salasanani" ICON="WKP1.jpg" LINK="KeePass002" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Omat salasanat kategorioittain" ICON="WKP6.jpg" LINK="KeePass001" QUICK_LINK="FALSE" />
+  </SubMenu>
+  <SubMenu DESCRIPTION="Työ jaetulla salasanat" LINK="WKP-SharePasswords" QUICK_LINK="FALSE">
+    <SubMenu DESCRIPTION="Salasanat Jaan" LINK="WKP-MySharePasswords" QUICK_LINK="FALSE">
+      <Script DESCRIPTION="Jaa minun salasanoja" ICON="WKP2.jpg" LINK="KeePass007" QUICK_LINK="TRUE" />
+      <Script DESCRIPTION="My Shared Salasana profiili" ICON="WKP4.jpg" LINK="KeePass016" QUICK_LINK="FALSE" />
+    </SubMenu>
+    <SubMenu DESCRIPTION="Salasanat Jaettu To Me" LINK="WKP-MyOthersPasswords" QUICK_LINK="FALSE">
+      <Script DESCRIPTION="Salasanat yhteisiä ym." ICON="WKP9.jpg" LINK="KeePass008" QUICK_LINK="TRUE" />
+      <Script DESCRIPTION="Yhteiset salasanoja Luokka" ICON="WKP6.jpg" LINK="KeePass013" QUICK_LINK="FALSE" />
+    </SubMenu>
+    <Script DESCRIPTION="Muokkaa Jaa Ryhmät" LINK="KeePass017" QUICK_LINK="FALSE" />
+    <Script DESCRIPTION="Muokkaa Jaa Kategoriat" LINK="KeePass014" QUICK_LINK="FALSE" />
+  </SubMenu>
+  <SubMenu DESCRIPTION="Import / Export Salasanat" LINK="impexp" QUICK_LINK="FALSE">
+    <Script DESCRIPTION="Tuo minun salasanoja" ICON="WKP5.JPG" LINK="KeePass025" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Vienti minun salasanoja" ICON="WKP4.jpg" LINK="KeePass035" QUICK_LINK="TRUE" />
+  </SubMenu>
+  <SubMenu DESCRIPTION="Työ käyttäjien kanssa" LINK="WKP-Users" QUICK_LINK="FALSE">
+    <Script DESCRIPTION="Käyttäjäprofiili" ICON="WKPD.jpg" LINK="UserAdmin130" QUICK_LINK="FALSE" />
+    <Script DESCRIPTION="Muokkaa Käyttäjät" ICON="WKPB.jpg" LINK="UserAdmin110" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="User Group Profile" ICON="WKPC.jpg" LINK="UserAdmin120" QUICK_LINK="FALSE" />
+    <Script DESCRIPTION="Muokkaa Web-käyttäjäryhmät" ICON="WKPA.jpg" LINK="UserAdmin100" QUICK_LINK="TRUE" />
+  </SubMenu>
+</SCRIPT>
+

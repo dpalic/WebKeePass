@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 4.0 - www.ossfree.net *  -->
+<!--	 	 Script Name :  KeePass035 -->
+<!--	 	 Description :  Export My Passwords -->
+<!--	 	 Server Class :  server.Doc -->
+<!--	 	 Initalization Method :   -->
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/XML/ENG/KeePass035.xml -->
+<!--	 	 Last Update :  26-Nov-2010 -->
+<!--	 	 User Profile:  root -->
+<SCRIPT SCRIPT_NAME="KeePass035" DOCUMENT_TYPE="Window" CLASS_NAME="server.Doc" AUTO_REFRESH="true" ICON="WKP4.jpg" DESCRIPTION="Exportación mis contraseñas" Screen_Title="Export My Passwords" WIDTH="800" HEIGHT="470">
+  <ButtonBar />
+  <Panel POSITION="Left" HIDDEN="N">
+    <FilePrompt FIELDNAME="exportPath" DESCRIPTION="Exportar a archivo XML" POSITION="Left" METHOD="ExportFile" />
+    <Button FIELDNAME="exportToXml" DESCRIPTION="Exportar a XML Keepass" ICON="exprt.gif" POSITION="Center" METHOD_CLASS="server.Doc" METHOD="exportXML" />
+  </Panel>
+</SCRIPT>
+

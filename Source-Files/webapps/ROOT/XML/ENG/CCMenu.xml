@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 4.0 - www.ossfree.net *  -->
+<!--	 	 Script Name :  CCMenu -->
+<!--	 	 Description :  Web Kee Pass -->
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/XML/ENG/CCMenu.xml -->
+<!--	 	 Last Update :  26-Nov-2010 -->
+<!--	 	 User Profile:  root -->
+<SCRIPT SCRIPT_NAME="CCMenu" DOCUMENT_TYPE="Menu" DESCRIPTION="Web Kee Pass" Screen_Title="Web Kee Pass">
+  <SubMenu DESCRIPTION="Work With My Passwords" LINK="WKP-MyPasswords" QUICK_LINK="FALSE">
+    <Script DESCRIPTION="My Passwords " ICON="WKP8.jpg" LINK="KeePass006" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Edit My Password" ICON="WKP1.jpg" LINK="KeePass002" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="My Passwords by Category" ICON="WKP6.jpg" LINK="KeePass001" QUICK_LINK="FALSE" />
+  </SubMenu>
+  <SubMenu DESCRIPTION="Work With Shared Passwords" LINK="WKP-SharePasswords" QUICK_LINK="FALSE">
+    <SubMenu DESCRIPTION="Passwords I Am Sharing" LINK="WKP-MySharePasswords" QUICK_LINK="FALSE">
+      <Script DESCRIPTION="Share My Passwords " ICON="WKP2.jpg" LINK="KeePass007" QUICK_LINK="TRUE" />
+      <Script DESCRIPTION="My Shared Password Profile" ICON="WKP4.jpg" LINK="KeePass016" QUICK_LINK="FALSE" />
+    </SubMenu>
+    <SubMenu DESCRIPTION="Passwords Shared To Me" LINK="WKP-MyOthersPasswords" QUICK_LINK="FALSE">
+      <Script DESCRIPTION="Passwords Shared By Others " ICON="WKP9.jpg" LINK="KeePass008" QUICK_LINK="TRUE" />
+      <Script DESCRIPTION="Shared Passwords By Category " ICON="WKP6.jpg" LINK="KeePass013" QUICK_LINK="FALSE" />
+    </SubMenu>
+    <Script DESCRIPTION="Edit Share Groups" LINK="KeePass017" QUICK_LINK="FALSE" />
+    <Script DESCRIPTION="Edit Share Categories" LINK="KeePass014" QUICK_LINK="FALSE" />
+  </SubMenu>
+  <SubMenu DESCRIPTION="Import / Export Passwords" LINK="impexp" QUICK_LINK="FALSE">
+    <Script DESCRIPTION="Import My Passwords " ICON="WKP5.JPG" LINK="KeePass025" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Export My Passwords" ICON="WKP4.jpg" LINK="KeePass035" QUICK_LINK="TRUE" />
+  </SubMenu>
+  <SubMenu DESCRIPTION="Work With Users" LINK="WKP-Users" QUICK_LINK="FALSE">
+    <Script DESCRIPTION="User Profile" ICON="WKPD.jpg" LINK="UserAdmin130" QUICK_LINK="FALSE" />
+    <Script DESCRIPTION="Edit Users" ICON="WKPB.jpg" LINK="UserAdmin110" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="User Group Profile" ICON="WKPC.jpg" LINK="UserAdmin120" QUICK_LINK="FALSE" />
+    <Script DESCRIPTION="Edit Web User Groups" ICON="WKPA.jpg" LINK="UserAdmin100" QUICK_LINK="TRUE" />
+  </SubMenu>
+</SCRIPT>
+

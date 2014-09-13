@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 2.1 *  -->
+<!--	 	 Script Name :  UserAdmin190 -->
+<!--	 	 Description :  Script  Profiles  -->
+<!--	 	 Server Class :  webBoltOns.server.DevelopmentTools -->
+<!--	 	 Initalization Method :   -->
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/UserAdmin190.xml -->
+<!--	 	 Last Update :  18-May-2008 -->
+<!--	 	 User Profile:  pjones -->
+<SCRIPT SCRIPT_NAME="UserAdmin190" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.DevelopmentTools" AUTO_REFRESH="false" ICON="icon.jpg" DESCRIPTION="Script eingetragen" Screen_Title="Script  Profiles " WIDTH="755" HEIGHT="635">
+  <ButtonBar>
+    <BarButton TYPE="CLEAR" DESCRIPTION="Clear" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Find-it!" ICON="iFind.gif" METHOD="getScriptFileList" />
+  </ButtonBar>
+  <Table FIELDNAME="ScriptFiles" HEIGHT="20" WIDTH="0" POSITION="Left">
+    <TableTextField FIELDNAME="ScriptName" DESCRIPTION="Script Name" LENGTH="20" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" PARAMETER="@ScriptFileName" />
+    <TableTextField FIELDNAME="LastChanged" DESCRIPTION="Letzte Änderung GMT" LENGTH="18" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" />
+    <TableTextField FIELDNAME="Length" DESCRIPTION="Dateilänge" LENGTH="7" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Right" />
+  </Table>
+  <Panel POSITION="Left" HIDDEN="N">
+    <Button DESCRIPTION="Edit Screen Script" POSITION="Left" LINK="UserAdmin150" METHOD="getScreenScriptDetails" />
+    <Button DESCRIPTION="Menü  Bearbeiten -Skript" LINK="UserAdmin160" METHOD="getMenuScriptDetails" />
+  </Panel>
+</SCRIPT>
+

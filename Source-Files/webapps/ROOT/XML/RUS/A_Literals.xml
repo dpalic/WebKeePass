@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Literals>
+  <Literal LiteralID = "SVR0001"  Text="База данных Ошибка - Ошибка базы данных - Пожалуйста, администратор контактных систем"  Severity="30" Type="MessageBar"/>
+
+  <Literal LiteralID = "SVR0002"  Text="Завершено запроса к серверу" Severity="00" Type="Pop-Up" />
+
+  <Literal LiteralID = "SVR0003"  Text="Запрос не полный: Обзор ошибки ниже" Severity="00" Type="Pop-Up" /> 
+  
+  <Literal LiteralID = "SVR0004"  Text="Класс не найден - пожалуйста, администратору контактных систем"  Severity="30" Type="MessageBar" />
+
+  <Literal LiteralID = "SVR0005"  Text="Server Security Исключение - Пожалуйста, администратор контактных систем"  Severity="30" Type="MessageBar" />
+  
+  <Literal LiteralID = "SVR0006"  Text="Метод не найден - пожалуйста, администратору контактных систем"   Severity="30" Type="MessageBar" />
+
+  <Literal LiteralID = "SVR0007"  Text="Экземпляра ошибка - Пожалуйста, администратор контактных систем"  Severity="30" Type="MessageBar" />
+	
+  <Literal LiteralID = "SVR0008"  Text="Server Security ошибки Пожалуйста администратора контактных систем"  Severity="30" Type="MessageBar" />
+
+  <Literal LiteralID = "SVR0009"  Text="Вызов Target / Стек Ловушка ошибка - Пожалуйста, администратор контактных систем"  Severity="30" Type="MessageBar" />
+
+  <Literal LiteralID = "SVR0011"  Text="Меню Файл не найден"  Severity="30" Type="MessageBar" /> 
+  
+  <Literal LiteralID = "SVR0012"  Text="Меню Файл XML ошибка разбора"  Severity="30" Type="MessageBar" />			
+			
+  <Literal LiteralID = "SVR0014"  Text="Меню File I / O Error"  Severity="30" Type="MessageBar" />
+  
+  <Literal LiteralID = "SVR0015"  Text="Сценарий не найден - пожалуйста, администратору контактных систем"  Severity="30" Type="MessageBar" /> 
+
+  <Literal LiteralID = "SVR0016"  Text="Сценарий Ошибка разбора XML - Пожалуйста, администратор контактных систем"  Severity="30" Type="MessageBar" /> 
+  
+  <Literal LiteralID = "SVR0017"  Text="Сценарий Ошибка файла - Пожалуйста, администратор контактных систем"  Severity="30" Type="MessageBar" /> 
+
+
+
+
+
+  <Literal LiteralID = "LIT0001"  Text="Элемент не обнаружен - Новая запись"  Severity="10" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0002"  Text="Элемент не найден - в конце файла"   Severity="30" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0003"  Text="Элемент не найден - в начале файла"  Severity="30" Type="MessageBar" />
+
+  <Literal LiteralID = "LIT0004"  Text="Пункт Обновлено" Severity="00" Type="MessageBar" />
+
+  <Literal LiteralID = "LIT0005"  Text="Добавлен пункт"  Severity="00" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0006"  Text="Предмет (а) исключен"  Severity="00" Type="MessageBar"/>
+ 
+  <Literal LiteralID = "LIT0007"  Text="Ошибка базы данных - Пожалуйста, администратор контактных систем"  Severity="30" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0008"  Text="Пункт Экспортируемые"  Severity="00" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0009"  Text="Пункт Импортировано"  Severity="00" Type="MessageBar"/>
+ 
+  <Literal LiteralID = "LIT0010"  Text="Сценарий не найден"  Severity="30" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0011"  Text="Элемент не найден"  Severity="30" Type="MessageBar"/>
+ 
+  <Literal LiteralID = "LIT0012"  Text="Неверный ID группы"  Severity="30" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0013"  Text="Доступ Неверный Server"  Severity="30" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0014"  Text="Неверный формат даты"  Severity="30" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0015"  Text="Неверный меню XML-файла"  Severity="30" Type="MessageBar"/>
+
+ 
+  <Literal LiteralID = "WKP0001"  Text="Неверный веб-пользователя / группы"  Severity="30" Type="MessageBar"/>
+ 
+  <Literal LiteralID = "WKP0002"  Text="Пароль пункт не действительны"  Severity="30" Type="MessageBar"/>
+ 
+  <Literal LiteralID = "WKP0003"  Text="Недействительным или В-активных KeePass группы"  Severity="30" Type="MessageBar"/>
+  
+  <Literal LiteralID = "WKP0004"  Text="Пароль идентификатор заготовок"  Severity="30" Type="MessageBar"/>
+
+
+
+  <Literal LiteralID = "OSS0001"  Text="Java-решений для корпоративных приложений" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "OSS0002"  Text="Другой бесплатное приложение по:" Severity="00" Type="MessageText"/>
+
+
+  <Literal LiteralID = "UAD0110"  Text="Изменить веб Пользователь"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "UAD0130"  Text="Профили пользователя Web"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "UAD0100"  Text="Изменить группу веб Пользователь"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "UAD0120"  Text="Веб профили групп пользователей"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "UAD0150"  Text="Изменить сценарий"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "UAD0160"  Text="Меню  Правка "  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "UAD0190"  Text="Сценарий Профили"  Severity="00" Type="MessageText"/>
+
+
+
+
+  <Literal LiteralID = "MTH0001"  Text="Января"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0002"  Text="Февраль"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0003"  Text="Марта"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0004"  Text="Апрель"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0005"  Text="Май"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0006"  Text="Июня"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0007"  Text="Июля"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0008"  Text="Август"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0009"  Text="Сентябрь"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0010"  Text="Октябрь"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0011"  Text="Ноябрь"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0012"  Text="Декабрь"  Severity="00" Type="MessageText"/>
+
+
+
+
+  <Literal LiteralID = "PWD0001"  Text="Верхнего и нижнего"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "PWD0002"  Text="Строчные буквы"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "PWD0003"  Text="Строчные буквы и цифры"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "PWD0004"  Text="Заглавные и строчные буквы и цифры"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "PWD0005"  Text="Все печатные знаки"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "PWD0006"  Text="Заглавные буквы"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "PWD0007"  Text="Заглавные буквы и цифры"  Severity="00" Type="MessageText"/>
+
+
+
+  <Literal LiteralID = "TXT0001"  Text="ОК" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0002"  Text="Выбор цвета"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0003"  Text="Выберите дату"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0004"  Text="Сегодня"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0005"  Text="Калькулятор"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0006"  Text="Возвращаемое значение"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0007"  Text="Выбор шрифта"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0008"  Text="Цвет шрифта"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0009"  Text="Пример текста"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0010"  Text="Предварительный"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0011"  Text="Подтверждения удаления"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0012"  Text="Удалить выбранные элементы?"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0013"  Text="Да"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0014"  Text="Нет"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0015"  Text="Сессия Time Out"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0016"  Text="Ваша сессия будет теперь конца"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0017"  Text="Выйти"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0018"  Text="Выйти Подтверждение"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0019"  Text="Вход от этой сессии?"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0020"  Text="С учетом регистра"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0021"  Text="Только слово целиком"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0022"  Text="Поиск вниз"  Severity="00" Type="MessageText"/>
+ 
+  <Literal LiteralID = "TXT0023"  Text="Функции"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0024"  Text="Заменить:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0025"  Text="Только слово целиком"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0026"  Text="Поиск вверх"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0027"  Text="Найти Строка поиска"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0028"  Text="Строка замены"  Severity="00" Type="MessageText"/>
+  
+  <Literal LiteralID = "TXT0029"  Text="Заменить все"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0030"  Text="Найти / Заменить"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0031"  Text="Сетевой запрос"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0032"  Text="Вступление неверное поле"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0033"  Text="Запросить подтверждение"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0034"  Text="Слово предупреждения"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0035"  Text="Имя пользователя:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0036"  Text="Пароль:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0038"  Text="Подключение к серверу Сброс-Попробуйте еще раз позже"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0039"  Text="Ошибка HTTP"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0040"  Text="Запрос на изменение пароля"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0041"  Text="Изменить пароль"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0042"  Text="Пароль не может быть пробелов"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0043"  Text="Новый пароль не действует"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0044"  Text="Информация о сервере"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0045"  Text="Открыть соединения:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0046"  Text="Объекты:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0047"  Text="Меню XML:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0048"  Text="Формат даты:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0049"  Text="Сервлетов доступа:" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0050"  Text="Сервлетов Журналы:" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0051"  Text="Просмотр журнала сервера" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0052"  Text="Безопасность пользователя и изменять XML-" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0053"  Text="Инструменты" Severity="00" Type="MessageText"/>
+ 
+  <Literal LiteralID = "TXT0054"  Text="Вход-офф" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0055"  Text="Буфер обмена очищается в:" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0056"  Text="Установить Сплит"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0057"  Text="Пользователь:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0058"  Text="Дата:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0059"  Text="Настройка рабочем столе"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0060"  Text="Цвет"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0061"  Text="Шрифта"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0062"  Text="Справочная информация:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0063"  Text="Std шрифта:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0064"  Text="Название Бар шрифта:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0065"  Text="Шрифт названия:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0066"  Text="Название Бар:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0067"  Text="Курсор:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0068"  Text="Сохранить Обои"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0069"  Text="Изменить пароль"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0070"  Text="Текущий пароль:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0071"  Text="Новый пароль:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0072"  Text="Повторите новый пароль:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0073"  Text="Изменение пароля"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0074"  Text="Начало административных задач"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0075"  Text="О"  Severity="00" Type="MessageText"/>
+ 
+  <Literal LiteralID = "TXT0076"  Text="Изменить пароль"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0077"  Text="Обои Темы"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0078"  Text="Сценарий Подробности"  Severity="00" Type="MessageText"/>
+ 
+  <Literal LiteralID = "TXT0079"  Text="Плавающее окно"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0080"  Text="Псевдоним:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0081"  Text="Командные клавиши:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0082"  Text="Название:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0083"  Text="Класс сервлета:" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0084"  Text="Ширина:" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0085"  Text="Выход F3 =" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0086"  Text="Высота:" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0087"  Text="F4 = строка" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0088"  Text="Всего объектов экрана:" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0089"  Text="F5 = Развернуть сообщения" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0090"  Text="Советы Показать сценария:" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0091"  Text="Отменить" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0092"  Text="Запрос не полный: Обзор ошибки ниже" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0093"  Text="Завершено запроса к серверу" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0094"  Text="должен быть числовым" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0095"  Text="должна быть действительной датой" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0096"  Text="должно быть правильное время как" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0097"  Text="Найти следующее" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0098"  Text="Файл не может быть импортирован" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0099"  Text="Подробная информация" Severity="00" Type="MessageText"/>
+  
+  <Literal LiteralID = "TXT0100"  Text="Иконы" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0101"  Text="Импорт документов" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0102"  Text="Просмотреть документ" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0103"  Text="Удалить документ" Severity="00" Type="MessageText"/>
+ 
+  <Literal LiteralID = "TXT0104"  Text="Обзор" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0105"  Text="Файл не найден" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0106"  Text="Файл не может быть сохранен" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0107"  Text="Импорт" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0108"  Text="Экспорт" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0109"  Text="Формат файла не правильно" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0110"  Text="Показать / скрыть пароль" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0111"  Text="Создать пароль" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0112"  Text="Как" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0113"  Text="Начинается с" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0114"  Text="Заканчивается" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0115"  Text="Менее чем" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0116"  Text="Больше чем" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0117"  Text="Равно" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0118"  Text="Не равно" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0119"  Text="Печать" Severity="00" Type="MessageText"/>
+ 
+  <Literal LiteralID = "TXT0120"  Text="Копирование таблицы в буфер" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0121"  Text="Сократить" Severity="00" Type="MessageText"/>
+ 
+  <Literal LiteralID = "TXT0122"  Text="Копировать" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0123"  Text="Вставить" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0124"  Text="Источник" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0125"  Text="Экспорт документов" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0126"  Text="Поиск и замена" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0127"  Text="Обои Темы" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0128"  Text="F1 = плавающее окно" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0129"  Text="F2 = Выберите Меню" Severity="00" Type="MessageText"/>
+  
+  <Literal LiteralID = "TXT0130"  Text="Изменить робота" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0131"  Text="Открытый робот" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0132"  Text="Выполнить робота" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0133"  Text="Вставьте Идентификатор пользователя" Severity="00" Type="MessageText"/>
+  
+  <Literal LiteralID = "TXT0134"  Text="Вставьте Пароль Id" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0135"  Text="Вставьте Пароль" Severity="00" Type="MessageText"/>
+  
+  <Literal LiteralID = "TXT0136"  Text="Вставить e-mail" Severity="00" Type="MessageText"/>
+ 
+  <Literal LiteralID = "TXT0137"  Text="Вставить клавишу табуляции"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0138"  Text="Вставьте задержки на 2 секунды"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0139"  Text="Вставьте задержки в течение 5 секунд"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0140"  Text="Вставьте задержки в течение 10 секунд"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0141"  Text="Вставьте задержки в течение 20 секунд"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0142"  Text="Вставить клавишу Enter"  Severity="00" Type="MessageText"/>
+  
+  <Literal LiteralID = "TXT0143"  Text="Загрузить веб-сайта"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0144"  Text="Сайт нагрузки Alt-Web"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0145"  Text="Запуск программы"  Severity="00" Type="MessageText"/>
+  
+  <Literal LiteralID = "TXT0146"  Text="Вставьте Назад Ключевые Tab"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0147"  Text="Вставьте Главная Ключевые"  Severity="00" Type="MessageText"/> 
+
+</Literals>
+

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 4.0 - www.ossfree.net *  -->
+<!--	 	 Script Name :  KeePass002 -->
+<!--	 	 Description :  Edit My Passwords -->
+<!--	 	 Server Class :  server.Crypt -->
+<!--	 	 Initalization Method :   -->
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/XML/ENG/KeePass002.xml -->
+<!--	 	 Last Update :  26-Nov-2010 -->
+<!--	 	 User Profile:  root -->
+<SCRIPT SCRIPT_NAME="KeePass002" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" AUTO_REFRESH="false" ICON="WKP1.jpg" DESCRIPTION="Editar mis contraseñas" Screen_Title="Edit My Passwords" WIDTH="800" HEIGHT="740">
+  <ButtonBar>
+    <BarButton TYPE="CLEAR" DESCRIPTION="Borrar / Nuevo" ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Buscar / Actualizar" ICON="iFind.gif" METHOD="getCrypt" />
+    <BarButton TYPE="DELETE" DESCRIPTION="Eliminar" ICON="iDelete.gif" METHOD="delCrypt" />
+    <BarButton TYPE="PREV" DESCRIPTION="Anterior" ICON="iPrev.gif" METHOD="prvCrypt" />
+    <BarButton TYPE="NEXT" DESCRIPTION="Siguiente" ICON="iNext.gif" METHOD="nxtCrypt" />
+    <BarButton TYPE="POST" DESCRIPTION="Actualización de Cambios" ICON="iEdit.gif" METHOD="updCrypt" />
+  </ButtonBar>
+  <Panel POSITION="Left" HIDDEN="N">
+    <TextField FIELDNAME="PasswordID" DESCRIPTION="Contraseña ID #" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="20" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" LINK="KeePass006" METHOD="getCrypt" />
+  </Panel>
+  <Panel POSITION="Left" HIDDEN="N">
+    <TextField FIELDNAME="b9" DESCRIPTION="Nombre de usuario" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <Button FIELDNAME="b9" DESCRIPTION="Copiar a la Galería del temporizador" ICON="clip.gif" POSITION="Center" METHOD="CLIP_FIELD" />
+    <PasswordEditor FIELDNAME="c8" DESCRIPTION="Contraseña" LENGTH="25" DATA_LEN="50" POSITION="Left" HIDDEN="N" ENCRYPT="Y" ALIGNMENT="Left" />
+    <Button FIELDNAME="c8" DESCRIPTION="Copiar a la Galería del temporizador" ICON="clip.gif" POSITION="Center" METHOD="CLIP_FIELD" />
+  </Panel>
+  <Panel POSITION="Left" HIDDEN="N">
+    <MacroEditor FIELDNAME="q4" DESCRIPTION="Forma de robot" LENGTH="65" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="120" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+  </Panel>
+  <TabGroup HEIGHT="0" WIDTH="0" POSITION="Left" COMPONENT_ORIENTATION="Top">
+    <TabItem DESCRIPTION="Introducción de la contraseña" ICON="tdot.gif">
+      <Panel POSITION="Left" HIDDEN="N">
+	<TextField FIELDNAME="a0" DESCRIPTION="Descripción" LENGTH="50" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="100" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" />
+	<TextField FIELDNAME="o6" LENGTH="50" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="100" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" />
+      </Panel>
+      <Panel POSITION="Left" HIDDEN="N">
+	<TextField FIELDNAME="n7" DESCRIPTION="Sitio Web" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<Button FIELDNAME="n7" ICON="MNode2.gif" METHOD="URL" />
+	<TextField FIELDNAME="i2" DESCRIPTION="Alt Sitio Web" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<Button FIELDNAME="i2" ICON="MNode2.gif" METHOD="URL" />
+	<TextField FIELDNAME="k0" DESCRIPTION="Apoyo del sitio" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<Button FIELDNAME="k0" ICON="MNode2.gif" METHOD="URL" />
+	<TextField FIELDNAME="m8" DESCRIPTION="Correo electrónico" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<Button FIELDNAME="m8" ICON="MNode2.gif" METHOD="EMAIL" />
+	<TextField FIELDNAME="p5" DESCRIPTION="Programa para ejecutar" LENGTH="40" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<Button FIELDNAME="p5" ICON="MNode2.gif" METHOD="RUNPGM" />
+      </Panel>
+      <Panel POSITION="Left" HIDDEN="N">
+	<ComboBox FIELDNAME="KeeperID" DESCRIPTION="Categoría" LENGTH="20" DATA_TYPE="CHR" POSITION="Left" ENCRYPT="N" LIST_TABLE_NAME="wkpGroups" LIST_TABLE_FIELD="KeeperID" LIST_TABLE_DESCRIPTION="KeeperDesc" LIST_TABLE_SELECTTION="j1 = :Scmbl:" />
+	<ComboBox FIELDNAME="r3" DESCRIPTION="Icono" LENGTH="8" DATA_TYPE="CHR" POSITION="Center" ENCRYPT="Y">
+	  <ComboItem DESCRIPTION="- 1" ICON="acon01.gif" DEFAULT_VALUE="acon01.gif" />
+	  <ComboItem DESCRIPTION="- 2" ICON="acon02.gif" DEFAULT_VALUE="acon02.gif" />
+	  <ComboItem DESCRIPTION="- 3" ICON="acon03.gif" DEFAULT_VALUE="acon03.gif" />
+	  <ComboItem DESCRIPTION="- 4" ICON="acon04.gif" DEFAULT_VALUE="acon04.gif" />
+	  <ComboItem DESCRIPTION="- 5" ICON="acon05.gif" DEFAULT_VALUE="acon05.gif" />
+	  <ComboItem DESCRIPTION="- 6" ICON="acon06.gif" DEFAULT_VALUE="acon06.gif" />
+	  <ComboItem DESCRIPTION="- 7" ICON="acon07.gif" DEFAULT_VALUE="acon07.gif" />
+	  <ComboItem DESCRIPTION="- 8" ICON="acon08.gif" DEFAULT_VALUE="acon08.gif" />
+	  <ComboItem DESCRIPTION="- 9" ICON="acon09.gif" DEFAULT_VALUE="acon09.gif" />
+	  <ComboItem DESCRIPTION="- 10" ICON="acon10.gif" DEFAULT_VALUE="acon10.gif" />
+	  <ComboItem DESCRIPTION="- 11" ICON="acon11.gif" DEFAULT_VALUE="acon11.gif" />
+	  <ComboItem DESCRIPTION="- 12" ICON="acon12.gif" DEFAULT_VALUE="acon12.gif" />
+	  <ComboItem DESCRIPTION="- 13" ICON="acon13.gif" DEFAULT_VALUE="acon13.gif" />
+	  <ComboItem DESCRIPTION="- 14" ICON="acon14.gif" DEFAULT_VALUE="acon14.gif" />
+	  <ComboItem DESCRIPTION="- 15" ICON="acon15.gif" DEFAULT_VALUE="acon15.gif" />
+	  <ComboItem DESCRIPTION="- 16" ICON="acon16.gif" DEFAULT_VALUE="acon16.gif" />
+	  <ComboItem DESCRIPTION="- 17" ICON="acon17.gif" DEFAULT_VALUE="acon17.gif" />
+	  <ComboItem DESCRIPTION="- 18" ICON="acon18.gif" DEFAULT_VALUE="acon18.gif" />
+	  <ComboItem DESCRIPTION="- 19" ICON="acon19.gif" DEFAULT_VALUE="acon19.gif" />
+	  <ComboItem DESCRIPTION="- 20" ICON="acon20.gif" DEFAULT_VALUE="acon20.gif" />
+	</ComboBox>
+	<TextField FIELDNAME="d7" DESCRIPTION="Fecha de Creación" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TextField FIELDNAME="e6" DESCRIPTION="Ultima actualización de la" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TextField FIELDNAME="f5" DESCRIPTION="Expira" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<CheckBox FIELDNAME="g4" DESCRIPTION="Nunca caduca" ENCRYPT="Y" />
+      </Panel>
+      <Panel POSITION="Left" HIDDEN="N">
+	<Button FIELDNAME="PwdShare" DESCRIPTION="Comparta con otros" POSITION="Left" LINK="KeePass007" METHOD="initAkinList" />
+	<Button FIELDNAME="LnkShare" DESCRIPTION="Archivos Enlace a este Contraseña" LINK="KeePass020" METHOD_CLASS="server.Doc" METHOD="getDocList" />
+	<Button FIELDNAME="AccssLof" DESCRIPTION="El registro de acceso" POSITION="Left" LINK="KeePass030" METHOD_CLASS="server.Crypt" METHOD="getAccesslog" />
+      </Panel>
+    </TabItem>
+    <TabItem DESCRIPTION="Notas" ICON="tdot.gif">
+      <TextRTFArea FIELDNAME="Notes" DESCRIPTION="Notas" HEIGHT="14" WIDTH="33" POSITION="Left" PROTECTED="N" />
+    </TabItem>
+    <TabItem DESCRIPTION="Historia" ICON="tdot.gif">
+      <Table FIELDNAME="Table1" HEIGHT="15" WIDTH="0" POSITION="Left">
+	<TableTextField FIELDNAME="HistoryID" DESCRIPTION="ID" LENGTH="3" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="5" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
+	<TableTextField FIELDNAME="a0t" DESCRIPTION="Título" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TableTextField FIELDNAME="b9t" DESCRIPTION="Nombre de usuario" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TableTextField FIELDNAME="e6t" DESCRIPTION="Fecha" LENGTH="8" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
+	<TableTextField FIELDNAME="s2t" DESCRIPTION="IP" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
+      </Table>
+      <Panel POSITION="Left" HIDDEN="N">
+	<Button FIELDNAME="ViewDtl" DESCRIPTION="Ver o restaurar Historia" POSITION="Left" LINK="KeePass003" METHOD="getCrypHistory" />
+      </Panel>
+    </TabItem>
+    <TabItem DESCRIPTION="Imagen - Imagen" ICON="tdot.gif">
+      <ImageBox FIELDNAME="Image" LENGTH="33" HEIGHT="17" WIDTH="0" POSITION="Left" PROTECTED="N" ENCRYPT="N" />
+    </TabItem>
+  </TabGroup>
+</SCRIPT>
+

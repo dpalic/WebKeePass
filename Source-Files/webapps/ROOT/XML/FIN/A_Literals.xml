@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Literals>
+  <Literal LiteralID = "SVR0001"  Text="Data Base Virhe - Tietokantavirhe - Ota yhteyttä järjestelmävalvoja"  Severity="30" Type="MessageBar"/>
+
+  <Literal LiteralID = "SVR0002"  Text="Palvelimen Pyydä Valmistui" Severity="00" Type="Pop-Up" />
+
+  <Literal LiteralID = "SVR0003"  Text="Pyyntö ei ole täydellinen: Tarkistusvirheet Alla" Severity="00" Type="Pop-Up" /> 
+  
+  <Literal LiteralID = "SVR0004"  Text="Luokkaa ei löydy - Ota yhteyttä järjestelmävalvoja"  Severity="30" Type="MessageBar" />
+
+  <Literal LiteralID = "SVR0005"  Text="Server Security Exception - Ota yhteyttä järjestelmävalvoja"  Severity="30" Type="MessageBar" />
+  
+  <Literal LiteralID = "SVR0006"  Text="Menetelmä ei löydy - Ota yhteyttä järjestelmävalvoja"   Severity="30" Type="MessageBar" />
+
+  <Literal LiteralID = "SVR0007"  Text="Alustustiedot Virhe - Ota yhteyttä järjestelmävalvoja"  Severity="30" Type="MessageBar" />
+	
+  <Literal LiteralID = "SVR0008"  Text="Server Security Error-Ota yhteyttä järjestelmävalvoja"  Severity="30" Type="MessageBar" />
+
+  <Literal LiteralID = "SVR0009"  Text="Siunaus Target / Stack Trap Virhe - Ota yhteyttä järjestelmävalvoja"  Severity="30" Type="MessageBar" />
+
+  <Literal LiteralID = "SVR0011"  Text="Valikko ei löytynyt"  Severity="30" Type="MessageBar" /> 
+  
+  <Literal LiteralID = "SVR0012"  Text="Valikosta Tiedosto XML Jäsennysvirhe"  Severity="30" Type="MessageBar" />			
+			
+  <Literal LiteralID = "SVR0014"  Text="Valikko File I / O-virhe"  Severity="30" Type="MessageBar" />
+  
+  <Literal LiteralID = "SVR0015"  Text="Script ei löydy - Ota yhteyttä järjestelmävalvoja"  Severity="30" Type="MessageBar" /> 
+
+  <Literal LiteralID = "SVR0016"  Text="Script XML Jäsennysvirhe - Ota yhteyttä järjestelmävalvoja"  Severity="30" Type="MessageBar" /> 
+  
+  <Literal LiteralID = "SVR0017"  Text="Script File Error - Ota yhteyttä järjestelmävalvoja"  Severity="30" Type="MessageBar" /> 
+
+
+
+
+
+  <Literal LiteralID = "LIT0001"  Text="Kohdetta ei löytynyt - Uusi merkintä"  Severity="10" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0002"  Text="Kohdetta ei löytynyt - tiedoston lopussa"   Severity="30" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0003"  Text="Kohdetta ei löytynyt - alussa File"  Severity="30" Type="MessageBar" />
+
+  <Literal LiteralID = "LIT0004"  Text="Alkion päivitys" Severity="00" Type="MessageBar" />
+
+  <Literal LiteralID = "LIT0005"  Text="Tuote lisätty"  Severity="00" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0006"  Text="Tuote (t) Poistettu"  Severity="00" Type="MessageBar"/>
+ 
+  <Literal LiteralID = "LIT0007"  Text="Database Error - Ota yhteyttä järjestelmävalvoja"  Severity="30" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0008"  Text="Tuote Viety"  Severity="00" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0009"  Text="Tuote tuodaan"  Severity="00" Type="MessageBar"/>
+ 
+  <Literal LiteralID = "LIT0010"  Text="Script Not Found"  Severity="30" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0011"  Text="Kohdetta ei löytynyt"  Severity="30" Type="MessageBar"/>
+ 
+  <Literal LiteralID = "LIT0012"  Text="Virheellinen tunnus"  Severity="30" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0013"  Text="Virheellinen Server Access"  Severity="30" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0014"  Text="Virheellinen päivämäärän muoto"  Severity="30" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0015"  Text="Virheellinen valikko XML-tiedosto"  Severity="30" Type="MessageBar"/>
+
+ 
+  <Literal LiteralID = "WKP0001"  Text="Virheellinen Web Käyttäjä / Ryhmä"  Severity="30" Type="MessageBar"/>
+ 
+  <Literal LiteralID = "WKP0002"  Text="Salasana Tuote ei kelpaa"  Severity="30" Type="MessageBar"/>
+ 
+  <Literal LiteralID = "WKP0003"  Text="Virheellinen tai yrityksen aktiivista KeePass ryhmän"  Severity="30" Type="MessageBar"/>
+  
+  <Literal LiteralID = "WKP0004"  Text="Salasana tunnus aihiot"  Severity="30" Type="MessageBar"/>
+
+
+
+  <Literal LiteralID = "OSS0001"  Text="Java tietoturvalliset yritysten sovelluksia" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "OSS0002"  Text="Toinen ilmainen sovellus Tekijä:" Severity="00" Type="MessageText"/>
+
+
+  <Literal LiteralID = "UAD0110"  Text="Muokkaa Web User"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "UAD0130"  Text="Web Käyttäjäprofiilit"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "UAD0100"  Text="Muokkaa Web User Group"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "UAD0120"  Text="Web User Group Profiilit"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "UAD0150"  Text="Edit Script"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "UAD0160"  Text="Muokkaa-valikko"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "UAD0190"  Text="Script Profiilit"  Severity="00" Type="MessageText"/>
+
+
+
+
+  <Literal LiteralID = "MTH0001"  Text="Tammikuu"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0002"  Text="Helmikuu"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0003"  Text="Maaliskuu"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0004"  Text="Huhtikuu"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0005"  Text="Toukokuu"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0006"  Text="Kesäkuu"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0007"  Text="Heinäkuu"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0008"  Text="Elokuu"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0009"  Text="Syyskuu"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0010"  Text="Lokakuu"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0011"  Text="Marraskuuta"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "MTH0012"  Text="Joulukuuta"  Severity="00" Type="MessageText"/>
+
+
+
+
+  <Literal LiteralID = "PWD0001"  Text="Ylä-ja Ala-kirjeet"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "PWD0002"  Text="Ala Letters"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "PWD0003"  Text="Ala kirjaimet ja numerot"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "PWD0004"  Text="Ylä-ja Ala-kirjaimia ja numeroita"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "PWD0005"  Text="Kaikki tulostuvat merkit"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "PWD0006"  Text="Ylä Letters"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "PWD0007"  Text="Ylä-kirjaimet ja numerot"  Severity="00" Type="MessageText"/>
+
+
+
+  <Literal LiteralID = "TXT0001"  Text="OK" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0002"  Text="Valitse väri"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0003"  Text="Valitse Päivämäärä"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0004"  Text="Tänään"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0005"  Text="Laskin"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0006"  Text="Paluuarvo"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0007"  Text="Valitse kirjasin"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0008"  Text="Fontin väri"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0009"  Text="Näyte Teksti"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0010"  Text="Preview"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0011"  Text="Poista Vahvistus"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0012"  Text="Poista valitut kohteet?"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0013"  Text="Kyllä"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0014"  Text="Ei"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0015"  Text="Session Time Out"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0016"  Text="Istuntosi nyt loppua"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0017"  Text="Log-Out"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0018"  Text="Log-vahvistuksen"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0019"  Text="Kirjaudu pois tämän istunnon?"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0020"  Text="Sama kirjainkoko"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0021"  Text="Kokonaiset sanat"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0022"  Text="Etsi alas"  Severity="00" Type="MessageText"/>
+ 
+  <Literal LiteralID = "TXT0023"  Text="Valinnat"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0024"  Text="Korvaa:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0025"  Text="Kokonaiset sanat"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0026"  Text="Etsi ylös"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0027"  Text="Etsi Hakumerkkijono"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0028"  Text="Korvaa merkkijono"  Severity="00" Type="MessageText"/>
+  
+  <Literal LiteralID = "TXT0029"  Text="Korvaa kaikki"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0030"  Text="Etsi / Korvaa"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0031"  Text="Verkko Pyyntö"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0032"  Text="Virheellinen Kenttä Entry"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0033"  Text="Pyydä vahvistus"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0034"  Text="Varoituksen sana"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0035"  Text="Käyttäjätunnus:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0036"  Text="Salasana:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0038"  Text="Palvelin katkaisi yhteyden, yritä myöhemmin uudelleen"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0039"  Text="HTTP Error"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0040"  Text="Pyydä Vaihda salasana"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0041"  Text="Vaihda salasana"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0042"  Text="Salasana ei voi olla tyhjiä"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0043"  Text="Uusi salasana ei kelpaa"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0044"  Text="Palvelimen tiedot"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0045"  Text="Avaa Yhteydet:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0046"  Text="Esineet:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0047"  Text="Menu XML:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0048"  Text="Päivämäärän muoto:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0049"  Text="Servlet Access:" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0050"  Text="Servlet Lokit:" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0051"  Text="Näytä palvelimen loki" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0052"  Text="Tietoturva ja Edit XML" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0053"  Text="Työkalut" Severity="00" Type="MessageText"/>
+ 
+  <Literal LiteralID = "TXT0054"  Text="Log-off" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0055"  Text="Leikepöytä raivattu:" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0056"  Text="Aseta Split"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0057"  Text="Käyttäjä:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0058"  Text="Date:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0059"  Text="Muokkaa Desk Top"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0060"  Text="Väri"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0061"  Text="Font"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0062"  Text="Taustaa:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0063"  Text="Std fontti:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0064"  Text="Otsikkorivi Font:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0065"  Text="Otsikko Fontti:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0066"  Text="Otsikkorivi:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0067"  Text="Osoitin:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0068"  Text="Tallenna työpöydän"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0069"  Text="Vaihda salasana"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0070"  Text="Nykyinen salasana:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0071"  Text="Uusi salasana:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0072"  Text="Toista uusi salasana:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0073"  Text="Vaihda salasana"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0074"  Text="Aloita Hallinnolliset tehtävät"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0075"  Text="Tietoja"  Severity="00" Type="MessageText"/>
+ 
+  <Literal LiteralID = "TXT0076"  Text="Vaihda salasana"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0077"  Text="Työpöytäteemaa"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0078"  Text="Script Details"  Severity="00" Type="MessageText"/>
+ 
+  <Literal LiteralID = "TXT0079"  Text="Dock ikkuna"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0080"  Text="Näytön nimi:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0081"  Text="Command Näppäimet:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0082"  Text="Otsikko:"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0083"  Text="Servlet-luokka:" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0084"  Text="Leveys:" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0085"  Text="F3 = Exit" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0086"  Text="Korkeus:" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0087"  Text="F4 = Kysy" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0088"  Text="Yhteensä Screen kohteet:" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0089"  Text="F5 = Laajenna viestit" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0090"  Text="Näytä Script Vihjeitä:" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0091"  Text="Peruuta" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0092"  Text="Pyyntö ei ole täydellinen: Tarkistusvirheet Alla" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0093"  Text="Palvelimen Pyydä Valmistui" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0094"  Text="on numeerinen" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0095"  Text="on kelvollinen päivämäärä" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0096"  Text="on voimassa kun" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0097"  Text="Etsi seuraava" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0098"  Text="Tiedostoa ei voi tuoda" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0099"  Text="Tiedot" Severity="00" Type="MessageText"/>
+  
+  <Literal LiteralID = "TXT0100"  Text="Icons" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0101"  Text="Tuo asiakirja" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0102"  Text="Näytä asiakirja" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0103"  Text="Poista Asiakirja" Severity="00" Type="MessageText"/>
+ 
+  <Literal LiteralID = "TXT0104"  Text="Selaa" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0105"  Text="Tiedostoa ei löydy" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0106"  Text="Tiedostoa ei voi tallentaa" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0107"  Text="Tuonti" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0108"  Text="Vienti" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0109"  Text="Tiedostomuoto ei ole oikea" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0110"  Text="Näytä / piilota salasana" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0111"  Text="Luo salasana" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0112"  Text="Kuten" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0113"  Text="Alkaa" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0114"  Text="Päättyy" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0115"  Text="Vähemmän sitten" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0116"  Text="Suur sitten" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0117"  Text="Yhtä suuri" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0118"  Text="Ei yhtä" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0119"  Text="Tulosta" Severity="00" Type="MessageText"/>
+ 
+  <Literal LiteralID = "TXT0120"  Text="Kopioi taulukko leikepöydälle" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0121"  Text="Leikkaus" Severity="00" Type="MessageText"/>
+ 
+  <Literal LiteralID = "TXT0122"  Text="Kopioi" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0123"  Text="Tahna" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0124"  Text="Lähde" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0125"  Text="Vienti Document" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0126"  Text="Etsi ja korvaa" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0127"  Text="Työpöytäteemaa" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0128"  Text="F1 = Dock ikkuna" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0129"  Text="F2 = Valitse Valikko" Severity="00" Type="MessageText"/>
+  
+  <Literal LiteralID = "TXT0130"  Text="Muokkaa Robot" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0131"  Text="Tyhjennä Robot" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0132"  Text="Run Robot" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0133"  Text="Lisää käyttäjätunnus" Severity="00" Type="MessageText"/>
+  
+  <Literal LiteralID = "TXT0134"  Text="Lisää Salasana tunnus" Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0135"  Text="Lisää Salasana" Severity="00" Type="MessageText"/>
+  
+  <Literal LiteralID = "TXT0136"  Text="Lisää Email" Severity="00" Type="MessageText"/>
+ 
+  <Literal LiteralID = "TXT0137"  Text="Lisää sarkainnäppäintä"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0138"  Text="Aseta viive 2 sekuntia"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0139"  Text="Aseta Viive 5 sekuntia"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0140"  Text="Aseta viive 10 sekuntia"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0141"  Text="Aseta viive 20 sekuntia"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0142"  Text="Lisää Enter-näppäin"  Severity="00" Type="MessageText"/>
+  
+  <Literal LiteralID = "TXT0143"  Text="Kuorman Sivuston"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0144"  Text="Kuorman Alt-sivuston"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0145"  Text="Suorita ohjelma"  Severity="00" Type="MessageText"/>
+  
+  <Literal LiteralID = "TXT0146"  Text="Lisää Takaisin sarkainnäppäintä"  Severity="00" Type="MessageText"/>
+
+  <Literal LiteralID = "TXT0147"  Text="Lisää Kotinäppäin"  Severity="00" Type="MessageText"/> 
+
+</Literals>
+
