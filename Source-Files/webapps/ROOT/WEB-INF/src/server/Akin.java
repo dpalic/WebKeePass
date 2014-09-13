@@ -51,7 +51,8 @@ public class Akin {
 
 				dataSet.addMessage("Record Not found", "30", "FirstName", null);
 
-		} catch (Exception exception) {
+		} catch (Exception e) {
+			dataAccss.logMessage(" getAKin -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 		return dataSet;
@@ -74,6 +75,7 @@ public class Akin {
 							+ dataSet.getStringField("PasswordID")
 							+ "' And y1 = '" + dataSet.getScmbl() + "' ", tb));
 		} catch (DBSchemaException e) {
+			dataAccss.logMessage(" getAkinList -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 		return dataSet;
@@ -90,6 +92,7 @@ public class Akin {
 													+ "' Order By a.PasswordID",
 											tb));
 		} catch (DBSchemaException e) {
+			dataAccss.logMessage(" getAkinListByPwd -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 		return dataSet;
@@ -140,6 +143,7 @@ public class Akin {
 			dataAccss.execClose(sql);
 
 		} catch (Exception e) {
+			dataAccss.logMessage(" getShareList -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 
@@ -181,6 +185,7 @@ public class Akin {
 
 			dataSet.addMessage("LIT0006");
 		} catch (SQLException e) { 
+			dtAccss.logMessage(" deleteAkin -- " + e);
 			dataSet.addMessage("SVR0001");
 		} finally {
 			dtAccss.execClose(updQry);
@@ -283,6 +288,7 @@ public class Akin {
 
 			dtSet.addMessage("LIT0004");
 		} catch (Exception e) {
+			dtAccss.logMessage(" updAkinList -- " + e);
 			dtSet.addMessage("SVR0001");
 		} finally {
 			dtAccss.execClose(insQry);
@@ -353,7 +359,8 @@ public class Akin {
 
 			dataSet.put("Table1", crypt);
 
-		} catch (Exception exception) {
+		} catch (Exception e) {
+			dataAccss.logMessage(" getMySharesList -- " + e);
 			dataSet.addMessage("SVR0001");
 		} finally {
 			dataAccss.execClose(qry);
@@ -420,7 +427,8 @@ public class Akin {
 
 			dataSet.put("Table1", crypt);
 
-		} catch (Exception exception) {
+		} catch (Exception e) {
+			dataAccss.logMessage(" expandMySharesList -- " + e);
 			dataSet.addMessage("SVR0001");
 		} finally {
 			dataAccss.execClose(qry);
@@ -438,6 +446,7 @@ public class Akin {
 			dataSet.putTableVector("Table1", dataAccss.executeVectorQuery(
 					"Select BundleID, aa, bb, cc From wkpBundle Where hh = '" + hh + "' " , tb));
 		} catch (DBSchemaException e) {
+			dataAccss.logMessage(" getBndList -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 		return dataSet;
@@ -490,7 +499,7 @@ public class Akin {
 
 			dtSet.addMessage("LIT0004");
 		} catch (Exception e) {
-			dtAccss.logMessage(" *Topics.updateTopicsList* -- " + e);
+			dtAccss.logMessage(" updBndList -- " + e);
 			dtSet.addMessage("SVR0001");
 		} finally {
 			dtAccss.execClose(insQry);
@@ -528,7 +537,7 @@ public class Akin {
 			}
 			dtSet.addMessage("LIT0006");
 		} catch (Exception e) {
-			dtAccss.logMessage(" akin -- " + e);
+			dtAccss.logMessage(" delBndList -- " + e);
 			dtSet.addMessage("SVR0001");
 		} finally {
 			dtAccss.execClose(updQry);

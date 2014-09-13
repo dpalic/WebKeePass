@@ -37,6 +37,7 @@ public class CryptKp {
 
 				
 		} catch (DBSchemaException e) {
+			dataAccss.logMessage(" newCryptKeeper -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 		return dataSet;
@@ -86,7 +87,8 @@ public class CryptKp {
 
 			dataAccss.executeInsertQuery("wkpGroups", dataSet);
 			dataSet.addMessage("LIT0005");
-		} catch (Exception exception) {
+		} catch (Exception e) {
+			dataAccss.logMessage(" insertCryptKeeper -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 		return dataSet;
@@ -104,7 +106,8 @@ public class CryptKp {
 							+ " And j1 = '" + dataSet.getScmbl() + "' ");
 
 			dataSet.addMessage("LIT0004");
-		} catch (Exception exception) {
+		} catch (Exception e) {
+			dataAccss.logMessage(" updateCryptKeeper -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 		return dataSet;
@@ -137,6 +140,7 @@ public class CryptKp {
 
 				dataSet.addMessage("LIT0002");
 		} catch (DBSchemaException e) {
+			dataAccss.logMessage(" nxtCryptKeeper -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 		return dataSet;
@@ -153,6 +157,7 @@ public class CryptKp {
 
 				dataSet.addMessage("LIT0003");
 		} catch (DBSchemaException e) {
+			dataAccss.logMessage(" prvCryptKeeper -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 		return dataSet;
@@ -185,7 +190,8 @@ public class CryptKp {
 			resultSet.close();
 			dataSet.put("Table1", cstmrv1);
 
-		} catch (Exception exception) {
+		} catch (Exception e) {
+			dataAccss.logMessage(" getwkpGroupsList -- " + e);
 			dataSet.addMessage("SVR0001");
 		} finally {
 			dataAccss.execClose(sqlStatement);

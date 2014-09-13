@@ -110,7 +110,7 @@ public class Adherent extends UserSecurityManager {
 
 			dtSet.addMessage("LIT0004");
 		} catch (Exception e) {
-			dtAccss.logMessage(" Adherent -- " + e);
+			dtAccss.logMessage(" updUser -- " + e);
 			dtSet.addMessage("SVR0001");
 		} finally {
 			dtAccss.execClose(insQry);
@@ -140,7 +140,7 @@ public class Adherent extends UserSecurityManager {
 
 			dtSet.addMessage("LIT0004");
 		} catch (Exception e) {
-			dtAccss.logMessage(" Adherent -- " + e);
+			dtAccss.logMessage(" deleteAdherent -- " + e);
 			dtSet.addMessage("SVR0001");
 		} finally {
 			dtAccss.execClose(updQry);
@@ -172,6 +172,7 @@ public class Adherent extends UserSecurityManager {
 							"Select BundleID, cc, dd, ee From wkpBundle " +
 							" Where  gg = '" + gg + "' And hh = '" + hh + "' " , tb));
 				} catch (DBSchemaException e) {
+					dtAccss.logMessage(" getAdherentList -- " + e);
 					dtSet.addMessage("SVR0001");
 				}
 				return dtSet;

@@ -11,7 +11,7 @@
 		<init-param>
 			<!-- ConfigFile1.XML location for screens & menus-->
 			<param-name>configHome</param-name>
-			<param-value>/home/pjones/Projects/JavaProjects/WebKeepass/wkp/conf/</param-value>
+			<param-value>C:\java\Projects\WebKeePass\conf\</param-value>
 			 
 		</init-param>
 	</servlet>
@@ -21,7 +21,7 @@
 		<servlet-class>webBoltOns.ReportWriter</servlet-class>
 		<init-param>
 			<param-name>configHome</param-name>
-			<param-value>/home/pjones/Projects/JavaProjects/WebKeepass/wkp/conf/</param-value>
+			<param-value>C:\java\Projects\WebKeePass\conf\</param-value>
 
 		</init-param>
 	</servlet>
@@ -31,7 +31,7 @@
 		<servlet-class>server.iphone.IPhone</servlet-class>
 		<init-param>
 			<param-name>configHome</param-name>
-			<param-value>/home/pjones/Projects/JavaProjects/WebKeepass/wkp/conf/</param-value>
+			<param-value>C:\java\Projects\WebKeePass\conf\</param-value>
 		</init-param>
 	</servlet>
 

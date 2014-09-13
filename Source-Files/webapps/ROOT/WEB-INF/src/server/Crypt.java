@@ -44,6 +44,7 @@ public class Crypt {
 				dataSet.addMessage("LIT0001");
 			}
 		} catch (DBSchemaException e) {
+			dataAccss.logMessage(" getCrypt -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 		return dataSet;
@@ -70,6 +71,7 @@ public class Crypt {
 				dataSet.addMessage("LIT0001");
 			}
 		} catch (DBSchemaException e) {
+			dataAccss.logMessage(" getSharedCrypt -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 		return dataSet;
@@ -118,6 +120,7 @@ public class Crypt {
 				dataSet.addMessage("LIT0001");
 			}
 		} catch (DBSchemaException e) {
+			dataAccss.logMessage(" getCrypHistory -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 		return dataSet;
@@ -137,6 +140,7 @@ public class Crypt {
 
 				dataSet.addMessage("LIT0002");
 		} catch (DBSchemaException e) {
+			dataAccss.logMessage(" nxtCrypHistory -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 		return dataSet;
@@ -156,6 +160,7 @@ public class Crypt {
 
 				dataSet.addMessage("LIT0003");
 		} catch (DBSchemaException e) {
+			dataAccss.logMessage(" prvCrypHistory -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 		return dataSet;
@@ -172,6 +177,7 @@ public class Crypt {
 							+ "' And j1 = '" + dataSet.getScmbl() + "' ", tb));
 
 		} catch (DBSchemaException e) {
+			dataAccss.logMessage(" getCrypHistoryList -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 		return dataSet;
@@ -201,6 +207,7 @@ public class Crypt {
 			}
 
 		} catch (DBSchemaException e) {
+			dataAccss.logMessage(" updCrypt -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 
@@ -226,7 +233,8 @@ public class Crypt {
 					"Select PasswordID From wkpPasswordCrypt Where PasswordID = '"
 							+ dataSet.getStringField("PasswordID")
 							+ "' And j1 = '" + dataSet.getScmbl() + "' ", "", null);
-		} catch (Exception exception) {
+		} catch (Exception e) {
+			dataAccss.logMessage(" isNewCrypt -- " + e);
 			dataSet.addMessage("SVR0001");
 			return true;
 		}
@@ -270,6 +278,7 @@ public class Crypt {
 							+ "'  And j1 = '" + dataSet.getScmbl() + "' ");
 			dataSet.addMessage("LIT0004");
 		} catch (Exception e) {
+			dataAccss.logMessage(" updateCrypt -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 		return dataSet;
@@ -291,7 +300,8 @@ public class Crypt {
 			
 			
 			dataSet.addMessage("LIT0006");
-		} catch (Exception exception) {
+		} catch (Exception e) {
+			dataAccss.logMessage(" delCrypt -- " + e);
 			dataSet.addMessage("SVR0001");
 		} finally {
 			dataAccss.execClose(sql);
@@ -319,6 +329,7 @@ public class Crypt {
 				dataSet.addMessage("LIT0002");
 			}
 		} catch (DBSchemaException e) {
+			dataAccss.logMessage(" nxtCrypt -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 		return dataSet;
@@ -341,6 +352,7 @@ public class Crypt {
 				dataSet.addMessage("LIT0003");
 			}
 		} catch (DBSchemaException e) {
+			dataAccss.logMessage(" prvCrypt -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 		return dataSet;
@@ -385,7 +397,8 @@ public class Crypt {
 			}
 			dataSet.put("Table1", crypt);
 
-		} catch (Exception exception) {
+		} catch (Exception e) {
+			dataAccss.logMessage(" getCryptList -- " + e);
 			dataSet.addMessage("SVR0001");
 		} finally {
 			dataAccss.execClose(qry);
@@ -436,7 +449,8 @@ public class Crypt {
 			}
 			dataSet.put("Table1", crypt);
 
-		} catch (Exception exception) {
+		} catch (Exception e) {
+			dataAccss.logMessage(" expandCryptList -- " + e);
 			dataSet.addMessage("SVR0001");
 		} finally {
 			dataAccss.execClose(qry);
@@ -489,7 +503,8 @@ public class Crypt {
 			dtSet.put("Table1", tbl1);
 			dtSet.put("Table2", tbl2);
 
-		} catch (Exception exception) {
+		} catch (Exception e) {
+			dtAccs.logMessage(" getCryptSrch -- " + e);
 			dtSet.addMessage("SVR0001");
 		} finally {
 			dtAccs.execClose(stmt);
@@ -518,7 +533,7 @@ public class Crypt {
 	 		insQry.executeUpdate();
 			 
 		} catch (Exception e) {
-			dtAccss.logMessage(" Adherent -- " + e);
+			dtAccss.logMessage(" addAccessItem -- " + e);
 			dtSet.addMessage("SVR0001");
 		} finally {
 			dtAccss.execClose(insQry);
@@ -552,6 +567,7 @@ public class Crypt {
 			dataSet.putTableVector("Table1", dataAccss.executeVectorQuery(sql, tb));
 
 		} catch (DBSchemaException e) {
+			dataAccss.logMessage(" getAccesslog -- " + e);
 			dataSet.addMessage("SVR0001");
 		}
 		return dataSet;

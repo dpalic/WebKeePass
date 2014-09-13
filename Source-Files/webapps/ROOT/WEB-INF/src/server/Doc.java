@@ -62,8 +62,8 @@ public class Doc {
 				out.write(dtSet.getStreamArray("[Import_Data/]"));
 				out.close();
 
-			}  catch (Exception exception) {
-				dtAccss.logMessage(" *TimeAttendanceExpense.importDoc* -- " + exception);
+			}  catch (Exception e) {
+				dtAccss.logMessage(" importDoc -- " + e);
 				dtSet.addMessage("SVR0001");
 			} finally {
 				dtAccss.execClose(qry);
@@ -100,8 +100,8 @@ public class Doc {
 	      rs.close();
 	      dtSet.put("DocMngr", cstmrv1);
 
-	    } catch (Exception exception) {
-	         dtAccss.logMessage(" *TimeAttendanceExpense.getDocList* -- " + exception);
+	    } catch (Exception e) {
+	         dtAccss.logMessage(" getDocList -- " + e);
 	         dtSet.addMessage("SVR0001");
 	    } finally {
 	      	dtAccss.execClose(qry);
@@ -122,8 +122,8 @@ public class Doc {
 				qry.executeUpdate();
 			}
  	
-		}  catch (Exception exception) {
-		        dtAccss.logMessage(" *TimeAttendanceExpense.importDoc* -- " + exception);
+		}  catch (Exception e) {
+		        dtAccss.logMessage(" updDocList -- " + e);
 		        dtSet.addMessage("SVR0001");
 	     } finally {
 		     	dtAccss.execClose(qry);
@@ -192,6 +192,7 @@ public class Doc {
 			exprt.addMessage("LIT0008");
 
 		} catch (Exception e) {
+			dataAccess.logMessage(" exportXML -- " + e);
 			exprt.addMessage("SVR0001");
 
 		} finally {
