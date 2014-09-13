@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/home/pjones/Projects/JavaProjects/WebKeepass/Java-Installer/Install/classes12.jar"/>
+	<classpathentry kind="lib" path="/home/pjones/Projects/JavaProjects/WebKeepass/Java-Installer/Install/derby.jar"/>
+	<classpathentry kind="lib" path="/home/pjones/Projects/JavaProjects/WebKeepass/Java-Installer/Install/derbytools.jar"/>
+	<classpathentry kind="lib" path="/home/pjones/Projects/JavaProjects/WebKeepass/Java-Installer/Install/mysql-connector-java-3.1.12-bin.jar"/>
+	<classpathentry kind="lib" path="/home/pjones/Projects/JavaProjects/WebKeepass/Java-Installer/Install/ojdbc14.jar"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>

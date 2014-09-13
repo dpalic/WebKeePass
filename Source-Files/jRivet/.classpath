@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/server"/>
+	<classpathentry kind="lib" path="/home/pjones/java/JavaJarFiles/JDBC/oracle/classes12.jar"/>
+	<classpathentry kind="lib" path="/home/pjones/java/JavaJarFiles/JDBC/oracle/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="/home/pjones/java/JavaJarFiles/google-api-translate-java-0.92.jar"/>
+	<classpathentry kind="lib" path="/home/pjones/Projects/JavaProjects/WebKeepass/wkp/jakarta-tomcat-5.5.7/webapps/ROOT/WEB-INF/classes"/>
+	<classpathentry kind="output" path="clases"/>
+</classpath>
