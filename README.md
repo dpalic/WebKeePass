@@ -23,6 +23,7 @@ All rights reserved.
                        for additional set-up, folder locations and JDBC settings .
 
 
+Special Thanks to the folks at -  http://www.bizcubed.com.au/
 
 
 

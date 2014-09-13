@@ -11,7 +11,7 @@
      var s = "toolbar=NO,directories=NO,status=No,scrollbars=NO,resizable=YES,menubar=YES,left=0,top=0," +
              "width=" + width + ",height=" + height;
    		if(navigator.appName == "Microsoft Internet Explorer") {
-          if( navigator.appVersion.indexOf("MSIE 6") > 0  ||  navigator.appVersion.indexOf("MSIE 7") > 0) {
+          if( navigator.appVersion.indexOf("MSIE") > 0 ) {
             win = window.open("msie.html","",s);
             win.moveTo(0,0);
             win.focus();           

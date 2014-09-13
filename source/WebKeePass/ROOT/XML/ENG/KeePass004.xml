@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 2.1 *  -->
+<!--	 	 Script Name :  KeePass004 -->
+<!--	 	 Description :  Create Password Category -->
+<!--	 	 Server Class :  server.CryptKp -->
+<!--	 	 Initalization Method :  newCryptKeeper -->
+<!--	 	 File Path :  C:\WebKeePass\jakarta-tomcat-5.5.7\webapps\ROOT\XML\KeePass004.xml -->
+<!--	 	 Last Update :  31-Oct-2009 -->
+<!--	 	 User Profile:  root -->
+<SCRIPT SCRIPT_NAME="KeePass004" DOCUMENT_TYPE="Window" CLASS_NAME="server.CryptKp" METHOD="newCryptKeeper" AUTO_REFRESH="true" ICON="WKP6.jpg" DESCRIPTION="Create Password Category" Screen_Title="Create Password Category" WIDTH="600" HEIGHT="380">
+  <ButtonBar>
+    <BarButton TYPE="CLEAR" DESCRIPTION="Clear/New " ICON="iClear.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Find/Refresh" ICON="iFind.gif" METHOD="getCryptKeeper" />
+    <BarButton TYPE="PREV" DESCRIPTION="Previous" ICON="iPrev.gif" METHOD="prvCryptKeeper" />
+    <BarButton TYPE="NEXT" DESCRIPTION="Next" ICON="iNext.gif" METHOD="nxtCryptKeeper" />
+    <BarButton TYPE="POST" DESCRIPTION="Update Changes" ICON="iEdit.gif" METHOD="updCryptKeeper" />
+  </ButtonBar>
+  <Panel POSITION="Left" HIDDEN="N">
+    <TextField FIELDNAME="KeeperID" DESCRIPTION="ID #" LENGTH="4" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="5" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+    <TextField FIELDNAME="KeeperDesc" DESCRIPTION="Category" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+    <TextField FIELDNAME="KeeperIcon" DESCRIPTION="icon File Name" LENGTH="15" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+    <TextField FIELDNAME="CreateDate" DESCRIPTION="Create Date" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+    <TextField FIELDNAME="LastUpdate" DESCRIPTION="Last Update" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+    <ComboBox FIELDNAME="PrntID" DESCRIPTION="Parent Category" LENGTH="15" DATA_TYPE="CHR" POSITION="Left" ENCRYPT="N" LIST_TABLE_NAME="wkpGroups" LIST_TABLE_FIELD="KeeperID" LIST_TABLE_DESCRIPTION="KeeperDesc" LIST_TABLE_SELECTTION="j1 = :Scmbl:" />
+  </Panel>
+</SCRIPT>
+
