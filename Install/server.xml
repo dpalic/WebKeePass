@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<Server>
+<Server port="{portShutDown}" shutdown="SHUTDOWN"> 
     <Listener className="org.apache.catalina.mbeans.ServerLifecycleListener" />
     <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" />
     <GlobalNamingResources>
@@ -17,7 +17,7 @@
         </ResourceParams>
     </GlobalNamingResources>
     <Service name="Catalina">
-        <Connector port="{port}" maxHttpHeaderSize="8192" maxThreads="150" minSpareThreads="25" maxSpareThreads="75" enableLookups="false" disableUploadTimeout="true"
+        <Connector port="{portStartUp}" maxHttpHeaderSize="8192" maxThreads="150" minSpareThreads="25" maxSpareThreads="75" enableLookups="false" disableUploadTimeout="true"
         acceptCount="100" scheme="https" secure="true" clientAuth="false" sslProtocol="TLS" keystoreFile="{certFile}" />
         <Engine defaultHost="localhost" name="Catalina">
             <Host appBase="webapps" name="localhost"></Host>

@@ -216,6 +216,9 @@ public class UserSecurityManager {
 			ctx.close();
 
 		} catch  (NamingException e ) {
+			dataAccess.logMessage(" *** LDAP Says: "+ e.getMessage());
+			dataAccess.logMessage(" ------------ "+ e.getExplanation());
+			e.printStackTrace();
 			return false;
 		}
 			return true;

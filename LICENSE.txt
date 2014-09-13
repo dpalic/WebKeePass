@@ -1,6 +1,6 @@
 Web KeePass - Web Password Safe -  Copyright  2003, 2004, 2005, 2006, 2007 2008 -   All Rights Reserved 
  
-   @ver - WebKeePass-1.080520 --   http://sourceforge.net/projects/webkeepass
+   @ver - WebKeePass-1.080608 --   http://sourceforge.net/projects/webkeepass
  
    The contents of this file are subject to the Mozilla Public License Version 1.1
   (the "License"); you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@ Web KeePass - Web Password Safe -  Copyright  2003, 2004, 2005, 2006, 2007 2008 
   The Original Code is Web KeePass - Web Password Safe 
  
   
-   Copyright (C) 2003, 2004, 2005,2006, 2007 
+   Copyright (C)  2005, 2006, 2007, 2008
  
    **All Rights Reserved **.
  

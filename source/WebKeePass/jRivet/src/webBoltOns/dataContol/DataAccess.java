@@ -404,8 +404,8 @@ public class DataAccess {
 										ResultSet.CONCUR_READ_ONLY);
 			return statement;
 		} catch (Exception err) {
-			logMessage("Error opening connection: " + pool.getDriver() + " - "
-					+ err.getMessage());
+			logMessage("Error opening connection: " + pool.getDriver() + " - " + err.getMessage());
+			err.printStackTrace();
 			return null;
 		}
 	}
@@ -427,8 +427,8 @@ public class DataAccess {
 					.prepareStatement(preparedSQL);
 			return statement;
 		} catch (Exception err) {
-			logMessage("Error opening connection: " + pool.getDriver() + " - "
-					+ err.getMessage());
+			logMessage("Error opening connection: " + pool.getDriver() + " - " + err.getMessage());
+			err.printStackTrace();
 			return null;
 		}
 	}
@@ -652,9 +652,8 @@ public class DataAccess {
 			
 		} catch (Exception er) {
 			logMessage("\n*** DataBase Execption  -> Executing SQL - " + qry );
-			logMessage("  *                     -> DataSet       - " + ds.toString() );
-			logMessage("  *                     -> Column        - " + columns[c] );			
-			logMessage("  *                     -> Exception     - " + er );
+			logMessage("   ------- DataSet --> " + ds.toString() );
+			er.printStackTrace();
 			throw new DBSchemaException();
 		} finally {
 			execClose(stmt);
@@ -693,9 +692,8 @@ public class DataAccess {
 				
 		} catch (Exception er) {
 			logMessage("\n*** DataBase Execption  -> Executing SQL -  " + qry );
-			logMessage("  *                     -> DataSet       - " + ds.toString() );
-			logMessage("  *                     -> Column        - " + table + "." + columns[x] );
-			logMessage("  *                     -> Exception     - " + er );
+			logMessage("   ------- DataSet --> " + ds.toString() );
+			er.printStackTrace();
 			throw new DBSchemaException();
 		} finally {
 			execClose(stmt);
@@ -733,9 +731,8 @@ public class DataAccess {
 		
 		} catch (Exception er) {
 			logMessage("\n*** DataBase Execption  -> Executing SQL - " + qry );
-			logMessage("  *                     -> DataSet 	    - " + ds.toString() );
-			logMessage("  *                     -> Column        - " + table + "." + columns[x] );
-			logMessage("  *                     -> Exception     - " + er );
+			logMessage("   ------- DataSet --> " + ds.toString() );
+			er.printStackTrace();
 			throw new DBSchemaException();
 		} finally {
 			execClose(stmt);
@@ -750,8 +747,8 @@ public class DataAccess {
 			stmt.executeUpdate();			
 		} catch (Exception er) {
 			logMessage("\n*** DataBase Execption  -> PreparedStatement -  " + stmt.toString() );
-			logMessage("  *                     -> DataSet - " + ds.elements().toString() );
-			logMessage("  *                     -> Exception - " + er );
+			logMessage("   ------- DataSet --> " + ds.toString() );
+			er.printStackTrace();
 			throw new DBSchemaException();
 		} 
 	}
@@ -777,8 +774,7 @@ public class DataAccess {
 			
 		} catch (Exception er) {
 			logMessage("\n** DataBase Execption  -> Executing SQL -  " + qry );
-			logMessage("   *                     -> Vector - " + rv.elements().toString() );
-			logMessage("   *                     -> Exception - " + er );
+			er.printStackTrace();
 			throw new DBSchemaException();
 		} finally {
 			execClose(stmt);

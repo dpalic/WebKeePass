@@ -1014,7 +1014,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 		topPnl = new JPanel(new BorderLayout(20,20));
 		String icn = script.getStringField(WindowItem.ICON);
 		
-		if(icn != null && ! icn.equals("*"))
+		if(icn != null && ! icn.equals(""))
 			topPnl.add(BorderLayout.WEST, new JLabel(
 					cntr.getImageIcon(script.getStringField(WindowItem.ICON))));
 		else

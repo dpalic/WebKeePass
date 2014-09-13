@@ -348,7 +348,7 @@ public class TableColumnSorter extends TableSorterMap {
 						hd.setIcon(appletConnector.getImageIcon("tUp.gif"));
 					else
 						hd.setIcon(appletConnector.getImageIcon("tDown.gif"));
-					th.updateUI();
+					//th.updateUI();
 					th.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 				}
 			}

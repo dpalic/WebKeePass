@@ -53,7 +53,8 @@ public class InstallerMain implements ActionListener, MouseListener{
 	JTextField usr_USR = new JTextField(20);
 	JTextField pw_USR = new JTextField(20);
 	
-	JTextField port_A = new JTextField(20);
+	JTextField portStart_A = new JTextField(20);
+	JTextField portStop_A = new JTextField(20);
 	JTextField dmName_A = new JTextField(20);
 	
 	JTextField key_A = new JTextField(40);
@@ -372,11 +373,15 @@ public class InstallerMain implements ActionListener, MouseListener{
 	public JPanel buildPanel3() {
 		JPanel main_P = new JPanel(new GridFlowLayout(10, 10));
 		
-		port_A.setText("8443");
+		portStart_A.setText("8443");
+		portStop_A.setText("9006");
 		dmName_A.setText("localhost");
 		main_P.add(new JLabel("Tomcat HTTPS/SSL Port:"), new GridFlowLayoutParameter(true, 1));
-		main_P.add(port_A, new GridFlowLayoutParameter(false, 2));
+		main_P.add(portStart_A, new GridFlowLayoutParameter(false, 2));
 
+		main_P.add(new JLabel("Tomcat Shutdown Port:"), new GridFlowLayoutParameter(true, 1));
+		main_P.add(portStop_A, new GridFlowLayoutParameter(false, 2));
+		
 		main_P.add(new JLabel("Your Host Name:"), new GridFlowLayoutParameter(true, 1));
 		main_P.add(dmName_A, new GridFlowLayoutParameter(false, 2));
 
@@ -392,17 +397,25 @@ public class InstallerMain implements ActionListener, MouseListener{
 	
 	
 	private boolean editScreen3() {
-		int port = 0;
+		int portStart = 0, portStop = 0;
 		try {
-			port = Integer.parseInt(port_A.getText());
-			
-			} catch (Exception e) {port = 0;}
-		
-		if (port < 200 || port > 65000) {
+			portStart = Integer.parseInt(portStart_A.getText());
+			} catch (Exception e) {portStart = 0;}
+		if (portStart < 200 || portStart > 65000) {
 			JOptionPane.showMessageDialog(null, "Invalid HTTPS/SSL Port",
 					"Tomcat Error", JOptionPane.ERROR_MESSAGE);
 			return false;
 		}	
+
+		try {
+			portStop = Integer.parseInt(portStop_A.getText());
+			} catch (Exception e) {portStop = 0;}
+		if (portStop < 200 || portStop > 65000) {
+			JOptionPane.showMessageDialog(null, "Invalid Shutdown Port",
+					"Tomcat Error", JOptionPane.ERROR_MESSAGE);
+			return false;
+		}	
+
 		
 		if (dmName_A.getText() == null || dmName_A.getText().length() < 2) {
 			JOptionPane.showMessageDialog(null, "Invalid Host Name",
@@ -568,7 +581,9 @@ public class InstallerMain implements ActionListener, MouseListener{
 		String path = path_T.getText().trim();
 		String user = usr_DB.getText().trim();
 		String pwrd = pw_DB.getText().trim();    
-		String port = port_A.getText().trim();
+		String portStart = portStart_A.getText().trim();
+		String portStop = portStop_A.getText().trim();
+		
 		key1 = sha1(key_A.getText().trim());      
 		
 		
@@ -626,7 +641,8 @@ public class InstallerMain implements ActionListener, MouseListener{
 		
 		if(!fi.readFile("Install/server.xml"))
 			return false;
-		fi.mergeTag( "{port}", port);
+		fi.mergeTag( "{portStartUp}", portStart);
+		fi.mergeTag( "{portShutDown}", portStop);
 		fi.mergeTag( "{certFile}",  path + "webKeePass.key");
 		if(!fi.writeFile( path +"jakarta-tomcat-5.5.7"+ fs + "conf" + fs +"server.xml"))
 			return false;	
@@ -674,7 +690,8 @@ public class InstallerMain implements ActionListener, MouseListener{
 		
 		String start =   "Installation is Complete! \n " +
 				       "\n   1 - Start Tomcat: " + path_T.getText() +
-        			   "\n   2 - Open: https://" +dmName_A.getText().trim() + ":" + port_A.getText() + " \n ";
+        			   "\n   2 - Open: https://" +dmName_A.getText().trim() + ":" + portStart_A.getText() + " \n \n " +
+        			   "\n(*note: If reinstallation is required, you must first \n delete the target installation folder) \n \n ";
 		try {
 		main_F.setCursor(new Cursor(Cursor.WAIT_CURSOR));	 
 		if(!path_T.getText().endsWith("/") && !path_T.getText().endsWith("\\")) 
