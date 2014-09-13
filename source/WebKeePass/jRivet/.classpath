@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/java/JavaJarFiles/JDBC/oracle/classes12.jar"/>
+	<classpathentry kind="lib" path="/java/JavaJarFiles/JDBC/oracle/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="/java/JavaJarFiles/ldap/ldapjdk.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/client"/>
+	<classpathentry kind="lib" path="/luke/WEB-INF/classes"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>
