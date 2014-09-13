@@ -61,7 +61,7 @@ public class InstallerMain implements ActionListener, MouseListener{
 	
 	ButtonGroup bgroup = new ButtonGroup();
 	
-	String key1; 
+	String key1, type = "Embedded.Action" ; 
 	
 	JFrame main_F; 
  
@@ -207,24 +207,31 @@ public class InstallerMain implements ActionListener, MouseListener{
 		
 		bgroup.add(rb1);
 
-		JRadioButton rb2 = new JRadioButton("Use a new MySQL database data source");
-		rb2.setName("MySQL.Action");
-		rb2.setActionCommand("MySQL.Action");
+		JRadioButton rb2 = new JRadioButton("Use an existing Oracle data source");
+		rb2.setName("Oracle.Action");
+		rb2.setActionCommand("Oracle.Action");
 		rb2.addActionListener(this);
 		bgroup.add(rb2);
 
+
+		JRadioButton rb3 = new JRadioButton("Create a new MySQL data source");
+		rb3.setName("MySQL.Action");
+		rb3.setActionCommand("MySQL.Action");
+		rb3.addActionListener(this);
+		bgroup.add(rb3);
 		
 		main_P.add(rb1, new GridFlowLayoutParameter(true, 2));
 		main_P.add(rb2, new GridFlowLayoutParameter(true, 2));
+		main_P.add(rb3, new GridFlowLayoutParameter(true, 2));		
 		bgroup.setSelected(rb1.getModel(), true);
 		
-		main_P.add(new JLabel("MySQL Database/Schema:"), new GridFlowLayoutParameter(true, 1));
+		main_P.add(new JLabel("Database/Schema:"), new GridFlowLayoutParameter(true, 1));
 		main_P.add(db_T, new GridFlowLayoutParameter(false, 2));
 
-		main_P.add(new JLabel("MySQL Admin User Name:"), new GridFlowLayoutParameter(true, 1));
+		main_P.add(new JLabel("Database Adm User Name:"), new GridFlowLayoutParameter(true, 1));
 		main_P.add(usr_DB, new GridFlowLayoutParameter(false, 2));
 
-		main_P.add(new JLabel("MySQL Admin Password:"), new GridFlowLayoutParameter(true, 1));
+		main_P.add(new JLabel("Database Password:"), new GridFlowLayoutParameter(true, 1));
 		main_P.add(pw_DB, new GridFlowLayoutParameter(false, 2));
 		
 		return main_P;
@@ -418,8 +425,6 @@ public class InstallerMain implements ActionListener, MouseListener{
 	
 	public void actionPerformed(ActionEvent e) {
 	   
-		
-		
 		if (e.getActionCommand().equals("Next1.Action") ) {
 			showScreen1();
 				
@@ -442,17 +447,27 @@ public class InstallerMain implements ActionListener, MouseListener{
 			usr_DB.setEditable(false);
 			pw_DB.setText(null);
 			pw_DB.setEditable(false);
+			type = e.getActionCommand();
 		 
-	    } else if(e.getActionCommand().equals("MySQL.Action")) {
-			db_T.setText("WebKeePass");
-			db_T.setEditable(true);
-			usr_DB.setText("root");
+	    } else if(e.getActionCommand().equals("MySQL.Action") ||
+	    						e.getActionCommand().equals("Oracle.Action")) {
+	    	
+	    	
+	    	if(e.getActionCommand().equals("MySQL.Action")){
+	    		db_T.setText("WebKeePass");
+	    		usr_DB.setText("root");
+	    	} else { 
+	    		db_T.setText("XE");
+				usr_DB.setText(null);
+	    	}
+			
+	    	db_T.setEditable(true);
+			
 			usr_DB.setEditable(true);
 			pw_DB.setText(null);
-			pw_DB.setEditable(true);					 
-			 
+			pw_DB.setEditable(true);
+			type = e.getActionCommand();
 		 }	    
-	    
 	}
 
 
@@ -506,15 +521,27 @@ public class InstallerMain implements ActionListener, MouseListener{
 	
 	public boolean installDB() {	
 		try {
-		  if(db_T.isEditable()) {
-				if(!data.installDB(
+		  if(type.equals("MySQL.Action")) {
+				if(!data.installMySQLDB(
 					new CipherString(sha1(key_A.getText().trim())),
 					db_T.getText().trim(), 
 					usr_DB.getText().trim(), pw_DB.getText().trim(),"Install/CreateTablesMySQL.sql", 
 					usr_ADM.getText().trim(), sha1(pw_ADM.getText().trim()),
 					usr_USR.getText().trim(), sha1(pw_USR.getText().trim())))
 					return false;
-			
+				
+				
+		  } else if(type.equals("Oracle.Action")) {
+			  if(!data.installOracleDB(
+					  new CipherString(sha1(key_A.getText().trim())),
+					  db_T.getText().trim(), 
+					  usr_DB.getText().trim(), pw_DB.getText().trim(),"Install/CreateTablesOracle.sql", 
+					  usr_ADM.getText().trim(), sha1(pw_ADM.getText().trim()),
+					  usr_USR.getText().trim(), sha1(pw_USR.getText().trim())))
+				  return false;
+					
+		 	
+			  
 		 } else {
 			if(!data.installEmbeded(
 					new CipherString(sha1(key_A.getText().trim())),
@@ -528,8 +555,10 @@ public class InstallerMain implements ActionListener, MouseListener{
 		} catch (EncryptionException e) {
 			return false;	
 		}		
+		
 		return true;
 	}
+	
 	
 	
 	
@@ -547,13 +576,19 @@ public class InstallerMain implements ActionListener, MouseListener{
 			return false;
 		
 		
-		if(db_T.isEditable()) {
+		if(type.equals("MySQL.Action")) {
 		    fi.mergeTag("{dvr}", "com.mysql.jdbc.Driver");
-		    fi.mergeTag("{db}", "jdbc:mysql://localhost/"+db_T.getText().trim());
+		    fi.mergeTag("{db}", "jdbc:mysql://localhost/" + db_T.getText().trim());
 			fi.mergeTag("{user}", user);
 			fi.mergeTag("{password}", pwrd);
 
-		} else {
+		} else 	if(type.equals("Oracle.Action")) {
+		    fi.mergeTag("{dvr}", "oracle.jdbc.driver.OracleDriver");
+		    fi.mergeTag("{db}", "jdbc:oracle:thin:@localhost:1521:" + db_T.getText().trim());
+			fi.mergeTag("{user}", user);
+			fi.mergeTag("{password}", pwrd);
+
+		} else  {
 			fi.mergeTag("{dvr}", "org.apache.derby.jdbc.EmbeddedDriver");
 			fi.mergeTag("{db}", "jdbc:derby:" + path + 
 					"datasrc;dataEncryption=true;encryptionAlgorithm=DES/CBC/NoPadding;encryptionKey=" + key1.trim() );

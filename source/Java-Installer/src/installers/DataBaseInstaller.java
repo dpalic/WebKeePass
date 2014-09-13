@@ -54,8 +54,118 @@ public class DataBaseInstaller {
 	String drbyQry2 = "INSERT INTO wkpGroups (KeeperID, KeeperDesc,keeperIcon,CreateDate,LastUpdate,j1,PrntID) " +
 			" VALUES (?, ?, 'MNode1.gif','20070101','20070101',? ,0) ";
 	 
+
 	
-	public boolean installDB(CipherString cs, String database, String userDB, String pswdDB, String sqlFile, 
+	public boolean installOracleDB(CipherString cs, String database,
+			String userDB, String pswdDB, String sqlFile, String userA,
+			String pswdA, String userS, String pswdS) {
+
+		try {
+			msg = new StringBuffer();
+
+			if (!readFile(sqlFile))
+				return false;
+			
+ 			String url = "jdbc:oracle:thin:@localhost:1521:" + database;
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, userDB, pswdDB);
+			stm = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, 	ResultSet.CONCUR_UPDATABLE);
+
+			while (nextSQL()) stm.executeUpdate(getSQL());
+
+			ps = con.prepareStatement(drbyQry1);
+			ps.setString(1, userA);
+			ps.setString(2, "Admins");
+			ps.setString(3, "Administrator / Root");
+			ps.setString(4, "Administrator / Root");
+			ps.setString(5, pswdA);
+			ps.executeUpdate();
+
+			ps.setString(1, userS);
+			ps.setString(2, "Users");
+			ps.setString(3, "User 1");
+			ps.setString(4, "User 1");
+			ps.setString(5, pswdS);
+			ps.executeUpdate();
+			ps.close();
+
+			ps = con.prepareStatement(drbyQry2);
+			int c = 1;
+
+			ps.setInt(1, c++);
+			ps.setString(2, "General");
+			ps.setString(3, cs.encrypt(userA));
+			ps.executeUpdate();
+
+			ps.setInt(1, c++);
+			ps.setString(2, "Email");
+			ps.setString(3, cs.encrypt(userA));
+			ps.executeUpdate();
+
+			ps.setInt(1, c++);
+			ps.setString(2, "Internet");
+			ps.setString(3, cs.encrypt(userA));
+			ps.executeUpdate();
+
+			ps.setInt(1, c++);
+			ps.setString(2, "Home");
+			ps.setString(3, cs.encrypt(userA));
+			ps.executeUpdate();
+
+			ps.setInt(1, c++);
+			ps.setString(2, "Office");
+			ps.setString(3, cs.encrypt(userA));
+			ps.executeUpdate();
+
+			ps.setInt(1, c++);
+			ps.setString(2, "Other");
+			ps.setString(3, cs.encrypt(userA));
+			ps.executeUpdate();
+
+			ps.setInt(1, c++);
+			ps.setString(2, "General");
+			ps.setString(3, cs.encrypt(userS));
+			ps.executeUpdate();
+
+			ps.setInt(1, c++);
+			ps.setString(2, "Email");
+			ps.setString(3, cs.encrypt(userS));
+			ps.executeUpdate();
+
+			ps.setInt(1, c++);
+			ps.setString(2, "Internet");
+			ps.setString(3, cs.encrypt(userS));
+			ps.executeUpdate();
+
+			ps.setInt(1, c++);
+			ps.setString(2, "Home");
+			ps.setString(3, cs.encrypt(userS));
+			ps.executeUpdate();
+
+			ps.setInt(1, c++);
+			ps.setString(2, "Office");
+			ps.setString(3, cs.encrypt(userS));
+			ps.executeUpdate();
+
+			ps.setInt(1, c++);
+			ps.setString(2, "Other");
+			ps.setString(3, cs.encrypt(userS));
+			ps.executeUpdate();
+
+			stm.close();
+			ps.close();
+			con.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			msg.append("  * Database error:" + e.getMessage() + " \n");
+			return false;
+		}
+		return true;
+	}
+
+
+	public boolean installMySQLDB(CipherString cs, String database, String userDB, String pswdDB, String sqlFile, 
 											String userA, String pswdA, String userS, String pswdS) {
 		try {
 			msg = new StringBuffer();
@@ -77,8 +187,7 @@ public class DataBaseInstaller {
 			stm.execute("Create Database " + database);
 			stm.execute("Use " + database);
 
-			while (nextSQL())
-				stm.executeUpdate(getSQL());
+			while (nextSQL()) stm.executeUpdate(getSQL());
 
 			ps = con.prepareStatement(myQry1);
 			ps.setString(1, userA);
@@ -175,6 +284,7 @@ public class DataBaseInstaller {
 		return true;
 	}
 
+ 
 	public boolean installEmbeded(CipherString cs, String path, String key1, String userDB, String pswdDB, 
 									String sqlFile, String userA, String pswdA, String userS, String pswdS) {
 		try {
@@ -189,8 +299,7 @@ public class DataBaseInstaller {
 			con = DriverManager.getConnection(url, userDB, pswdDB);
 			stm = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 
-			while (nextSQL())
-				stm.executeUpdate(getSQL());
+			while (nextSQL()) stm.executeUpdate(getSQL());
 
 			ps = con.prepareStatement(drbyQry1);
 			ps.setString(1, userA);
@@ -273,9 +382,11 @@ public class DataBaseInstaller {
 		return true;
 	}
 
+	
 	public String getMessages() {
 		return msg.toString();
 	}
+
 
 	private boolean nextSQL() {
 		if (buffer.indexOf(";") != -1)
