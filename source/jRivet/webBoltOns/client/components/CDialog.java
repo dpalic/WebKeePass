@@ -54,6 +54,7 @@ package webBoltOns.client.components;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -61,6 +62,7 @@ import java.awt.Font;
 import java.awt.Frame;
 import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
+import java.awt.Point;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -69,6 +71,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.security.NoSuchAlgorithmException;
@@ -95,8 +98,10 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
+import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -114,58 +119,96 @@ import webBoltOns.client.components.layoutManagers.GridFlowLayoutParameter;
 import webBoltOns.client.components.layoutManagers.StackedFlowLayout;
 import webBoltOns.dataContol.DataSet;
 
-public class CDialog extends JDialog  implements ActionListener, KeyListener, 
-  										WindowListener, MouseListener, ChangeListener {
-	
+public class CDialog extends JDialog implements ActionListener, KeyListener,
+		WindowListener, MouseListener, ChangeListener, MouseMotionListener {
 
 	private static final long serialVersionUID = 2523387830351067769L;
+	private final String dp_dayText[] = { "Su", "Mo", "Tu", "We", "Th", "Fr",
+			"Sa" };
+	private final int dp_dom[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30,
+			31 };
+	private final String f_Sizes[] = { "8", "10", "11", "12", "14", "16", "18",
+			"20", "24", "30", "36", "40", "48", "60", "72" };
+	private final String dp_monthText[] = { "January", "February", "March",
+			"April", "May", "June", "July", "August", "September", "October",
+			"November", "December" };
+
+	private final String cc_num[] = { "C", "MR", "M-", "M+", "7", "8", "9",
+			"/", "4", "5", "6", "*", "1", "2", "3", "-", "0", ".", "=", "+" };
+
 	private AppletConnector cnct;
 	private ButtonGroup bg;
 	private JCheckBox isChkCase, isChkWord, isBld, isItlc, isUndrlne, isST, isSS;
 	private JSpinner year;
 	private JLabel wkday[];
-	private int yy, mm, dd; 
-	private final String dp_dayText[] = { "Su", "Mo", "Tu", "We", "Th", "Fr", "Sa" };
-	private final int dp_dom[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	private int yy, mm, dd;
 	private JTextPane ff_SampleArea;
-	private JTextField mtday[] = new JTextField[42];
+	private JTextField mtday[] = new JTextField[42], cckey[] = new JTextField[20];
 	private JRadioButton s_rdDown, s_rdUp;
 	private String rtnDate = "";
 	private boolean rtnBln;
 	private JComboBox months, fntNmCh, fntSzCh;
-	private JButton lt, rt, td, fnd, rplc, rplcAll,  fColor; 
+	private JButton lt, rt, td, fnd, rplc, rplcAll, fColor;
 	private TextMonitor textArea;
 	private JTextField fndT, rplcT, un;
 	private CDialog wrng;
 	private SimpleAttributeSet outAttrbts;
 	private DataSet login;
 	private JPasswordField pw;
-	
-	private final String f_Sizes[] = { "8", "10", "11", "12", "14", "16",
-			"18", "20", "24", "30", "36", "40", "48", "60", "72" };
 
-	private final String dp_monthText[] = { "January", "February", "March",
-			"April", "May", "June", "July", "August", "September", "October",
-			"November", "December" };
+	private JTextField calc;
+	private String scalc1, scalc2;
+	private double dReg1, dReg2, dMem;
+	private String sOperator;
+	private boolean isFixReg;
 
+	private JButton exit;
 
-	
-	
 	public CDialog(Frame frm, AppletConnector appletConnector) {
 		super(frm, true);
 		setResizable(false);
+		setUndecorated(true);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		cnct = appletConnector;
 		addWindowListener(this);
+		addMouseMotionListener(this);
+		
+		exit = cnct.buildFancyButton(null, "eDelete.gif", "Close",' ');
+		exit.setActionCommand("N");
+		exit.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		exit.addActionListener(this);
 	}
 
-	private void displayDialog() {
+	private void displayDialog(Component c, JPanel main) {
+		Border border = BorderFactory.createCompoundBorder(BorderFactory
+				.createLineBorder(Color.black), BorderFactory
+				.createEmptyBorder(10, 10, 10, 10));
+		main.setBorder(border);
+		getContentPane().add(main);
 		pack();
+		Point p = getComponentPoint(c);
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-		setLocation((d.width - getSize().width) / 2, (d.height - getSize().height) / 2);
+		if (p == null) {
+			setLocation((d.width - getSize().width) / 2, (d.height - getSize().height) / 2);
+		} else {
+			int x = p.x + 7; 
+			int y = p.y + c.getHeight() + 10;
+			if(x + getWidth() >= d.width) x = d.width - getWidth() - 5;
+			if(y + getHeight() >= d.height) y = d.height - getHeight() - 25;
+			setLocation(x, y);
+		}
 		setVisible(true);
 	}
 
+	
+	
+	private Point getComponentPoint(Component c){
+		try {
+			return c.getLocationOnScreen();
+		} catch (Exception e) {
+			return null;	
+		}
+	}
 	
 	private int findNext(boolean doReplace, boolean matchCase,
 			boolean searchUp, boolean matchWords, TextMonitor textArea,
@@ -273,15 +316,14 @@ public class CDialog extends JDialog  implements ActionListener, KeyListener,
 		return 1;
 	}
 
-	
 	public Color showColorPickerDialog(Color color) {
 		getContentPane().removeAll();
 		final JColorChooser colorChooser = new JColorChooser(color);
 		JPanel north = new JPanel(new BorderLayout());
-		north.add(BorderLayout.WEST,
-						new JLabel("<html><p><font color=blue size=+1>Select Color</font></html>"));
-		
-		north.add(BorderLayout.EAST, new JLabel(cnct.logoImageIcon));
+		north.add(BorderLayout.WEST, new JLabel(
+								"<html><p><font color=blue size=+1>Select Color</font></html>"));
+
+		north.add(BorderLayout.EAST, exit);
 		JPanel center = new JPanel(new GridFlowLayout(10, 10));
 
 		center.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
@@ -300,8 +342,7 @@ public class CDialog extends JDialog  implements ActionListener, KeyListener,
 		main.add(BorderLayout.CENTER, center);
 		main.add(BorderLayout.SOUTH, south);
 
-		getContentPane().add(main);
-		displayDialog();
+		displayDialog(null, main);
 
 		if (rtnBln)
 			return colorChooser.getColor();
@@ -309,55 +350,54 @@ public class CDialog extends JDialog  implements ActionListener, KeyListener,
 			return color;
 	}
 
-	public String showDatePickerDialog(String parmdate) {
+	public String showDatePickerDialog(String prmdte, Component c) {
 		getContentPane().removeAll();
 		String yymmdd = new SimpleDateFormat("yyyyMMdd").format(new Date());
-			
-		if(DataSet.isDate(parmdate)) 	
-			yymmdd = DataSet.formatDateField(parmdate, "yyyyMMdd");
+
+		if (DataSet.isDate(prmdte))
+			yymmdd = DataSet.formatDateField(prmdte, "yyyyMMdd");
 		rtnDate = yymmdd;
 
 		yy = Integer.parseInt(yymmdd.substring(0, 4));
 		mm = Integer.parseInt(yymmdd.substring(4, 6));
 		dd = Integer.parseInt(yymmdd.substring(6, 8));
-		lt = cnct.buildFancyButton(null, "left.gif", null, ' '); 
-		rt = cnct.buildFancyButton(null, "right.gif", null, ' '); 
-		td = cnct.buildFancyButton("Today!", null, null, ' '); 
-		
-		JPanel tPan = new JPanel(new BorderLayout());
-		tPan.add(BorderLayout.WEST, new JLabel("<html><p><font color=blue size=+1>Select Date</font></html>"));
+		lt = cnct.buildFancyButton(null, "left.gif", null, ' ');
+		rt = cnct.buildFancyButton(null, "right.gif", null, ' ');
+		td = cnct.buildFancyButton("Today!", null, null, ' ');
 
-		tPan.add(BorderLayout.EAST, new JLabel(cnct.logoImageIcon));
+		JPanel tPan = new JPanel(new BorderLayout());
+		tPan.add(BorderLayout.WEST, new JLabel(
+				"<html><p><font color=blue size=+1>Select Date</font></html>"));
+		tPan.add(BorderLayout.EAST, exit);
 		JPanel dtePan = new JPanel(new GridFlowLayout(1, 1));
-		dtePan.setBorder(BorderFactory.createCompoundBorder(
-				BorderFactory.createLineBorder(Color.lightGray), BorderFactory
+		dtePan.setBorder(BorderFactory.createCompoundBorder(BorderFactory
+				.createLineBorder(Color.lightGray), BorderFactory
 				.createEmptyBorder(10, 10, 10, 10)));
-		
+
 		wkday = new JLabel[7];
 		months = new JComboBox();
 		months.setBackground(Color.white);
 		months.setPreferredSize(new Dimension(100, 19));
 
-		year = new JSpinner(new SpinnerNumberModel(1000, 1000,9999, 1));
+		year = new JSpinner(new SpinnerNumberModel(1000, 1000, 9999, 1));
 		year.setValue(new Integer(yy));
 		year.setEditor(new JSpinner.NumberEditor(year, "####"));
-		
+
 		for (int m = 0; m < 12; m++)
 			months.addItem(dp_monthText[m]);
 		months.setSelectedIndex(mm - 1);
 
-		months.setActionCommand("date"); 
+		months.setActionCommand("date");
 		months.addActionListener(this);
 		year.setName("date");
 		year.addChangeListener(this);
-		rt.setActionCommand("date+"); 
+		rt.setActionCommand("date+");
 		rt.addActionListener(this);
 		lt.setActionCommand("date-");
 		lt.addActionListener(this);
 		td.setActionCommand("date=");
 		td.addActionListener(this);
-		
-		
+
 		for (int d = 0; d < 7; d++) {
 			wkday[d] = new JLabel();
 			wkday[d].setText(dp_dayText[d]);
@@ -397,35 +437,91 @@ public class CDialog extends JDialog  implements ActionListener, KeyListener,
 		main.add(chsrPan);
 		main.add(dtePan);
 		main.add(td);
-		getContentPane().add(main);
-		displayDialog();
-		return rtnDate;
+		displayDialog(c, main);
+		if (rtnBln)
+			return rtnDate;
+		else 
+			return DataSet.formatDateField(prmdte, "yyyyMMdd");
 	}
 
+	public String showCalcualtorDialog(String prm, Component c) {
+		JPanel north = new JPanel(new BorderLayout(5, 15));
+		north.add(BorderLayout.WEST, new JLabel(
+								"<html><p><font color=blue size=+1>Calculator</font></html>"));
+		north.add(BorderLayout.EAST, exit);
+
+		calc = new JTextField(15);
+		calc.setText(Double.toString((DataSet.checkDouble(prm)) ));
+		calc.setForeground(Color.darkGray);
+		calc.setEditable(false);
+		JPanel dsp = new JPanel(new  FlowLayout(FlowLayout.LEFT, 2 , 10));
+		dsp.add(calc);
+		JButton rtn = cnct.buildFancyButton("", "eExport.gif", "return value", ' ');
+		rtn.setActionCommand("Y");
+		rtn.setName("Y");
+		rtn.addActionListener(this);
+		dsp.add(rtn);
+		north.add(BorderLayout.SOUTH, dsp);
+		
+		JPanel pKey = new JPanel(new GridFlowLayout());
+		for (int d = 0; d < 20; d++) {
+			cckey[d] = new JTextField(3);
+			cckey[d].setText(cc_num[d]);
+			cckey[d].setActionCommand("calc");
+			cckey[d].setName("calc");
+			cckey[d].setEditable(false);
+			cckey[d].setHorizontalAlignment(JTextField.CENTER);
+			cckey[d].setBackground(Color.white);
+			cckey[d].setCursor(new Cursor(Cursor.HAND_CURSOR));
+			int tab = (d % 4) + 1;
+			if (tab == 1)
+				pKey.add(cckey[d], new GridFlowLayoutParameter(true, 1));
+			else
+				pKey.add(cckey[d], new GridFlowLayoutParameter(false, tab));
+			
+			cckey[d].addMouseListener(this);
+		}
+
+		JPanel main = new JPanel(new BorderLayout(0, 0));
+		main.add(BorderLayout.NORTH, north);
+		main.add(BorderLayout.CENTER, pKey);
+		
+		dReg1 = 0.0d;
+		dReg2 = 0.0d;
+		dMem = 0.0d;
+		sOperator = "";
+		isFixReg = true;
+		
+		addKeyListener(this);
+		
+		displayDialog(c, main);
+		if(rtnBln)
+			return calc.getText().trim();
+		else
+			return prm;
 	
-	
-	
-	public Font showFontPickerDialog (Font inFont) {
+	}
+
+	public Font showFontPickerDialog(Font inFont) {
 		SimpleAttributeSet a = new SimpleAttributeSet();
-	    StyleConstants.setFontFamily(a, inFont.getFamily());
-	    StyleConstants.setFontSize(a, inFont.getSize());
-	    
-	    a = showFontPickerDialog(a);
-	    if( a != null ){
-	    	String f = StyleConstants.getFontFamily(a).toString();
-	    	int s = StyleConstants.getFontSize(a);
-	    	if(inFont.isBold())
-	    		inFont = new Font(f, Font.BOLD, s);
-	    	else 
-	    		inFont = new Font(f, Font.PLAIN, s);
-	      }	
-	    
+		StyleConstants.setFontFamily(a, inFont.getFamily());
+		StyleConstants.setFontSize(a, inFont.getSize());
+
+		a = showFontPickerDialog(a);
+		if (a != null) {
+			String f = StyleConstants.getFontFamily(a).toString();
+			int s = StyleConstants.getFontSize(a);
+			if (inFont.isBold())
+				inFont = new Font(f, Font.BOLD, s);
+			else
+				inFont = new Font(f, Font.PLAIN, s);
+		}
+
 		return inFont;
 	}
 
-	
 	public SimpleAttributeSet showFontPickerDialog(AttributeSet inAttributes) {
-		
+
 		getContentPane().removeAll();
 		fntNmCh = new JComboBox();
 		fntSzCh = new JComboBox();
@@ -440,17 +536,21 @@ public class CDialog extends JDialog  implements ActionListener, KeyListener,
 
 		String fontList[];
 
-		fontList = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+		fontList = GraphicsEnvironment.getLocalGraphicsEnvironment()
+				.getAvailableFontFamilyNames();
 
-		for (int i = 0; i < fontList.length; i++) fntNmCh.addItem(fontList[i]);		
-		fntNmCh.setSelectedItem(StyleConstants.getFontFamily(inAttributes).toString());
+		for (int i = 0; i < fontList.length; i++)
+			fntNmCh.addItem(fontList[i]);
+		fntNmCh.setSelectedItem(StyleConstants.getFontFamily(inAttributes)
+				.toString());
 		fntNmCh.setActionCommand("font+");
 		fntNmCh.addActionListener(this);
 
 		for (int i = 0; i < f_Sizes.length; i++)
 			fntSzCh.addItem(f_Sizes[i]);
-		
-		fntSzCh.setSelectedItem( Integer.toString(StyleConstants.getFontSize(inAttributes)));
+
+		fntSzCh.setSelectedItem(Integer.toString(StyleConstants
+				.getFontSize(inAttributes)));
 		fntSzCh.setActionCommand("font+");
 		fntSzCh.addActionListener(this);
 
@@ -476,56 +576,54 @@ public class CDialog extends JDialog  implements ActionListener, KeyListener,
 
 		fColor.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		fColor.setBackground(StyleConstants.getForeground(inAttributes));
-		fColor.setPreferredSize(new Dimension(50,15));
+		fColor.setPreferredSize(new Dimension(50, 15));
 		fColor.setActionCommand("fontc");
 		fColor.addActionListener(this);
 
-		JPanel stylePanel = new JPanel(new GridFlowLayout(5,5));
+		JPanel stylePanel = new JPanel(new GridFlowLayout(5, 5));
 
-		stylePanel.add(isBld, new GridFlowLayoutParameter(true,1));
-		stylePanel.add(isItlc, new GridFlowLayoutParameter(false,2));
-		stylePanel.add(isST, new GridFlowLayoutParameter(true,1));
-		stylePanel.add(isSS, (new GridFlowLayoutParameter(false,2)));
-		stylePanel.add(isUndrlne,new GridFlowLayoutParameter(true,1));
-		
+		stylePanel.add(isBld, new GridFlowLayoutParameter(true, 1));
+		stylePanel.add(isItlc, new GridFlowLayoutParameter(false, 2));
+		stylePanel.add(isST, new GridFlowLayoutParameter(true, 1));
+		stylePanel.add(isSS, (new GridFlowLayoutParameter(false, 2)));
+		stylePanel.add(isUndrlne, new GridFlowLayoutParameter(true, 1));
+
 		JPanel colourPanel = new JPanel();
-		
+
 		colourPanel.add(new JLabel(" Font Color "));
 		colourPanel.add(fColor);
-		
+
 		JPanel sizePane = new JPanel();
 		sizePane.add(fntNmCh);
-		sizePane.add(fntSzCh);		
+		sizePane.add(fntSzCh);
 
 		JPanel north = new JPanel(new BorderLayout());
 		north.add(BorderLayout.WEST, new JLabel(
 				"<html><p><font color=blue size=+1>Select Font</font></html>"));
-		north.add(BorderLayout.EAST, new JLabel(cnct.logoImageIcon));
+		north.add(BorderLayout.EAST, exit);
 
 		ff_SampleArea = new JTextPane();
 		ff_SampleArea.setText("Sample Text");
-		previewFancyFont(outAttrbts, 
-				fntNmCh.getSelectedItem().toString(), 
-				Integer.parseInt(fntSzCh.getSelectedItem().toString()),
-				isBld.isSelected(), isItlc.isSelected(), 
-				isST.isSelected(), isSS.isSelected(), isUndrlne.isSelected(),
-				fColor.getBackground());
+		previewFancyFont(outAttrbts, fntNmCh.getSelectedItem().toString(),
+				Integer.parseInt(fntSzCh.getSelectedItem().toString()), isBld
+						.isSelected(), isItlc.isSelected(), isST.isSelected(),
+				isSS.isSelected(), isUndrlne.isSelected(), fColor
+						.getBackground());
 
 		ff_SampleArea.setPreferredSize(new Dimension(130, 120));
 		ff_SampleArea.setBorder(BorderFactory.createCompoundBorder(
 				BorderFactory.createTitledBorder("Preview"), BorderFactory
 						.createEmptyBorder(10, 10, 10, 10)));
 
-
 		JPanel south = new JPanel(new FlowLayout());
-		
+
 		CButton ok = new CButton("OK");
 		ok.setActionCommand("Y");
 		ok.setName("Y");
 		ok.setMnemonic('O');
 		ok.addActionListener(this);
 		south.add(ok);
-		
+
 		JPanel main = new JPanel(new StackedFlowLayout());
 		main.add(north);
 		main.add(sizePane);
@@ -533,9 +631,7 @@ public class CDialog extends JDialog  implements ActionListener, KeyListener,
 		main.add(colourPanel);
 		main.add(ff_SampleArea);
 		main.add(south);
-
-		getContentPane().add(main);
-		displayDialog();
+		displayDialog(null, main);
 
 		if (rtnBln)
 			return outAttrbts;
@@ -543,16 +639,64 @@ public class CDialog extends JDialog  implements ActionListener, KeyListener,
 			return null;
 	}
 
-
-
-	public boolean showDeleteCnfrm(JComponent c) {
+	public boolean showDeleteCnfrm(Component c) {
 		getContentPane().removeAll();
 		JPanel nrth = new JPanel(new BorderLayout());
-		nrth.add(BorderLayout.WEST,new JLabel("<html><p><font color=blue size=+1>Delete Confirmation</font></html>"));
-		nrth.add(BorderLayout.EAST, new JLabel(cnct.logoImageIcon));
+		nrth.add(BorderLayout.WEST,	new JLabel(
+								"<html><p><font color=blue size=+1>Delete Confirmation</font></html>"));
+		nrth.add(BorderLayout.EAST, exit);
 		JPanel center = new JPanel(new GridFlowLayout(10, 10));
-		center.add(new JLabel(cnct.optionQuestionIcon),new GridFlowLayoutParameter(true, 0));
-		center.add(new JLabel("Delete Selected Items?"),new GridFlowLayoutParameter(false, 1));
+		center.add(new JLabel(cnct.optionQuestionIcon),
+				new GridFlowLayoutParameter(true, 0));
+		center.add(new JLabel("Delete Selected Items?"),
+				new GridFlowLayoutParameter(false, 1));
+		center.setPreferredSize(new Dimension(275, 60));
+		JPanel sth = new JPanel(new FlowLayout());
+
+		CButton ok = new CButton("Yes");
+		ok.setActionCommand("Y");
+		ok.setName("Y");
+		ok.setMnemonic('Y');
+		ok.addActionListener(this);
+		ok.addKeyListener(this);
+
+		CButton cancel = new CButton("No");
+		cancel.setActionCommand("N");
+		cancel.setName("N");
+		cancel.setMnemonic('N');
+		cancel.addActionListener(this);
+		cancel.addKeyListener(this);
+
+		sth.add(ok);
+		sth.add(cancel);
+
+		JPanel main = new JPanel(new BorderLayout());
+		main.setBorder(new LineBorder(Color.BLACK));
+		main.add(BorderLayout.NORTH, nrth);
+		main.add(BorderLayout.CENTER, center);
+		main.add(BorderLayout.SOUTH, sth);
+
+		ok.requestFocus();
+		displayDialog(c, main);
+
+		if (c != null && !rtnBln)
+			c.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+		return rtnBln;
+
+	}
+
+	public boolean showLogOutCnfrm(Component c) {
+		getContentPane().removeAll();
+		JPanel nrth = new JPanel(new BorderLayout());
+		nrth.add(BorderLayout.WEST,new JLabel(
+								"<html><p><font color=blue size=+1>Log-out Confirmation</font></html>"));
+		nrth.add(BorderLayout.EAST, exit);
+		JPanel center = new JPanel(new GridFlowLayout(10, 10));
+		center.add(new JLabel(cnct.optionQuestionIcon),
+				new GridFlowLayoutParameter(true, 0));
+		center.add(new JLabel("Log-off this session?"),
+				new GridFlowLayoutParameter(false, 1));
 		center.setPreferredSize(new Dimension(275, 60));
 		JPanel sth = new JPanel(new FlowLayout());
 
@@ -577,77 +721,125 @@ public class CDialog extends JDialog  implements ActionListener, KeyListener,
 		main.add(BorderLayout.NORTH, nrth);
 		main.add(BorderLayout.CENTER, center);
 		main.add(BorderLayout.SOUTH, sth);
-		getContentPane().add(main);
-		ok.requestFocus();
-		displayDialog();
-		
-		if(c != null && !rtnBln)
-			c.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		
+
+		displayDialog(null, main);
+
+		if (c != null && !rtnBln) c.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		 
+		dispose();
 		return rtnBln;
 
+	}
+
+	private boolean calcAction(String arg) {
+		//
+		// numeric key input
+		//
+		if ("C".equals(arg)) {
+			dReg1 = 0.0d;
+			dReg2 = 0.0d;
+			sOperator = "";
+			calc.setText("0");
+			isFixReg = true;
+		} else if (("0".equals(arg)) | ("1".equals(arg)) | ("2".equals(arg))
+				| ("3".equals(arg)) | ("4".equals(arg)) | ("5".equals(arg))
+				| ("6".equals(arg)) | ("7".equals(arg)) | ("8".equals(arg))
+				| ("9".equals(arg)) | (".".equals(arg))) {
+			if (isFixReg)
+				scalc2 = (String) arg;
+			else
+				scalc2 = calc.getText() + arg;
+			calc.setText(scalc2);
+			isFixReg = false;
+		}
+		//
+		// operations
+		//
+		else if (("+".equals(arg)) | ("-".equals(arg)) | ("*".equals(arg))
+				| ("/".equals(arg)) | ("=".equals(arg))) {
+			scalc1 = calc.getText();
+			dReg2 = (Double.valueOf(scalc1)).doubleValue();
+			dReg1 = calcCalc(sOperator, dReg1, dReg2);
+			Double dTemp = new Double(dReg1);
+			scalc2 = dTemp.toString();
+			calc.setText(scalc2);
+			sOperator = (String) arg;
+			isFixReg = true;
+		}
+		//
+		// memory read operation
+		//
+		else if ("MR".equals(arg)) {
+			Double dTemp = new Double(dMem);
+			scalc2 = dTemp.toString();
+			calc.setText(scalc2);
+			sOperator = "";
+			isFixReg = true;
+		}
+		//
+		// memory add operation
+		//
+		else if ("M+".equals(arg)) {
+			scalc1 = calc.getText();
+			dReg2 = (Double.valueOf(scalc1)).doubleValue();
+			dReg1 = calcCalc(sOperator, dReg1, dReg2);
+			Double dTemp = new Double(dReg1);
+			scalc2 = dTemp.toString();
+			calc.setText(scalc2);
+			dMem = dMem + dReg1;
+			sOperator = "";
+			isFixReg = true;
+		}
+		//
+		// memory sub operation
+		//
+		else if ("M-".equals(arg)) {
+			scalc1 = calc.getText();
+			dReg2 = (Double.valueOf(scalc1)).doubleValue();
+			dReg1 = calcCalc(sOperator, dReg1, dReg2);
+			Double dTemp = new Double(dReg1);
+			scalc2 = dTemp.toString();
+			calc.setText(scalc2);
+			dMem = dMem - dReg1;
+			sOperator = "";
+			isFixReg = true;
+		}
+		return true;
+	}
+
+	private double calcCalc(String sOperator, double dReg1, double dReg2) {
+		if ("+".equals(sOperator))
+			dReg1 = dReg1 + dReg2;
+		else if ("-".equals(sOperator))
+			dReg1 = dReg1 - dReg2;
+		else if ("*".equals(sOperator))
+			dReg1 = dReg1 * dReg2;
+		else if ("/".equals(sOperator))
+			dReg1 = dReg1 / dReg2;
+		else
+			dReg1 = dReg2;
+		return dReg1;
 	}
 
 	
-	public boolean showLogOutCnfrm(JComponent c) {
-		getContentPane().removeAll();
-		JPanel nrth = new JPanel(new BorderLayout());
-		nrth.add(BorderLayout.WEST,new JLabel("<html><p><font color=blue size=+1>Log-out Confirmation</font></html>"));
-		nrth.add(BorderLayout.EAST, new JLabel(cnct.logoImageIcon));
-		JPanel center = new JPanel(new GridFlowLayout(10, 10));
-		center.add(new JLabel(cnct.optionQuestionIcon),new GridFlowLayoutParameter(true, 0));
-		center.add(new JLabel("Log-off this session?"),new GridFlowLayoutParameter(false, 1));
-		center.setPreferredSize(new Dimension(275, 60));
-		JPanel sth = new JPanel(new FlowLayout());
-
-		CButton ok = new CButton("Yes");
-		ok.setActionCommand("Y");
-		ok.setName("Y");
-		ok.setMnemonic('Y');
-		ok.addActionListener(this);
-		ok.addKeyListener(this);
-
-		CButton cancel = new CButton("No");
-		cancel.setActionCommand("N");
-		cancel.setName("N");
-		cancel.setMnemonic('N');
-		cancel.addActionListener(this);
-		cancel.addKeyListener(this);
-
-		sth.add(ok);
-		sth.add(cancel);
-
-		JPanel main = new JPanel(new BorderLayout());
-		main.add(BorderLayout.NORTH, nrth);
-		main.add(BorderLayout.CENTER, center);
-		main.add(BorderLayout.SOUTH, sth);
-		getContentPane().add(main);
-		ok.requestFocus();
-		displayDialog();
-		
-		if(c != null && !rtnBln)
-			c.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		
-		return rtnBln;
-
-	}
+	
 	private SimpleAttributeSet previewFancyFont(SimpleAttributeSet attributes,
-			String fontNameChoice, int  fontSizeChoice,  boolean isBold,
+			String fontNameChoice, int fontSizeChoice, boolean isBold,
 			boolean isItalic, boolean isST, boolean isSubScript,
 			boolean isUnderline, Color fColor) {
-		    StyleConstants.setFontFamily(attributes, fontNameChoice);
-			StyleConstants.setFontSize(attributes, fontSizeChoice);
-			StyleConstants.setBold(attributes, isBold);
-			StyleConstants.setItalic(attributes, isItalic);
-			StyleConstants.setUnderline(attributes, isUnderline);
-			StyleConstants.setStrikeThrough(attributes, isST);
-			StyleConstants.setSubscript(attributes, isSubScript);
-			StyleConstants.setForeground(attributes, fColor);
-			DefaultStyledDocument doc = (DefaultStyledDocument) ff_SampleArea .getStyledDocument();
-			doc.setCharacterAttributes(0, 11, attributes, false);
+		StyleConstants.setFontFamily(attributes, fontNameChoice);
+		StyleConstants.setFontSize(attributes, fontSizeChoice);
+		StyleConstants.setBold(attributes, isBold);
+		StyleConstants.setItalic(attributes, isItalic);
+		StyleConstants.setUnderline(attributes, isUnderline);
+		StyleConstants.setStrikeThrough(attributes, isST);
+		StyleConstants.setSubscript(attributes, isSubScript);
+		StyleConstants.setForeground(attributes, fColor);
+		DefaultStyledDocument doc = (DefaultStyledDocument) ff_SampleArea
+				.getStyledDocument();
+		doc.setCharacterAttributes(0, 11, attributes, false);
 		return attributes;
 	}
-
 
 	private void repaintDate(int yy, int mm, int dd) {
 		GregorianCalendar calendar = new GregorianCalendar(yy, mm, 1);
@@ -675,7 +867,6 @@ public class CDialog extends JDialog  implements ActionListener, KeyListener,
 		}
 	}
 
-
 	private void setSelection(TextMonitor textArea, int xStart, int xFinish,
 			boolean moveUp) {
 		if (moveUp) {
@@ -688,8 +879,7 @@ public class CDialog extends JDialog  implements ActionListener, KeyListener,
 
 	public void showFindTextDialog(final TextMonitor ta) {
 		getContentPane().removeAll();
-		
-		wrng = new CDialog(null, cnct);  
+		wrng = new CDialog(null, cnct);
 		fndT = new JTextField(25);
 		rplcT = new JTextField(25);
 		textArea = ta;
@@ -767,16 +957,19 @@ public class CDialog extends JDialog  implements ActionListener, KeyListener,
 
 		JPanel p02 = new JPanel(new FlowLayout());
 		JPanel p = new JPanel(new GridFlowLayout(15, 15));
-		fnd = cnct.buildFancyButton("Find Next ", "ifind.gif", "Find Search String", 'f');
+		fnd = cnct.buildFancyButton("Find Next ", "ifind.gif",
+				"Find Search String", 'f');
 		fnd.setActionCommand("find");
 		fnd.addActionListener(this);
 		p.add(fnd, new GridFlowLayoutParameter(true, 1));
 
-		rplc = cnct.buildFancyButton("Replace ","iReplace.gif", "Replace String", 'r');
+		rplc = cnct.buildFancyButton("Replace ", "iReplace.gif",
+				"Replace String", 'r');
 		rplc.setActionCommand("replace");
 		rplc.addActionListener(this);
 		p.add(rplc, new GridFlowLayoutParameter(true, 1));
-		rplcAll = cnct.buildFancyButton("Replace All", "iReplace.gif", "Replace All ", 'a');
+		rplcAll = cnct.buildFancyButton("Replace All", "iReplace.gif",
+				"Replace All ", 'a');
 		rplcAll.setActionCommand("replaceAll");
 		rplcAll.addActionListener(this);
 		p.add(rplcAll, new GridFlowLayoutParameter(true, 1));
@@ -784,44 +977,44 @@ public class CDialog extends JDialog  implements ActionListener, KeyListener,
 		p02.add(p);
 		p2.add(p02, BorderLayout.EAST);
 
-
 		JPanel north = new JPanel(new BorderLayout());
 		north.add(BorderLayout.WEST,new JLabel(
 								"<html><p><font color=blue size=+1>Find & Replace</font></html>"));
 		north.add(BorderLayout.EAST, new JLabel(cnct.logoImageIcon));
-		add(north, BorderLayout.NORTH);
-		add(p2, BorderLayout.CENTER);
-		displayDialog();
+		JPanel main = new JPanel(new BorderLayout());
+		main.add(north, BorderLayout.NORTH);
+		main.add(p2, BorderLayout.CENTER);
+		displayDialog(null, main);
 
 	}
 
 	public void showInvalidConnectionDialog(String message) {
-		showMessageDialog("Network Request", message);
+		showMessageDialog("Network Request", message, null);
 	}
 
-	public void showInvalidEntryDialog(String message) {
-		showMessageDialog("Invalid Field Entry", message);
+	public void showInvalidEntryDialog(String message, Component c) {
+		showMessageDialog("Invalid Field Entry", message, c);
 	}
 
-	public void showRequestCompleteDialog(String message) {
-		showMessageDialog("Request Confirmation", message);
+	public void showRequestCompleteDialog(String message, Component c) {
+		showMessageDialog("Request Confirmation", message, c);
 	}
 
-	
-	public void showWaringDialog(String message) {
-		showMessageDialog("A Word Of Warning!", message);
-	}	
-				
-		
-	public void showMessageDialog(String title, String message) {
+	public void showWaringDialog(String message, Component c) {
+		showMessageDialog("A Word Of Wanring!", message, c);
+	}
+
+	public void showMessageDialog(String title, String message, Component c) {
 		getContentPane().removeAll();
 		JPanel north = new JPanel(new BorderLayout());
 		north.add(BorderLayout.WEST,
-				new JLabel("<html><p><font color=blue size=+1>" + title + "</font></html>"));
-		
-		north.add(BorderLayout.EAST, new JLabel(cnct.logoImageIcon));
+				new JLabel("<html><p><font color=blue size=+1>" + title
+						+ "</font></html>"));
+
+		north.add(BorderLayout.EAST, exit);
 		JPanel center = new JPanel(new GridFlowLayout(10, 10));
-		center.add(new JLabel(cnct.optionMessageIcon), new GridFlowLayoutParameter(true, 0));
+		center.add(new JLabel(cnct.optionMessageIcon),
+				new GridFlowLayoutParameter(true, 0));
 		center.add(new JLabel(message), new GridFlowLayoutParameter(false, 1));
 		JPanel south = new JPanel(new FlowLayout());
 		CButton ok = new CButton("OK");
@@ -837,28 +1030,28 @@ public class CDialog extends JDialog  implements ActionListener, KeyListener,
 		main.add(BorderLayout.CENTER, center);
 		main.add(BorderLayout.SOUTH, south);
 
-		getContentPane().add(main);
 		ok.requestFocus();
-		displayDialog();
+		displayDialog(c, main);
 	}
 
-	
 	public DataSet showLoginDialog(final DataSet ln) {
 		getContentPane().removeAll();
-		login  = ln;
+		login = ln;
 		JPanel north = new JPanel(new BorderLayout());
-		north.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+		north.setBorder(BorderFactory.createEtchedBorder());
 		north.add(BorderLayout.CENTER, new JLabel(cnct.banner));
 		un = new JTextField(15);
 		pw = new JPasswordField(15);
-		pw.setName("login");	
+		pw.setName("login");
 		pw.setActionCommand("login");
 		pw.addActionListener(this);
-		
+
 		JPanel center = new JPanel(new GridFlowLayout(10, 10));
-		center.add(new JLabel("User Name:"), new GridFlowLayoutParameter(true, 0));
+		center.add(new JLabel("User Name:"), new GridFlowLayoutParameter(true,
+				0));
 		center.add(un, new GridFlowLayoutParameter(false, 1));
-		center.add(new JLabel("Password:"),	new GridFlowLayoutParameter(true, 0));
+		center.add(new JLabel("Password:"),
+				new GridFlowLayoutParameter(true, 0));
 		center.add(pw, new GridFlowLayoutParameter(false, 1));
 		center.setPreferredSize(new Dimension(275, 60));
 		JPanel south = new JPanel(new FlowLayout());
@@ -868,7 +1061,7 @@ public class CDialog extends JDialog  implements ActionListener, KeyListener,
 		in.setName("login");
 		in.addActionListener(this);
 		in.addKeyListener(this);
-		
+
 		CButton cn = new CButton("Cancel");
 		cn.setActionCommand("N");
 		cn.setName("N");
@@ -881,189 +1074,208 @@ public class CDialog extends JDialog  implements ActionListener, KeyListener,
 		main.add(BorderLayout.CENTER, center);
 		main.add(BorderLayout.SOUTH, south);
 		getContentPane().add(main);
-		
-		displayDialog();
-		
-		if(rtnBln)
-		  return login;
+
+		displayDialog(null, main);
+
+		if (rtnBln)
+			return login;
 		else
-		  return null;	
+			return null;
 	}
 
-	
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
-		if(cmd.equals("Y")) {
+		if (cmd.equals("Y")) {
 			rtnBln = true;
 			dispose();
-			
-		} else if(cmd.equals("N")) {
+
+		} else if (cmd.equals("N")) {
 			rtnBln = false;
 			dispose();
-		
-		} else if(cmd.equals("date")) {
+
+		} else if (cmd.equals("date")) {
 			Integer y = (Integer) year.getValue();
 			int m = months.getSelectedIndex();
 			repaintDate(y.intValue(), m, dd);
-			
-		} else if(cmd.equals("date+")) {
-				int y = ((Integer) year.getValue()).intValue();
-				int m = months.getSelectedIndex() + 1;	
-				if(m == 12) {
-					y++;
-					m=0;
-				}	
-				months.setSelectedIndex(m);
-				year.setValue(new Integer(y));
-				repaintDate(y, m, dd);	
-		
-		} else if(cmd.equals("date-")) {
-				int y = ((Integer) year.getValue()).intValue();
-				int m = months.getSelectedIndex() - 1;	
-				if(m == -1) {
-					y--;
-					m=11;
-				}	
-				months.setSelectedIndex(m);
-				year.setValue(new Integer(y));
-				repaintDate(y, m, dd);	
 
-		
-		} else if(cmd.equals("date=")) {
-				rtnDate = new SimpleDateFormat("yyyyMMdd").format(new Date()); 
-				dispose();	
-				
-				
-		} else if(cmd.equals("find")) {
-				int result = findNext(false, isChkCase.isSelected(), 
-						s_rdUp.isSelected(), isChkWord.isSelected(), textArea, fndT,null, true);
-				if (result < 1)
-					wrng.showWaringDialog("Text String Not Found");
-				else
-					dispose();
-		
-				
-		} else if(cmd.equals("replace")) {
-				int result = findNext(true, isChkCase.isSelected(), s_rdUp
-						.isSelected(), isChkWord.isSelected(), textArea, fndT,
-						rplcT, true);
-				if (result < 1)
-					wrng.showWaringDialog("Replace String Not Found");
-	
-		
-		} else if(cmd.equals("replaceAll")) {
+		} else if (cmd.equals("date+")) {
+			int y = ((Integer) year.getValue()).intValue();
+			int m = months.getSelectedIndex() + 1;
+			if (m == 12) {
+				y++;
+				m = 0;
+			}
+			months.setSelectedIndex(m);
+			year.setValue(new Integer(y));
+			repaintDate(y, m, dd);
+
+		} else if (cmd.equals("date-")) {
+			int y = ((Integer) year.getValue()).intValue();
+			int m = months.getSelectedIndex() - 1;
+			if (m == -1) {
+				y--;
+				m = 11;
+			}
+			months.setSelectedIndex(m);
+			year.setValue(new Integer(y));
+			repaintDate(y, m, dd);
+
+		} else if (cmd.equals("date=")) {
+			rtnDate = new SimpleDateFormat("yyyyMMdd").format(new Date());
+			dispose();
+
+		} else if (cmd.equals("find")) {
+			int result = findNext(false, isChkCase.isSelected(), s_rdUp
+					.isSelected(), isChkWord.isSelected(), textArea, fndT,
+					null, true);
+			if (result < 1)
+				wrng.showWaringDialog("Text String Not Found", null);
+			else
+				dispose();
+
+		} else if (cmd.equals("replace")) {
+			int result = findNext(true, isChkCase.isSelected(), s_rdUp
+					.isSelected(), isChkWord.isSelected(), textArea, fndT,
+					rplcT, true);
+			if (result < 1)
+				wrng.showWaringDialog("Replace String Not Found", null);
+
+		} else if (cmd.equals("replaceAll")) {
 			while (true) {
 				int result = findNext(true, isChkCase.isSelected(), s_rdUp
-						.isSelected(), isChkWord.isSelected(), textArea,
-						fndT, rplcT, false);
+						.isSelected(), isChkWord.isSelected(), textArea, fndT,
+						rplcT, false);
 				if (result < 0) {// error
 					return;
 				} else if (result == 0) // no more
 					break;
 			}
-		
-		
-			
-		} else if(cmd.equals("fontc")) {
-			wrng = new CDialog(null, cnct);  
-			fColor.setBackground(wrng.showColorPickerDialog(fColor.getBackground()));
-			previewFancyFont(outAttrbts, 
-				fntNmCh.getSelectedItem().toString(), 
-				Integer.parseInt(fntSzCh.getSelectedItem().toString()),
-				isBld.isSelected(), isItlc.isSelected(), 
-				isST.isSelected(), isSS.isSelected(), isUndrlne.isSelected(),
-				fColor.getBackground());
-			
-		
-		} else if(cmd.equals("font+")) {
-			previewFancyFont(outAttrbts, 
-				fntNmCh.getSelectedItem().toString(), 
-				Integer.parseInt(fntSzCh.getSelectedItem().toString()),
-				isBld.isSelected(), isItlc.isSelected(), 
-				isST.isSelected(), isSS.isSelected(), isUndrlne.isSelected(),
-				fColor.getBackground());
-			
-			
-		} else if(cmd.equals("login")) {
-				rtnBln = true;
-				login.putStringField("[Login-UserName/]", un.getText());
-				try {
-					login.putStringField("[Login-Password/]",
-							CSHAPasswordField.sha1(new String(pw.getPassword())));
-				} catch (NoSuchAlgorithmException e1) {
-					login.putStringField("[Login-Password/]", "");
-				}
-				dispose();
-			}
-	}
 
-	
-	
-	public void keyPressed(KeyEvent e) {
-		String cmd = ((JComponent)e.getSource()).getName();
-		
-		if (cmd.equals("Y") && e.getKeyCode() == 10) {
-			rtnBln = true;
-			dispose();
-		
-		
-		} else if (cmd.equals("N") && e.getKeyCode() == 10) {
-			rtnBln = false;
-			dispose();
-		
-			
-		} else if (cmd.equals("login") && e.getKeyCode() == 10) {
+		} else if (cmd.equals("fontc")) {
+			wrng = new CDialog(null, cnct);
+			fColor.setBackground(wrng.showColorPickerDialog(fColor
+					.getBackground()));
+			previewFancyFont(outAttrbts, fntNmCh.getSelectedItem().toString(),
+					Integer.parseInt(fntSzCh.getSelectedItem().toString()),
+					isBld.isSelected(), isItlc.isSelected(), isST.isSelected(),
+					isSS.isSelected(), isUndrlne.isSelected(), fColor
+							.getBackground());
+
+		} else if (cmd.equals("font+")) {
+			previewFancyFont(outAttrbts, fntNmCh.getSelectedItem().toString(),
+					Integer.parseInt(fntSzCh.getSelectedItem().toString()),
+					isBld.isSelected(), isItlc.isSelected(), isST.isSelected(),
+					isSS.isSelected(), isUndrlne.isSelected(), fColor
+							.getBackground());
+
+		} else if (cmd.equals("login")) {
 			rtnBln = true;
 			login.putStringField("[Login-UserName/]", un.getText());
 			try {
-				login.putStringField("[Login-Password/]",
-						CSHAPasswordField.sha1(new String(pw.getPassword())));
+				login.putStringField("[Login-Password/]", CSHAPasswordField
+						.sha1(new String(pw.getPassword())));
 			} catch (NoSuchAlgorithmException e1) {
 				login.putStringField("[Login-Password/]", "");
 			}
 			dispose();
+
 		}
-	 
-		
 	}
 
+	public void keyPressed(KeyEvent e) {
+		String cmd = ((JComponent) e.getSource()).getName();
+
+		if (cmd.equals("Y") && e.getKeyCode() == 10) {
+			rtnBln = true;
+			dispose();
+			return;
+
+		} else if (cmd.equals("N") && e.getKeyCode() == 10) {
+			rtnBln = false;
+			dispose();
+			return;
+
+		} else if (cmd.equals("login") && e.getKeyCode() == 10) {
+			rtnBln = true;
+			login.putStringField("[Login-UserName/]", un.getText());
+			try {
+				login.putStringField("[Login-Password/]", CSHAPasswordField.sha1(new String(pw.getPassword())));
+			} catch (NoSuchAlgorithmException e1) {
+				login.putStringField("[Login-Password/]", "");
+			}
+			dispose();
+			return;
+		}
+		
+		if(calc != null) calcAction(KeyEvent.getKeyText(e.getKeyCode()));
+			
+	}
 
 	public void stateChanged(ChangeEvent e) {
 		Integer y = (Integer) year.getValue();
 		int m = months.getSelectedIndex();
 		repaintDate(y.intValue(), m, dd);
 	}
-	
+
 	public void mouseClicked(MouseEvent e) {
-		String cmd = ((JComponent)e.getSource()).getName();
-		if(DataSet.isInteger(cmd)) {
+		String cmd = ((JComponent) e.getSource()).getName();
+		
+		if(cmd.equals("calc")) {
+			calcAction( ((JTextField)e.getSource()).getText());	
+			
+		} else if (DataSet.isInteger(cmd)) {
 			int ry = ((Integer) year.getValue()).intValue() * 10000;
 			int rm = (months.getSelectedIndex() + 1) * 100;
-			int rd = Integer.parseInt(
-					mtday[DataSet.checkInteger(cmd)].getText());
+			int rd = Integer.parseInt(mtday[DataSet.checkInteger(cmd)]
+					.getText());
 			rtnDate = Integer.toString(ry + rm + rd);
+			rtnBln = true;
 			dispose();
 		}
 	}
-	
+
 	public void windowClosed(WindowEvent e) {
-		if(getParent() != null)
+		if (getParent() != null)
 			getParent().requestFocus();
 	}
-	
-	public void mouseEntered(MouseEvent e) {}
-	public void mouseExited(MouseEvent e) {}
-	public void mousePressed(MouseEvent e) {}
+
+	public void mouseEntered(MouseEvent e) { }
+
+	public void mouseExited(MouseEvent e) { }
+
+	public void mousePressed(MouseEvent e) {  }
+
 	public void mouseReleased(MouseEvent e) {}
-	public void keyReleased(KeyEvent e) {}
-	public void keyTyped(KeyEvent e) {}
-	public void windowActivated(WindowEvent e) {}
-	public void windowClosing(WindowEvent e) {}
-	public void windowDeactivated(WindowEvent e) {}
-	public void windowDeiconified(WindowEvent e) {}
-	public void windowIconified(WindowEvent e) {}
-	public void windowOpened(WindowEvent e) {}
-	
+
+	public void keyReleased(KeyEvent e) { }
+
+	public void keyTyped(KeyEvent e) { }
+
+	public void windowActivated(WindowEvent e) { }
+
+	public void windowClosing(WindowEvent e) { }
+
+	public void windowDeactivated(WindowEvent e) { }
+
+	public void windowDeiconified(WindowEvent e) {
+	}
+
+	public void windowIconified(WindowEvent e) {
+	}
+
+	public void windowOpened(WindowEvent e) {
+	}
+
+	public void mouseDragged(MouseEvent e) {
+		setCursor(Cursor.getPredefinedCursor(13));
+		Point p = e.getLocationOnScreen();
+		setLocation(p.x - (getWidth() / 2),  p.y - 10 );	
+	}
+
+	public void mouseMoved(MouseEvent e) {
+		setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+	}
+
 }
 
 class Utils {

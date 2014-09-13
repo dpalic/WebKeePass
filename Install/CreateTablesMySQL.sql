@@ -171,17 +171,7 @@ CREATE TABLE `wkpGroups` (
   `PrntID` int(11) NOT NULL default '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
- 
-INSERT INTO `wkpGroups` (`KeeperID`,`KeeperDesc`,`keeperIcon`,`CreateDate`,`LastUpdate`,`j1`,`PrntID`) VALUES 
- (1,'General','MNode1.gif','20070527','20070527','',0),
- (2,'Windows','MNode2.gif','20070527','20070527','',0),
- (3,'Network','MNode2.gif','20070527','20070527','',0),
- (4,'Internet','MNode3.gif','20070527','20070527','',0),
- (5,'eMail','MNode3.gif','20070527','20070527','',0),
- (6,'Homebanking','MNode4.gif','20070527','20070527','',0),
- (7,'General-Office','MNode1.gif','20070527','20070527','',1),
- (8,'General-Home','MNode1.gif','20070527','20070527','',1);
- 
+
 
 DROP TABLE IF EXISTS `wkpPasswordCrypt`;
 CREATE TABLE `wkpPasswordCrypt` (

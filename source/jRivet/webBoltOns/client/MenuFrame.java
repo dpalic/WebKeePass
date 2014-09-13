@@ -1534,7 +1534,7 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 		
 		updThm = cntr.postServerRequestImed(updThm);
 		cntr.postServerRequestImed(updThm);			
-		optionCnf.showRequestCompleteDialog("Theme Updated");
+		optionCnf.showRequestCompleteDialog("Theme Updated", null);
 		
 		cntr.bgColor = bgClrBtn.getBackground();
 		cntr.crsColor = crsClrBtn.getBackground();

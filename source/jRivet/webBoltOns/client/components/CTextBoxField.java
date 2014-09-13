@@ -79,7 +79,7 @@ public class CTextBoxField extends JTextField
    implements StandardComponentLayout, KeyListener, FocusListener, MouseListener {
 
 	private static final long serialVersionUID = -3343059845815975451L;
-	protected Hashtable keys;
+	protected Hashtable<Object, Object> keys;
 	protected JLabel textBoxLabel;
 	protected WindowItem comp;
 	protected WindowFrame mFrm;
@@ -94,7 +94,7 @@ public class CTextBoxField extends JTextField
 		comp = thisItem;
 		cnct = mainFrame.getAppletConnector();
 		dataType = comp.getDataType();
-		keys = new Hashtable();
+		keys = new Hashtable<Object, Object>();
 		setName(Integer.toString(comp.getObjectHL()));
 		setFont(cnct.standardFont);
 		setBackground(Color.WHITE);
@@ -424,7 +424,7 @@ public class CTextBoxField extends JTextField
 
 			} else if (dataType.equals("DAT")) {
 				CDialog dp = new CDialog(mFrm.getWindowFrame(), cnct);
-				commitEditing(dp.showDatePickerDialog(getText()));
+				commitEditing(dp.showDatePickerDialog(getText(), this));
 			}
 		}
 		
@@ -467,7 +467,7 @@ public class CTextBoxField extends JTextField
 		
 		if(dataType.equals("DAT")) {
 			CDialog dp = new CDialog(mFrm.getWindowFrame(), cnct);
-			commitEditing(dp.showDatePickerDialog(getText()));
+			commitEditing(dp.showDatePickerDialog(getText(), this));
 		} else if(!comp.getLink().equals("")) 
 				mFrm.actionScriptLinkPerformed(comp.getLink(), 
 								comp.getFieldName(), comp.getObjectHL());

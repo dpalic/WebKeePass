@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import components.CipherString;
+
 public class DataBaseInstaller {
 
 	Connection con;
@@ -21,6 +23,8 @@ public class DataBaseInstaller {
 	StringBuffer msg;
 
 	StringBuffer buffer;
+	
+ 
 
 	String myQry1 = "INSERT INTO `jrUsers` (`UserID`,`GroupID`,`UserDescription`,`Name`,`Address1`,`Address2`,`Address3`,`Address4`,`Phone1`,"
 			+ "`Phone2`,`Fax`,`Email`,`WebSite`,`Notes`,`CreateDate`,`ActiveDate`,`InActiveDate`,`LastChangeDate`,`ActiveUser`,"
@@ -32,6 +36,10 @@ public class DataBaseInstaller {
 			+ " ( ?, ?, ?, ?, '','','','','',NULL,'','','',NULL,NULL,NULL,'','20060706',1,255,255,255,100,255,100,250,250,250,0,0,0,0,0,0,250,220,250,"
 			+ "'Arial',11,0,1,'Arial',11,0,0,0,0,?) ";
 
+	
+	String myQry2 = "INSERT INTO `wkpGroups` (`KeeperID`,`KeeperDesc`,`keeperIcon`,`CreateDate`,`LastUpdate`,`j1`,`PrntID`) " +
+			" VALUES   (?, ? ,'MNode1.gif','20070101','200700101',? ,0) ";
+	
 	String drbyQry1 = "INSERT INTO  jrUsers  ( UserID , GroupID , UserDescription , Name , Address1 , Address2 , Address3 , Address4 , Phone1 ,"
 			+ " Phone2 , Fax , Email , WebSite , Notes , CreateDate , ActiveDate , InActiveDate , LastChangeDate , ActiveUser ,"
 			+ " BackGroundColorRed , BackGroundColorBlue , BackGroundColorGreen , TitleBarColorRed , TitleBarColorBlue , TitleBarColorGreen ,"
@@ -42,7 +50,12 @@ public class DataBaseInstaller {
 			+ " ( ?, ?, ?, ?, '','','','','',NULL,'','','',NULL,NULL,NULL,'','20060706',1,255,255,255,100,255,100,250,250,250,0,0,0,0,0,0,250,220,250,"
 			+ "'Arial',11,0,1,'Arial',11,0,0,0,0,?) ";
 
-	public boolean installDB(String database, String userDB, String pswdDB, String sqlFile, 
+	
+	String drbyQry2 = "INSERT INTO wkpGroups (KeeperID, KeeperDesc,keeperIcon,CreateDate,LastUpdate,j1,PrntID) " +
+			" VALUES (?, ?, 'MNode1.gif','20070101','20070101',? ,0) ";
+	 
+	
+	public boolean installDB(CipherString cs, String database, String userDB, String pswdDB, String sqlFile, 
 											String userA, String pswdA, String userS, String pswdS) {
 		try {
 			msg = new StringBuffer();
@@ -81,7 +94,75 @@ public class DataBaseInstaller {
 			ps.setString(4, "User 1");
 			ps.setString(5, pswdS);
 			ps.executeUpdate();
+			ps.close();
+			
+			ps = con.prepareStatement(myQry2);
+			int c = 1;
+			
+			ps.setInt(1, c++);
+			ps.setString(2, "General");
+			ps.setString(3, cs.encrypt(userA));
+			ps.executeUpdate();
 
+			ps.setInt(1, c++);
+			ps.setString(2, "Email");
+			ps.setString(3, cs.encrypt(userA));
+			ps.executeUpdate();
+			
+			ps.setInt(1, c++);
+			ps.setString(2, "Internet");
+			ps.setString(3, cs.encrypt(userA));
+			ps.executeUpdate();
+			
+			ps.setInt(1, c++);
+			ps.setString(2, "Home");
+			ps.setString(3, cs.encrypt(userA));
+			ps.executeUpdate();
+			
+			ps.setInt(1, c++);
+			ps.setString(2, "Office");
+			ps.setString(3, cs.encrypt(userA));
+			ps.executeUpdate();
+			
+			ps.setInt(1, c++);
+			ps.setString(2, "Other");
+			ps.setString(3, cs.encrypt(userA));
+			ps.executeUpdate();
+			
+			
+			
+			
+			ps.setInt(1, c++);
+			ps.setString(2, "General");
+			ps.setString(3, cs.encrypt(userS));
+			ps.executeUpdate();
+
+			ps.setInt(1, c++);
+			ps.setString(2, "Email");
+			ps.setString(3, cs.encrypt(userS));
+			ps.executeUpdate();
+			
+			ps.setInt(1, c++);
+			ps.setString(2, "Internet");
+			ps.setString(3, cs.encrypt(userS));
+			ps.executeUpdate();
+			
+			ps.setInt(1, c++);
+			ps.setString(2, "Home");
+			ps.setString(3, cs.encrypt(userS));
+			ps.executeUpdate();
+			
+			ps.setInt(1, c++);
+			ps.setString(2, "Office");
+			ps.setString(3, cs.encrypt(userS));
+			ps.executeUpdate();
+			
+			ps.setInt(1, c++);
+			ps.setString(2, "Other");
+			ps.setString(3, cs.encrypt(userS));
+			ps.executeUpdate();
+			
+			
 			stm.close();
 			ps.close();
 			con.close();
@@ -94,7 +175,7 @@ public class DataBaseInstaller {
 		return true;
 	}
 
-	public boolean installEmbeded(String path, String key1, String userDB, String pswdDB, 
+	public boolean installEmbeded(CipherString cs, String path, String key1, String userDB, String pswdDB, 
 									String sqlFile, String userA, String pswdA, String userS, String pswdS) {
 		try {
 			msg = new StringBuffer();
@@ -125,7 +206,61 @@ public class DataBaseInstaller {
 			ps.setString(4, "User 1");
 			ps.setString(5, pswdS);
 			ps.executeUpdate();
+			ps.close();
+			
+			ps = con.prepareStatement(drbyQry2);
+			int c = 1;
+			
+			ps.setInt(1, c++);
+			ps.setString(2, "General");
+			ps.setString(3, cs.encrypt(userA));
+			ps.executeUpdate();
 
+			ps.setInt(1, c++);
+			ps.setString(2, "Email");
+			ps.setString(3, cs.encrypt(userA));
+			ps.executeUpdate();
+			
+			ps.setInt(1, c++);
+			ps.setString(2, "Internet");
+			ps.setString(3, cs.encrypt(userA));
+			ps.executeUpdate();
+			
+			ps.setInt(1, c++);
+			ps.setString(2, "Home");
+			ps.setString(3, cs.encrypt(userA));
+			ps.executeUpdate();
+			
+			ps.setInt(1, c++);
+			ps.setString(2, "Office");
+			ps.setString(3, cs.encrypt(userA));
+			ps.executeUpdate();
+			
+			ps.setInt(1, c++);
+			ps.setString(2, "General");
+			ps.setString(3, cs.encrypt(userS));
+			ps.executeUpdate();
+
+			ps.setInt(1, c++);
+			ps.setString(2, "Email");
+			ps.setString(3, cs.encrypt(userS));
+			ps.executeUpdate();
+			
+			ps.setInt(1, c++);
+			ps.setString(2, "Internet");
+			ps.setString(3, cs.encrypt(userS));
+			ps.executeUpdate();
+			
+			ps.setInt(1, c++);
+			ps.setString(2, "Home");
+			ps.setString(3, cs.encrypt(userA));
+			ps.executeUpdate();
+			
+			ps.setInt(1, c++);
+			ps.setString(2, "Office");
+			ps.setString(3, cs.encrypt(userS));
+			ps.executeUpdate();
+			
 			stm.close();
 			ps.close();
 			con.close();

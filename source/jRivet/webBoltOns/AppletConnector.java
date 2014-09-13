@@ -701,12 +701,12 @@ public class AppletConnector extends JApplet {
 			String npw2 = new String(npwf2.getPassword());
 			
 			if(npw1.equals("") || npw2.equals("") || opw.equals("")) {
-				cp.showMessageDialog("Change My Password", "Password cannot be blanks");
+				cp.showMessageDialog("Change My Password", "Password cannot be blanks", null);
 				return;
 			}
 			
 			if(npw1.length() < 5 || npw2.length() < 5) {
-				cp.showMessageDialog("Change My Password", "New Password not valid");
+				cp.showMessageDialog("Change My Password", "New Password not valid", null);
 				return;
 			}
 				
@@ -721,7 +721,7 @@ public class AppletConnector extends JApplet {
 			ds.putStringField(WindowItem.METHOD, "changeMyPassword");	
 			ds = postServerRequestImed(ds);
 			
-			cp.showMessageDialog("Change My Password", ds.getStringField("[response/]"));
+			cp.showMessageDialog("Change My Password", ds.getStringField("[response/]"), null);
 		
 			opwf.setText(null);
 			npwf1.setText(null);

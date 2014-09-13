@@ -35,15 +35,12 @@ CREATE TABLE jrGroupAccess (
 
  
 INSERT INTO jrGroupAccess (GroupID,MenuItem,GroupItemDescription,ItemAccessLevel,LastChangeDate) VALUES 
- ('Admins','ICMENU','Inventory Control',3,NULL),
- ('Admins','WKP-MyPasswords','Work With My Passwords',3,NULL),
  ('Users','WKP-MyPasswords','Work With My Passwords',3,NULL),
  ('Users','UserAdmin130','List Web Users',1,NULL),
  ('Users','UserAdmin110','Edit Web Users',1,NULL),
  ('Users','UserAdmin120','List Web User Groups',1,NULL),
  ('Users','UserAdmin100','Edit Web User Groups',1,NULL),
- ('Users','WKP-Users','Work With Web Users',1,NULL),
- ('Admins','WKP-Users','Work With Web Users',3,NULL);
+ ('Users','WKP-Users','Work With Web Users',1,NULL);
  
 
  
@@ -167,17 +164,7 @@ CREATE TABLE wkpGroups (
   PrntID int 
 );
 
- 
-INSERT INTO wkpGroups (KeeperID, KeeperDesc,keeperIcon,CreateDate,LastUpdate,j1,PrntID) VALUES 
- (1,'General','MNode1.gif','20070101','20070101','',0),
- (2,'Windows','MNode2.gif','20070101','20070101','',0),
- (3,'Network','MNode2.gif','20070101','20070101','',0),
- (4,'Internet','MNode3.gif','20070101','20070101','',0),
- (5,'eMail','MNode3.gif','20070101','20070101','',0),
- (6,'Homebanking','MNode4.gif','20070101','20070101','',0),
- (7,'General-Office','MNode1.gif','20070101','20070101','',1),
- (8,'General-Home','MNode1.gif','20070101','20070101','',1);
- 
+
 
  
 CREATE TABLE wkpPasswordCrypt (
@@ -207,4 +194,15 @@ CREATE TABLE wkpPasswordCrypt (
   KeeperID int 
 );
 
- 
+CREATE TABLE  wkpPasswordAKin  (AKinID  int NOT NULL PRIMARY KEY,
+   z0  varchar(50) default NULL,
+   y1  varchar(50) default NULL,
+   x2  varchar(50) default NULL,  
+   w3  varchar(50) default NULL, 
+   v4  varchar(50) default NULL, 
+   u5  varchar(50) default NULL,
+   t6  varchar(50) default NULL,  
+   s7  varchar(50) default NULL,
+   t8  varchar(50) default NULL, 
+   r9  varchar(50) default NULL,
+   PasswordID int); 

@@ -243,7 +243,7 @@ public class CImageBoxField  extends JPanel implements StandardComponentLayout {
 				imageLabel.setIcon(image);
 				mFrm.doEditClick();
 			} catch (IOException ex) {
-				dialog.showWaringDialog("The Selected File Was Not Found");
+				dialog.showWaringDialog("The Selected File Was Not Found", imageLabel);
 			} finally {
 				if (icon != null) {
 					try {
@@ -290,19 +290,19 @@ public class CImageBoxField  extends JPanel implements StandardComponentLayout {
 				if(file.getName().toLowerCase().endsWith(".gif")) {
 					out = new FileOutputStream(file);
 					if(!GIFEncoder.encode(out,imageLabel)) 
-						dialog.showWaringDialog("File Could  Not Be Saved");
+						dialog.showWaringDialog("File Could  Not Be Saved", imageLabel);
 				} else if (file.getName().toLowerCase().endsWith(".jpg")) {	
 					out = new FileOutputStream(file);
 					if(!JPEGEncoder.encode(out,imageLabel)) 
-						dialog.showWaringDialog("File Could  Not Be Saved");
+						dialog.showWaringDialog("File Could  Not Be Saved", imageLabel);
 				} else {
-					dialog.showWaringDialog("File must end in .gif or .jpg - File format not correct");	
+					dialog.showWaringDialog("File must end in .gif or .jpg - File format not correct", imageLabel);	
 					return;
 				}
 				
 				
 			} catch (FileNotFoundException e) {
-				dialog.showWaringDialog("File Could  Not Be Saved ");
+				dialog.showWaringDialog("File Could  Not Be Saved ", imageLabel);
 			}
 			if (out != null) {
 				try {

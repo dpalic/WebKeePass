@@ -1128,9 +1128,9 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 		 		CDialog optCfm = new CDialog(getWindowFrame(), cntr);
 				mFrm.getToolkit().beep();
 				if(field != null)
-					optCfm.showMessageDialog(field, text);
+					optCfm.showMessageDialog(field, text, null);
 				else			
-					optCfm.showWaringDialog(text);
+					optCfm.showWaringDialog(text, null);
 	}
 
 	
@@ -1375,12 +1375,14 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 			updateObjectProperty(dSet);
 			if(!updateMessagePanel(dSet)) { 
 				mFrm.getToolkit().beep();
-				optCfm.showRequestCompleteDialog("Request Not Complete: Review Errors Below");
+				optCfm.showRequestCompleteDialog("Request Not Complete: Review Errors Below", 
+						((JComponent)source.getSource()));
 			} else {
 				sendTableToWindow(cmd); 
 				if(cmd.equals(WindowItem.POST_RECORD) || cmd.equals(WindowItem.POST_LINE)  
 														||	cmd.equals(WindowItem.DELETE_LINE)) { 
-					optCfm.showRequestCompleteDialog("Server Request Completed");
+					optCfm.showRequestCompleteDialog("Server Request Completed", 
+							((JComponent)source.getSource()));
 					if(find != null) find.doClick();
 			 }
 			 dSet.putStringField(WindowItem.CLASSNAME, clsNme);
@@ -1695,21 +1697,22 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 	 */
 	 public boolean isVaildCharacter(KeyEvent e, int hl, boolean allSelected ) {
 		CDialog optCfm = new CDialog(getWindowFrame(), cntr);
+		Component cmp = cmpntTree[hl].getComponentObject();
 		
 		final char nchr = e.getKeyChar();
 		final String dataType = cmpntTree[hl].getDataType();
 		final int datalength = cmpntTree[hl].getDataLength();
 		int currentLenght = -1;
 		
-		if(cmpntTree[hl].getComponentObject() instanceof CTextBoxField)
+		if(cmp instanceof CTextBoxField)
 			currentLenght = ((CTextBoxField)cmpntTree[hl]
 											.getComponentObject()).getText().length();
 			
-		if(cmpntTree[hl].getComponentObject() instanceof CSpinnerField)
+		if(cmp instanceof CSpinnerField)
 			currentLenght = (( CSpinnerField)cmpntTree[hl]
 											.getComponentObject()).getSelectedComponentItem().length();
 		
-		if(cmpntTree[hl].getComponentObject() instanceof StandardComponentLayout)
+		if(cmp instanceof StandardComponentLayout)
 			((StandardComponentLayout)cmpntTree[hl].getComponentObject()).setValid(true);
 		
 		
@@ -1729,7 +1732,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 				((StandardComponentLayout)cmpntTree[hl].getComponentObject()).setValid(false);
 				mFrm.getToolkit().beep();
 				optCfm.showInvalidEntryDialog("<html><p>" + cmpntTree[hl].getDescription()
-						+ " Max Length: " + datalength + "</html>");
+						+ " Max Length: " + datalength + "</html>", cmp);
 				e.consume();
 				((StandardComponentLayout)cmpntTree[hl].getComponentObject()).setValid(true);
 				return false;
@@ -1740,7 +1743,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 					((StandardComponentLayout)cmpntTree[hl].getComponentObject()).setValid(false);
 					mFrm.getToolkit().beep();
 					optCfm.showInvalidEntryDialog("<html><p>" + cmpntTree[hl].getDescription()
-							+ " must be numeric </html>");
+							+ " must be numeric </html>", cmp);
 					e.consume();
 					((StandardComponentLayout)cmpntTree[hl].getComponentObject()).setValid(true);
 					return false;
@@ -1753,7 +1756,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 					((StandardComponentLayout)cmpntTree[hl].getComponentObject()).setValid(false);
 					mFrm.getToolkit().beep();
 					optCfm.showInvalidEntryDialog("<html><p>"+ cmpntTree[hl].getDescription()
-							+ " must be numeric </html>");
+							+ " must be numeric </html>", cmp);
 					e.consume();
 					((StandardComponentLayout)cmpntTree[hl].getComponentObject()).setValid(true);
 					return false;
@@ -1775,6 +1778,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 	
 	  public boolean isVaildValue(String value, int hl) {
 		CDialog optCfm = new CDialog(getWindowFrame(), cntr);
+		JComponent cmp = cmpntTree[hl].getComponentObject();
 		String dataType = cmpntTree[hl].getDataType();
 		if(value == null) value = "";
 		
@@ -1783,34 +1787,34 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 				value = "0";
 
 		if (dataType.equals("INT") && !DataSet.isInteger(value)) {
-			((StandardComponentLayout)cmpntTree[hl].getComponentObject()).setValid(false);
+			((StandardComponentLayout) cmp).setValid(false);
 			mFrm.getToolkit().beep();
 			optCfm.showInvalidEntryDialog("<html><p>" + cmpntTree[hl].getDescription()
-					+ " must be numeric </html>");
+					+ " must be numeric </html>", cmp);
 			((StandardComponentLayout)cmpntTree[hl].getComponentObject()).setValid(true);
 			return false;
 
 		} else if (dataType.equals("FLT") && !DataSet.isDouble(value)) {
-			((StandardComponentLayout)cmpntTree[hl].getComponentObject()).setValid(false);
+			((StandardComponentLayout)cmp).setValid(false);
 			mFrm.getToolkit().beep();
 			optCfm.showInvalidEntryDialog("<html><p>" + cmpntTree[hl].getDescription()
-					+ " must be numeric </html>");
-			((StandardComponentLayout)cmpntTree[hl].getComponentObject()).setValid(true);
+					+ " must be numeric </html>", cmp);
+			((StandardComponentLayout)cmp).setValid(true);
 			return false;
 
 		} else if (dataType.equals("DAT") && !value.equals("") &&!DataSet.isDate(value)) {
-			((StandardComponentLayout)cmpntTree[hl].getComponentObject()).setValid(false);
+			((StandardComponentLayout)cmp).setValid(false);
 			mFrm.getToolkit().beep();
 			optCfm.showInvalidEntryDialog("<html><p>"+ cmpntTree[hl].getDescription()
-					+ " must be a valid date </html>");
+					+ " must be a valid date </html>", cmp);
 			((StandardComponentLayout)cmpntTree[hl].getComponentObject()).setValid(true);
 			return false;
 		
 		} else if (dataType.equals("TIM") && !value.equals("") &&!DataSet.isTime(value)) {
-			((StandardComponentLayout)cmpntTree[hl].getComponentObject()).setValid(false);
+			((StandardComponentLayout)cmp).setValid(false);
 			mFrm.getToolkit().beep();
 			optCfm.showInvalidEntryDialog("<html><p>" + cmpntTree[hl].getDescription()
-					+ " must be a valid Time as (hh:mm:ss) </html>");
+					+ " must be a valid Time as (hh:mm:ss) </html>", cmp);
 			((StandardComponentLayout)cmpntTree[hl].getComponentObject()).setValid(true);
 			return false;
 		

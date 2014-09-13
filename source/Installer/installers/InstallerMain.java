@@ -34,8 +34,10 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.BevelBorder;
 
+import components.CipherString;
 import components.GridFlowLayout;
 import components.GridFlowLayoutParameter;
+import components.CipherString.EncryptionException;
 
 public class InstallerMain implements ActionListener, MouseListener{
 
@@ -503,26 +505,29 @@ public class InstallerMain implements ActionListener, MouseListener{
 
 	
 	public boolean installDB() {	
-		if(db_T.isEditable()) {
-			if(!data.installDB(
-				db_T.getText().trim(), 
-				usr_DB.getText().trim(), pw_DB.getText().trim(),"Install/CreateTablesMySQL.sql", 
-				usr_ADM.getText().trim(), sha1(pw_ADM.getText().trim()),
-				usr_USR.getText().trim(), sha1(pw_USR.getText().trim()))
-				)
-				return false;
+		try {
+		  if(db_T.isEditable()) {
+				if(!data.installDB(
+					new CipherString(sha1(key_A.getText().trim())),
+					db_T.getText().trim(), 
+					usr_DB.getText().trim(), pw_DB.getText().trim(),"Install/CreateTablesMySQL.sql", 
+					usr_ADM.getText().trim(), sha1(pw_ADM.getText().trim()),
+					usr_USR.getText().trim(), sha1(pw_USR.getText().trim())))
+					return false;
 			
-		} else {
+		 } else {
 			if(!data.installEmbeded(
+					new CipherString(sha1(key_A.getText().trim())),
 					path_T.getText(), key1,
 					"webkeepass", "passkeeweb" ,"Install/CreateTablesEmbeded.sql", 
 					usr_ADM.getText().trim(), sha1(pw_ADM.getText().trim()),
-					usr_USR.getText().trim(), sha1(pw_USR.getText().trim()))
-					)
+					usr_USR.getText().trim(), sha1(pw_USR.getText().trim())))
 				return false;			
 			
-		}
-		
+		 }
+		} catch (EncryptionException e) {
+			return false;	
+		}		
 		return true;
 	}
 	

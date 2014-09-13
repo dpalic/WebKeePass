@@ -534,45 +534,31 @@ public class UserSecurityManager {
 	/* */	
 	private DataSet updGroupAccessDetails(DataSet groupAccess, DataAccess dataAccess) {
 		String groupID = groupAccess.getStringField("GroupID");
-		String[] rowObject = null;
-		String updateFields = "";
-		String updateValues = "";
-		String insertExpressions = "";
-		PreparedStatement sqlIStatement = null;
-		PreparedStatement sqlUStatement = null;
+		String[] rw = null; 
+		PreparedStatement sqlI = null;
+		PreparedStatement sqlUd = null;
 		try {
-			updateFields = DataAccess.addToArgumentList(updateFields, "GroupID");
-			updateValues = DataAccess.addToArgumentList(updateValues, "?");
-			updateFields = DataAccess.addToArgumentList(updateFields,"GroupItemDescription");
-			updateValues = DataAccess.addToArgumentList(updateValues, "?");
-			updateFields = DataAccess.addToArgumentList(updateFields, "MenuItem");
-			updateValues = DataAccess.addToArgumentList(updateValues, "?");
-			updateFields = DataAccess.addToArgumentList(updateFields,"ItemAccessLevel");
-			updateValues = DataAccess.addToArgumentList(updateValues, "?");
-			sqlIStatement = dataAccess.execPreparedConnect("INSERT INTO jrGroupAccess ("
-							+ updateFields + " ) VALUES (" + updateValues + ")");
-			
-			insertExpressions = DataAccess.addToArgumentList(insertExpressions, "ItemAccessLevel = ? ");
-			sqlUStatement = dataAccess.execPreparedConnect("UPDATE jrGroupAccess SET "
-							+ insertExpressions
-							+ " WHERE GroupID = ? And  MenuItem = ?");
+			sqlI = dataAccess.execPreparedConnect(
+					"INSERT INTO jrGroupAccess (GroupID, GroupItemDescription, MenuItem, ItemAccessLevel) VALUES (?, ?, ?, ?)");
+			sqlUd = dataAccess.execPreparedConnect(
+					"UPDATE jrGroupAccess SET ItemAccessLevel = ?  WHERE GroupID = ? And  MenuItem = ?");
 
 			Enumeration groupAccessLevels = groupAccess.getTableVector("[MenuDataTop/]").elements();
 
 			while (groupAccessLevels.hasMoreElements()) {
-				rowObject = (String[]) groupAccessLevels.nextElement();
+				rw = (String[]) groupAccessLevels.nextElement();
 
-				if (isNewGroupAccess(groupID, rowObject[1], dataAccess)) {
-					sqlIStatement.setString(1, groupID);
-					sqlIStatement.setString(2, rowObject[0]);
-					sqlIStatement.setString(3, rowObject[1]);
-					sqlIStatement.setInt(4, DataSet.checkInteger(rowObject[3]));
-					sqlIStatement.executeUpdate();
+				if (isNewGroupAccess(groupID, rw[1], dataAccess)) {
+					sqlI.setString(1, groupID);
+					sqlI.setString(2, rw[0]);
+					sqlI.setString(3, rw[1]);
+					sqlI.setInt(4, DataSet.checkInteger(rw[3]));
+					sqlI.executeUpdate();
 				} else {
-					sqlUStatement.setInt(1, DataSet.checkInteger(rowObject[3]));
-					sqlUStatement.setString(2, groupID);
-					sqlUStatement.setString(3, rowObject[1]);
-					sqlUStatement.executeUpdate();
+					sqlUd.setInt(1, DataSet.checkInteger(rw[3]));
+					sqlUd.setString(2, groupID);
+					sqlUd.setString(3, rw[1]);
+					sqlUd.executeUpdate();
 				}
 			}
 
@@ -580,8 +566,8 @@ public class UserSecurityManager {
 			dataAccess.logMessage(" *UserSecurityManager.updGroupAccessDetails*  --  " + ex );
 			groupAccess.addMessage("SVR0001");
 		} finally {
-			dataAccess.execClose(sqlIStatement);
-			dataAccess.execClose(sqlUStatement);
+			dataAccess.execClose(sqlI);
+			dataAccess.execClose(sqlUd);
 		}
 		return groupAccess;
 	}

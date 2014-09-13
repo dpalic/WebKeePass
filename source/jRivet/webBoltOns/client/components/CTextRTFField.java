@@ -115,10 +115,10 @@ public class CTextRTFField extends CTextHTMLField implements
 				mFrm.doEditClick();
 			} catch (IOException ex) {
 				dialog = new CDialog(mFrm.getWindowFrame(), cnct);
-				dialog.showWaringDialog("The Selected File Was Not Found");
+				dialog.showWaringDialog("The Selected File Was Not Found", CTextRTFField.this);
 			} catch (BadLocationException e) {
 				dialog = new CDialog(mFrm.getWindowFrame(), cnct);
-				dialog.showWaringDialog("The Selected File Was Not Found");
+				dialog.showWaringDialog("The Selected File Was Not Found", CTextRTFField.this);
 			} finally {
 				if (reader != null) {
 					try {
@@ -157,10 +157,10 @@ public class CTextRTFField extends CTextHTMLField implements
 				rtf.write(out, doc, 0, doc.getLength());
 			} catch (IOException ex) {
 				dialog = new CDialog(mFrm.getWindowFrame(), cnct);
-				dialog.showWaringDialog("File Could  Not Be Saved - File Locked");
+				dialog.showWaringDialog("File Could  Not Be Saved - File Locked", CTextRTFField.this);
 			} catch (BadLocationException e) {
 				dialog = new CDialog(mFrm.getWindowFrame(), cnct);
-				dialog.showWaringDialog("File Could  Not Be Saved - File Error");
+				dialog.showWaringDialog("File Could  Not Be Saved - File Error", CTextRTFField.this);
 		} finally {
 				if (out != null) {
 					try {

@@ -121,7 +121,7 @@ public class CFilePrompt extends JPanel implements StandardComponentLayout {
 				in.read(buf);
 
 			} catch (IOException ex) {
-				dialog.showWaringDialog("The Selected File Was Not Found");
+				dialog.showWaringDialog("The Selected File Was Not Found", prompt);
 			} finally {
 				if (in != null) {
 				try {
@@ -164,7 +164,7 @@ public class CFilePrompt extends JPanel implements StandardComponentLayout {
 				out.write(dataSet.getStreamArray(editorName));
 			
 			} catch (IOException e) {
-				dialog.showWaringDialog("File Could  Not Be Saved ");
+				dialog.showWaringDialog("File Could  Not Be Saved ", prompt);
 			}
 			if (out != null) {
 				try {

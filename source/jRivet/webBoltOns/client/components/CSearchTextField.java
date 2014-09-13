@@ -433,7 +433,7 @@ public class CSearchTextField extends CTextBoxField implements
 			} else if (dataType.equals("DAT")) {
 				CDialog datePicker = new CDialog(mFrm.getWindowFrame(), cnct);
 				String oldDate = getText();
-				String newdate = datePicker.showDatePickerDialog(oldDate);
+				String newdate = datePicker.showDatePickerDialog(oldDate, searchSelector );
 				commitEditing(newdate);
 			}
 		}
