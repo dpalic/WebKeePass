@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS `_sequences`;
-CREATE TABLE `_sequences` (
+DROP TABLE IF EXISTS `wkpSeqCrypt`;
+CREATE TABLE `wkpSeqCrypt` (
   `TableName` char(64) NOT NULL default '',
   `Seq` int(11) unsigned NOT NULL default '0',
   PRIMARY KEY  (`TableName`),
@@ -8,7 +8,7 @@ CREATE TABLE `_sequences` (
  
 
  
-INSERT INTO `_sequences` (`TableName`,`Seq`) VALUES 
+INSERT INTO `wkpSeqCrypt` (`TableName`,`Seq`) VALUES 
  ('wkpGroups',13),
  ('wkpPasswordCrypt',4),
  ('wkpCryptHistory',9);
