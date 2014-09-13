@@ -5,9 +5,9 @@
 <!--	 	 Description :  Edit Passwords -->
 <!--	 	 Server Class :  server.TheCrypt -->
 <!--	 	 Initalization Method :   -->
-<!--	 	 File Path :  /home/java/WKP11/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass002.xml -->
-<!--	 	 Last Update :  30-Jun-2007 -->
-<!--	 	 User Profile:  root -->
+<!--	 	 File Path :  /home/java/Projects/JavaProjects/jRivet-KeePass/apache-tomcat-5.5.20/webapps/KeePass/WEB-INF/XML/KeePass002.xml -->
+<!--	 	 Last Update :  02-Jun-2007 -->
+<!--	 	 User Profile:  admin -->
 <SCRIPT SCRIPT_NAME="KeePass002" DOCUMENT_TYPE="Window" CLASS_NAME="server.TheCrypt" AUTO_REFRESH="true" DESCRIPTION="Edit Passwords" Screen_Title="Edit Passwords" WIDTH="800" HEIGHT="620">
   <ButtonBar>
     <BarButton TYPE="CLEAR" DESCRIPTION="Clear/New " ICON="iClear.gif" />
@@ -28,6 +28,8 @@
 	<Button FIELDNAME="b9" ICON="clip.gif" POSITION="Center" METHOD="CLIP_FIELD" />
 	<PasswordEditor FIELDNAME="c8" DESCRIPTION="Password" LENGTH="25" DATA_LEN="50" POSITION="Left" HIDDEN="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<Button FIELDNAME="c8" ICON="clip.gif" POSITION="Center" METHOD="CLIP_FIELD" />
+	<TextField FIELDNAME="d7" DESCRIPTION="Create Date" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+	<TextField FIELDNAME="e6" DESCRIPTION="Last Update" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<TextField FIELDNAME="f5" DESCRIPTION="Expires" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
 	<CheckBox FIELDNAME="g4" DESCRIPTION="Never Expires" />
       </Panel>

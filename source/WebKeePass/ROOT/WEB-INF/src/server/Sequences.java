@@ -42,7 +42,7 @@ public class Sequences {
      int seq = 0;
       try {
          	resultSet = sqlStatement.executeQuery(
-         			"Select seq from _sequences Where TableName = '" + tableName + "'");
+         			"Select seq from wkpSeqCrypt Where TableName = '" + tableName + "'");
          	if (resultSet.next()) {
          		seq = (resultSet.getInt("seq")) + 1;
          		seq = CheckTable(tableName, tableID, seq, dtAccss);
@@ -55,7 +55,7 @@ public class Sequences {
          	
          		resultSet.close();	
       } catch (Exception exception) {
-      dtAccss.logMessage(" *Sequences.get_sequences* -- " + exception);
+      dtAccss.logMessage(" *Sequences.getwkpSeqCrypt* -- " + exception);
     } finally {
       dtAccss.execClose(sqlStatement);
     }
@@ -75,7 +75,7 @@ public class Sequences {
          	while (resultSet.next() && seq == resultSet.getInt(tableID))  seq++;
          	resultSet.close();	
       } catch (Exception exception) {
-      dtAccss.logMessage(" *Sequences.get_sequences* -- " + exception);
+      dtAccss.logMessage(" *Sequences.getwkpSeqCrypt* -- " + exception);
     } finally {
       dtAccss.execClose(sqlStatement);
     }
@@ -88,7 +88,7 @@ public class Sequences {
   	PreparedStatement sqlUpdateStatement = null;
   	try {
          sqlUpdateStatement = dtAccss.execPreparedConnect(
-                   "Insert Into _sequences (TableName, Seq ) Values (?, ?)");
+                   "Insert Into wkpSeqCrypt (TableName, Seq ) Values (?, ?)");
          sqlUpdateStatement.setString(1,tableName);
          sqlUpdateStatement.setInt(2, seq);
          sqlUpdateStatement.executeUpdate();
@@ -105,12 +105,12 @@ public class Sequences {
   	PreparedStatement sqlUpdateStatement = null;
   	try {
   		sqlUpdateStatement = dtAccss.execPreparedConnect(
-  				"Update _sequences SET Seq = ?  Where TableName = ?");
+  				"Update wkpSeqCrypt SET Seq = ?  Where TableName = ?");
         sqlUpdateStatement.setInt(1, seq);
         sqlUpdateStatement.setString(2,tableName);
         sqlUpdateStatement.executeUpdate();
   	} catch (Exception exception) {
-  		dtAccss.logMessage(" *Sequences.updateInto_sequences* -- " + exception);
+  		dtAccss.logMessage(" *Sequences.updateInto.wkpSeqCrypt* -- " + exception);
   	} finally {
   		dtAccss.execClose(sqlUpdateStatement);
   	}

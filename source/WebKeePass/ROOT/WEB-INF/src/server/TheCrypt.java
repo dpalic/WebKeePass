@@ -28,7 +28,7 @@ public class TheCrypt {
 	/**/
 	public DataSet getCrypt(DataSet dataSet, DataAccess dataAccss) {
 		try {
-			if (dataAccss.executeQuery(
+			if (dataSet.containsKey("PasswordID") && dataAccss.executeQuery(
 					"Select * From wkpPasswordCrypt Where PasswordID =  "
 							+ dataSet.getStringField("PasswordID")
 							+ " And j1 = '" + dataSet.getScmbl() + "' ",
@@ -230,7 +230,7 @@ public class TheCrypt {
 	/**/
 	public DataSet nxtCrypt(DataSet dataSet, DataAccess dataAccss) {
 		try {
-			if (dataAccss.executeQuery(
+			if (dataSet.containsKey("PasswordID") && dataAccss.executeQuery(
 					"Select * From wkpPasswordCrypt Where PasswordID >  "
 							+ dataSet.getStringField("PasswordID")
 							+ " And j1 = '" + dataSet.getScmbl()
@@ -250,7 +250,7 @@ public class TheCrypt {
 	/**/
 	public DataSet prvCrypt(DataSet dataSet, DataAccess dataAccss) {
 		try {
-			if (dataAccss.executeQuery(
+			if (dataSet.containsKey("PasswordID") && dataAccss.executeQuery(
 					"Select * From wkpPasswordCrypt Where PasswordID <  "
 							+ dataSet.getStringField("PasswordID")
 							+ " And j1 = '" + dataSet.getScmbl()
