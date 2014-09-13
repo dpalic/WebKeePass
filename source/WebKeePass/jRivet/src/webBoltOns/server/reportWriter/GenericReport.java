@@ -54,8 +54,13 @@ package webBoltOns.server.reportWriter;
  * 
  */
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import javax.servlet.GenericServlet;
 import javax.servlet.ServletOutputStream;
@@ -155,6 +160,83 @@ import webBoltOns.dataContol.DataSet;
 		} catch (IOException e) {
 			gs.log("IOException: " + e);
 		}
+	}
+
+	
+	
+	public void reportService(ServletRequest request, ServletResponse response) {
+		String rpt = request.getParameter("DocumentID").trim();
+		if (rpt != null)
+			buildReport(request, response, rpt);
+		else
+			buildErrorPage(request, response, " --  Report Not Loaded --");
+	}
+	
+	
+	
+	
+	private void buildReport(ServletRequest request, ServletResponse response, String id) {
+		Statement qry = null;
+		try {
+
+			qry = dataAccess.execConnectReadOnly();
+			ResultSet rs = qry.executeQuery("Select DocumentPath from documents where DocumentID = " + id);
+
+			if (rs.next()) {
+				String path = rs.getString("DocumentPath");
+
+				File file = new File(path);
+
+				byte[] buffer = new byte[(int) file.length()];
+				InputStream imprt = new FileInputStream(file);
+				imprt.read(buffer);
+				imprt.close();
+
+				if(path.toLowerCase().contains(".pdf"))
+					response.setContentType("application/pdf");
+				else if(path.toLowerCase().contains(".xls"))
+					response.setContentType("application/vnd.ms-excel");
+				else if(path.toLowerCase().contains(".msg"))
+					response.setContentType("application/vnd.ms-outlook");
+				else if(path.toLowerCase().contains(".ppt"))
+					response.setContentType("application/vnd.ms-powerpoint");
+				else if(path.toLowerCase().contains(".pps"))
+					response.setContentType("application/vnd.ms-powerpoint");
+				else if(path.toLowerCase().contains(".rtf"))
+					response.setContentType("application/rtf");
+				else if(path.toLowerCase().contains(".rtx"))
+					response.setContentType("text/richtext");
+				else if(path.toLowerCase().contains(".doc"))
+					response.setContentType("application/msword");
+				else if(path.toLowerCase().contains(".wri"))
+					response.setContentType("application/mswrite");
+				else if(path.toLowerCase().contains(".xml"))
+					response.setContentType("text/xml");
+				else if(path.toLowerCase().contains(".bmp"))
+					response.setContentType("image/bmp");
+				else if(path.toLowerCase().contains(".gif"))
+					response.setContentType("image/gif");
+				else if(path.toLowerCase().contains(".jpg"))
+					response.setContentType("image/jpeg");
+				else if(path.toLowerCase().contains(".jpeg"))
+					response.setContentType("image/jpeg");
+				else if(path.toLowerCase().contains(".jpe"))
+					response.setContentType("image/jpeg");				
+				else if(path.toLowerCase().contains(".htm"))
+					response.setContentType("text/html");
+				else
+					response.setContentType("text/plain");
+				
+				response.setContentLength(buffer.length);
+				ServletOutputStream out = response.getOutputStream();
+				out.write(buffer, 0, buffer.length);
+				out.flush();
+				out.close();
+			}
+		} catch (Exception e) {
+			gs.log("Exception: " + e);
+			buildErrorPage(request, response, " --  Report Not Loaded -- \n " + e.getMessage());
+		}  
 	}
 
 	

@@ -60,9 +60,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.net.MalformedURLException;
-import java.sql.ResultSet; 
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -237,7 +236,7 @@ import com.lowagie.text.pdf.PdfWriter;
 			rowCount = 999;
 			totalRows = 0;
 			document = new Document(PageSize.LEGAL.rotate());
-			document.setMargins(8.0f ,8.0f, 8.0f, 18.0f);
+			 document.setMargins(8.0f ,8.0f, 8.0f, 18.0f);
 
 			outputStream = new ByteArrayOutputStream();
 			writer = PdfWriter.getInstance(document, outputStream);
@@ -252,26 +251,12 @@ import com.lowagie.text.pdf.PdfWriter;
 
 			topA.setOutline(root);
 
-			if(reportTable.getStringField(ReportColumn.SQL_QUERY).toUpperCase().startsWith("SELECT"))
-				buildSQLReport( request,  response,  reportTable);
-			else
-				buildObjectReport( request,  response,  reportTable);			
-			
-		} catch (Exception e) {
-			gs.log("** Exception: " + e);
-			e.printStackTrace();
-			buildErrorPage(request, response, e.toString());
-		}
-	}
-		
-	
-	
-	private void buildSQLReport(ServletRequest request, ServletResponse response, DataSet reportTable) throws Exception {
-		 
 			ResultSet resultSet;
 			Statement statement = dataAccess.execConnectReadOnly();
-			
-			sql = new StringBuffer(reportTable.getStringField(ReportColumn.SQL_QUERY));			
+
+			sql = new StringBuffer(reportTable
+					.getStringField(ReportColumn.SQL_QUERY));
+
 			sql = DataSet.removeFormat(sql, "\n");
 			sql = DataSet.removeFormat(sql, "\t");
 
@@ -290,14 +275,10 @@ import com.lowagie.text.pdf.PdfWriter;
 			while (resultSet.next()) {
 				for (int c = 0; c < reportColumns.length; c++) {
 					ReportColumn column = (ReportColumn) reportColumns[c];
-					String value = (String) DataAccess.getFieldValue(
-							resultSet, column.getFeildName(), column.getDataType());
-					if(column.isScrbl())
-						record[c] = formatField(
-							dataAccess.decrypt(value), column.getDataType(), column.getDecimals());
-					else
-						record[c] = formatField(value, column.getDataType(), column.getDecimals());
-						
+					String value = (String) DataAccess.getFieldValue(resultSet,
+							column.getFeildName(), column.getDataType());
+					record[c] = formatField(value, column.getDataType(), column
+							.getDecimals());
 				}
 
 				topA.recursiveLevelBreaks(record);
@@ -318,63 +299,18 @@ import com.lowagie.text.pdf.PdfWriter;
 				document.close();
 				buildPDFReportPage(request, response, outputStream.toByteArray());
 			}
-		
-	}
-	
-	
-	
-	private void buildObjectReport(ServletRequest request, ServletResponse response, DataSet reportTable) throws Exception {
 
-		DataSet prm = new DataSet();
-		Enumeration parameters = request.getParameterNames();
-		while (parameters.hasMoreElements()) {
-			String p = (String) parameters.nextElement();
-			String v = request.getParameter(p);
-			if (!p.equals("ReportScript") && !p.equals("")  && !v.equals(""))
-				prm.putStringField(p, v);
-		    
+		} catch (DocumentException e) {
+			gs.log("** DocumentException: " + e);
+			buildErrorPage(request, response, e.toString());
+		} catch (IOException e) {
+			gs.log("** IOException: " + e);
+			buildErrorPage(request, response, e.toString());
+		} catch (Exception e) {
+			gs.log("** Exception: " + e);
+			buildErrorPage(request, response, e.toString());
 		}
-		Class cls = Class.forName(reportTable.getStringField(ReportColumn.SQL_QUERY));
-		Class partypes[] = new Class[2];
-		partypes[0] = prm.getClass();
-		partypes[1] = dataAccess.getClass();
-		Method meth = cls.getMethod("createReport", partypes);
-		Object methodObject;
-		methodObject = cls.newInstance();
-		Object arglist[] = new Object[2];
-		arglist[0] = prm;
-		arglist[1] = dataAccess;
-		Object retobj = meth.invoke(methodObject, arglist);
-		Enumeration eRpt = (Enumeration) retobj;
-		String[] record = new String[reportColumns.length];
-
-		while (eRpt.hasMoreElements()) {
-			record = (String []) eRpt.nextElement();
-			for (int c = 0; c < reportColumns.length; c++) {
-				ReportColumn column = (ReportColumn) reportColumns[c];
-				if(column.isScrbl())
-					record[c] = formatField(dataAccess.decrypt(record[c]), column.getDataType(), column.getDecimals());
-				else
-					record[c] = formatField(record[c], column.getDataType(), column.getDecimals());		
-			}
-
-			topA.recursiveLevelBreaks(record);
-			buildDetilLine(record);
-			accumulateReportTotals(record);
-			totalRows++;
-		}
-
-	if (totalRows == 0) {
-		buildEmptyPage(request, response);
 		
-		
-	} else {
-		topA.fireGrandTotalBreak();
-		document.add(reportBody);
-		document.close();
-		buildPDFReportPage(request, response, outputStream.toByteArray());
-	}
-	
 	}
 	
 	/**

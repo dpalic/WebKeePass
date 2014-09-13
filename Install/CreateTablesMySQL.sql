@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS `wkpSeqCrypt`;
+ 
 CREATE TABLE `wkpSeqCrypt` (
   `TableName` char(64) NOT NULL default '',
   `Seq` int(11) unsigned NOT NULL default '0',
@@ -13,8 +13,7 @@ INSERT INTO `wkpSeqCrypt` (`TableName`,`Seq`) VALUES
  ('wkpPasswordCrypt',50),
  ('wkpCryptHistory',50);
   
-
-DROP TABLE IF EXISTS `jrBUnits`;
+ 
 CREATE TABLE `jrBUnits` (
   `BUnit` varchar(250) default NULL,
   `BUnitDesc` varchar(250) default NULL,
@@ -25,8 +24,7 @@ CREATE TABLE `jrBUnits` (
 INSERT INTO `jrBUnits` (`BUnit`,`BUnitDesc`,`LastUpdate`) VALUES 
  ('1','WebKeePass Password Safe','20070101');
  
-
-DROP TABLE IF EXISTS `jrGroupAccess`;
+ 
 CREATE TABLE `jrGroupAccess` (
   `GroupID` varchar(10) default NULL,
   `MenuItem` varchar(20) default NULL,
@@ -47,8 +45,7 @@ INSERT INTO `jrGroupAccess` (`GroupID`,`MenuItem`,`GroupItemDescription`,`ItemAc
  ('Users','WKP-Users','Work With Web Users',1,NULL),
  ('Admins','WKP-Users','Work With Web Users',3,NULL);
  
-
-DROP TABLE IF EXISTS `jrUserGroups`;
+ 
 CREATE TABLE `jrUserGroups` (
   `GroupID` varchar(10) default NULL,
   `GroupDescription` varchar(250) default NULL,
@@ -74,8 +71,7 @@ INSERT INTO `jrUserGroups` (`GroupID`,`GroupDescription`,`MenuXML`,`DateFormat`,
  ('Admins','Admin Group','CCMenu','dd MMM yyyy',NULL,'20050130','20050130','20050130','',1,1,1,1,1,1,'HTTP','1'),
  ('Users','Users Group','CCMenu','dd MMM yyyy',NULL,'20050130','20050130','20050130',NULL,1,0,1,1,1,1,'HTTP',NULL);
  
-
-DROP TABLE IF EXISTS `jrUsers`;
+ 
 CREATE TABLE `jrUsers` (
   `UserID` varchar(20) default NULL,
   `GroupID` varchar(10) default NULL,
@@ -127,12 +123,10 @@ CREATE TABLE `jrUsers` (
   `Password` varchar(250) default NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
- 
-
-DROP TABLE IF EXISTS `wkpCryptHistory`;
+  
 CREATE TABLE `wkpCryptHistory` (
   `HistoryID` int(11) NOT NULL default '0',
-  `PasswordID` int(11) NOT NULL default '0',
+  `PasswordID` varchar(250) default NULL,
   `a0` varchar(250) default NULL,
   `b9` varchar(250) default NULL,
   `c8` varchar(250) default NULL,
@@ -159,8 +153,7 @@ CREATE TABLE `wkpCryptHistory` (
   PRIMARY KEY  (`HistoryID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
- 
-DROP TABLE IF EXISTS `wkpGroups`;
+  
 CREATE TABLE `wkpGroups` (
   `KeeperID` int(11) NOT NULL default '0',
   `KeeperDesc` varchar(250) default NULL,
@@ -184,10 +177,8 @@ INSERT INTO `wkpGroups` (`KeeperID`,`KeeperDesc`,`keeperIcon`,`CreateDate`,`Last
 INSERT INTO `wkpGroups` (`KeeperID`,`KeeperDesc`,`keeperIcon`,`CreateDate`,`LastUpdate`,`j1`,`PrntID`) 
 			 VALUES   (26, 'Other' ,'MNode1.gif','20070101','20070101','[Share-Group/]' ,0);
  
-
-DROP TABLE IF EXISTS `wkpPasswordCrypt`;
 CREATE TABLE `wkpPasswordCrypt` (
-  `PasswordID` int(11) NOT NULL default '0',
+  `PasswordID` varchar(250) NOT NULL default '',
   `a0` varchar(250) default NULL,
   `b9` varchar(250) default NULL,
   `c8` varchar(250) default NULL,
@@ -197,7 +188,7 @@ CREATE TABLE `wkpPasswordCrypt` (
   `g4` varchar(250) default NULL,
   `h3` varchar(250) default NULL,
   `i2` varchar(250) default NULL,
-  `j1` varchar(250) default NULL,
+  `j1` varchar(250) NOT NULL default '',
   `k0` varchar(250) default NULL,
   `l9` varchar(250) default NULL,
   `m8` varchar(250) default NULL,
@@ -211,8 +202,9 @@ CREATE TABLE `wkpPasswordCrypt` (
   `Notes` longblob,
   `Image` longblob,
   `KeeperID` int(11) NOT NULL default '0',
-  PRIMARY KEY  (`PasswordID`)
+  PRIMARY KEY  USING BTREE (`PasswordID`,`j1`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 
 CREATE TABLE `wkpPasswordAKin` (
   `AKinID` int(11) NOT NULL,
@@ -226,10 +218,9 @@ CREATE TABLE `wkpPasswordAKin` (
   `s7` varchar(250) default NULL,
   `t8` varchar(250) default NULL,
   `r9` varchar(250) default NULL,
-  `PasswordID` int(11) NOT NULL,
+  `PasswordID` varchar(250) NOT NULL default '',
   PRIMARY KEY  (`AKinID`,`PasswordID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
 
 
 CREATE TABLE `wkpBundle` (
@@ -246,5 +237,15 @@ CREATE TABLE `wkpBundle` (
  ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 
+CREATE TABLE `documents` (
+  `DocumentID` int(11) NOT NULL default '0',
+  `DocumentKey` varchar(250) NOT NULL,
+  `DocumentDesc` varchar(250) default NULL,
+  `DocumentFile` varchar(250) default NULL,
+  `DocumentPath` varchar(250) default NULL,
+  `DateAdded` varchar(50) default NULL,
+  `UserID` varchar(50) default NULL,
+  PRIMARY KEY  (`DocumentID`)
+) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
  

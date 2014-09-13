@@ -3,12 +3,12 @@
 <!--	 **Script Builder 2.1 *  -->
 <!--	 	 Script Name :  KeePass014 -->
 <!--	 	 Description :  Create Share Category -->
-<!--	 	 Server Class :  server.TheCryptKeeperShare -->
+<!--	 	 Server Class :  server.CryptKp -->
 <!--	 	 Initalization Method :   -->
-<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass014.xml -->
-<!--	 	 Last Update :  18-May-2008 -->
-<!--	 	 User Profile:  pjones -->
-<SCRIPT SCRIPT_NAME="KeePass014" DOCUMENT_TYPE="Window" CLASS_NAME="server.TheCryptKeeperShare" AUTO_REFRESH="true" ICON="icon.jpg" DESCRIPTION="Create Share Category" Screen_Title="Create Share Category" WIDTH="630" HEIGHT="390">
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass014.xml -->
+<!--	 	 Last Update :  18-Mar-2009 -->
+<!--	 	 User Profile:  root -->
+<SCRIPT SCRIPT_NAME="KeePass014" DOCUMENT_TYPE="Window" CLASS_NAME="server.CryptKp" AUTO_REFRESH="true" ICON="icon.jpg" DESCRIPTION="Create Share Category" Screen_Title="Create Share Category" WIDTH="630" HEIGHT="390">
   <ButtonBar>
     <BarButton TYPE="CLEAR" DESCRIPTION="Clear/New " ICON="iClear.gif" />
     <BarButton TYPE="FIND" DESCRIPTION="Find/Refresh" ICON="iFind.gif" METHOD="getCryptKeeper" />

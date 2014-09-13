@@ -3,12 +3,12 @@
 <!--	 **Script Builder 2.1 *  -->
 <!--	 	 Script Name :  KeePass004 -->
 <!--	 	 Description :  Create Password Category -->
-<!--	 	 Server Class :  server.TheCryptKeeper -->
+<!--	 	 Server Class :  server.CryptKp -->
 <!--	 	 Initalization Method :  newCryptKeeper -->
-<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass004.xml -->
-<!--	 	 Last Update :  17-May-2008 -->
-<!--	 	 User Profile:  pjones -->
-<SCRIPT SCRIPT_NAME="KeePass004" DOCUMENT_TYPE="Window" CLASS_NAME="server.TheCryptKeeper" METHOD="newCryptKeeper" AUTO_REFRESH="true" ICON="WKP6.jpg" DESCRIPTION="Create Password Category" Screen_Title="Create Password Category" WIDTH="600" HEIGHT="380">
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass004.xml -->
+<!--	 	 Last Update :  18-Mar-2009 -->
+<!--	 	 User Profile:  root -->
+<SCRIPT SCRIPT_NAME="KeePass004" DOCUMENT_TYPE="Window" CLASS_NAME="server.CryptKp" METHOD="newCryptKeeper" AUTO_REFRESH="true" ICON="WKP6.jpg" DESCRIPTION="Create Password Category" Screen_Title="Create Password Category" WIDTH="600" HEIGHT="380">
   <ButtonBar>
     <BarButton TYPE="CLEAR" DESCRIPTION="Clear/New " ICON="iClear.gif" />
     <BarButton TYPE="FIND" DESCRIPTION="Find/Refresh" ICON="iFind.gif" METHOD="getCryptKeeper" />

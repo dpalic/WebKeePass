@@ -56,6 +56,7 @@ package webBoltOns.client.components;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
@@ -66,7 +67,10 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.io.Serializable;
+import java.util.Enumeration;
 import java.util.EventObject;
 
 import javax.swing.AbstractCellEditor;
@@ -76,12 +80,17 @@ import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.event.MouseInputListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
+
+import com.sun.org.apache.xalan.internal.xsltc.runtime.Hashtable;
 
 import webBoltOns.AppletConnector;
 import webBoltOns.client.WindowFrame;
@@ -95,18 +104,16 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 	private static final long serialVersionUID = 1400113917490861574L;
 
 	private WindowItem comp;
-
 	private AppletConnector cnct;
+	private WindowFrame frm;
 
 	int cellnumber = 0;
 
 	private CTableCellEditor tblCellEd;
-
 	private CTableCellRenderer tblCellRndr;
-
 	private CTableHeaderRenderer colHdrRndr;
-
 	
+	private CTableContainer table;
 	public CTableColumn() {}
 	
 	
@@ -114,8 +121,10 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 		
 		comp = thisItem;
 		cnct = mainFrame.getAppletConnector();
+		table = (CTableContainer) parentItem.getComponentObject(); 
+		frm = mainFrame;
 		
-		// 1 - Add a Text Box Object
+	  	   // 1 - Add a Text Box Object
 		if (thisItem.getObjectName().equals(WindowItem.TABLE_TEXTFIELD_OBJECT)) {
 			final CTextBoxField textFieldColumn = new CTextBoxField();
 			thisItem.setComponentObject(textFieldColumn);
@@ -128,7 +137,7 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 			thisItem.setDataType("BOL");
 			
 			
-				// 3- Add A Combo Box Object
+			// 3- Add A Combo Box Object
 		} else if (thisItem.getObjectName().equals(WindowItem.TABLE_COMBOBOX_OBJECT)) {
 			final CComboBoxField comboBox = new CComboBoxField();		
 			comboBox.buildComponent(comp, thisItem, mainFrame);
@@ -150,9 +159,14 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 			imageField.setEditable(false);
 			imageField.setFocusable(false);
 			thisItem.setComponentObject(imageField);
+		
+			// 5- Add a nav Bar
+		} else if (thisItem.getObjectName().equals(WindowItem.TABLE_NAVROW_OBJECT  )) {
+			thisItem.setDataType("NAV");
+			thisItem.setProtected(true);
+			thisItem.setComponentObject(new CTableRowNavBar(thisItem));
 		}
 		
-
 		tblCellRndr = new CTableCellRenderer(comp.getComponentObject());
 		tblCellEd = new CTableCellEditor(comp.getComponentObject()); 
 		tblCellRndr.initRenderer();
@@ -160,17 +174,19 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 		
 		if(thisItem.isProtected())
 			colHdrRndr.setForeground(Color.BLACK);
-		else if(!thisItem.getLink().equals("")  || thisItem.getDataType().equals("DAT") 
-				|| thisItem.getDataType().equals("FLT"))
+		else if(!thisItem.getLink().equals("")  
+				|| thisItem.getDataType().equals("DAT") ||
+					thisItem.getDataType().equals("FLT"))
 			colHdrRndr.setForeground(Color.BLUE);
 		else	
 			colHdrRndr.setForeground(Color.BLACK);
 		
 		if(comp.getComponentObject() != null)
 			comp.getComponentObject().setBackground(Color.WHITE);
-		comp.setLength(comp.getLength() * 15);
 		
+		comp.setLength(comp.getLength() * 15);
 		tblCellRndr.setHorizontalAlignment(comp.getCellAlignment());
+		
 		if (comp.isProtected()) 
 			tblCellEd.setClickCountToStart(99);
 		 else 	
@@ -187,6 +203,10 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 			return comp.getComponentObject().getClass();
 	}
 	
+	
+	public CTableContainer getTable() {
+		return table;
+	}
 	
 	public WindowItem getAppletComponent() {
 		return comp;
@@ -293,16 +313,80 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 			((CTextBoxField) comp.getComponentObject()).setText(null);
 	
 		} else	if(comp.getComponentObject()  instanceof CComboBoxField ) {
-			((CComboBoxField ) comp.getComponentObject()).requestFocus();
+			CComboBoxField  c = (CComboBoxField) comp.getComponentObject();
+			c.requestFocus();
 		}
 	}
-	
-	
-	public String getString() {
-		return null;
-	}
-	
 
+
+	//****************************************************************************************
+	protected class CTableRowNavBar extends JPanel  {
+	
+		private static final long serialVersionUID = 7413021481590051465L;
+		private Hashtable oh = new Hashtable();
+		
+		public CTableRowNavBar(WindowItem navRow) {
+			super();
+			setLayout(new FlowLayout(0));
+			table.setNavBar(this);
+		}	
+		
+		
+		public JLabel addOption(JMenuItem opt) {
+			JLabel ol = new JLabel(cnct.getImageIcon("MNode3.gif"));		
+			add(ol);
+			oh.put(ol, opt);
+			return ol;
+		}
+		
+		
+		public JLabel addOption(String image) {
+			JLabel ol = new JLabel(cnct.getImageIcon(image));		
+			add(ol);
+			oh.put(ol, image);
+			return ol;
+		}
+		
+		
+		public void fireNavAction(MouseEvent e){
+			Enumeration en = oh.keys();
+			while(en.hasMoreElements()){
+				JLabel ol = (JLabel) en.nextElement();		
+				Rectangle r1 = ol.getBounds();
+				if(r1.contains(e.getX(), r1.getCenterY()))
+					if(oh.get(ol) instanceof JMenuItem)
+						((JMenuItem)oh.get(ol)).doClick();
+					else 
+						frm.actionRunDoc(table.getDocID());
+			}
+		}		
+		
+		
+		public void fireNavAction(){
+			frm.actionRunDoc(table.getDocID());
+		}
+		
+	
+		public void fireNavMoved(MouseEvent e){
+			Enumeration en = oh.keys();
+			while(en.hasMoreElements()){
+				JLabel ol = (JLabel) en.nextElement();		
+				Rectangle r1 = ol.getBounds();
+				if(r1.contains(e.getX(), r1.getCenterY()))
+					if(oh.get(ol) instanceof JMenuItem)
+						setToolTipText(((JMenuItem)oh.get(ol)).getText());
+					else
+						setToolTipText(((String)oh.get(ol)));
+			}
+		}
+		
+	}
+ 
+	
+	
+	
+	
+	
 	//****************************************************************************************
 	class CTableCellRenderer extends DefaultTableCellRenderer {
 
@@ -314,7 +398,7 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 		
 		public void initRenderer() {
 			dataType = comp.getDataType();;
-			
+			 
 			if(comp.isProtected())
 				setBackground(new Color(252, 252, 252));
 			else if(!comp.getLink().equals("") ||  dataType.equals("DAT")|| dataType.equals("CMB"))
@@ -323,8 +407,19 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 				setBackground(cnct.bgColor);
 		}
 
+		
+	    public Component getTableCellRendererComponent(JTable table, Object value, 
+	    				boolean isSelected, boolean hasFocus, int row, int col) {
+	    	
+	    	if(dataType.equals("NAV"))
+	    		return comp.getComponentObject();
+	    	
+    		return super.getTableCellRendererComponent(table,  value, isSelected,  hasFocus,  row,  col); 
+	    	
+	      }
+	
 		protected void setValue(Object value) {
-			if(dataType.equals("BOL")) {
+			if(dataType.equals("BOL") || dataType.equals("NAV")) {
 			 return; 
 			
 			} else if (dataType.equals("IMG")) {
@@ -336,8 +431,7 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 			} else if(value  instanceof String ) {
 				setIcon(null);
 				if(dataType.equals("CMB")) 
-					formatText( ((CComboBoxField) comp.
-							getComponentObject()).getKeyValue((String) value));
+					formatText( ((CComboBoxField) comp.getComponentObject()).getKeyValue((String) value));
 				else
 					formatText((String) value);
 			
@@ -361,10 +455,7 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 				else if (dataType.equals("TIM")) 
 					super.setText(DataSet.formatTimeField(value, "kk:mm:ss"));
 				else 
-					if(comp.isZeroFilled())
-						super.setText(DataSet.zeroFillField(value, len));
-					else
-						super.setText(DataSet.formatCharField(value,  comp.getEditMask()));
+					super.setText(DataSet.formatCharField(value,  comp.getEditMask()));
 				
 			} catch (NumberFormatException e) {
 				super.setText(null);
@@ -374,9 +465,58 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 	}
 
 	
-	class CTableCellEditor extends AbstractCellEditor implements TableCellEditor, 
-				FocusListener {
+	
+	class CTableCellEditor extends AbstractCellEditor implements TableCellEditor,  FocusListener {
+		
+		protected class EditorDelegate implements ActionListener, ItemListener, Serializable {
 
+			private static final long serialVersionUID = 7842446339894698115L;
+				protected Object value;
+
+				public Object getCellEditorValue() {
+					return value;
+				}
+
+				public void setValue(Object value) {
+					this.value = value;
+				}
+
+				public boolean isCellEditable(EventObject anEvent) {
+					if(comp.isProtected())
+						return false;
+					if (anEvent instanceof MouseEvent) {
+						return ((MouseEvent) anEvent).getClickCount() >= clickCountToStart;
+					}
+					return true;
+				}
+
+				public boolean shouldSelectCell(EventObject e) {
+					return true;
+				}
+
+				public boolean startCellEditing(EventObject e) {
+					return true;
+				}
+
+				public boolean stopCellEditing() {
+					fireEditingStopped();
+					return true;
+				}
+
+				public void cancelCellEditing() {
+					fireEditingCanceled();
+				}
+
+				public void actionPerformed(ActionEvent e) {
+					CTableCellEditor.this.stopCellEditing();
+				}
+
+				public void itemStateChanged(ItemEvent e) {
+					CTableCellEditor.this.stopCellEditing();
+				}
+			}
+		
+		
 		private static final long serialVersionUID = 5527326520100450264L;
 		protected JComponent editorComponent;
 		protected EditorDelegate delegate;
@@ -396,6 +536,8 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 				setComboBoxEditor((CComboBoxField) component);
 			else if (component instanceof JSpinner)
 				setSpinnerEditor((JSpinner) component);
+			else
+				delegate = null;
 		}
 		
 				
@@ -460,6 +602,7 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 					comboBox.commitEditing((String) value);
 				}
 
+				
 				public Object getCellEditorValue() {
 					ComboItem item = (ComboItem) comboBox.getSelectedItem();
 					if(item != null)
@@ -468,31 +611,39 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 						return null;
 				}
 
+				
+				public boolean isCellEditable(EventObject anEvent) {
+					return true;
+				}
+	
 				public boolean shouldSelectCell(EventObject anEvent) {
-					if (anEvent instanceof MouseEvent) {
+	 				if (anEvent instanceof MouseEvent) {
 						MouseEvent e = (MouseEvent) anEvent;
 						return e.getID() != MouseEvent.MOUSE_DRAGGED;
 					}
 					return true;
 				}
 
-				public boolean stopCellEditing() {
-					if (comboBox.isEditable()) {
+				
+				public boolean stopCellEditing() {	
+					if (comboBox.isEditable()) 
 						comboBox.actionPerformed(new ActionEvent(CTableCellEditor.this, 0, ""));
-					}
 					return super.stopCellEditing();
+					 	
 				}
 			};
+			
+			
 			comboBox.addActionListener(delegate);
 		}
 
+		
 		private void setSpinnerEditor(final JSpinner spinner) {
 			editorComponent = spinner;
 			spinner.getEditor().setEnabled(true);
 			spinner.setEditor(new JSpinner.NumberEditor(spinner, "#########"));
 			JComponent editor = spinner.getEditor();
-			JFormattedTextField spinnerField = ((JSpinner.NumberEditor) editor)
-					.getTextField();
+			JFormattedTextField spinnerField = ((JSpinner.NumberEditor) editor).getTextField();
 			spinnerField.setHorizontalAlignment(JTextField.LEFT);
 			spinnerField.setEditable(true);
 
@@ -521,8 +672,7 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 
 				public boolean stopCellEditing() {
 					try {
-						((JSpinner.NumberEditor) spinner.getEditor())
-								.commitEdit();
+						((JSpinner.NumberEditor) spinner.getEditor()).commitEdit();
 					} catch (java.text.ParseException pe) {
 						spinner.setValue(new Integer(0));
 					}
@@ -549,14 +699,20 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 			return delegate.getCellEditorValue();
 		}
 
-		public boolean isCellEditable(EventObject anEvent) {
-			return delegate.isCellEditable(anEvent);
+		public boolean isCellEditable(EventObject e) {
+			if(delegate == null) 
+				return false;
+			else
+				return delegate.isCellEditable(e);
 		}
 
-		public boolean shouldSelectCell(EventObject anEvent) {
-			return delegate.shouldSelectCell(anEvent);
+		public boolean shouldSelectCell(EventObject e) {
+			if(delegate == null) 
+				return false;
+			else
+				return delegate.shouldSelectCell(e);
 		}
-
+		
 		public boolean stopCellEditing() {
 			return delegate.stopCellEditing();
 		}
@@ -565,61 +721,13 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 			delegate.cancelCellEditing();
 		}
 
-		public Component getTableCellEditorComponent(JTable table,
-				Object value, boolean isSelected, int row, int column) {
-			delegate.setValue(value);
+		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
+			if(delegate != null)
+				delegate.setValue(value);
 			return editorComponent;
 		}
 
-	protected class EditorDelegate implements ActionListener, ItemListener,
-				Serializable {
 
-		private static final long serialVersionUID = 7842446339894698115L;
-			protected Object value;
-
-			public Object getCellEditorValue() {
-				return value;
-			}
-
-			public void setValue(Object value) {
-				this.value = value;
-			}
-
-			public boolean isCellEditable(EventObject anEvent) {
-				if(comp.isProtected())
-					return false;
-				
-				if (anEvent instanceof MouseEvent) {
-					return ((MouseEvent) anEvent).getClickCount() >= clickCountToStart;
-				}
-				return true;
-			}
-
-			public boolean shouldSelectCell(EventObject anEvent) {
-				return true;
-			}
-
-			public boolean startCellEditing(EventObject anEvent) {
-				return true;
-			}
-
-			public boolean stopCellEditing() {
-				fireEditingStopped();
-				return true;
-			}
-
-			public void cancelCellEditing() {
-				fireEditingCanceled();
-			}
-
-			public void actionPerformed(ActionEvent e) {
-				CTableCellEditor.this.stopCellEditing();
-			}
-
-			public void itemStateChanged(ItemEvent e) {
-				CTableCellEditor.this.stopCellEditing();
-			}
-		}
 
 	public void focusGained(FocusEvent e) {
 		editorComponent.setBackground(cnct.crsColor);
@@ -656,9 +764,7 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 			setBackground(null);
 		}
 
-		public Component getTableCellRendererComponent(JTable table,
-				Object value, boolean isSelected, boolean hasFocus, int row,
-				int column) {
+		public Component getTableCellRendererComponent(JTable table,Object value, boolean isSelected, boolean hasFocus, int row, int column) {
 			setFont(table.getFont());
 			setValue(value);
 			return this;
@@ -688,8 +794,7 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 		public void repaint(Rectangle r) {
 		}
 
-		protected void firePropertyChange(String propertyName, Object oldValue,
-				Object newValue) {
+		protected void firePropertyChange(String propertyName, Object oldValue, Object newValue) {
 			if (propertyName == "text") {
 				super.firePropertyChange(propertyName, oldValue, newValue);
 			}
@@ -703,39 +808,25 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 			setText((value == null) ? "" : value.toString());
 		}
 
-		public class UIResource extends CTableHeaderRenderer implements
-				javax.swing.plaf.UIResource {
-
-			private static final long serialVersionUID = 8195473242861516149L;
-		}
+		//public class UIResource extends CTableHeaderRenderer implements
+		//		javax.swing.plaf.UIResource {
+		//	private static final long serialVersionUID = 8195473242861516149L;
+		//}
 
 	}
 
-	public DataSet populateDataSet(String action, String editorName, DataSet dataSet) {
-		return dataSet;
-	}
+	public DataSet populateDataSet(String action, String editorName, DataSet dataSet) {return dataSet;}
+	public String getSelectedComponentItem() {return null;}
+	public void populateComponent(String action, String editorName, DataSet dataSet) {}
+	public void clearComponent(String dv) {}
+	public void initializeComponentUI() {}
+	public void setToolTipText(String tipText) {}
+	public boolean validateComponent(String action, String editorName) {return true;}
+	public void setValid(boolean invalid) {}
+	public void setProperty(String propertyName, String propertyValue) {}
 
-	public String getSelectedComponentItem() {
+	public String getString() {
 		return null;
 	}
-
-	public void populateComponent(String action, String editorName, DataSet dataSet) {}
-
-	public void clearComponent(String dv) {}
-	
-	public void initializeComponentUI() {}
-
-	public void setToolTipText(String tipText) {}
-
-	public boolean validateComponent(String action, String editorName) {
-		return true;
-	}
-
-	public void setValid(boolean invalid) {
-		
-		
-	}
-	
-	public void setProperty(String propertyName, String propertyValue) {}
 
 }

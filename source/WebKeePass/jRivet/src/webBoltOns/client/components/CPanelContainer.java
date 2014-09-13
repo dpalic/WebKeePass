@@ -66,7 +66,7 @@ import webBoltOns.client.WindowFrame;
 import webBoltOns.client.WindowItem;
 import webBoltOns.client.components.componentRules.StandardComponentLayout;
 import webBoltOns.client.components.layoutManagers.GridFlowLayout;
-import webBoltOns.client.components.layoutManagers.GridFlowLayoutParameter;
+import webBoltOns.client.components.layoutManagers.GridFlowParm;
 import webBoltOns.dataContol.DataSet;
 
 public class CPanelContainer extends JPanel implements StandardComponentLayout {
@@ -141,25 +141,25 @@ public class CPanelContainer extends JPanel implements StandardComponentLayout {
 	
 	
 	public void addLeft(Component object, int x) {
-		super.add(object, new GridFlowLayoutParameter(
-				GridFlowLayoutParameter.NEXT_ROW, x,
-				GridFlowLayoutParameter.STACK_CELL));
+		super.add(object, new GridFlowParm(
+				GridFlowParm.NEXT_ROW, x,
+				GridFlowParm.STACK_CELL));
 		lastx = x;
 	}
 
 	
 	public void addLeftFill(Component object, int x) {
-		super.add(object, new GridFlowLayoutParameter(
-				GridFlowLayoutParameter.NEXT_ROW, x,
-				GridFlowLayoutParameter.FILL_CELL));
+		super.add(object, new GridFlowParm(
+				GridFlowParm.NEXT_ROW, x,
+				GridFlowParm.FILL_CELL));
 		lastx = x;
 	}
 
 	public void addRight(Component object, int x) {
 		if (x > lastx) {
-			super.add(object, new GridFlowLayoutParameter(
-					GridFlowLayoutParameter.CURRENT_ROW, x,
-					GridFlowLayoutParameter.STACK_CELL));
+			super.add(object, new GridFlowParm(
+					GridFlowParm.CURRENT_ROW, x,
+					GridFlowParm.STACK_CELL));
 			lastx = x;
 		} else {
 			addLeft(object, x);
@@ -168,9 +168,9 @@ public class CPanelContainer extends JPanel implements StandardComponentLayout {
 
 	public void addRightFill(Component object, int x) {
 		if (x > lastx) {
-			super.add(object, new GridFlowLayoutParameter(
-					GridFlowLayoutParameter.CURRENT_ROW, x,
-					GridFlowLayoutParameter.FILL_CELL));
+			super.add(object, new GridFlowParm(
+					GridFlowParm.CURRENT_ROW, x,
+					GridFlowParm.FILL_CELL));
 			lastx = x;
 		} else {
 			addLeftFill(object, x);

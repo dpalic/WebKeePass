@@ -131,7 +131,7 @@
  
  
  <Table tableName="wkpPasswordCrypt" description=" Table Name - wkpPasswordCrypt">
-  <Column field="PasswordID" type="INT" length="32" description="wkpPasswordCrypt.PasswordID - INTEGER" primaryKey="1" />
+  <Column field="PasswordID" type="CHR" length="32" description="wkpPasswordCrypt.PasswordID - VARCHAR" primaryKey="1" />
   <Column field="a0" type="CHR" length="50" description="wkpPasswordCrypt.a - VARCHAR" />
   <Column field="b9" type="CHR" length="50" description="wkpPasswordCrypt.b - VARCHAR" />
   <Column field="c8" type="CHR" length="50" description="wkpPasswordCrypt.c - VARCHAR" />
@@ -162,7 +162,7 @@
  
  <Table tableName="wkpCryptHistory" description=" Table Name - wkpCryptHistory">
   <Column field="HistoryID" type="INT" length="32" description="wkpCryptHistory.HistoryID - INTEGER" />
-  <Column field="PasswordID" type="INT" length="32" description="wkpCryptHistory.PasswordID - INTEGER" />
+  <Column field="PasswordID" type="CHR" length="32" description="wkpCryptHistory.PasswordID - VARCHAR" />
   <Column field="a0" type="CHR" length="50" description="wkpCryptHistory.a0 - VARCHAR" />
   <Column field="b9" type="CHR" length="50" description="wkpCryptHistory.b9 - VARCHAR" />
   <Column field="c8" type="CHR" length="50" description="wkpCryptHistory.c8 - VARCHAR" />
@@ -192,7 +192,7 @@
  
  <Table tableName="wkpPasswordAKin" description=" Table Name - wkpPasswordAKin">
   <Column field="AKinID" type="INT" length="32" description="wkpPasswordAKin.AKinID - INTEGER" />
-  <Column field="PasswordID" type="INT" length="32" description="wkpPasswordAKin.PasswordID"  />
+  <Column field="PasswordID" type="CHR" length="32" description="wkpPasswordAKin.PasswordID VARCHAR" />
   <Column field="UserID" type="CHR" length="20" description="jrUsers.UserID - VARCHAR" />
   <Column field="z0" type="CHR" length="50" description="wkpPasswordAKin.z0 - VARCHAR" />
   <Column field="y1" type="CHR" length="50" description="wkpPasswordAKin.y1 - VARCHAR" />

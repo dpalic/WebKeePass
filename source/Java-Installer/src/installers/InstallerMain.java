@@ -616,6 +616,8 @@ public class InstallerMain implements ActionListener, MouseListener{
 		fi.mergeTag("{eKey}", key1);
 		fi.mergeTag( "{scripts}", 
 				path + "jakarta-tomcat-5.5.7"+ fs + "webapps" + fs +"ROOT" +  fs + "XML" + fs);
+		fi.mergeTag( "{docs}", 
+				path + "jakarta-tomcat-5.5.7"+ fs + "document" + fs );
 		fi.mergeTag("{images}", 
 				path +"jakarta-tomcat-5.5.7" + fs + "webapps" + fs +"ROOT" +  fs + "XML" + fs + "images" + fs);
 		fi.mergeTag( "{schm}",

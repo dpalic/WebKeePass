@@ -119,7 +119,7 @@ public class DataAccess {
 	public DataAccessConnectionPool pool = new DataAccessConnectionPool();
 
 	private String windowTitle, bannertitle, connectType, scriptdir,
-			imagedir, logsdir, menuDocument, serverDateFormat, cKey;
+			imagedir, logsdir, menuDocument, serverDateFormat, cKey, docdir;
 	
 	private String emailServer, emailFromAddress, emailUser, emailPassword;
 
@@ -848,6 +848,17 @@ public class DataAccess {
 	}
 
 	/**
+	 * <h2><code>getDocumentPath</code></h2>
+	 * 
+	 * <p>returns the file path to the script directory</p>
+	 * 
+	 * @return string - script path
+	 */	
+	public String getDocPath() {
+		return docdir;
+	}
+	
+	/**
 	 * <h2><code>getServerLogsPath</code></h2>
 	 * 
 	 * <p>returns the file path to the logs directory</p>
@@ -998,6 +1009,7 @@ public class DataAccess {
 			scriptdir = (String) cfgTable.get("SCRIPT_DIRECTORY");
 			logsdir = (String) cfgTable.get("LOG_DIRECTORY");
 			imagedir = (String) cfgTable.get("IMAGE_DIRECTORY");
+			docdir = (String) cfgTable.get("DOC_DIRECTORY");
 
 			serverDateFormat = (String) cfgTable.get("SERVER_DATE_FORMAT");
  		 

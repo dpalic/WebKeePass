@@ -126,7 +126,7 @@ CREATE TABLE jrUsers (
  
 CREATE TABLE wkpCryptHistory (
   HistoryID int  NOT NULL PRIMARY KEY,
-  PasswordID int ,
+  PasswordID varchar(250) ,
   a0 varchar(250),
   b9 varchar(250),
   c8 varchar(250),
@@ -178,7 +178,7 @@ INSERT INTO wkpGroups (KeeperID, KeeperDesc,keeperIcon,CreateDate,LastUpdate,j1,
 
  
 CREATE TABLE wkpPasswordCrypt (
-  PasswordID int NOT NULL PRIMARY KEY,
+  PasswordID varchar(250),
   a0 varchar(250),
   b9 varchar(250),
   c8 varchar(250),
@@ -216,7 +216,7 @@ CREATE TABLE  wkpPasswordAKin  (
    s7  varchar(250) default NULL,
    t8  varchar(250) default NULL, 
    r9  varchar(250) default NULL,
-   PasswordID int); 
+   PasswordID varchar(250)); 
 
 CREATE TABLE wkpBundle (
   BundleID int  NOT NULL PRIMARY KEY,
@@ -229,3 +229,13 @@ CREATE TABLE wkpBundle (
   gg varchar(250),
   hh varchar(250)
  );
+
+
+CREATE TABLE documents (
+   DocumentID  int NOT NULL PRIMARY KEY,
+   DocumentKey  varchar(250),
+   DocumentDesc  varchar(250),
+   DocumentFile  varchar(250),
+   DocumentPath  varchar(250),
+   DateAdded  varchar(50),
+   UserID  varchar(50)); 

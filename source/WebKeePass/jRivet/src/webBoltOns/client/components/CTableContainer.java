@@ -55,9 +55,9 @@
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.AdjustmentEvent;
@@ -66,23 +66,20 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.text.MessageFormat;
 import java.util.Enumeration;
-import java.util.Hashtable;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
-import javax.swing.ButtonGroup;
-import javax.swing.ButtonModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
-import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
-import javax.swing.border.EtchedBorder;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
@@ -92,11 +89,12 @@ import sun.com.table.TableColumnSorter;
 import webBoltOns.AppletConnector;
 import webBoltOns.client.WindowFrame;
 import webBoltOns.client.WindowItem;
+import webBoltOns.client.components.CTableColumn.CTableRowNavBar;
 import webBoltOns.client.components.componentRules.StandardComponentLayout;
 import webBoltOns.dataContol.DataSet;
 
 public class CTableContainer extends JPanel implements StandardComponentLayout, 
-		ActionListener, KeyListener, MouseListener, AdjustmentListener{
+		ActionListener, KeyListener, MouseListener, AdjustmentListener, MouseMotionListener{
 
 	private static final long serialVersionUID = -9089928189246377175L;
 	protected AppletConnector cnct;
@@ -113,6 +111,7 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 	protected WindowFrame mFrm;
 	protected WindowItem comp;
 	protected JButton print, copy;
+	private CTableRowNavBar navBar;
 	
 	protected JPopupMenu popUp;	 
 	
@@ -125,22 +124,23 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 		cnct = mainFrame.getAppletConnector();
 		tableTitle = thisItem.getDescription();
 		setName(Integer.toString(comp.getObjectHL()));
-		if(parentItem.getComponentObject()   instanceof CTabTableContainer) {
-			tabTable = (CTabTableContainer) parentItem.getComponentObject();
-			tabTable.addTab(this, thisItem.getDescription(), thisItem.getIconName());			
-		} else {
-			tabTable = null;
-			if (comp.getPosition().equals(WindowItem.RIGHT)) 
-				((CPanelContainer) parentItem.getComponentObject()).addRight(this, 4);
-			 else if (comp.getPosition().equals(WindowItem.CENTER)) 
-				((CPanelContainer) parentItem.getComponentObject()).addRight(this, 2);
-			 else 
-				((CPanelContainer) parentItem.getComponentObject()).addLeft(this, 0);
+		if( ! comp.getObjectName().equals(WindowItem.TABLE_DOC_MNGR_OBJECT)) {
+			if(parentItem.getComponentObject()   instanceof CTabTableContainer) {
+				tabTable = (CTabTableContainer) parentItem.getComponentObject();
+				tabTable.addTab(this, thisItem.getDescription(), thisItem.getIconName());			
+			} else {
+				tabTable = null;
+				if (comp.getPosition().equals(WindowItem.RIGHT)) 
+					((CPanelContainer) parentItem.getComponentObject()).addRight(this, 4);
+				else if (comp.getPosition().equals(WindowItem.CENTER)) 
+					((CPanelContainer) parentItem.getComponentObject()).addRight(this, 2);
+				else 
+					((CPanelContainer) parentItem.getComponentObject()).addLeft(this, 0);
+			}
 		}
-		
 		if (thisItem.getHeight() == 0) 
 			totlenght = 300;
-		 else 
+		else 
 			totlenght = thisItem.getHeight() * 20;
 	}
 
@@ -162,7 +162,13 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 		popUp.add(button);
 	}
 	
+	protected void setNavBar(CTableRowNavBar nb) {
+		navBar = nb;
+	}
 	
+	protected CTableRowNavBar getNavBar() {
+		return navBar ;
+	}
 	
 	protected void addFormattedRecord(String[] record) {
 		Object[] rc = new Object[record.length];
@@ -388,7 +394,15 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 			totwidth += tableColumns[curcol].getAppletComponent().getLength() + 5;
 			curcol++;
 		}
-
+		
+		if(navBar != null && popUp != null) {
+			Component [] m = popUp.getComponents();
+			for(int a = 0; a < m.length; a++) {
+				if(m[a] instanceof JMenuItem) 
+					navBar.addOption((JMenuItem) m[a]);
+			}
+		}
+		
 		dataModel = new CTableModel(fieldDescription, fieldDescription.length,  this);
 		sorter = new TableColumnSorter(dataModel, tabTable, tableColumns,cnct);
 		
@@ -409,7 +423,9 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 		
 		scrollpane.getVerticalScrollBar().addAdjustmentListener(this);
 		tableView.addMouseListener(this);
+		tableView.addMouseMotionListener(this);
 		tableView.addKeyListener(this);
+		
 		setLayout(new BorderLayout());
 		tableView.setGridColor(new Color(240, 240, 240));
 		scrollpane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
@@ -418,7 +434,7 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 			scrollpane.setCorner(JScrollPane.LOWER_RIGHT_CORNER, print);
 		if (cnct.tableCopyAccess)
 			scrollpane.setCorner(JScrollPane.UPPER_RIGHT_CORNER, copy);
-		add(scrollpane, BorderLayout.WEST);
+		add(scrollpane, BorderLayout.CENTER);
 	}
 
 	
@@ -560,6 +576,13 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 	}
 
 
+	public String getDocID() {
+		String rw [] = getStringRecordAt(tableView.getSelectedRow(), false);
+		if (rw == null) return "";
+		for(int x=0; x < fieldName.length; x++)
+			if(fieldName[x].equals("DocumentID")) return rw[x];
+		return "";
+	}
 	
 
 	public void setRowChanged(int row) {
@@ -688,7 +711,15 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
                  	}
 			 });
 			popUp.show(e.getComponent(), e.getX(), e.getY());
+		
+		} else 	if(navBar != null) {
+			 SwingUtilities.invokeLater(new Runnable() {
+	                public void run() {			
+	                	navBar.fireNavAction(e);
+             	}
+			 });	 
 		}
+		
 	}
 
 
@@ -709,12 +740,18 @@ public class CTableContainer extends JPanel implements StandardComponentLayout,
 	public void hidePopUP() {
 			popUp.setVisible(false);
 	}
-
+	
+	public void mouseMoved(MouseEvent e) {
+		if (navBar != null)
+			navBar.fireNavMoved(e);
+	}
+	
 	public void mouseEntered(MouseEvent e) {}
 	public void mouseExited(MouseEvent e) {}
 	public void mousePressed(MouseEvent e) {}
 	public void keyTyped(KeyEvent e) {}
 	public void setProperty(String propertyName, String propertyValue) {}
+	public void mouseDragged(MouseEvent e) {}
 	
  }
 
@@ -746,6 +783,8 @@ class CTableModel extends AbstractTableModel implements TableModelListener {
 		chg.set(row, Boolean.TRUE);
 		fireTableChanged(null);
 	}
+	
+	
 
 	public void clearTableData() {
 		cache.removeAllElements();

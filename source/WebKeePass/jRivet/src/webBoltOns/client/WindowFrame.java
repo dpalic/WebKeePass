@@ -108,7 +108,7 @@ import webBoltOns.client.components.CTreeTableContainer;
 import webBoltOns.client.components.componentRules.ComManager;
 import webBoltOns.client.components.componentRules.StandardComponentLayout;
 import webBoltOns.client.components.layoutManagers.GridFlowLayout;
-import webBoltOns.client.components.layoutManagers.GridFlowLayoutParameter;
+import webBoltOns.client.components.layoutManagers.GridFlowParm;
 import webBoltOns.client.components.layoutManagers.StackedFlowLayout;
 import webBoltOns.dataContol.DataSet;
 
@@ -301,6 +301,38 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 		}
 	}
 
+	
+	/**
+	 * <h2><code>actionFileUpLoad</code></h2>
+	 * 
+	 *  
+	 */
+	public void actionFileUpLoad(int clevel, String file, byte [] value) {				
+		String hMethod = cmpntTree[clevel].getCommitMethod();
+		String hClass = cmpntTree[clevel].getCommitClass();				
+		DataSet hs = new DataSet();
+		hs.putStringField(WindowItem.ACTION,  WindowItem.POST_FILE_UPLOAD);
+		
+		hs = getSelectedTextFields(hs);
+		hs.putStreamArray("[Import_Data/]", value);
+		hs.putStringField("[Import_File/]", file);
+		
+		hs.putStringField(WindowItem.METHOD, hMethod);
+			if(!hClass.equals(""))
+				hs.putStringField(WindowItem.CLASSNAME, hClass);
+			else
+				hs.putStringField(WindowItem.CLASSNAME, clsNme);
+
+		ActionEvent e = new ActionEvent(find, 0, WindowItem.POST_FILE_UPLOAD);
+		cntr.postServerRequestLazy(this, e, hs);
+	}
+	
+	
+	public  void actionRunDoc(String docID) {
+		String  d = cntr.reportURL;
+		d += "?DocumentID="   + docID +  "&ServiceDocType=docviewer" ;		
+		cntr.showWebDocument(d);
+	}
 	
 	
 	private void actionTempClip(int hl) {
@@ -1257,39 +1289,39 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 		about.addActionListener(this);
 
 		final JPanel center = new JPanel(new GridFlowLayout(10, 10));
-		center.add(new JLabel("Script Name:"), new GridFlowLayoutParameter(true, 0));
-		center.add(new JLabel(scrptNme), new GridFlowLayoutParameter(false, 1));
-		center.add(new JLabel("   "), new GridFlowLayoutParameter(false, 2));
-		center.add(new JLabel("Command Keys:"), new GridFlowLayoutParameter(false, 3));
+		center.add(new JLabel("Script Name:"), new GridFlowParm(true, 0));
+		center.add(new JLabel(scrptNme), new GridFlowParm(false, 1));
+		center.add(new JLabel("   "), new GridFlowParm(false, 2));
+		center.add(new JLabel("Command Keys:"), new GridFlowParm(false, 3));
 		
-		center.add(new JLabel("     Screen Title:"), new GridFlowLayoutParameter(true, 0));
-		center.add(new JLabel(scrnTtle), new GridFlowLayoutParameter(false, 1));
-		center.add(new JLabel("     F1=Dock/Undock Window"), new GridFlowLayoutParameter(false, 3));
+		center.add(new JLabel("     Screen Title:"), new GridFlowParm(true, 0));
+		center.add(new JLabel(scrnTtle), new GridFlowParm(false, 1));
+		center.add(new JLabel("     F1=Dock/Undock Window"), new GridFlowParm(false, 3));
 
 		
-		center.add(new JLabel("     Servlet Class:"), new GridFlowLayoutParameter(true,0));
-		center.add(new JLabel(clsNme), new GridFlowLayoutParameter(false, 1));
-		center.add(new JLabel("     F2=Focus/Display Menu"), new GridFlowLayoutParameter(false, 3));
+		center.add(new JLabel("     Servlet Class:"), new GridFlowParm(true,0));
+		center.add(new JLabel(clsNme), new GridFlowParm(false, 1));
+		center.add(new JLabel("     F2=Focus/Display Menu"), new GridFlowParm(false, 3));
 				
-		center.add(new JLabel("      Width:"), new GridFlowLayoutParameter(true, 0));
-		center.add(new JLabel(Integer.toString(mFrm.getWidth())),new GridFlowLayoutParameter(false, 1));
-		center.add(new JLabel("     F3=Close/Exit Script"), new GridFlowLayoutParameter(false, 3));
+		center.add(new JLabel("      Width:"), new GridFlowParm(true, 0));
+		center.add(new JLabel(Integer.toString(mFrm.getWidth())),new GridFlowParm(false, 1));
+		center.add(new JLabel("     F3=Close/Exit Script"), new GridFlowParm(false, 3));
 		
-		center.add(new JLabel("      Height:"), new GridFlowLayoutParameter(true, 0));
-		center.add(new JLabel(Integer.toString(mFrm.getHeight())),new GridFlowLayoutParameter(false, 1));
-		center.add(new JLabel("     F4=Prompt"), new GridFlowLayoutParameter(false, 3));
+		center.add(new JLabel("      Height:"), new GridFlowParm(true, 0));
+		center.add(new JLabel(Integer.toString(mFrm.getHeight())),new GridFlowParm(false, 1));
+		center.add(new JLabel("     F4=Prompt"), new GridFlowParm(false, 3));
 		
 		
-		center.add(new JLabel("      Objects:"), new GridFlowLayoutParameter(true, 0));
-		center.add(new JLabel(Integer.toString(totObj)),new GridFlowLayoutParameter(false, 1));
-		center.add(new JLabel("     F5=Expand Messages"), new GridFlowLayoutParameter(false, 3));
+		center.add(new JLabel("      Objects:"), new GridFlowParm(true, 0));
+		center.add(new JLabel(Integer.toString(totObj)),new GridFlowParm(false, 1));
+		center.add(new JLabel("     F5=Expand Messages"), new GridFlowParm(false, 3));
 
 		
 		tips = new JCheckBox();
 		tips.setSelected(srvtips);
 		if (cntr.tipAccess) {
-			center.add(new JLabel("Show Script Tips:"), new GridFlowLayoutParameter(true,0));
-			center.add(tips, new GridFlowLayoutParameter(false, 1));
+			center.add(new JLabel("Show Script Tips:"), new GridFlowParm(true,0));
+			center.add(tips, new GridFlowParm(false, 1));
 		}
 	
 		
@@ -1299,9 +1331,9 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 			edit.setCursor(new Cursor(Cursor.HAND_CURSOR));
 			edit.setActionCommand("*edit*");
 			edit.addActionListener(this);
-			center.add(edit, new GridFlowLayoutParameter(true, 3));
+			center.add(edit, new GridFlowParm(true, 3));
 		}
-		center.add(about, new GridFlowLayoutParameter(true, 3));
+		center.add(about, new GridFlowParm(true, 3));
 
 		final CButton ok = new CButton("Ok");
 		ok.setMnemonic('O');
@@ -1394,8 +1426,8 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
  				
 			} else {
 				sendTableToWindow(cmd); 
-				if(cmd.equals(WindowItem.POST_RECORD) || cmd.equals(WindowItem.POST_LINE)  
-														||	cmd.equals(WindowItem.DELETE_LINE)) { 
+				if(cmd.equals(WindowItem.POST_RECORD) || cmd.equals(WindowItem.POST_LINE)  ||  
+						cmd.equals(WindowItem.POST_FILE_UPLOAD) ||	cmd.equals(WindowItem.DELETE_LINE)) { 
 					optCfm.showRequestCompleteDialog("Server Request Completed", 
 							((JComponent)source.getSource()));
 					if(find != null) find.doClick();
@@ -1551,6 +1583,9 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 						String[] row = (String[]) selected.elementAt(0);
 						for (int r = 0; r < fieldNames.length; r++) {
 							if (row[r] != null) {
+							if(cntr.strictEncoding && cmpntTree[x].isEncrypted())
+								row[r] = cntr.decrypt(row[r]);
+							
 							  if(!fieldParameters[r].equals("") )
 							  	 	hs.putStringField(fieldParameters[r], row[r]);
 								 else
@@ -1580,10 +1615,12 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 				 	field = cmpntTree[x].getFieldParameterName();
 
 			
-			if (object != null && field != null &&
-					object.equals(WindowItem.TEXT_FIELD_OBJECT))
-				textFields.put(field, ((JTextField) cmpntTree[x]
-						.getComponentObject()).getText());
+			if (object != null && field != null && 	object.equals(WindowItem.TEXT_FIELD_OBJECT))
+				
+				if(cntr.strictEncoding && cmpntTree[x].isEncrypted())
+					textFields.put(field, cntr.encrypt(((JTextField) cmpntTree[x].getComponentObject()).getText()));
+				else
+					textFields.put(field, ((JTextField) cmpntTree[x].getComponentObject()).getText());
 			 
 		}
 		return textFields;
@@ -2109,7 +2146,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 				if (parentObject.equals(WindowItem.TABLE_OBJECT)) {
 					((CTableContainer) cmpntTree[table]
 							.getComponentObject()).setToolTipText(fld, null);
-				} else {
+				} else if (parentObject.equals(WindowItem.TREE_TABLE_OBJECT)) {
 					((CTreeTableContainer) cmpntTree[table]
 							.getComponentObject()).setToolTipText(fld, null);
 				}
@@ -2166,7 +2203,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 				if (parentObject.equals(WindowItem.TABLE_OBJECT)) {
 					((CTableContainer) cmpntTree[table]
 							.getComponentObject()).setToolTipText(fld, fld);
-				} else {
+				} else if (parentObject.equals(WindowItem.TREE_TABLE_OBJECT)) {
 					((CTreeTableContainer) cmpntTree[table]
 							.getComponentObject()).setToolTipText(fld, fld);
 				}

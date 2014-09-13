@@ -662,12 +662,15 @@ public class AppletConnector extends JApplet {
 	 */
 	public void showWebDocument(String document) {
 		showWebStatus("Opening webBoltOns Server.ServletConnetor:" + document);
-			
-			try {
-				getAppletContext().showDocument(new URL(document), "_blank");
+			if(isStandalone) {
+				System.out.println(document);
+			} else {		
+				try {
+					getAppletContext().showDocument(new URL(document), "_blank");
 
-			} catch (MalformedURLException ex) {
-				System.err.println("MalformedURLException -- " + ex);
+				} catch (MalformedURLException ex) {
+					System.err.println("MalformedURLException -- " + ex);
+				}
 			}
 		showWebStatus("Done");
 	}

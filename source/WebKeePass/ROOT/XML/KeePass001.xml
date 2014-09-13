@@ -3,12 +3,12 @@
 <!--	 **Script Builder 2.1 *  -->
 <!--	 	 Script Name :  KeePass001 -->
 <!--	 	 Description :  My Passwords By Category -->
-<!--	 	 Server Class :  server.TheCrypt -->
+<!--	 	 Server Class :  server.Crypt -->
 <!--	 	 Initalization Method :  getCryptList -->
-<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass001.xml -->
-<!--	 	 Last Update :  18-May-2008 -->
-<!--	 	 User Profile:  pjones -->
-<SCRIPT SCRIPT_NAME="KeePass001" DOCUMENT_TYPE="Window" CLASS_NAME="server.TheCrypt" METHOD="getCryptList" AUTO_REFRESH="false" ICON="WKP6.jpg" DESCRIPTION="My Passwords By Category" Screen_Title="My Passwords By Category" WIDTH="1000" HEIGHT="570">
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass001.xml -->
+<!--	 	 Last Update :  18-Mar-2009 -->
+<!--	 	 User Profile:  root -->
+<SCRIPT SCRIPT_NAME="KeePass001" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" METHOD="getCryptList" AUTO_REFRESH="false" ICON="WKP6.jpg" DESCRIPTION="My Passwords By Category" Screen_Title="My Passwords By Category" WIDTH="1000" HEIGHT="570">
   <ButtonBar>
     <BarButton TYPE="CLEAR" DESCRIPTION="Clear" ICON="iClear.gif" />
     <BarButton TYPE="FIND" DESCRIPTION="Refresh" ICON="iFind.gif" METHOD="getCryptList" />
@@ -17,8 +17,8 @@
     <TableTextField FIELDNAME="KeeperID" DESCRIPTION="+ID" LENGTH="6" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
     <TableTextField FIELDNAME="KeeperDesc" DESCRIPTION="Password Category" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
     <TableTextField FIELDNAME="CreateDate" DESCRIPTION="Date Added" LENGTH="10" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Center" />
-    <TableImageField FIELDNAME="KepperIcon" DESCRIPTION="Icn" LENGTH="2" />
-    <TableTextField FIELDNAME="PasswordID" DESCRIPTION="-ID" LENGTH="2" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
+    <TableImageField FIELDNAME="KepperIcon" DESCRIPTION="Icn" LENGTH="2" ENCRYPT="N" />
+    <TableTextField FIELDNAME="PasswordID" DESCRIPTION="-ID" LENGTH="10" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
     <TableTextField FIELDNAME="a0" DESCRIPTION="Title" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
     <TableTextField FIELDNAME="b9" DESCRIPTION="User Name" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
   </TreeTable>

@@ -1,6 +1,6 @@
 package server;
 /**
- * <p>Title: Sequencest</p>
+ * <p>Title: Sequences</p>
  * <p>Description: </p>
  *
  * 
@@ -55,7 +55,7 @@ public class Sequences {
          	
          		resultSet.close();	
       } catch (Exception exception) {
-      dtAccss.logMessage(" *Sequences.getwkpSeqCrypt* -- " + exception);
+      dtAccss.logMessage(" *Sequences.getNextSequences* -- " + exception);
     } finally {
       dtAccss.execClose(sqlStatement);
     }
@@ -64,6 +64,31 @@ public class Sequences {
 
  
  
+ public int getNextSequences (String seqID, DataAccess dtAccss) {     
+	  
+     ResultSet resultSet;
+     Statement sqlStatement = dtAccss.execConnectReadOnly();
+     int seq = 0;
+      try {
+         	resultSet = sqlStatement.executeQuery(
+         			"Select seq from wkpSeqCrypt Where TableName = '" + seqID + "'");
+         	if (resultSet.next()) {
+         		seq = (resultSet.getInt("seq")) + 1;
+         		updateIntoSequences(seqID, seq, dtAccss);
+         	} else {
+         		seq = 1;
+         		insertIntoSequences(seqID, seq, dtAccss);
+         	}
+         	
+         		resultSet.close();	
+      } catch (Exception exception) {
+      dtAccss.logMessage(" *Sequences.getNextSequences* -- " + exception);
+    } finally {
+      dtAccss.execClose(sqlStatement);
+    }
+  return seq;
+  }
+
  
  private int CheckTable(String tableName, String tableID, int seq,  DataAccess dtAccss) {     
      ResultSet resultSet;

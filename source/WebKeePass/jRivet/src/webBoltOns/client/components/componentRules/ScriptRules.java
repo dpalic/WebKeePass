@@ -207,6 +207,7 @@ public  class ScriptRules {
 			WindowItem.TABLE_SPINNER_OBJECT,
 			WindowItem.TABLE_TEXTFIELD_OBJECT,
 			WindowItem.TABLE_IMAGE_OBJECT,
+			WindowItem.TABLE_NAVROW_OBJECT,
 			WindowItem.FILE_PROMPT,
 			WindowItem.PASSWORD_FIELD_OBJECT,
 			WindowItem.PASSWORD_EDITOR_OBJECT,
@@ -220,6 +221,7 @@ public  class ScriptRules {
 			WindowItem.TABITEM_OBJECT,
 			WindowItem.TAB_TABLE_OBJECT,
 			WindowItem.TABLE_OBJECT,
+			WindowItem.TABLE_DOC_MNGR_OBJECT,
 			WindowItem.TREE_TABLE_OBJECT,
 			WindowItem.RADIO_BUTTON_GROUP_OBJECT,
 			WindowItem.MENU_EXPLORER_OBJECT,
@@ -265,7 +267,7 @@ public  class ScriptRules {
 		compClass.put(WindowItem.SCRIPT_EDITOR_OBJECT, "webBoltOns.client.components.CScriptEditorContainer");
 		compClass.put(WindowItem.REPORT_EDITOR_OBJECT,"webBoltOns.client.components.CReportEditorContainer");
 		compClass.put(WindowItem.MENU_EDITOR_OBJECT, "webBoltOns.client.components.CMenuEditorContainer");			
-		
+		compClass.put(WindowItem.TABLE_DOC_MNGR_OBJECT, "webBoltOns.client.components.CDocManager");
 		compClass.put(WindowItem.MENU_EDITOR_OBJECT, "webBoltOns.client.components.CMenuEditorContainer"); 		
 		
 		compClass.put(WindowItem.TABLE_CHECKBOX_OBJECT, "webBoltOns.client.components.CTableColumn");
@@ -273,6 +275,7 @@ public  class ScriptRules {
 		compClass.put(WindowItem.TABLE_SPINNER_OBJECT, "webBoltOns.client.components.CTableColumn");
 		compClass.put(WindowItem.TABLE_IMAGE_OBJECT, "webBoltOns.client.components.CTableColumn");
 		compClass.put(WindowItem.TABLE_TEXTFIELD_OBJECT, "webBoltOns.client.components.CTableColumn");
+		compClass.put(WindowItem.TABLE_NAVROW_OBJECT, "webBoltOns.client.components.CTableColumn");
 		
 		propertyRules.put(WindowItem.TEXT_LABEL, new String[] {
 				"T", // 00 Component
@@ -784,7 +787,7 @@ public  class ScriptRules {
 				"F", // 26 Zero Fill Value
 				"F", // 27 Commit Class 
 				"F", // 28 Commit Method
-				"F", // 29 Encrypted
+				"T", // 29 Encrypted
 		});
 
 		propertyRules.put(WindowItem.IMAGE_BOX_OBJECT, new String[] { 
@@ -817,7 +820,7 @@ public  class ScriptRules {
 				"F", // 26 Zero Fill Value
 				"F", // 27 Commit Class 
 				"F", // 28 Commit Method
-				"F", // 29 Encrypted
+				"T", // 29 Encrypted
 		});
 		propertyRules.put(WindowItem.MEDIA_BOX_OBJECT, new String[] {
 				"T", // Component
@@ -915,6 +918,38 @@ public  class ScriptRules {
 				"F", // 28 Commit Method
 				"T", // 29 Encrypted
 		});
+		propertyRules.put(WindowItem.TABLE_NAVROW_OBJECT, new String[] {
+				"T", // Component
+				"F", // 00 Type
+				"T", // 01 Label Description:
+				"T", // 02 Field Name
+				"F", // 03 Position
+				"F", // 04 Data Type
+				"F", // 06 Data Length
+				"F", // 05 Decmails
+				"F", // 06 Data Aligment
+				"F", // 07 Input/output
+				"F", // 08 Edit Mask
+				"T", // 09 Length
+				"F", // 10 Height
+				"F", // 11 Width
+				"F", // 12 Icon File Name:
+				"F", // 13 Script Link
+				"F", // 14 Link Method:
+				"F", // 15 Link Class:
+				"F", // 18 Paramter Name
+				"F", // 19 List Table:
+				"F", // 20 List Field Name:
+				"F", // 21 List Field Desc:
+				"F", // 22 List Selection
+				"F", // 23 Component Orientation
+				"F", // 24 Default Value
+				"F", // 25 Hidden Object 
+				"F", // 26 Zero Fill Value
+				"F", // 27 Commit Class 
+				"F", // 28 Commit Method
+				"T", // 29 Encrypted
+		});
 		propertyRules.put(WindowItem.TABLE_COMBOBOX_OBJECT, new String[] {
 				"T", // Component
 				"F", // 00 Type
@@ -977,7 +1012,7 @@ public  class ScriptRules {
 				"F", // 26 Zero Fill Value
 				"F", // 27 Commit Class 
 				"F", // 28 Commit Method
-				"F", // 29 Encrypted
+				"T", // 29 Encrypted
 		});
 		propertyRules.put(WindowItem.TABLE_IMAGE_OBJECT, new String[] {
 				"T", // Component
@@ -1009,7 +1044,7 @@ public  class ScriptRules {
 				"F", // 26 Zero Fill Value
 				"F", // 27 Commit Class 
 				"F", // 28 Commit Method
-				"F", // 29 Encrypted
+				"T", // 29 Encrypted
 		});
 		propertyRules.put(WindowItem.TABLE_TEXTFIELD_OBJECT, new String[] {
 				"T", // Component
@@ -1202,6 +1237,39 @@ public  class ScriptRules {
 				"F", // 26 Zero Fill Value
 				"F", // 27 Commit Class 
 				"F", // 28 Commit Method
+				"F", // 29 Encrypted
+		});
+		
+		propertyRules.put(WindowItem.TABLE_DOC_MNGR_OBJECT, new String[] { 
+				"T", //  Component
+				"F", // 00 Type
+				"T", // 01 Label Description:
+				"T", // 02 Field Name
+				"T", // 03 Position
+				"F", // 04 Data Type
+				"F", // 06 Data Length
+				"F", // 05 Decmails
+				"F", // 06 Data Aligment
+				"F", // 07 Input/output
+				"F", // 08 Edit Mask
+				"F", // 09 Length
+				"T", // 10 Height
+				"T", // 11 Width
+				"F", // 12 Icon File Name:
+				"F", // 13 Script Link
+				"F", // 14 Link Method:
+				"F", // 15 Link Class:
+				"F", // 18 Paramter Name
+				"F", // 19 List Table:
+				"F", // 20 List Field Name:
+				"F", // 21 List Field Desc:
+				"F", // 22 List Selection
+				"T", // 23 Component Orientation
+				"F", // 24 Default Value
+				"F", // 25 Hidden Object 
+				"F", // 26 Zero Fill Value
+				"T", // 27 Commit Class 
+				"T", // 28 Commit Method
 				"F", // 29 Encrypted
 		});
 		propertyRules.put(WindowItem.TABLE_OBJECT, new String[] { 

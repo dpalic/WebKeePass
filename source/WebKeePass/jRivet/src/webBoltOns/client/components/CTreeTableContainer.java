@@ -201,15 +201,21 @@ public class CTreeTableContainer extends CTableContainer implements
 				String[] rec = new String[fieldDescription.length];
 				for (int y = 0; y < fieldDescription.length; y++) {
 					Object aValue = tableView.getValueAt(rows[x], y);
-					if (tableColumns[y].getAppletComponent().getDataType()
-							.equals("BOL")) {
-						if (((Boolean) aValue).booleanValue()) {
+					if (tableColumns[y].getAppletComponent().getDataType().equals("BOL")) {
+						
+						if (((Boolean) aValue).booleanValue()) 
 							rec[y] = "true";
-						} else {
+						 else 
 							rec[y] = "false";
-						}
+						
 					} else {
-						rec[y] = (String) tableView.getValueAt(rows[x], y);
+						
+						if(cnct.strictEncoding && tableColumns[y].getAppletComponent().isEncrypted())
+							rec[y] = cnct.encrypt((String) tableView.getValueAt(rows[x], y));
+						else
+							rec[y] = (String) tableView.getValueAt(rows[x], y);
+						
+						
 					}
 				}
 

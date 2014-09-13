@@ -61,6 +61,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 import webBoltOns.dataContol.DataAccess;
+import webBoltOns.server.reportWriter.GenericReport;
 import webBoltOns.server.reportWriter.JRivetWriter;
 import webBoltOns.server.reportWriter.JasperWriter;
  
@@ -142,11 +143,12 @@ import webBoltOns.server.reportWriter.JasperWriter;
 			JasperWriter jrw = new JasperWriter();
 			jrw.init(dataAccess, this);
 			jrw.reportService(request, response);
+		
+		} else if(docType.equals("docviewer")) {
+			GenericReport gnr = new GenericReport();
+			gnr.init(dataAccess, this);
+			gnr.reportService(request, response);
 		}
-
 	}
-
-
-
-
+	
 }

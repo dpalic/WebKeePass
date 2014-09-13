@@ -34,10 +34,9 @@ import webBoltOns.dataContol.DataSet;
 
 public class Akin {
 
-	public Akin() {
-	}
+	public Akin() { }
 
-	private TheCrypt crpt = new TheCrypt();
+	private Crypt crpt = new Crypt();
 
 	/**/
 	public DataSet getAKin(DataSet dataSet, DataAccess dataAccss) {
@@ -45,9 +44,9 @@ public class Akin {
 			if (!dataAccss.executeQuery(
 					"Select * From wkpPasswordAKin Where AKinID =  "
 							+ dataSet.getIntegerField("KinID")
-							+ " And PasswordID = "
+							+ " And PasswordID = '"
 							+ dataSet.getIntegerField("PasswordID")
-							+ " And y1 = '" + dataSet.getScmbl() + "' ",
+							+ "' And y1 = '" + dataSet.getScmbl() + "' ",
 					"wkpPasswordAKin", dataSet))
 
 				dataSet.addMessage("Record Not found", "30", "FirstName", null);
@@ -71,9 +70,9 @@ public class Akin {
 		try {
 			String[] tb = new String[] { "AKinID", "x2", "t6", "w3", "v4", "r9", "u5"};
 			dataSet.putTableVector("Table1", dataAccss.executeVectorQuery(
-					"Select AKinID, x2, t6, w3, v4, r9, u5 From wkpPasswordAKin Where  PasswordID =  "
+					"Select AKinID, x2, t6, w3, v4, r9, u5 From wkpPasswordAKin Where  PasswordID = '"
 							+ dataSet.getStringField("PasswordID")
-							+ " And y1 = '" + dataSet.getScmbl() + "' ", tb));
+							+ "' And y1 = '" + dataSet.getScmbl() + "' ", tb));
 		} catch (DBSchemaException e) {
 			dataSet.addMessage("SVR0001");
 		}
@@ -152,8 +151,8 @@ public class Akin {
 		try {
 			return !dataAccss.executeQuery(
 					"Select AKinID From wkpPasswordAKin Where AKinID = "
-							+ aKinID + " And PasswordID = " + pwID
-							+ " And y1 = '" + y1 + "' ", "", null);
+							+ aKinID + " And PasswordID = '" + pwID
+							+ "' And y1 = '" + y1 + "' ", "", null);
 
 		} catch (Exception e) {
 			return true;
@@ -163,9 +162,9 @@ public class Akin {
 	/**/
 	public DataSet deleteAkin(DataSet dataSet, DataAccess dtAccss) {
 		PreparedStatement updQry = dtAccss.execPreparedConnect(
-				"Delete From wkpPasswordAKin Where AKinID = ?  And PasswordID = "
+				"Delete From wkpPasswordAKin Where AKinID = ?  And PasswordID = '"
 						+ dataSet.getIntegerField("PasswordID")
-						+ " And y1 = '"
+						+ "' And y1 = '"
 						+ dataSet.getScmbl() + "' ");
 
 		Enumeration<?> table = dataSet.getTableVector("Table1").elements();
@@ -233,15 +232,15 @@ public class Akin {
 
 		PreparedStatement insQry = dtAccss.execPreparedConnect(
 				"Insert Into wkpPasswordAKin (AKinID, PasswordID, y1, x2, t6, w3, v4, r9, u5) "
-						+ " Values ( ?, "
-						+ dtSet.getIntegerField("PasswordID")
-						+ ", '" + dtSet.getScmbl() + "', ?, ?, ?, ?, ?, ? )");
+						+ " Values ( ?, '"
+					    + dtSet.getStringField("PasswordID")
+						+ "', '" + dtSet.getScmbl() + "', ?, ?, ?, ?, ?, ? )");
 
 		PreparedStatement updQry = dtAccss.execPreparedConnect(
 				"Update wkpPasswordAKin SET x2 = ?,t6 = ?, w3 = ?, v4 = ?, r9 = ?, u5 = ? "
-						+ " Where AKinID = ? And PasswordID = "
-						+ dtSet.getIntegerField("PasswordID")
-						+ " And y1 = '"
+						+ " Where AKinID = ? And PasswordID = '"
+						+ dtSet.getStringField("PasswordID")
+						+ "' And y1 = '"
 						+ dtSet.getScmbl() + "' ");
 
 		try {
@@ -343,7 +342,7 @@ public class Akin {
 					row[2] = "     Web-KeePass Password";
 					row[3] = "";
 					row[4] = "dot.gif";
-					row[5] = Integer.toString(resultSet.getInt("PasswordID"));
+					row[5] = resultSet.getString("PasswordID");
 					row[6] = resultSet.getString("a0");
 					row[7] = resultSet.getString("b9");
 					row[8] = resultSet.getString("j1");
@@ -410,7 +409,7 @@ public class Akin {
 					row[2] = "     Web-KeePass Password";
 					row[3] = "";
 					row[4] = "dot.gif";
-					row[5] = Integer.toString(resultSet.getInt("PasswordID"));
+					row[5] = resultSet.getString("PasswordID");
 					row[6] = resultSet.getString("a0");
 					row[7] = resultSet.getString("b9");
 					row[8] = resultSet.getString("j1");

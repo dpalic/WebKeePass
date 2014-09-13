@@ -52,5 +52,7 @@
   <Literal LiteralID = "WKP0002"  Text="Password Item Not Valid"  Severity="30" Type="MessageBar"/>
  
   <Literal LiteralID = "WKP0003"  Text="Invalid Or In-active KeePass Group"  Severity="30" Type="MessageBar"/>
+
+  <Literal LiteralID = "WKP0004"  Text="Password ID is blanks"  Severity="30" Type="MessageBar"/>
   
 </Literals>

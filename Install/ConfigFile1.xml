@@ -32,6 +32,8 @@
   <IMAGE_DIRECTORY>{images}</IMAGE_DIRECTORY>
   <LOG_DIRECTORY>{logs}</LOG_DIRECTORY>
 
+  <DOC_DIRECTORY>{docs}</DOC_DIRECTORY>
+
 
 
  <!-- LDAP   -->  
@@ -119,9 +121,7 @@
        <WindowTitleColor Red='235' Green='235' Blue='235'/>
        <WindowTitleFontColor Red='0' Green='0' Blue='0'/>
        <CursorColor Red='250' Green='250' Blue='220'/>
-  </DESKTOP_COLORS>
-
-
+  </DESKTOP_COLORS>
 
  </DESKTOP>
 

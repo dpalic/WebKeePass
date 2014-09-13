@@ -3,12 +3,12 @@
 <!--	 **Script Builder 2.1 *  -->
 <!--	 	 Script Name :  KeePass003 -->
 <!--	 	 Description :  View History -->
-<!--	 	 Server Class :  server.TheCrypt -->
+<!--	 	 Server Class :  server.Crypt -->
 <!--	 	 Initalization Method :   -->
-<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass003.xml -->
-<!--	 	 Last Update :  20-Apr-2008 -->
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass003.xml -->
+<!--	 	 Last Update :  10-Mar-2009 -->
 <!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="KeePass003" DOCUMENT_TYPE="Window" CLASS_NAME="server.TheCrypt" AUTO_REFRESH="false" DESCRIPTION="View History" Screen_Title="View History" WIDTH="650" HEIGHT="580">
+<SCRIPT SCRIPT_NAME="KeePass003" DOCUMENT_TYPE="Window" CLASS_NAME="server.Crypt" AUTO_REFRESH="false" DESCRIPTION="View History" Screen_Title="View History" WIDTH="650" HEIGHT="580">
   <ButtonBar>
     <BarButton TYPE="FIND" DESCRIPTION="Find/Refresh" ICON="iFind.gif" METHOD="getCrypHistory" />
     <BarButton TYPE="PREV" DESCRIPTION="Previous" ICON="iPrev.gif" METHOD="prvCrypHistory" />
@@ -17,8 +17,8 @@
   </ButtonBar>
   <Panel POSITION="Left" HIDDEN="N">
     <TextField FIELDNAME="HistoryID" DESCRIPTION="HistoryID" LENGTH="4" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="5" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="KeePass001" METHOD="getPassword" />
-    <TextField FIELDNAME="PasswordID" DESCRIPTION="PasswordID" LENGTH="4" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="5" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="KeePass001" METHOD="getPassword" />
-    <TextField FIELDNAME="a0" DESCRIPTION="Title" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" />
+    <TextField FIELDNAME="PasswordID" DESCRIPTION="PasswordID" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="20" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" LINK="KeePass001" METHOD="getPassword" />
+    <TextField FIELDNAME="a0" LENGTH="25" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" />
   </Panel>
   <TabGroup HEIGHT="0" WIDTH="0" POSITION="Left" COMPONENT_ORIENTATION="Top">
     <TabItem DESCRIPTION="Password Entry" ICON="tdot.gif">

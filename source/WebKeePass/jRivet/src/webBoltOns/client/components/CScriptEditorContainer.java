@@ -99,7 +99,7 @@ import webBoltOns.client.WindowItem;
 import webBoltOns.client.components.componentRules.ScriptRules;
 import webBoltOns.client.components.componentRules.StandardComponentLayout;
 import webBoltOns.client.components.layoutManagers.GridFlowLayout;
-import webBoltOns.client.components.layoutManagers.GridFlowLayoutParameter;
+import webBoltOns.client.components.layoutManagers.GridFlowParm;
 import webBoltOns.dataContol.DataSet;
 
 public class CScriptEditorContainer extends JPanel implements StandardComponentLayout, 
@@ -315,7 +315,7 @@ public class CScriptEditorContainer extends JPanel implements StandardComponentL
 
 		for (int p = 0; p < sRules.propertyLabel.length; p++) {
 			final Component c = sRules.propertyComponents[p];
-			propertyPanel.add(sRules.propertyLabel[p], new GridFlowLayoutParameter(true, 0));
+			propertyPanel.add(sRules.propertyLabel[p], new GridFlowParm(true, 0));
 			c.setPreferredSize(new Dimension(215, 18));
 		    c.setName("comp");
 			c.addKeyListener(this);
@@ -327,7 +327,7 @@ public class CScriptEditorContainer extends JPanel implements StandardComponentL
 			if(c instanceof JTextField) 		
 				c.addFocusListener(this);
 			
-			propertyPanel.add(c, new GridFlowLayoutParameter(false, 1));
+			propertyPanel.add(c, new GridFlowParm(false, 1));
 		}
 		
 		return propertyPanel;

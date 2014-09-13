@@ -118,7 +118,7 @@ import webBoltOns.client.components.CButton;
 import webBoltOns.client.components.CDialog;
 import webBoltOns.client.components.componentRules.ComManager;
 import webBoltOns.client.components.layoutManagers.GridFlowLayout;
-import webBoltOns.client.components.layoutManagers.GridFlowLayoutParameter;
+import webBoltOns.client.components.layoutManagers.GridFlowParm;
 import webBoltOns.client.components.layoutManagers.StackedFlowLayout;
 import webBoltOns.dataContol.DataSet;
 
@@ -588,15 +588,15 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 				qlink.setIcon(cntr.documentIcon);
 			}
 			qlink.addActionListener(this);
-			GridFlowLayoutParameter gridLocation = null;
+			GridFlowParm gridLocation = null;
 			
 			qcolumn++;
 			if (qcolumn == 1) {
-				gridLocation = new GridFlowLayoutParameter(true, 1);
+				gridLocation = new GridFlowParm(true, 1);
 			} else if (qcolumn == 2) {
-				gridLocation = new GridFlowLayoutParameter(false, 2);
+				gridLocation = new GridFlowParm(false, 2);
 			} else {
-				gridLocation = new GridFlowLayoutParameter(false, 3);
+				gridLocation = new GridFlowParm(false, 3);
 				qcolumn = 0;
 			}
 			qckPnl.add(qlink, gridLocation);
@@ -664,17 +664,21 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 	private JPanel buildAbout() {
 		final JPanel card1 = new JPanel(new StackedFlowLayout(StackedFlowLayout.TOP, 25, 25));
 		card1.add(createTitle("Java Solutions For Enterprise Applications"));
+		
 		card1.add(new JLabel(cntr.logoImagePanel));
-		JLabel d1 = new JLabel("Copyright:  2004, 2005, 2006");
-		d1.setHorizontalAlignment(JLabel.CENTER);
-		card1.add(d1);
-		JLabel b1 = new JLabel("Build: " + cntr.jRivetVersion);
+		JLabel b1 = new JLabel("Another Free Application By:");
 		b1.setHorizontalAlignment(JLabel.CENTER);
 		card1.add(b1);
-		d2 = new JLabel("<html><font color=\"blue\"><u>www.jrivet.com</u></font></html>");
+		
+		card1.add(new JLabel(cntr.getImageIcon("oss.jpg")));
+		JLabel d1 = new JLabel("Copyright: 2006, 2007, 2008, 2009");
+		d1.setHorizontalAlignment(JLabel.CENTER);
+		card1.add(d1);
+;
+		d2 = new JLabel("<html><font color=\"blue\"><u>www.ossfree.net</u></font></html>");
 		d2.setHorizontalAlignment(JLabel.CENTER);
 		d2.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		d2.setName("jRivet");
+		d2.setName("oss");
 		d2.addMouseListener(this);
 		card1.add(d2);
 		return card1;
@@ -705,24 +709,24 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 		titledBorder.setTitleColor(new Color(0, 0, 150));
 		infoPanel.setBorder(titledBorder);
 
-		infoPanel.add(new JLabel("Open Connections: "), new GridFlowLayoutParameter(true, 0));
-		infoPanel.add(new JLabel(totCnectns),new GridFlowLayoutParameter(false, 1));
-		infoPanel.add(new JLabel(" Objects: "), new GridFlowLayoutParameter(false, 2));
-		infoPanel.add(new JLabel(Integer.toString(totObj)),new GridFlowLayoutParameter(false, 3));
-		infoPanel.add(new JLabel("Menu XML: "), new GridFlowLayoutParameter(true, 0));
-		infoPanel.add(new JLabel(cntr.menuScript),new GridFlowLayoutParameter(false, 1));
+		infoPanel.add(new JLabel("Open Connections: "), new GridFlowParm(true, 0));
+		infoPanel.add(new JLabel(totCnectns),new GridFlowParm(false, 1));
+		infoPanel.add(new JLabel(" Objects: "), new GridFlowParm(false, 2));
+		infoPanel.add(new JLabel(Integer.toString(totObj)),new GridFlowParm(false, 3));
+		infoPanel.add(new JLabel("Menu XML: "), new GridFlowParm(true, 0));
+		infoPanel.add(new JLabel(cntr.menuScript),new GridFlowParm(false, 1));
 
-		infoPanel.add(new JLabel(" Date Format: "),new GridFlowLayoutParameter(false, 2));
-		infoPanel.add(new JLabel(cntr.dateFormat),new GridFlowLayoutParameter(false, 3));
+		infoPanel.add(new JLabel(" Date Format: "),new GridFlowParm(false, 2));
+		infoPanel.add(new JLabel(cntr.dateFormat),new GridFlowParm(false, 3));
 
-		infoPanel.add(new JLabel("Servlet Access:"),new GridFlowLayoutParameter(true, 0));
-		infoPanel.add(combomode, new GridFlowLayoutParameter(false, 1));
+		infoPanel.add(new JLabel("Servlet Access:"),new GridFlowParm(true, 0));
+		infoPanel.add(combomode, new GridFlowParm(false, 1));
 
-		infoPanel.add(new JLabel("Security Status:"),new GridFlowLayoutParameter(false, 2));
+		infoPanel.add(new JLabel("Security Status:"),new GridFlowParm(false, 2));
 		if (cntr.securityManager)
-			infoPanel.add(new JLabel("Running"), new GridFlowLayoutParameter(false, 3));
+			infoPanel.add(new JLabel("Running"), new GridFlowParm(false, 3));
 		else
-			infoPanel.add(new JLabel("Disabled"), new GridFlowLayoutParameter(false, 3));
+			infoPanel.add(new JLabel("Disabled"), new GridFlowParm(false, 3));
 
 		final JPanel logsPanel = new JPanel(new GridFlowLayout(15, 5));
 		border = BorderFactory.createLineBorder(new Color(0, 0, 150), 1);
@@ -748,8 +752,8 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 		logButton.setBorder(null);
 		logButton.setActionCommand("logs");
 		logButton.addActionListener(this);
-		logsPanel.add(srvrLgs, new GridFlowLayoutParameter(true, 0));
-		logsPanel.add(logButton, new GridFlowLayoutParameter(false, 1));
+		logsPanel.add(srvrLgs, new GridFlowParm(true, 0));
+		logsPanel.add(logButton, new GridFlowParm(false, 1));
 
 		final JPanel adminPanel = new JPanel(new GridFlowLayout(10, 10));
 		border = BorderFactory.createLineBorder(new Color(0, 0, 150), 1);
@@ -774,13 +778,13 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 			});
 		}
 
-		adminPanel.add(adminButton[0], new GridFlowLayoutParameter(true, 0));
-		adminPanel.add(adminButton[1], new GridFlowLayoutParameter(false, 1));
-		adminPanel.add(adminButton[2], new GridFlowLayoutParameter(false, 2));
-		adminPanel.add(adminButton[3], new GridFlowLayoutParameter(true, 0));
-		adminPanel.add(adminButton[4], new GridFlowLayoutParameter(false, 1));
-		adminPanel.add(adminButton[5], new GridFlowLayoutParameter(false, 2));
-		adminPanel.add(adminButton[6], new GridFlowLayoutParameter(true, 0));
+		adminPanel.add(adminButton[0], new GridFlowParm(true, 0));
+		adminPanel.add(adminButton[1], new GridFlowParm(false, 1));
+		adminPanel.add(adminButton[2], new GridFlowParm(false, 2));
+		adminPanel.add(adminButton[3], new GridFlowParm(true, 0));
+		adminPanel.add(adminButton[4], new GridFlowParm(false, 1));
+		adminPanel.add(adminButton[5], new GridFlowParm(false, 2));
+		adminPanel.add(adminButton[6], new GridFlowParm(true, 0));
 
 		adminTools.add(infoPanel, null);
 		adminTools.add(logsPanel, null);
@@ -788,9 +792,9 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 		JPanel card4 = new JPanel(new GridFlowLayout(5, 5));
 		card4.setName("Card 4");
 		card4.add(createTitle("Administrative Tasks"),
-				new GridFlowLayoutParameter(true, 0));
+				new GridFlowParm(true, 0));
 
-		card4.add(adminTools, new GridFlowLayoutParameter(true, 0));
+		card4.add(adminTools, new GridFlowParm(true, 0));
 
 		return card4;
 	}
@@ -1026,25 +1030,25 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 	private JPanel buildUserTools() {
 		final JPanel crd3 = new JPanel(new GridFlowLayout(5, 5));
 		crd3.setName("Card 3");
-		crd3.add(createTitle("Customize My Desk Top"), new GridFlowLayoutParameter(true, 0));
-		crd3.add(createTitle("Colors  "), new GridFlowLayoutParameter(true,0));
-		crd3.add(createTitle("Fonts   "),	new GridFlowLayoutParameter(false, 2));
-		crd3.add(new JLabel("     Background: "), new GridFlowLayoutParameter(true, 0));
-		crd3.add(bgClrBtn, new GridFlowLayoutParameter(false, 1));
-		crd3.add(new JLabel("       Standard Font:      "),new GridFlowLayoutParameter(false, 2));
-		crd3.add(stdFtNm, new GridFlowLayoutParameter(false, 3));
-		crd3.add(new JLabel("     Title Bar Font: "),new GridFlowLayoutParameter(true, 0));
-		crd3.add(tbFntClrBtn, new GridFlowLayoutParameter(false, 1));
-		crd3.add(new JLabel("       Title Font:"),new GridFlowLayoutParameter(false, 2));
-		crd3.add(hdeFtNm, new GridFlowLayoutParameter(false, 3));
-		crd3.add(new JLabel("     Title Bar:  "), new GridFlowLayoutParameter(true, 0));
-		crd3.add(tbClrBtn, new GridFlowLayoutParameter(false, 1));
-		crd3.add(new JLabel("     Cursor: "), new GridFlowLayoutParameter(true, 0));
+		crd3.add(createTitle("Customize My Desk Top"), new GridFlowParm(true, 0));
+		crd3.add(createTitle("Colors  "), new GridFlowParm(true,0));
+		crd3.add(createTitle("Fonts   "),	new GridFlowParm(false, 2));
+		crd3.add(new JLabel("     Background: "), new GridFlowParm(true, 0));
+		crd3.add(bgClrBtn, new GridFlowParm(false, 1));
+		crd3.add(new JLabel("       Standard Font:      "),new GridFlowParm(false, 2));
+		crd3.add(stdFtNm, new GridFlowParm(false, 3));
+		crd3.add(new JLabel("     Title Bar Font: "),new GridFlowParm(true, 0));
+		crd3.add(tbFntClrBtn, new GridFlowParm(false, 1));
+		crd3.add(new JLabel("       Title Font:"),new GridFlowParm(false, 2));
+		crd3.add(hdeFtNm, new GridFlowParm(false, 3));
+		crd3.add(new JLabel("     Title Bar:  "), new GridFlowParm(true, 0));
+		crd3.add(tbClrBtn, new GridFlowParm(false, 1));
+		crd3.add(new JLabel("     Cursor: "), new GridFlowParm(true, 0));
 		CButton saveTheme = new CButton("Save/Update Desktop");
 		saveTheme.setActionCommand("saveTheme");
 		saveTheme.addActionListener(this);
-		crd3.add(crsClrBtn, new GridFlowLayoutParameter(false, 1));
-		crd3.add(saveTheme, new GridFlowLayoutParameter(true, 2));
+		crd3.add(crsClrBtn, new GridFlowParm(false, 1));
+		crd3.add(saveTheme, new GridFlowParm(true, 2));
 		return crd3;
 	}
 
@@ -1066,18 +1070,18 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 		
 		final JPanel crd4 = new JPanel(new GridFlowLayout(10, 12));
 		crd4.setName("Card 4");
-		crd4.add(createTitle("Change My Password"), new GridFlowLayoutParameter(true, 0));
-		crd4.add(new JLabel("         Current Password: "), new GridFlowLayoutParameter(true, 0));
-		crd4.add(pw1, new GridFlowLayoutParameter(false, 1));
-		crd4.add(new JLabel("         New Password:      "),new GridFlowLayoutParameter(true, 0));
-		crd4.add(pw2, new GridFlowLayoutParameter(false, 1));
-		crd4.add(new JLabel("         Repeat New Password: "),new GridFlowLayoutParameter(true, 0));
-		crd4.add(pw3, new GridFlowLayoutParameter(false, 1));
+		crd4.add(createTitle("Change My Password"), new GridFlowParm(true, 0));
+		crd4.add(new JLabel("         Current Password: "), new GridFlowParm(true, 0));
+		crd4.add(pw1, new GridFlowParm(false, 1));
+		crd4.add(new JLabel("         New Password:      "),new GridFlowParm(true, 0));
+		crd4.add(pw2, new GridFlowParm(false, 1));
+		crd4.add(new JLabel("         Repeat New Password: "),new GridFlowParm(true, 0));
+		crd4.add(pw3, new GridFlowParm(false, 1));
 		
 		CButton chg = new CButton(" Change Password ");
 		chg.setActionCommand("ChngPswrd");
 		chg.addActionListener(this);
-		crd4.add(chg, new GridFlowLayoutParameter(true, 1));
+		crd4.add(chg, new GridFlowParm(true, 1));
 		return crd4;
 	
 	}
@@ -1604,7 +1608,7 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 		
 			
 		} else  if (e.getSource().equals(d2)) {	
-			cntr.showWebDocument("http://sourceforge.net/projects/jrivet");
+			cntr.showWebDocument("http://ossfree.net");
 		
 					
 		} else  if (e.getSource().equals(optionTree)) {

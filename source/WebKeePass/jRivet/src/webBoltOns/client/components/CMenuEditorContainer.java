@@ -98,7 +98,7 @@ import webBoltOns.client.WindowItem;
 import webBoltOns.client.components.componentRules.MenuRules;
 import webBoltOns.client.components.componentRules.StandardComponentLayout;
 import webBoltOns.client.components.layoutManagers.GridFlowLayout;
-import webBoltOns.client.components.layoutManagers.GridFlowLayoutParameter;
+import webBoltOns.client.components.layoutManagers.GridFlowParm;
 import webBoltOns.dataContol.DataSet;
 
 public class CMenuEditorContainer extends JPanel 
@@ -231,13 +231,13 @@ public class CMenuEditorContainer extends JPanel
 
 		for (int p = 0; p < scriptEditRules.propertyLabel.length; p++) {
 			final Component c = scriptEditRules.propertyComponents[p];
-			propertyPanel.add(scriptEditRules.propertyLabel[p], new GridFlowLayoutParameter(true, 0));
+			propertyPanel.add(scriptEditRules.propertyLabel[p], new GridFlowParm(true, 0));
 			c.setPreferredSize(new Dimension(185, 19));
 			c.setName("comp");
 			c.addKeyListener(this);
 			if(c instanceof JTextField) 		
 				c.addFocusListener(this);
-			propertyPanel.add(c, new GridFlowLayoutParameter(false, 1));
+			propertyPanel.add(c, new GridFlowParm(false, 1));
 		}
 		return propertyPanel;
 	}

@@ -3,50 +3,62 @@
 
  <!-- JDBC Data source info for the DataAccess object-->
 
-<!--
-  <DATABASE_CONNECTION>
-  <DATABASE_NAME>Web Register</DATABASE_NAME>
-  <DESCRIPTION>Web Register</DESCRIPTION>
+ <DATABASE_CONNECTION>
+
+  <!-- DATABASE_NAME>WebKeePass - Password Safe</DATABASE_NAME>
+  <DESCRIPTION>WebKeePass - Password Safe</DESCRIPTION>
   <DRIVER>com.mysql.jdbc.Driver</DRIVER>
-  <URL>jdbc:mysql://localhost/WebKeePassLuke</URL>
+  <URL>jdbc:mysql://localhost/WebKeePassDvp</URL>
   <CONNECTIONS>5</CONNECTIONS>
   <CONNECT_TYPE>HTTP</CONNECT_TYPE>
   <REGISTRY_PORT>5555</REGISTRY_PORT>
   <SOCKET_PORT>5556</SOCKET_PORT>
   <USERID>root</USERID>
-  <PASSWORD>powerful</PASSWORD>
-
-  </DATABASE_CONNECTION>
- -->
+  <PASSWORD>powerful</PASSWORD -->
 
 
- <DATABASE_CONNECTION>
-  <DATABASE_NAME>Web Register</DATABASE_NAME>
-  <DESCRIPTION>Web Register</DESCRIPTION>
+  <DATABASE_NAME>WebKeePass - Password Safe</DATABASE_NAME>
+  <DESCRIPTION>WebKeePass - Password Safe</DESCRIPTION>
   <DRIVER>oracle.jdbc.driver.OracleDriver</DRIVER>
-  <URL>jdbc:oracle:thin:@localhost:1521:XE</URL>
+  <URL>jdbc:oracle:thin:@10.10.10.6:1521:XE</URL>
   <CONNECTIONS>5</CONNECTIONS>
   <CONNECT_TYPE>HTTP</CONNECT_TYPE>
   <REGISTRY_PORT>5555</REGISTRY_PORT>
   <SOCKET_PORT>5556</SOCKET_PORT>
-  <USERID>wkp1</USERID>
-  <PASSWORD>wkp1</PASSWORD>
+  <USERID>WKP</USERID>
+  <PASSWORD>WKP</PASSWORD>
 
  </DATABASE_CONNECTION>
 
+
+
  <CONFIG>
 
-  <BANNER_TITLE>Web Register</BANNER_TITLE>
+  <BANNER_TITLE>WebKeePass - Password Safe</BANNER_TITLE>
 
 
  <!-- XML folder locations - This is the path to the folder containing all jRivet XML files -->
-  <DATABASE_SCHEMA>/home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/WEB-INF/Schema1.xml</DATABASE_SCHEMA>
-  <LITERALS>/home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/WEB-INF/Literal1.xml</LITERALS>
+  <DATABASE_SCHEMA>/home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/WEB-INF/Schema1.xml</DATABASE_SCHEMA>
+  <LITERALS>/home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/WEB-INF/Literal1.xml</LITERALS>
   
-  <SCRIPT_DIRECTORY>/home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/</SCRIPT_DIRECTORY>
-  <IMAGE_DIRECTORY>/home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/images/</IMAGE_DIRECTORY>
-  <LOG_DIRECTORY>/home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/logs/</LOG_DIRECTORY>
+  <SCRIPT_DIRECTORY>/home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/XML/</SCRIPT_DIRECTORY>
+  <IMAGE_DIRECTORY>/home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/XML/images/</IMAGE_DIRECTORY>
+  <LOG_DIRECTORY>/home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/logs/</LOG_DIRECTORY>
 
+  <DOC_DIRECTORY>/home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/documents/</DOC_DIRECTORY>
+
+
+ <!-- LDAP   -->  
+  <LDAP_CONFIG>
+    <LDAP>false</LDAP>
+    <LDAP_Group>Users</LDAP_Group>	
+    <principalDNPrefix>uid=</principalDNPrefix> 
+    <principalDNSuffix>,ou=People,dc=home,dc=net</principalDNSuffix>
+    <java.naming.provider.url>ldap://localhost:389</java.naming.provider.url>	
+    <java.naming.security.authentication>simple</java.naming.security.authentication>
+    <java.naming.factory.initial>com.sun.jndi.ldap.LdapCtxFactory</java.naming.factory.initial>  
+  </LDAP_CONFIG>
+  
 
 
 
@@ -68,21 +80,10 @@
 
  <!-- User Security Manager - Set 'ON' / 'OFF'  -->
   <UserSecurityManager>JRIVET</UserSecurityManager>
-  <UserSecurityKey>6a188f04db5b3d733b440aae90eddd223b6265c7</UserSecurityKey>  
+  <UserSecurityKey>9cf1057ffac669bab65b66091793a691cbd37954</UserSecurityKey>  
  </CONFIG>
 
 
- <!-- LDAP  - Set 'ON' / 'OFF'  -->  
-  <LDAP_CONFIG>
-    <LDAP>true</LDAP>
-    <LDAP_Group>Users</LDAP_Group>	
-    <principalDNPrefix>uid=</principalDNPrefix> 
-    <principalDNSuffix>,ou=People,dc=home,dc=net</principalDNSuffix>
-    <java.naming.provider.url>ldap://localhost:389</java.naming.provider.url>	
-    <java.naming.security.authentication>simple</java.naming.security.authentication>
-    <java.naming.factory.initial>com.sun.jndi.ldap.LdapCtxFactory</java.naming.factory.initial>  
-  </LDAP_CONFIG>
-  
  
  <!-- Desk top settings, defaults and icons -->
  
@@ -90,10 +91,7 @@
 
 
 
- <!-- Images and icons -->
-
-
-   <IMAGES> 
+ <!-- Images and icons -->   <IMAGES> 
     <menuBannerImage>banner.jpg</menuBannerImage> 
     <logo_Icon>oDot.gif</logo_Icon> 
     <link_Icon>Link.gif</link_Icon> 
@@ -122,7 +120,6 @@
     <menuScriptLinkIcon>webURL.gif</menuScriptLinkIcon>  
     <cIcon>treeCollapse.gif</cIcon> 
    </IMAGES> 
-
  
   <STANDARD_FONTS>
     <HeaderFont   FamilyName ='ARIAL'  PointSize= '11'   Italics='false'  Bolded='true' />

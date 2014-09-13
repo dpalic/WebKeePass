@@ -68,7 +68,7 @@ import webBoltOns.client.WindowFrame;
 import webBoltOns.client.WindowItem;
 import webBoltOns.client.components.componentRules.StandardComponentLayout;
 import webBoltOns.client.components.layoutManagers.GridFlowLayout;
-import webBoltOns.client.components.layoutManagers.GridFlowLayoutParameter;
+import webBoltOns.client.components.layoutManagers.GridFlowParm;
 import webBoltOns.dataContol.DataSet;
 
 public class CRadioGroupContainer extends JPanel implements
@@ -129,7 +129,7 @@ public class CRadioGroupContainer extends JPanel implements
 		model.put(key, button.getModel());
 
 		buttongroup.add(button);
-		super.add(button,  new GridFlowLayoutParameter(true, 0));
+		super.add(button,  new GridFlowParm(true, 0));
 		if (top == null) {
 			top = button.getModel();
 

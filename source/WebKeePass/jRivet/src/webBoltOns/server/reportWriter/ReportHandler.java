@@ -159,7 +159,6 @@ public class ReportHandler extends HandlerBase {
 		rc.setSubMaximum(formatAttributeValue("[Boolean/]",ReportColumn.SUB_MAXIMUM, attrs));
 		rc.setSubMinimum(formatAttributeValue("[Boolean/]",ReportColumn.SUB_MINIMUM, attrs));
 		rc.setSubAverage(formatAttributeValue("[Boolean/]",ReportColumn.SUB_AVERAGE, attrs));
-		rc.setScmbl(formatAttributeValue("[Boolean/]",ReportColumn.ENCRYPTED, attrs));
 		rc.setSubCounted(formatAttributeValue("[Boolean/]",ReportColumn.SUB_COUNT, attrs));
 		rc.setDecimals(formatAttributeValue("[Integer/]", ReportColumn.DECIMALS,attrs));
 		vf.addElement(rc);

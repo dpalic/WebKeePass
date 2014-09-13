@@ -2,10 +2,13 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/client"/>
 	<classpathentry kind="lib" path="/java/JavaJarFiles/JDBC/oracle/classes12.jar"/>
 	<classpathentry kind="lib" path="/java/JavaJarFiles/JDBC/oracle/ojdbc14.jar"/>
-	<classpathentry kind="lib" path="/java/JavaJarFiles/ldap/ldapjdk.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/client"/>
-	<classpathentry kind="lib" path="/luke/WEB-INF/classes"/>
-	<classpathentry kind="output" path="classes"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/server"/>
+	<classpathentry kind="lib" path="/server/WEB-INF/classes" sourcepath="/server/WEB-INF/src"/>
+	<classpathentry kind="lib" path="/java/JavaJarFiles/jasper-compiler.jar"/>
+	<classpathentry kind="lib" path="/java/JavaJarFiles/jasperreports-1.2.1.jar"/>
+	<classpathentry kind="lib" path="/java/JavaJarFiles/jasper-runtime.jar"/>
+	<classpathentry kind="output" path="clases"/>
 </classpath>

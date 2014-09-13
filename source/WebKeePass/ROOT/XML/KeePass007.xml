@@ -5,10 +5,10 @@
 <!--	 	 Description :  Share My Password -->
 <!--	 	 Server Class :  server.Akin -->
 <!--	 	 Initalization Method :   -->
-<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass007.xml -->
-<!--	 	 Last Update :  18-May-2008 -->
-<!--	 	 User Profile:  pjones -->
-<SCRIPT SCRIPT_NAME="KeePass007" DOCUMENT_TYPE="Window" CLASS_NAME="server.Akin" AUTO_REFRESH="true" ICON="WKP2.jpg" DESCRIPTION="Share My Password" Screen_Title="Share My Password" WIDTH="920" HEIGHT="540">
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass007.xml -->
+<!--	 	 Last Update :  15-Mar-2009 -->
+<!--	 	 User Profile:  root -->
+<SCRIPT SCRIPT_NAME="KeePass007" DOCUMENT_TYPE="Window" CLASS_NAME="server.Akin" AUTO_REFRESH="true" ICON="WKP2.jpg" DESCRIPTION="Share My Password" Screen_Title="Share My Password" WIDTH="960" HEIGHT="540">
   <ButtonBar>
     <BarButton TYPE="FIND" DESCRIPTION="Find/Refresh" ICON="iFind.gif" METHOD="initAkinList" />
     <BarButton TYPE="POST" DESCRIPTION="Update Changes" ICON="iEdit.gif" METHOD="updAkinList" />
@@ -16,8 +16,8 @@
     <BarButton TYPE="DEL-LINE" DESCRIPTION="Remove Selected Shares" ICON="idelete.gif" METHOD="deleteAkin" />
   </ButtonBar>
   <Panel POSITION="Left" HIDDEN="N">
-    <TextField FIELDNAME="PasswordID" DESCRIPTION="Password ID #" LENGTH="4" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="5" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="KeePass006" METHOD="initAkinList" />
-    <TextField FIELDNAME="a0" DESCRIPTION="Title" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" />
+    <TextField FIELDNAME="PasswordID" DESCRIPTION="Password ID #" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="20" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" LINK="KeePass006" METHOD="initAkinList" />
+    <TextField FIELDNAME="a0" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="Y" />
   </Panel>
   <Panel POSITION="Left" HIDDEN="N">
     <Table FIELDNAME="Table1" HEIGHT="12" WIDTH="0" POSITION="Left">

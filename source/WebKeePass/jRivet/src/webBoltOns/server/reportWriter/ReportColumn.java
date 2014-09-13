@@ -1,7 +1,5 @@
 package webBoltOns.server.reportWriter;
 
-
-
 /*
  * $Id: ReportColumn.java,v 1.1 2007/04/20 19:37:19 paujones2005 Exp $ $Name:  $
  *
@@ -68,8 +66,6 @@ public class ReportColumn implements java.io.Serializable {
 	public static final String DECIMALS = "DECIMALS";
 	public static final String DATATYPE = "DATATYPE";
 	public static final String POSITION = "POSITION";
-	public static final String ENCRYPTED = "ENCRYPTED";
-
 	public static final String DOCUMENT_TYPE = "DOCUMENT_TYPE";
 
 	public static final String SUB_TOTAL = "SUB_TOTAL";
@@ -85,10 +81,9 @@ public class ReportColumn implements java.io.Serializable {
 	public static final String LEFT = "Left";
 
 	
-	private String description = "", fieldname = "", datatype = "", alignment = "";
+	private String description = "", fieldname = "", datatype = "",
+			alignment = "";
 
-	private boolean scrbl = false;
-	
 	private int length = 0, decimals = 0, controlLevelBreak = 0;
 
 	boolean subTotaled = false, 
@@ -137,11 +132,7 @@ public class ReportColumn implements java.io.Serializable {
 	public boolean isSubAveraged() {
 		return subAverage;
 	}
-
-	public boolean isScrbl() {
-		return scrbl;
-	}
-
+	
 	public int getLength() {
 		return length;
 	}
@@ -176,15 +167,6 @@ public class ReportColumn implements java.io.Serializable {
 		else
 			subTotaled = false;
 	}
-
-
-	public void setScmbl(String s) {
-		if (s.equals("Y"))
-			scrbl = true;
-		else
-			scrbl = false;
-	}
-	
 
 	public void setSubMaximum(String s) {
 		if (s.equals("Y"))

@@ -98,6 +98,7 @@ public class WindowItem {
 	public static final String GET_SCRIPT = "GET_SCRIPT";
 	public static final String GET_URL = "URL";
 	public static final String CLIP_FIELD = "CLIP_FIELD";
+	public static final String POST_FILE_UPLOAD = "FILE_UPLOAD";
 	
 	public static final String HEIGHT = "HEIGHT";
 	public static final String HIDDEN = "HIDDEN";
@@ -113,6 +114,7 @@ public class WindowItem {
 	public static final String LIST_TABLE_DESCRIPTION = "LIST_TABLE_DESCRIPTION";
 	public static final String LIST_TABLE_FIELD = "LIST_TABLE_FIELD";
 	public static final String LIST_TABLE_SELECTION = "LIST_TABLE_SELECTTION";
+	public static final String TABLE_NAVROW_OBJECT = "TableNavRow";
 	public static final String LISTBOX_OBJECT = "ListBox";
 	public static final String MEDIA_BOX_OBJECT = "MediaBox";
 	public static final String MENU_EDITOR_OBJECT = "MenuEditor";
@@ -163,6 +165,7 @@ public class WindowItem {
 	public static final String TABLE_PROMPT = "TABLE_PROMPT";
 	public static final String TABLE_SPINNER_OBJECT = "TableSpinnerField";
 	public static final String TABLE_TEXTFIELD_OBJECT = "TableTextField";
+	public static final String TABLE_DOC_MNGR_OBJECT = "DocumentManagerTable";
 	public static final String TEXT_AREA_OBJECT = "TextArea";
 	public static final String TEXT_FIELD_OBJECT = "TextField";
 	public static final String TEXT_RTF_AREA_OBJECT = "TextRTFArea";

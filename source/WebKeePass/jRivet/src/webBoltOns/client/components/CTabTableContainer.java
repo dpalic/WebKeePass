@@ -72,7 +72,7 @@ import webBoltOns.client.WindowFrame;
 import webBoltOns.client.WindowItem;
 import webBoltOns.client.components.componentRules.StandardComponentLayout;
 import webBoltOns.client.components.layoutManagers.GridFlowLayout;
-import webBoltOns.client.components.layoutManagers.GridFlowLayoutParameter;
+import webBoltOns.client.components.layoutManagers.GridFlowParm;
 import webBoltOns.dataContol.DataSet;
 
 public class CTabTableContainer extends JPanel implements StandardComponentLayout {
@@ -113,8 +113,8 @@ public class CTabTableContainer extends JPanel implements StandardComponentLayou
 		tabtable.setFont(cnct.headerFont);
 		tabtable.setDoubleBuffered(true);
 		this.setLayout(new GridFlowLayout(0, 0));
-		add(tabtable, new GridFlowLayoutParameter(
-				GridFlowLayoutParameter.NEXT_ROW, 0));
+		add(tabtable, new GridFlowParm(
+				GridFlowParm.NEXT_ROW, 0));
 		setName(Integer.toString(comp.getObjectHL()));
 		
 		if(comp.getOrientation().equals(WindowItem.BOTTOM))

@@ -11,7 +11,7 @@
 		<init-param>
 			<!-- ConfigFile1.XML location for screens & menus-->
 			<param-name>configHome</param-name>
-			<param-value>/home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/WEB-INF/</param-value>
+			<param-value>/home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/WEB-INF/</param-value>
 			 
 		</init-param>
 	</servlet>
@@ -21,7 +21,7 @@
 		<servlet-class>webBoltOns.ReportWriter</servlet-class>
 		<init-param>
 			<param-name>configHome</param-name>
-			<param-value>/home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/WEB-INF/</param-value>
+			<param-value>/home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/WEB-INF/</param-value>
 
 		</init-param>
 	</servlet>

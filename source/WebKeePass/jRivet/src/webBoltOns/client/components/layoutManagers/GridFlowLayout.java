@@ -87,9 +87,9 @@ public class GridFlowLayout implements LayoutManager2, Serializable {
 		synchronized (component.getTreeLock()) {
 			boolean gotoNextRow = false, fillCell = false;
 			if (constraints != null) {
-				gotoNextRow = ((GridFlowLayoutParameter) constraints).getRow();
-				curCol = ((GridFlowLayoutParameter) constraints).getTabs() + 1;
-				fillCell = ((GridFlowLayoutParameter) constraints).getFillCell();
+				gotoNextRow = ((GridFlowParm) constraints).getRow();
+				curCol = ((GridFlowParm) constraints).getTabs() + 1;
+				fillCell = ((GridFlowParm) constraints).getFillCell();
 			}
 
 			double orow = 0, ocol = 0;
@@ -292,7 +292,13 @@ public class GridFlowLayout implements LayoutManager2, Serializable {
 	}
 
 	/* Required by LayoutManager. */
-	public void removeLayoutComponent(Component comp) {}
+	public void removeLayoutComponent(Component comp) {
+		row = 0; col = 0; curCol = 0; compIndex = 0; height=0; width = 0;
+		minWidth = 0; minHeight = 0; preferredWidth = 0; preferredHeight = 0;
+		cellSizes = new Hashtable<Dimension, Dimension>();
+		componentTable = new HashMap<String, Component>();
+		constraintsTable = new HashMap<Object, ComponentConstraint>();
+	}
 
 	private void solveCell(Component component,
 								ComponentConstraint componentConstraint, double w, double h) {

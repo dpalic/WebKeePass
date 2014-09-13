@@ -3,14 +3,15 @@
 <!--	 **Script Builder 2.1 *  -->
 <!--	 	 Script Name :  CCMenu -->
 <!--	 	 Description :  Web Kee Pass -->
-<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/CCMenu.xml -->
-<!--	 	 Last Update :  18-May-2008 -->
-<!--	 	 User Profile:  pjones -->
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/XML/CCMenu.xml -->
+<!--	 	 Last Update :  17-Mar-2009 -->
+<!--	 	 User Profile:  root -->
 <SCRIPT SCRIPT_NAME="CCMenu" DOCUMENT_TYPE="Menu" DESCRIPTION="Web Kee Pass" Screen_Title="Web Kee Pass">
   <SubMenu DESCRIPTION="Work With My Passwords" LINK="WKP-MyPasswords" QUICK_LINK="FALSE">
     <Script DESCRIPTION="My Passwords Profile" ICON="WKP8.jpg" LINK="KeePass006" QUICK_LINK="TRUE" />
     <Script DESCRIPTION="Edit My Password" ICON="WKP1.jpg" LINK="KeePass002" QUICK_LINK="TRUE" />
     <Script DESCRIPTION="My Passwords by Category" ICON="WKP6.jpg" LINK="KeePass001" QUICK_LINK="TRUE" />
+    <Script DESCRIPTION="Import/Export" ICON="WKP1.jpg" LINK="KeePass025" QUICK_LINK="TRUE" />
   </SubMenu>
   <SubMenu DESCRIPTION="Work With Shared Passwords" LINK="WKP-SharePasswords" QUICK_LINK="FALSE">
     <SubMenu DESCRIPTION="Passwords I Am Sharing" LINK="WKP-MySharePasswords" QUICK_LINK="FALSE">

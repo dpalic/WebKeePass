@@ -119,7 +119,7 @@ import webBoltOns.client.clientUtil.RdBorder;
 import webBoltOns.client.components.CTextHTMLField.TextMonitor;
 import webBoltOns.client.components.componentRules.StandardComponentLayout;
 import webBoltOns.client.components.layoutManagers.GridFlowLayout;
-import webBoltOns.client.components.layoutManagers.GridFlowLayoutParameter;
+import webBoltOns.client.components.layoutManagers.GridFlowParm;
 import webBoltOns.client.components.layoutManagers.StackedFlowLayout;
 import webBoltOns.dataContol.DataSet;
 
@@ -362,7 +362,7 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 		JPanel center = new JPanel(new GridFlowLayout(10, 10));
 
 		center.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-		center.add(colorChooser, new GridFlowLayoutParameter(true, 0));
+		center.add(colorChooser, new GridFlowParm(true, 0));
 		JPanel south = new JPanel(new FlowLayout());
 
 		CButton ok = new CButton("OK");
@@ -439,9 +439,9 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 			wkday[d].setForeground(Color.BLUE);
 			wkday[d].setHorizontalAlignment(JLabel.CENTER);
 			if (d == 0)
-				dtePan.add(wkday[d], new GridFlowLayoutParameter(true, 1));
+				dtePan.add(wkday[d], new GridFlowParm(true, 1));
 			else
-				dtePan.add(wkday[d], new GridFlowLayoutParameter(false, d + 1));
+				dtePan.add(wkday[d], new GridFlowParm(false, d + 1));
 		}
 
 		for (int d = 0; d < 42; d++) {
@@ -452,9 +452,9 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 			mtday[d].setCursor(new Cursor(Cursor.HAND_CURSOR));
 			int tab = (d % 7) + 1;
 			if (tab == 1)
-				dtePan.add(mtday[d], new GridFlowLayoutParameter(true, 1));
+				dtePan.add(mtday[d], new GridFlowParm(true, 1));
 			else
-				dtePan.add(mtday[d], new GridFlowLayoutParameter(false, tab));
+				dtePan.add(mtday[d], new GridFlowParm(false, tab));
 			mtday[d].setName(Integer.toString(d));
 			mtday[d].addMouseListener(this);
 		}
@@ -512,9 +512,9 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 						
 			int tab = (d % 4) + 1;
 			if (tab == 1)
-				pKey.add(cckey[d], new GridFlowLayoutParameter(true, 1));
+				pKey.add(cckey[d], new GridFlowParm(true, 1));
 			else
-				pKey.add(cckey[d], new GridFlowLayoutParameter(false, tab));
+				pKey.add(cckey[d], new GridFlowParm(false, tab));
 			
 			cckey[d].addMouseListener(this);
 		
@@ -635,11 +635,11 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 
 		JPanel stylePanel = new JPanel(new GridFlowLayout(5, 5));
 
-		stylePanel.add(isBld, new GridFlowLayoutParameter(true, 1));
-		stylePanel.add(isItlc, new GridFlowLayoutParameter(false, 2));
-		stylePanel.add(isST, new GridFlowLayoutParameter(true, 1));
-		stylePanel.add(isSS, (new GridFlowLayoutParameter(false, 2)));
-		stylePanel.add(isUndrlne, new GridFlowLayoutParameter(true, 1));
+		stylePanel.add(isBld, new GridFlowParm(true, 1));
+		stylePanel.add(isItlc, new GridFlowParm(false, 2));
+		stylePanel.add(isST, new GridFlowParm(true, 1));
+		stylePanel.add(isSS, (new GridFlowParm(false, 2)));
+		stylePanel.add(isUndrlne, new GridFlowParm(true, 1));
 
 		JPanel colourPanel = new JPanel();
 
@@ -700,9 +700,9 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 		nrth.add(BorderLayout.EAST, exit);
 		JPanel center = new JPanel(new GridFlowLayout(10, 10));
 		center.add(new JLabel(cnct.optionQuestionIcon),
-				new GridFlowLayoutParameter(true, 0));
+				new GridFlowParm(true, 0));
 		center.add(new JLabel("Delete Selected Items?"),
-				new GridFlowLayoutParameter(false, 1));
+				new GridFlowParm(false, 1));
 		center.setPreferredSize(new Dimension(275, 60));
 		JPanel sth = new JPanel(new FlowLayout());
 
@@ -747,9 +747,9 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 		nrth.add(BorderLayout.EAST, exit);
 		JPanel center = new JPanel(new GridFlowLayout(10, 10));
 		center.add(new JLabel(cnct.optionQuestionIcon),
-				new GridFlowLayoutParameter(true, 0));
+				new GridFlowParm(true, 0));
 		center.add(new JLabel("Log-off this session?"),
-				new GridFlowLayoutParameter(false, 1));
+				new GridFlowParm(false, 1));
 		center.setPreferredSize(new Dimension(275, 60));
 		JPanel sth = new JPanel(new FlowLayout());
 
@@ -972,12 +972,12 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 		JPanel pc2 = new JPanel(new BorderLayout());
 		JPanel pc = new JPanel(new GridFlowLayout(10, 10));
 		pc.setBorder(new EmptyBorder(8, 5, 8, 0));
-		pc.add(new JLabel("Find:"), new GridFlowLayoutParameter(true, 1));
+		pc.add(new JLabel("Find:"), new GridFlowParm(true, 1));
 		// find2.setDocument(m_docFind);
-		pc.add(fndT, new GridFlowLayoutParameter(false, 2));
+		pc.add(fndT, new GridFlowParm(false, 2));
 
-		pc.add(new JLabel("Replace:"), new GridFlowLayoutParameter(true, 1));
-		pc.add(rplcT, new GridFlowLayoutParameter(false, 2));
+		pc.add(new JLabel("Replace:"), new GridFlowParm(true, 1));
+		pc.add(rplcT, new GridFlowParm(false, 2));
 
 		pc2.add(pc, BorderLayout.CENTER);
 		po = new JPanel(new GridLayout(2, 2, 8, 2));
@@ -1014,18 +1014,18 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 				"Find Search String", 'f');
 		fnd.setActionCommand("find");
 		fnd.addActionListener(this);
-		p.add(fnd, new GridFlowLayoutParameter(true, 1));
+		p.add(fnd, new GridFlowParm(true, 1));
 
 		rplc = cnct.buildFancyButton("Replace ", "iReplace.gif",
 				"Replace String", 'r');
 		rplc.setActionCommand("replace");
 		rplc.addActionListener(this);
-		p.add(rplc, new GridFlowLayoutParameter(true, 1));
+		p.add(rplc, new GridFlowParm(true, 1));
 		rplcAll = cnct.buildFancyButton("Replace All", "iReplace.gif",
 				"Replace All ", 'a');
 		rplcAll.setActionCommand("replaceAll");
 		rplcAll.addActionListener(this);
-		p.add(rplcAll, new GridFlowLayoutParameter(true, 1));
+		p.add(rplcAll, new GridFlowParm(true, 1));
 
 		p02.add(p);
 		p2.add(p02, BorderLayout.EAST);
@@ -1067,8 +1067,8 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 		north.add(BorderLayout.EAST, exit);
 		JPanel center = new JPanel(new GridFlowLayout(10, 10));
 		center.add(new JLabel(cnct.optionMessageIcon),
-				new GridFlowLayoutParameter(true, 0));
-		center.add(new JLabel(message), new GridFlowLayoutParameter(false, 1));
+				new GridFlowParm(true, 0));
+		center.add(new JLabel(message), new GridFlowParm(false, 1));
 		JPanel south = new JPanel(new FlowLayout());
 		CButton ok = new CButton("OK");
 		ok.setActionCommand("Y");
@@ -1104,12 +1104,12 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 		pw.addActionListener(this);
 
 		JPanel center = new JPanel(new GridFlowLayout(10, 10));
-		center.add(new JLabel("User Name:"), new GridFlowLayoutParameter(true,
+		center.add(new JLabel("User Name:"), new GridFlowParm(true,
 				0));
-		center.add(un, new GridFlowLayoutParameter(false, 1));
+		center.add(un, new GridFlowParm(false, 1));
 		center.add(new JLabel("Password:"),
-				new GridFlowLayoutParameter(true, 0));
-		center.add(pw, new GridFlowLayoutParameter(false, 1));
+				new GridFlowParm(true, 0));
+		center.add(pw, new GridFlowParm(false, 1));
 		center.setPreferredSize(new Dimension(275, 60));
 		JPanel south = new JPanel(new FlowLayout());
 
