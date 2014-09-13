@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--	 **Script Builder 2.1 *  -->
+<!--	 	 Script Name :  KeePass025 -->
+<!--	 	 Description :  KeePass Import / Export -->
+<!--	 	 Server Class :  server.Doc -->
+<!--	 	 Initalization Method :   -->
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeepass/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass025.xml -->
+<!--	 	 Last Update :  18-Mar-2009 -->
+<!--	 	 User Profile:  root -->
+<SCRIPT SCRIPT_NAME="KeePass025" DOCUMENT_TYPE="Window" CLASS_NAME="server.Doc" AUTO_REFRESH="true" ICON="WKP1.jpg" DESCRIPTION="KeePass Import / Export" Screen_Title="KeePass Import / Export" WIDTH="800" HEIGHT="470">
+  <ButtonBar />
+  <Panel POSITION="Left" HIDDEN="N">
+    <FilePrompt FIELDNAME="importPath" DESCRIPTION="Import From XML File" POSITION="Left" METHOD="ImportFile" />
+    <Button FIELDNAME="importToXml" DESCRIPTION="Import From KeePass XML" ICON="import.gif" POSITION="Center" METHOD_CLASS="server.Doc" METHOD="importXML" />
+    <FilePrompt FIELDNAME="exportPath" DESCRIPTION="Export To XML File     " POSITION="Left" METHOD="ExportFile" />
+    <Button FIELDNAME="exportToXml" DESCRIPTION="Export to Keepass XML" ICON="exprt.gif" POSITION="Center" METHOD_CLASS="server.Doc" METHOD="exportXML" />
+  </Panel>
+</SCRIPT>
+
