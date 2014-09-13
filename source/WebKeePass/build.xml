@@ -1,0 +1,39 @@
+<project name="WebKeePass" default="dist" basedir=".">
+    <description>
+        Build The ROOT.war web distribution file for WebKeePass - a Web Based Password Manager
+    </description>
+  <!-- set global properties for this build -->
+  <property name="src" location="ROOT/WEB-INF/src"/>
+  <property name="build" location="ROOT/WEB-INF/classes"/>
+
+  <target name="init">
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+  </target>
+
+  <target name="compile" depends="init" description="compile the source " >
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac srcdir="${src}" destdir="${build}">
+     <classpath>
+      <pathelement path="${classpath}"/>
+      <pathelement path="ROOT/WEB-INF/lib/webboltons.jar"/>
+    </classpath>
+   </javac> 
+  </target>
+
+  <target name="dist" depends="compile"  description="generate the distribution war file" >
+     <zip destfile="./ROOT.war"
+       basedir="ROOT"
+       update="true"/>
+
+      <echo message="Web container deploy notes....."/>
+      <echo message="   After deployment on a java container, review files; web.xml "/>
+      <echo message="   and ConfigFile1.xml located in the WEB-INF folder. Review "/>
+      <echo message="   and set ALL required Database JDBC connection settings,      "/>
+      <echo message="   XML frame and menu script locations and user settings "/>
+        	
+  </target>
+
+  <target name="clean" description="clean up" >
+  </target>
+</project>

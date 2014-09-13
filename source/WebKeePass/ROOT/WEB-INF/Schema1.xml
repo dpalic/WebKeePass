@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<Schema>
+
+ <DataTypes>
+  <DataType type="INT" description="Integer" class="java.lang.Integer" />
+  <DataType type="CHR" description="String - Varchar" class="java.lang.String" />
+  <DataType type="BOL" description="Boolean" class="java.lang.Boolean" />
+  <DataType type="FLT" description="Floating Point" class="java.lang.Double" />
+  <DataType type="DAT" description="String Date" class="java.lang.String" />
+  <DataType type="TIM" description="String Time" class="java.lang.String" />
+  <DataType type="BLB" description="Data Arrary" class="java.lang.Byte" />
+ </DataTypes>
+
+
+ <Metadata>
+ 
+ 
+ <Table tableName="jrUsers" description="User Table">
+  <Column field="UserID" description="" type="CHR" length="10" primaryKey="1" />
+  <Column field="GroupID" description="" type="CHR" length="10" />
+  <Column field="UserDescription" description="" type="CHR" length="20" />
+  <Column field="Name" description="" type="CHR" length="20" />
+  <Column field="Address1" description="" type="CHR" length="30" />
+  <Column field="Address2" description="" type="CHR" length="30" />
+  <Column field="Address3" description="" type="CHR" length="30" />
+  <Column field="Address4" description="" type="CHR" length="30" />
+  <Column field="Phone1" description="" type="CHR" length="20" />
+  <Column field="Phone2" description="" type="CHR" length="20" />
+  <Column field="Fax" description="" type="CHR" length="30" />
+  <Column field="Email" description="" type="CHR" length="30" />
+  <Column field="WebSite" description="" type="CHR" length="30" />
+  <Column field="CreateDate" description="" type="DAT" length="30" />
+  <Column field="ActiveDate" description="" type="DAT" length="10" />
+  <Column field="InActiveDate" description="" type="DAT" length="10" />
+  <Column field="LastChangeDate" description="" type="DAT" length="10" />
+  <Column field="ActiveUser" description="" type="BOL" length="1" />
+  <Column field="Password" description="" type="CHR" length="20" />
+ </Table>
+
+
+
+ <Table tableName="jrUsers-Extended" description=" Table Name - jrUsers">
+  <Column field="UserID" type="CHR" length="20" description="jrUsers.UserID - VARCHAR" />
+  <Column field="GroupID" type="CHR" length="10" description="jrUsers.GroupID - VARCHAR" />
+  <Column field="UserDescription" type="CHR" length="50" description="jrUsers.UserDescription - VARCHAR" />
+  <Column field="Name" type="CHR" length="50" description="jrUsers.Name - VARCHAR" />
+  <Column field="Address1" type="CHR" length="50" description="jrUsers.Address1 - VARCHAR" />
+  <Column field="Address2" type="CHR" length="50" description="jrUsers.Address2 - VARCHAR" />
+  <Column field="Address3" type="CHR" length="50" description="jrUsers.Address3 - VARCHAR" />
+  <Column field="Address4" type="CHR" length="10" description="jrUsers.Address4 - VARCHAR" />
+  <Column field="Phone1" type="CHR" length="20" description="jrUsers.Phone1 - VARCHAR" />
+  <Column field="Phone2" type="CHR" length="20" description="jrUsers.Phone2 - VARCHAR" />
+  <Column field="Fax" type="CHR" length="50" description="jrUsers.Fax - VARCHAR" />
+  <Column field="Email" type="CHR" length="50" description="jrUsers.Email - VARCHAR" />
+  <Column field="WebSite" type="CHR" length="50" description="jrUsers.WebSite - VARCHAR" />
+  <Column field="Notes" type="CHR" length="-1" description="jrUsers.Notes - TEXT" />
+  <Column field="CreateDate" type="DAT" length="10" description="jrUsers.CreateDate - VARCHAR" />
+  <Column field="ActiveDate" type="DAT" length="10" description="jrUsers.ActiveDate - VARCHAR" />
+  <Column field="InActiveDate" type="DAT" length="10" description="jrUsers.InActiveDate - VARCHAR" />
+  <Column field="LastChangeDate" type="DAT" length="10" description="jrUsers.LastChangeDate - VARCHAR" />
+  <Column field="ActiveUser" type="BOL" length="1" description="jrUsers.ActiveUser - SMALLINT" />
+  <Column field="BackGroundColorRed" type="INT" length="32" description="jrUsers.BackGroundColorRed - INTEGER" />
+  <Column field="BackGroundColorBlue" type="INT" length="32" description="jrUsers.BackGroundColorBlue - INTEGER" />
+  <Column field="BackGroundColorGreen" type="INT" length="32" description="jrUsers.BackGroundColorGreen - INTEGER" />
+  <Column field="TitleBarColorRed" type="INT" length="32" description="jrUsers.TitleBarColorRed - INTEGER" />
+  <Column field="TitleBarColorBlue" type="INT" length="32" description="jrUsers.TitleBarColorBlue - INTEGER" />
+  <Column field="TitleBarColorGreen" type="INT" length="32" description="jrUsers.TitleBarColorGreen - INTEGER" />
+  <Column field="TitleBarFontColorRed" type="INT" length="32" description="jrUsers.TitleBarFontColorRed - INTEGER" />
+  <Column field="TitleBarFontColorBlue" type="INT" length="32" description="jrUsers.TitleBarFontColorBlue - INTEGER" />
+  <Column field="TitleBarFontColorGreen" type="INT" length="32" description="jrUsers.TitleBarFontColorGreen - INTEGER" />
+  <Column field="WindowTitleColorRed" type="INT" length="32" description="jrUsers.WindowTitleColorRed - INTEGER" />
+  <Column field="WindowTitleColorBlue" type="INT" length="32" description="jrUsers.WindowTitleColorBlue - INTEGER" />
+  <Column field="WindowTitleColorGreen" type="INT" length="32" description="jrUsers.WindowTitleColorGreen - INTEGER" />
+  <Column field="WindowTitleFontColorRed" type="INT" length="32" description="jrUsers.WindowTitleFontColorRed - INTEGER" />
+  <Column field="WindowTitleFontColorBlue" type="INT" length="32" description="jrUsers.WindowTitleFontColorBlue - INTEGER" />
+  <Column field="WindowTitleFontColorGreen" type="INT" length="32" description="jrUsers.WindowTitleFontColorGreen - INTEGER" />
+  <Column field="CursorColorRed" type="INT" length="32" description="jrUsers.CursorColorRed - INTEGER" />
+  <Column field="CursorColorBlue" type="INT" length="32" description="jrUsers.CursorColorBlue - INTEGER" />
+  <Column field="CursorColorGreen" type="INT" length="32" description="jrUsers.CursorColorGreen - INTEGER" />
+  <Column field="HeaderFontName" type="CHR" length="15" description="jrUsers.HeaderFontName - VARCHAR" />
+  <Column field="HeaderFontSize" type="INT" length="32" description="jrUsers.HeaderFontSize - INTEGER" />
+  <Column field="HeaderFontItalic" type="BOL" length="1" description="jrUsers.HeaderFontItalic - SMALLINT" />
+  <Column field="HeaderFontBold" type="BOL" length="1" description="jrUsers.HeaderFontBold - SMALLINT" />
+  <Column field="RegularFontName" type="CHR" length="15" description="jrUsers.RegularFontName - VARCHAR" />
+  <Column field="RegularFontSize" type="INT" length="32" description="jrUsers.RegularFontSize - INTEGER" />
+  <Column field="RegularFontItalic" type="BOL" length="1" description="jrUsers.RegularFontItalic - SMALLINT" />
+  <Column field="RegularFontBold" type="BOL" length="1" description="jrUsers.RegularFontBold - SMALLINT" />
+  <Column field="CopyAccess" type="BOL" length="1" description="jrUsers.CopyAccess - SMALLINT" />
+  <Column field="PrintAccess" type="BOL" length="1" description="jrUsers.PrintAccess - SMALLINT" />
+  <Column field="Password" type="CHR" length="50" description="jrUsers.Password - VARCHAR" />
+ </Table>
+
+
+
+ <Table tableName="jrUserGroups" description=" Table Name - jrUserGroups">
+  <Column field="GroupID" type="CHR" length="10" description="jrUserGroups.GroupID - VARCHAR" />
+  <Column field="GroupDescription" type="CHR" length="50" description="jrUserGroups.GroupDescription - VARCHAR" />
+  <Column field="MenuXML" type="CHR" length="10" description="jrUserGroups.MenuXML - VARCHAR" />
+  <Column field="DateFormat" type="DAT" length="10" description="jrUserGroups.DateFormat - VARCHAR" />
+  <Column field="CreateDate" type="DAT" length="10" description="jrUserGroups.CreateDate - VARCHAR" />
+  <Column field="ActiveDate" type="DAT" length="10" description="jrUserGroups.ActiveDate - VARCHAR" />
+  <Column field="InActiveDate" type="DAT" length="10" description="jrUserGroups.InActiveDate - VARCHAR" />
+  <Column field="LastChangeDate" type="DAT" length="10" description="jrUserGroups.LastChangeDate - VARCHAR" />
+  <Column field="ActiveGroup" type="BOL" length="1" description="jrUserGroups.ActiveGroup - SMALLINT" />
+  <Column field="Administrator" type="BOL" length="1" description="jrUserGroups.Administrator - SMALLINT" />
+  <Column field="DeskTopTheme" type="BOL" length="1" description="jrUserGroups.DeskTopTheme - SMALLINT" />
+  <Column field="TipAccess" type="BOL" length="1" description="jrUserGroups.TipAccess - SMALLINT" />
+  <Column field="CopyAccess" type="BOL" length="1" description="jrUserGroups.CopyAccess - SMALLINT" />
+  <Column field="PrintAccess" type="BOL" length="1" description="jrUserGroups.PrintAccess - SMALLINT" />
+  <Column field="AccessMethod" type="CHR" length="10" description="jrUserGroups.AccessMethod - VARCHAR" />
+  <!-- Column field="Notes" type="CHR" length="-1" description="jrUserGroups.Notes - TEXT" -->
+ </Table>
+
+ 
+
+ <Table tableName="jrGroupAcces" description="User Access Levels">
+  <Column field="GroupID" description="" type="CHR" length="30" primaryKey="1" />
+  <Column field="MenuItem" description="" type="CHR" length="30" primaryKey="2" />
+  <Column field="GroupItemDescription" description="" type="CHR" length="30" />
+  <Column field="ItemAccessLevel" description="" type="INT" length="1" />
+  <Column field="LastChangeDate" description="" type="DAT" length="10" />
+ </Table>
+  
+ <Table tableName="_sequences" description=" Table Name - _sequences">
+  <Column field="TableName" type="CHR" length="64" description="_sequences.TableName - CHAR" />
+  <Column field="Seq" type="INT" length="32" description="_sequences.Seq - INTEGER UNSIGNED" />
+ </Table>
+ 
+ 
+ 
+ <Table tableName="wkpPasswordCrypt" description=" Table Name - wkpPasswordCrypt">
+  <Column field="PasswordID" type="INT" length="32" description="wkpPasswordCrypt.PasswordID - INTEGER" primaryKey="1" />
+  <Column field="a0" type="CHR" length="50" description="wkpPasswordCrypt.a - VARCHAR" />
+  <Column field="b9" type="CHR" length="50" description="wkpPasswordCrypt.b - VARCHAR" />
+  <Column field="c8" type="CHR" length="50" description="wkpPasswordCrypt.c - VARCHAR" />
+  <Column field="d7" type="CHR" length="50" description="wkpPasswordCrypt.d - VARCHAR" />
+  <Column field="e6" type="CHR" length="50" description="wkpPasswordCrypt.e - VARCHAR" />
+  <Column field="f5" type="CHR" length="50" description="wkpPasswordCrypt.f - VARCHAR" />
+  <Column field="g4" type="CHR" length="50" description="wkpPasswordCrypt.g - VARCHAR" />
+  <Column field="h3" type="CHR" length="50" description="wkpPasswordCrypt.h - VARCHAR" />
+  <Column field="i2" type="CHR" length="50" description="wkpPasswordCrypt.i - VARCHAR" />
+  <Column field="j1" type="CHR" length="50" description="wkpPasswordCrypt.j - VARCHAR" />
+  <Column field="k0" type="CHR" length="50" description="wkpPasswordCrypt.j - VARCHAR" />
+  <Column field="l9" type="CHR" length="50" description="wkpPasswordCrypt.j - VARCHAR" />
+  <Column field="m8" type="CHR" length="50" description="wkpPasswordCrypt.j - VARCHAR" />
+  <Column field="n7" type="CHR" length="50" description="wkpPasswordCrypt.j - VARCHAR" />
+  <Column field="o6" type="CHR" length="50" description="wkpPasswordCrypt.j - VARCHAR" />
+  <Column field="p5" type="CHR" length="50" description="wkpPasswordCrypt.j - VARCHAR" />
+  <Column field="q4" type="CHR" length="50" description="wkpPasswordCrypt.j - VARCHAR" />
+  <Column field="r3" type="CHR" length="50" description="wkpPasswordCrypt.j - VARCHAR" />
+  <Column field="s2" type="CHR" length="50" description="wkpPasswordCrypt.j - VARCHAR" />      
+  <Column field="t1" type="CHR" length="50" description="wkpPasswordCrypt.j - VARCHAR" />   
+  <Column field="KeeperID" type="INT" length="50" description="wkpPasswordCrypt.Group - INT" />
+  <Column field="Notes" type="BLB" length="2147483647" description="wkpPasswordCrypt.Notes - LONGBLOB" />
+  <Column field="Image" type="BLB" length="2147483647" description="wkpPasswordCrypt.Imgae - LONGBLOB" />
+ </Table>
+ 
+ 
+ 
+ 
+ <Table tableName="wkpCryptHistory" description=" Table Name - wkpCryptHistory">
+  <Column field="HistoryID" type="INT" length="32" description="wkpCryptHistory.HistoryID - INTEGER" />
+  <Column field="PasswordID" type="INT" length="32" description="wkpCryptHistory.PasswordID - INTEGER" />
+  <Column field="a0" type="CHR" length="50" description="wkpCryptHistory.a0 - VARCHAR" />
+  <Column field="b9" type="CHR" length="50" description="wkpCryptHistory.b9 - VARCHAR" />
+  <Column field="c8" type="CHR" length="50" description="wkpCryptHistory.c8 - VARCHAR" />
+  <Column field="d7" type="CHR" length="50" description="wkpCryptHistory.d7 - VARCHAR" />
+  <Column field="e6" type="CHR" length="50" description="wkpCryptHistory.e6 - VARCHAR" />
+  <Column field="f5" type="CHR" length="50" description="wkpCryptHistory.f5 - VARCHAR" />
+  <Column field="g4" type="CHR" length="50" description="wkpCryptHistory.g4 - VARCHAR" />
+  <Column field="h3" type="CHR" length="50" description="wkpCryptHistory.h3 - VARCHAR" />
+  <Column field="i2" type="CHR" length="50" description="wkpCryptHistory.i2 - VARCHAR" />
+  <Column field="j1" type="CHR" length="50" description="wkpCryptHistory.j1 - VARCHAR" />
+  <Column field="k0" type="CHR" length="50" description="wkpCryptHistory.k0 - VARCHAR" />
+  <Column field="l9" type="CHR" length="50" description="wkpCryptHistory.l9 - VARCHAR" />
+  <Column field="m8" type="CHR" length="50" description="wkpCryptHistory.m8 - VARCHAR" />
+  <Column field="n7" type="CHR" length="50" description="wkpCryptHistory.n7 - VARCHAR" />
+  <Column field="o6" type="CHR" length="50" description="wkpCryptHistory.o6 - VARCHAR" />
+  <Column field="p5" type="CHR" length="50" description="wkpCryptHistory.p5 - VARCHAR" />
+  <Column field="q4" type="CHR" length="50" description="wkpCryptHistory.q4 - VARCHAR" />
+  <Column field="r3" type="CHR" length="50" description="wkpCryptHistory.r3 - VARCHAR" />
+  <Column field="s2" type="CHR" length="50" description="wkpCryptHistory.s2 - VARCHAR" />
+  <Column field="t1" type="CHR" length="50" description="wkpCryptHistory.t1 - VARCHAR" />
+  <Column field="KeeperID" type="INT" length="50" description="wkpPasswordCrypt.Group - INT" />
+  <Column field="Notes" type="BLB" length="2147483647" description="wkpCryptHistory.Notes - LONGBLOB" />
+  <Column field="Image" type="BLB" length="2147483647" description="wkpCryptHistory.Image - LONGBLOB" />
+ </Table>
+
+
+ 
+ <Table tableName="wkpPasswordAKin" description=" Table Name - wkpPasswordAKin">
+  <Column field="AKinID" type="INT" length="32" description="wkpPasswordAKin.AKinID - INTEGER" />
+  <Column field="PasswordID" type="INT" length="32" description="wkpPasswordAKin.PasswordID"  />
+  <Column field="z0" type="CHR" length="50" description="wkpPasswordAKin.z0 - VARCHAR" />
+  <Column field="y1" type="CHR" length="50" description="wkpPasswordAKin.y1 - VARCHAR" />
+  <Column field="x2" type="CHR" length="50" description="wkpPasswordAKin.x2 - VARCHAR" />
+  <Column field="w3" type="CHR" length="50" description="wkpPasswordAKin.w3 - VARCHAR" />
+  <Column field="v4" type="CHR" length="50" description="wkpPasswordAKin.v4 - VARCHAR" />
+  <Column field="u5" type="CHR" length="50" description="wkpPasswordAKin.u5 - VARCHAR" />
+  <Column field="t6" type="CHR" length="50" description="wkpPasswordAKin.t6 - VARCHAR" />
+  <Column field="s7" type="CHR" length="50" description="wkpPasswordAKin.s7 - VARCHAR" />
+  <Column field="t8" type="CHR" length="50" description="wkpPasswordAKin.t8 - VARCHAR" />
+  <Column field="r9" type="CHR" length="50" description="wkpPasswordAKin.r9 - VARCHAR" />
+ </Table>
+ 
+ 
+ <Table tableName="wkpGroups" description=" Table Name - wkpGroups">
+  <Column field="KeeperID" type="INT" length="32" description="wkpGroups.GroupID - INTEGER" />
+  <Column field="KeeperDesc" type="CHR" length="50" description="wkpGroups.GroupDesc - VARCHAR" />
+  <Column field="KeeperIcon" type="CHR" length="50" description="wkpGroups.Icon - VARCHAR" />
+  <Column field="CreateDate" type="DAT" length="10" description="wkpGroups.CreateDate - VARCHAR" />
+  <Column field="LastUpdate" type="DAT" length="10" description="wkpGroups.LastUpdate - VARCHAR" />
+  <Column field="j1" type="CHR" length="50" description="wkpGroups.j7 - VARCHAR" />
+  <Column field="PrntID" type="INT" length="32" description="wkpGroups.PrGroupID - INTEGER" />
+ </Table>
+
+ 
+ 
+</Metadata>
+
+</Schema>

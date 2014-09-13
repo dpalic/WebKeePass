@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Literals>
+  <Literal LiteralID = "SVR0001"  Text="Data Base Error - Database Error - Please contact systems administrator"  Severity="30" Type="MessageBar"/>
+
+  <Literal LiteralID = "SVR0002"  Text="Server Request Completed" Severity="00" Type="Pop-Up" />
+
+  <Literal LiteralID = "SVR0003"  Text="Request Not Complete: Review Errors Below" Severity="00" Type="Pop-Up" /> 
+  
+  <Literal LiteralID = "SVR0004"  Text="Class Not Found - Please contact systems administrator"  Severity="30" Type="MessageBar" />
+
+  <Literal LiteralID = "SVR0005"  Text="Server Security Exception - Please contact systems administrator"  Severity="30" Type="MessageBar" />
+  
+  <Literal LiteralID = "SVR0006"  Text="Method Not Found - Please contact systems administrator"   Severity="30" Type="MessageBar" />
+
+  <Literal LiteralID = "SVR0007"  Text="Instantiation Error - Please contact systems administrator"  Severity="30" Type="MessageBar" />
+	
+  <Literal LiteralID = "SVR0008"  Text="Server Security Error- Please contact systems administrator"  Severity="30" Type="MessageBar" />
+
+  <Literal LiteralID = "SVR0009"  Text="Invocation Target / Stack Trap Error - Please contact systems administrator"  Severity="30" Type="MessageBar" />
+
+  <Literal LiteralID = "SVR0011"  Text="Menu File Not Found"  Severity="30" Type="MessageBar" /> 
+  
+  <Literal LiteralID = "SVR0012"  Text="Menu File XML Parse Error"  Severity="30" Type="MessageBar" />			
+			
+  <Literal LiteralID = "SVR0014"  Text="Menu File I/O Error"  Severity="30" Type="MessageBar" />
+  
+  <Literal LiteralID = "SVR0015"  Text="Script Not Found  - Please contact systems administrator"  Severity="30" Type="MessageBar" /> 
+
+  <Literal LiteralID = "SVR0016"  Text="Script XML Parse Error  - Please contact systems administrator"  Severity="30" Type="MessageBar" /> 
+  
+  <Literal LiteralID = "SVR0017"  Text="Script File Error  - Please contact systems administrator"  Severity="30" Type="MessageBar" /> 
+
+
+
+
+  <Literal LiteralID = "LIT0001"  Text="Item Not Found - New Entry"  Severity="10" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0002"  Text="Item Not Found - At End of File"   Severity="30" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0003"  Text="Item Not Found - At Start of File"  Severity="30" Type="MessageBar" />
+
+  <Literal LiteralID = "LIT0004"  Text="Item Updated" Severity="00" Type="MessageBar" />
+
+  <Literal LiteralID = "LIT0005"  Text="Item Added"  Severity="00" Type="MessageBar"/>
+
+  <Literal LiteralID = "LIT0006"  Text="Item(s) Deleted"  Severity="00" Type="MessageBar"/>
+ 
+ 
+  <Literal LiteralID = "WKP0001"  Text="Invalid Web User/Group"  Severity="30" Type="MessageBar"/>
+ 
+  <Literal LiteralID = "WKP0002"  Text="Password Item Not Valid"  Severity="30" Type="MessageBar"/>
+ 
+   
+</Literals>
