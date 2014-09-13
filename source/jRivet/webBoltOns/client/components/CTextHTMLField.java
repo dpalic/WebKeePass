@@ -67,6 +67,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.JToolBar;
+import javax.swing.SwingUtilities;
 import javax.swing.text.DefaultEditorKit;
 import javax.swing.text.DefaultStyledDocument;
 import javax.swing.text.EditorKit;
@@ -331,6 +332,10 @@ public class CTextHTMLField extends JPanel implements StandardComponentLayout,
 
 	public void actionPerformed(ActionEvent e) {
 		toggleSource();
+		SwingUtilities.invokeLater(new Runnable(){
+			public void run() {
+				mainT.requestFocusInWindow();
+			}} );	
 	}
 	
  }

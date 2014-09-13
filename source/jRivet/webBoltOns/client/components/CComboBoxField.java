@@ -325,7 +325,7 @@ public class CComboBoxField extends JComboBox implements StandardComponentLayout
 	public void setProperty(String propertyName, String propertyvalue) {}
 
 	public boolean locateCursor() {
-		grabFocus();
+		//grabFocus();
 		return true;
 	}
 	

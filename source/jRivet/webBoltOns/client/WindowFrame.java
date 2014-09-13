@@ -91,6 +91,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
+import javax.swing.SwingUtilities;
 
 import webBoltOns.AppletConnector;
 import webBoltOns.client.MenuFrame.CTabbedControlPane;
@@ -304,10 +305,12 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 	
 	private void actionTempClip(int hl) {
 		for (int c = 0; c < cmpntTree.length; c++) {
-			if (cmpntTree[c] == null || cmpntTree[c].getFieldName() == null ||
-					cmpntTree[c].getComponentObject() == null)  continue;
+			
+			if (cmpntTree[c].getComponentObject() != null &&
+					cmpntTree[c].getFieldName() != null &&
+					cmpntTree[c].getComponentObject() instanceof StandardComponentLayout &&
+					cmpntTree[c].getFieldName().equals(cmpntTree[hl].getFieldName())  ){
 				
-			if (cmpntTree[c].getFieldName().equals(cmpntTree[hl].getFieldName())) {
 				mMnu.copyToClipTimer( ((StandardComponentLayout) cmpntTree[c].getComponentObject()).getString());
 					c = cmpntTree.length;
 				}
@@ -411,6 +414,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 	        	
 	        } else if(cmd.equals(WindowItem.CLEAR))	{	
 				actionClear();
+				findFocus();
 			
 	        } else if(cmd.equals(WindowItem.FIND_RECORD)) {		
 				actionPerformedLazy(clsNme, fndMthd, e);
@@ -421,9 +425,10 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 			} else if(cmd.equals(WindowItem.EDIT_RECORD) && validFrm(sce)) { 
 				actionPerformedLazy(clsNme, edtMthd, e);
 			
-			} else if(cmd.equals(WindowItem.DELETE_RECORD) && validFrm(sce) 
-					&& optCfm.showDeleteCnfrm(sce)) { 
-				actionPerformedLazy(clsNme, delMthd, e);
+			} else if(cmd.equals(WindowItem.DELETE_RECORD) && validFrm(sce)) { 
+					if(optCfm.showDeleteCnfrm(sce))  
+						actionPerformedLazy(clsNme, delMthd, e);
+					findFocus();
 			
 			} else if(cmd.equals(WindowItem.PREV_RECORD))	{
 				actionPerformedLazy(clsNme, prvMthd,e);
@@ -446,19 +451,21 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 			} else if(cmd.equals(WindowItem.NEW_LINE) && validFrm(sce)) {
 				actionNewTableLine();
 			
-			} else if(cmd.equals(WindowItem.DELETE_LINE) && validFrm(sce)  && 
-							optCfm.showDeleteCnfrm(sce) ) {
-				actionPerformedLazy(clsNme, delLinMthd, e);
+			} else if(cmd.equals(WindowItem.DELETE_LINE) && validFrm(sce)) {
+				if(optCfm.showDeleteCnfrm(sce) ) 
+						actionPerformedLazy(clsNme, delLinMthd, e);
+				findFocus();
 			
 			} else if(cmd.equals(WindowItem.POST_LINE) && validFrm(sce)) {
 				actionPerformedLazy(clsNme, pLinMthd, e);
 			
 			} else if(cmd.equals("PREVIEW"))  {
 				actionScriptPreview();
+				findFocus();
 			
 			} else if(cmd.equals("REPORT") && validFrm(sce)) {
 				actionRunRpt(rptXML);
-			
+				findFocus();
 			}
 	
 	}		
@@ -1073,7 +1080,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 				exMsg.doClick();
 			}
 		});
-		
+	
 	}
 	
 	
@@ -1130,7 +1137,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 				if(field != null)
 					optCfm.showMessageDialog(field, text, null);
 				else			
-					optCfm.showWaringDialog(text, null);
+					optCfm.showWarnDialog(text, null);
 	}
 
 	
@@ -1377,6 +1384,8 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 				mFrm.getToolkit().beep();
 				optCfm.showRequestCompleteDialog("Request Not Complete: Review Errors Below", 
 						((JComponent)source.getSource()));
+				findFocus();
+ 				
 			} else {
 				sendTableToWindow(cmd); 
 				if(cmd.equals(WindowItem.POST_RECORD) || cmd.equals(WindowItem.POST_LINE)  
@@ -1384,6 +1393,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 					optCfm.showRequestCompleteDialog("Server Request Completed", 
 							((JComponent)source.getSource()));
 					if(find != null) find.doClick();
+					findFocus();
 			 }
 			 dSet.putStringField(WindowItem.CLASSNAME, clsNme);
 			 mPnl.validate();
@@ -1433,8 +1443,6 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 					postServerRequestImed();
 					sendTableToWindow(rAction);
 				}
-				((CTextBoxField) cmpntTree[rHL].getComponentObject()).setText(rValue);
-				
  
 		}
 	 	unWndFcs(rHL);
@@ -1442,6 +1450,9 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 	}	
 	
 
+
+		
+	 
 	
 	/**
 	 * <h2><code>fireWindowReturning</code></h2>
@@ -1697,7 +1708,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 	 */
 	 public boolean isVaildCharacter(KeyEvent e, int hl, boolean allSelected ) {
 		CDialog optCfm = new CDialog(getWindowFrame(), cntr);
-		Component cmp = cmpntTree[hl].getComponentObject();
+		JComponent cmp = cmpntTree[hl].getComponentObject();
 		
 		final char nchr = e.getKeyChar();
 		final String dataType = cmpntTree[hl].getDataType();
@@ -1842,8 +1853,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 		}
 	}
 
-	
-	public void locateCursor(){	}
+ 
 	public void lostOwnership(Clipboard clip, Transferable transferable) {}
 		
 	
@@ -2188,6 +2198,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 	
 		mainSpltPn.setDividerLocation(mFrm.getHeight() - msgGap);
 		exMsg.setIcon(cntr.upIcon);
+		findFocus();
 	}
 				
 
@@ -2217,7 +2228,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 			postServerRequestImed();
 			sendTableToWindow(null);
 		}
-		locateCursor();
+
 		if(clear != null) clear.setCursor(new Cursor(Cursor.HAND_CURSOR));
 	}	
 	
@@ -2245,11 +2256,9 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 	 * <p> set focus and ensure the focused 
 	 * field is not behind any tabs</p>
 	 */
-	private void unWndFcs(int hl) {
+	private void unWndFcs(final int hl) {
 		int chl = cmpntTree[hl].getParentHL();
 		int phl = cmpntTree[chl].getParentHL();
-		((Component) cmpntTree[hl].getComponentObject())
-				.requestFocus();
 		while (phl > 0) {
 			if (cmpntTree[phl].getObjectName().equals(WindowItem.TABGROUP_OBJECT))
 				((JTabbedPane) cmpntTree[phl].getComponentObject()).setSelectedComponent(
@@ -2257,10 +2266,29 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 			chl = phl;
 			phl = cmpntTree[chl].getParentHL();
 		}
-		((Component) cmpntTree[hl].getComponentObject()).requestFocus();
+		
+		SwingUtilities.invokeLater(new Runnable(){
+			public void run() {	    
+				((Component) cmpntTree[hl].getComponentObject()).requestFocus();
+			}} );
+		
 	}
 
-
+	
+	public void findFocus() {
+		int  x = 0;
+		boolean done = false;
+		while (! done) {
+			if(cmpntTree[x].getComponentObject() != null &&
+		      cmpntTree[x].getComponentObject() instanceof JTextField) {
+		      unWndFcs(x);
+		      done = true;
+			}
+			x++;	
+		}
+	}
+	
+	
 	/**
 	 * <h2><code>updateMessagePanel</code></h2>
 	 *
@@ -2342,7 +2370,7 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 					if(! ((StandardComponentLayout) cmpntTree[x].getComponentObject()). 
 												validateComponent("Edit", cmpntTree[x].getFieldName())) {
 						src.setCursor(new Cursor(Cursor.HAND_CURSOR));
-						
+						unWndFcs(x); 
 						return false;
 					}
 				}

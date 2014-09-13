@@ -1401,7 +1401,7 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 		mainTab.addTab(w.getTitle(), new CControlTab(w), w.getWindowPane());
 		mainTab.setSelectedIndex(mainTab.getComponentCount() - 1);
 		w.hideWindow();
-		w.locateCursor();
+		w.findFocus();
 	}
  
  	

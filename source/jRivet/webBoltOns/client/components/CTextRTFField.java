@@ -69,6 +69,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JToolBar;
+import javax.swing.SwingUtilities;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultEditorKit;
@@ -115,10 +116,10 @@ public class CTextRTFField extends CTextHTMLField implements
 				mFrm.doEditClick();
 			} catch (IOException ex) {
 				dialog = new CDialog(mFrm.getWindowFrame(), cnct);
-				dialog.showWaringDialog("The Selected File Was Not Found", CTextRTFField.this);
+				dialog.showWarnDialog("The Selected File Was Not Found", CTextRTFField.this);
 			} catch (BadLocationException e) {
 				dialog = new CDialog(mFrm.getWindowFrame(), cnct);
-				dialog.showWaringDialog("The Selected File Was Not Found", CTextRTFField.this);
+				dialog.showWarnDialog("The Selected File Was Not Found", CTextRTFField.this);
 			} finally {
 				if (reader != null) {
 					try {
@@ -157,10 +158,10 @@ public class CTextRTFField extends CTextHTMLField implements
 				rtf.write(out, doc, 0, doc.getLength());
 			} catch (IOException ex) {
 				dialog = new CDialog(mFrm.getWindowFrame(), cnct);
-				dialog.showWaringDialog("File Could  Not Be Saved - File Locked", CTextRTFField.this);
+				dialog.showWarnDialog("File Could  Not Be Saved - File Locked", CTextRTFField.this);
 			} catch (BadLocationException e) {
 				dialog = new CDialog(mFrm.getWindowFrame(), cnct);
-				dialog.showWaringDialog("File Could  Not Be Saved - File Error", CTextRTFField.this);
+				dialog.showWarnDialog("File Could  Not Be Saved - File Error", CTextRTFField.this);
 		} finally {
 				if (out != null) {
 					try {
@@ -322,6 +323,15 @@ public class CTextRTFField extends CTextHTMLField implements
 		} else if(cmd.equals("find")) {
 			dialog = new CDialog(mFrm.getWindowFrame(), cnct);
 			dialog.showFindTextDialog(mainT);
+			 if(!mainT.isRequestFocusEnabled()) {
+				 mainT.setRequestFocusEnabled(true); 
+			 }	
+			
 		}
+		
+		SwingUtilities.invokeLater(new Runnable(){
+			public void run() {
+				mainT.requestFocusInWindow();
+			}} );
 	}
 }

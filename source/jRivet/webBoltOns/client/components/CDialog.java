@@ -80,6 +80,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
@@ -96,9 +97,9 @@ import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.KeyStroke;
 import javax.swing.SpinnerNumberModel;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.Border;
+import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
@@ -113,7 +114,10 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
 import webBoltOns.AppletConnector;
+import webBoltOns.client.clientUtil.FrameBorder;
+import webBoltOns.client.clientUtil.RdBorder;
 import webBoltOns.client.components.CTextHTMLField.TextMonitor;
+import webBoltOns.client.components.componentRules.StandardComponentLayout;
 import webBoltOns.client.components.layoutManagers.GridFlowLayout;
 import webBoltOns.client.components.layoutManagers.GridFlowLayoutParameter;
 import webBoltOns.client.components.layoutManagers.StackedFlowLayout;
@@ -133,9 +137,21 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 			"April", "May", "June", "July", "August", "September", "October",
 			"November", "December" };
 
+	
 	private final String cc_num[] = { "C", "MR", "M-", "M+", "7", "8", "9",
 			"/", "4", "5", "6", "*", "1", "2", "3", "-", "0", ".", "=", "+" };
+	
+	
+	private final String k_val[] = { "C", "*", "/", "+", "-", ".", "=", "=",
+			"0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+			"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
+	private final int k_key[] = {
+			KeyEvent.VK_C, 106, 111, 107, 109, KeyEvent.VK_PERIOD, KeyEvent.VK_ENTER, KeyEvent.VK_EQUALS, 
+			KeyEvent.VK_0, KeyEvent.VK_1, KeyEvent.VK_2, KeyEvent.VK_3, KeyEvent.VK_3, KeyEvent.VK_5, KeyEvent.VK_6, KeyEvent.VK_7, KeyEvent.VK_8, KeyEvent.VK_9,
+			KeyEvent.VK_NUMPAD0, KeyEvent.VK_NUMPAD1, KeyEvent.VK_NUMPAD2, KeyEvent.VK_NUMPAD3, KeyEvent.VK_NUMPAD4, KeyEvent.VK_NUMPAD5, 
+			KeyEvent.VK_NUMPAD6, KeyEvent.VK_NUMPAD7, KeyEvent.VK_NUMPAD8, KeyEvent.VK_NUMPAD9,};
+	
 	private AppletConnector cnct;
 	private ButtonGroup bg;
 	private JCheckBox isChkCase, isChkWord, isBld, isItlc, isUndrlne, isST, isSS;
@@ -161,11 +177,11 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 	private double dReg1, dReg2, dMem;
 	private String sOperator;
 	private boolean isFixReg;
-
+	private JComponent cmp;
 	private JButton exit;
 
-	public CDialog(Frame frm, AppletConnector appletConnector) {
-		super(frm, true);
+	public CDialog(Frame f, AppletConnector appletConnector) {
+		super(f, true);
 		setResizable(false);
 		setUndecorated(true);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -179,29 +195,48 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 		exit.addActionListener(this);
 	}
 
-	private void displayDialog(Component c, JPanel main) {
-		Border border = BorderFactory.createCompoundBorder(BorderFactory
-				.createLineBorder(Color.black), BorderFactory
-				.createEmptyBorder(10, 10, 10, 10));
-		main.setBorder(border);
+	
+	
+	private void displayDialog(JComponent c, JPanel main) {
+		
+		if(c == null)
+			main.setBorder(BorderFactory.createCompoundBorder(new RdBorder(),
+						BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+		else
+			main.setBorder(BorderFactory.createCompoundBorder(new FrameBorder(),
+					BorderFactory.createEmptyBorder(0, 0, 5, 5)));
+			
 		getContentPane().add(main);
 		pack();
+		
 		Point p = getComponentPoint(c);
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 		if (p == null) {
 			setLocation((d.width - getSize().width) / 2, (d.height - getSize().height) / 2);
 		} else {
-			int x = p.x + 7; 
-			int y = p.y + c.getHeight() + 10;
+			int x = p.x + 17; 
+			int y = p.y + c.getHeight() + 1;
 			if(x + getWidth() >= d.width) x = d.width - getWidth() - 5;
 			if(y + getHeight() >= d.height) y = d.height - getHeight() - 25;
 			setLocation(x, y);
 		}
+		cmp = c;
 		setVisible(true);
 	}
 
+ 
 	
-	
+    public  void dispose(){
+    	super.dispose();
+    	if(cmp != null && cmp instanceof StandardComponentLayout) {
+    		SwingUtilities.invokeLater(new Runnable(){
+				public void run() {
+					cmp.requestFocus();
+				}} );	
+    	}
+    }
+
+    
 	private Point getComponentPoint(Component c){
 		try {
 			return c.getLocationOnScreen();
@@ -210,8 +245,9 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 		}
 	}
 	
+	
 	private int findNext(boolean doReplace, boolean matchCase,
-			boolean searchUp, boolean matchWords, TextMonitor textArea,
+			boolean searchUp, boolean matchWords, final TextMonitor textArea,
 			JTextField find, JTextField replace, boolean showWarnings) {
 
 		int pos = textArea.getCaretPosition();
@@ -224,8 +260,7 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 			if (searchUp)
 				searchData = searchDoc.getText(0, pos);
 			else
-				searchData = searchDoc
-						.getText(pos, searchDoc.getLength() - pos);
+				searchData = searchDoc.getText(pos, searchDoc.getLength() - pos);
 			searchIndex = pos;
 		} catch (BadLocationException e) {
 			return -1;
@@ -311,8 +346,8 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 			else
 				textArea.setCaretPosition(xFinish);
 
-			textArea.grabFocus();
 		}
+		
 		return 1;
 	}
 
@@ -350,7 +385,7 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 			return color;
 	}
 
-	public String showDatePickerDialog(String prmdte, Component c) {
+	public String showDatePickerDialog(String prmdte, JComponent c) {
 		getContentPane().removeAll();
 		String yymmdd = new SimpleDateFormat("yyyyMMdd").format(new Date());
 
@@ -444,7 +479,8 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 			return DataSet.formatDateField(prmdte, "yyyyMMdd");
 	}
 
-	public String showCalcualtorDialog(String prm, Component c) {
+	public String showCalcualtorDialog(String prm, JComponent c) {
+		JPanel main = new JPanel(new BorderLayout(0, 0));
 		JPanel north = new JPanel(new BorderLayout(5, 15));
 		north.add(BorderLayout.WEST, new JLabel(
 								"<html><p><font color=blue size=+1>Calculator</font></html>"));
@@ -473,6 +509,7 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 			cckey[d].setHorizontalAlignment(JTextField.CENTER);
 			cckey[d].setBackground(Color.white);
 			cckey[d].setCursor(new Cursor(Cursor.HAND_CURSOR));
+						
 			int tab = (d % 4) + 1;
 			if (tab == 1)
 				pKey.add(cckey[d], new GridFlowLayoutParameter(true, 1));
@@ -480,9 +517,25 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 				pKey.add(cckey[d], new GridFlowLayoutParameter(false, tab));
 			
 			cckey[d].addMouseListener(this);
+		
+		}
+		
+		for(int d=0; d< k_key.length; d++){
+			final String val = k_val[d];
+ 			main.getInputMap(
+ 					JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+					   KeyStroke.getKeyStroke(k_key[d], 0), val);
+	
+ 			main.getActionMap().put(k_val[d],  new AbstractAction() {
+				public void actionPerformed( ActionEvent ae ){
+					calcAction(val);
+				}
+			});
 		}
 
-		JPanel main = new JPanel(new BorderLayout(0, 0));
+
+		
+	
 		main.add(BorderLayout.NORTH, north);
 		main.add(BorderLayout.CENTER, pKey);
 		
@@ -639,7 +692,7 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 			return null;
 	}
 
-	public boolean showDeleteCnfrm(Component c) {
+	public boolean showDeleteCnfrm(JComponent c) {
 		getContentPane().removeAll();
 		JPanel nrth = new JPanel(new BorderLayout());
 		nrth.add(BorderLayout.WEST,	new JLabel(
@@ -978,9 +1031,9 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 		p2.add(p02, BorderLayout.EAST);
 
 		JPanel north = new JPanel(new BorderLayout());
-		north.add(BorderLayout.WEST,new JLabel(
+		north.add(BorderLayout.WEST, new JLabel(
 								"<html><p><font color=blue size=+1>Find & Replace</font></html>"));
-		north.add(BorderLayout.EAST, new JLabel(cnct.logoImageIcon));
+		north.add(BorderLayout.EAST, exit);
 		JPanel main = new JPanel(new BorderLayout());
 		main.add(north, BorderLayout.NORTH);
 		main.add(p2, BorderLayout.CENTER);
@@ -992,19 +1045,19 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 		showMessageDialog("Network Request", message, null);
 	}
 
-	public void showInvalidEntryDialog(String message, Component c) {
+	public void showInvalidEntryDialog(String message, JComponent c) {
 		showMessageDialog("Invalid Field Entry", message, c);
 	}
 
-	public void showRequestCompleteDialog(String message, Component c) {
-		showMessageDialog("Request Confirmation", message, c);
+	public void showRequestCompleteDialog(String message, JComponent c) {
+		showMessageDialog("Request Confirmation ", message, c);
 	}
 
-	public void showWaringDialog(String message, Component c) {
-		showMessageDialog("A Word Of Wanring!", message, c);
+	public void showWarnDialog(String message, JComponent c) {
+		showMessageDialog("A Word Of Warning!     ", message, c);
 	}
 
-	public void showMessageDialog(String title, String message, Component c) {
+	public void showMessageDialog(String title, String message, JComponent c) {
 		getContentPane().removeAll();
 		JPanel north = new JPanel(new BorderLayout());
 		north.add(BorderLayout.WEST,
@@ -1085,6 +1138,7 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
+		
 		if (cmd.equals("Y")) {
 			rtnBln = true;
 			dispose();
@@ -1122,24 +1176,23 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 
 		} else if (cmd.equals("date=")) {
 			rtnDate = new SimpleDateFormat("yyyyMMdd").format(new Date());
+			rtnBln = true;
 			dispose();
 
 		} else if (cmd.equals("find")) {
-			int result = findNext(false, isChkCase.isSelected(), s_rdUp
-					.isSelected(), isChkWord.isSelected(), textArea, fndT,
-					null, true);
-			if (result < 1)
-				wrng.showWaringDialog("Text String Not Found", null);
+			if (findNext(false, isChkCase.isSelected(), s_rdUp.isSelected(), 
+			 		         isChkWord.isSelected(), textArea, fndT, null, true) < 1)
+				wrng.showWarnDialog("Text String Not Found", null);
 			else
 				dispose();
 
+			
 		} else if (cmd.equals("replace")) {
-			int result = findNext(true, isChkCase.isSelected(), s_rdUp
-					.isSelected(), isChkWord.isSelected(), textArea, fndT,
-					rplcT, true);
-			if (result < 1)
-				wrng.showWaringDialog("Replace String Not Found", null);
+			if (findNext(true, isChkCase.isSelected(), s_rdUp.isSelected(), 
+				  	isChkWord.isSelected(), textArea, fndT,  rplcT, true) < 1)
+				wrng.showWarnDialog("Replace String Not Found", null);
 
+			
 		} else if (cmd.equals("replaceAll")) {
 			while (true) {
 				int result = findNext(true, isChkCase.isSelected(), s_rdUp
@@ -1172,7 +1225,7 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 			rtnBln = true;
 			login.putStringField("[Login-UserName/]", un.getText());
 			try {
-				login.putStringField("[Login-Password/]", CSHAPasswordField
+				login.putStringField("[Login-Password/]", CPasswordField
 						.sha1(new String(pw.getPassword())));
 			} catch (NoSuchAlgorithmException e1) {
 				login.putStringField("[Login-Password/]", "");
@@ -1182,6 +1235,8 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 		}
 	}
 
+	
+	
 	public void keyPressed(KeyEvent e) {
 		String cmd = ((JComponent) e.getSource()).getName();
 
@@ -1199,7 +1254,7 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 			rtnBln = true;
 			login.putStringField("[Login-UserName/]", un.getText());
 			try {
-				login.putStringField("[Login-Password/]", CSHAPasswordField.sha1(new String(pw.getPassword())));
+				login.putStringField("[Login-Password/]", CPasswordField.sha1(new String(pw.getPassword())));
 			} catch (NoSuchAlgorithmException e1) {
 				login.putStringField("[Login-Password/]", "");
 			}
@@ -1277,8 +1332,9 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 	}
 
 }
-
-class Utils {
+ 
+ 
+ class Utils {
 	public static final char[] WORD_SEPARATORS = { ' ', '\t', '\n', '\r', '\f',
 			'.', ',', ':', '-', '(', ')', '[', ']', '{', '}', '<', '>', '/',
 			'|', '\\', '\'', '\"' };

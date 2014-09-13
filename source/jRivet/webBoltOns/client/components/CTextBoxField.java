@@ -258,7 +258,7 @@ public class CTextBoxField extends JTextField
 		} else {
 			addKeyListener(this);
 			addFocusListener(this);
-			if (!comp.getLink().equals("") || comp.getDataType().equals("DAT")) {
+			if (!comp.getLink().equals("") || comp.getDataType().equals("DAT") || comp.getDataType().equals("FLT")) {
 				textBoxLabel.setText(("<html><font color=\"blue\"><u>"
 						                  + comp.getDescription() + "</u></font></html>"));
 				textBoxLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -315,7 +315,7 @@ public class CTextBoxField extends JTextField
 		if (!comp.isProtected()) {
 			addKeyListener(this);
 
-			if (!comp.getLink().equals("") || dataType.equals("DAT")) 
+			if (!comp.getLink().equals("") || dataType.equals("DAT") || dataType.equals("FLT")) 
 				addMouseListener(this);
 			
 		}
@@ -425,6 +425,9 @@ public class CTextBoxField extends JTextField
 			} else if (dataType.equals("DAT")) {
 				CDialog dp = new CDialog(mFrm.getWindowFrame(), cnct);
 				commitEditing(dp.showDatePickerDialog(getText(), this));
+			} else if (dataType.equals("FLT")) {
+				CDialog dp = new CDialog(mFrm.getWindowFrame(), cnct);
+				commitEditing(dp.showCalcualtorDialog(getText(), CTextBoxField.this));
 			}
 		}
 		
@@ -468,10 +471,14 @@ public class CTextBoxField extends JTextField
 		if(dataType.equals("DAT")) {
 			CDialog dp = new CDialog(mFrm.getWindowFrame(), cnct);
 			commitEditing(dp.showDatePickerDialog(getText(), this));
-		} else if(!comp.getLink().equals("")) 
+		} else if(!comp.getLink().equals("")) { 
 				mFrm.actionScriptLinkPerformed(comp.getLink(), 
 								comp.getFieldName(), comp.getObjectHL());
-			
+		} else if(dataType.equals("FLT")) {
+			CDialog dp = new CDialog(mFrm.getWindowFrame(), cnct);
+			commitEditing(dp.showCalcualtorDialog(getText(), CTextBoxField.this));
+		}	
+		
 		if(textBoxLabel != null) 	
 			textBoxLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
 	}

@@ -38,7 +38,7 @@ public class DataBaseInstaller {
 
 	
 	String myQry2 = "INSERT INTO `wkpGroups` (`KeeperID`,`KeeperDesc`,`keeperIcon`,`CreateDate`,`LastUpdate`,`j1`,`PrntID`) " +
-			" VALUES   (?, ? ,'MNode1.gif','20070101','200700101',? ,0) ";
+			" VALUES   (?, ? ,'MNode1.gif','20070101','20070101',? ,0) ";
 	
 	String drbyQry1 = "INSERT INTO  jrUsers  ( UserID , GroupID , UserDescription , Name , Address1 , Address2 , Address3 , Address4 , Phone1 ,"
 			+ " Phone2 , Fax , Email , WebSite , Notes , CreateDate , ActiveDate , InActiveDate , LastChangeDate , ActiveUser ,"

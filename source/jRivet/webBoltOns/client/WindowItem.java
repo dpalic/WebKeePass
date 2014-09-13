@@ -116,6 +116,7 @@ public class WindowItem {
 	public static final String MEDIA_BOX_OBJECT = "MediaBox";
 	public static final String MENU_EDITOR_OBJECT = "MenuEditor";
 	public static final String MENU_EXPLORER_OBJECT = "MenuExplorer";
+	public static final String MACRO_EDITOR = "MacroEditor";
 	public static final String MESSAGE = "MESSAGE";
 	public static final String METHOD = "METHOD";
 	public static final String METHODCLASS = "METHOD_CLASS";

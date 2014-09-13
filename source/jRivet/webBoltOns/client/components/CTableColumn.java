@@ -160,7 +160,8 @@ public class CTableColumn extends JComponent implements StandardComponentLayout 
 		
 		if(thisItem.isProtected())
 			colHdrRndr.setForeground(Color.BLACK);
-		else if(!thisItem.getLink().equals("")  || thisItem.getDataType().equals("DAT"))
+		else if(!thisItem.getLink().equals("")  || thisItem.getDataType().equals("DAT") 
+				|| thisItem.getDataType().equals("FLT"))
 			colHdrRndr.setForeground(Color.BLUE);
 		else	
 			colHdrRndr.setForeground(Color.BLACK);

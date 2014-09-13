@@ -9,28 +9,28 @@ CREATE TABLE `wkpSeqCrypt` (
 
  
 INSERT INTO `wkpSeqCrypt` (`TableName`,`Seq`) VALUES 
- ('wkpGroups',13),
- ('wkpPasswordCrypt',4),
- ('wkpCryptHistory',9);
+ ('wkpGroups',50),
+ ('wkpPasswordCrypt',50),
+ ('wkpCryptHistory',50);
   
 
 DROP TABLE IF EXISTS `jrBUnits`;
 CREATE TABLE `jrBUnits` (
-  `BUnit` varchar(50) default NULL,
-  `BUnitDesc` varchar(50) default NULL,
-  `LastUpdate` varchar(50) default NULL
+  `BUnit` varchar(250) default NULL,
+  `BUnitDesc` varchar(250) default NULL,
+  `LastUpdate` varchar(250) default NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
  
 INSERT INTO `jrBUnits` (`BUnit`,`BUnitDesc`,`LastUpdate`) VALUES 
- ('1','WebKeePass Password Safe','20070202');
+ ('1','WebKeePass Password Safe','20070101');
  
 
 DROP TABLE IF EXISTS `jrGroupAccess`;
 CREATE TABLE `jrGroupAccess` (
   `GroupID` varchar(10) default NULL,
   `MenuItem` varchar(20) default NULL,
-  `GroupItemDescription` varchar(50) default NULL,
+  `GroupItemDescription` varchar(250) default NULL,
   `ItemAccessLevel` int(11) default NULL,
   `LastChangeDate` varchar(10) default NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -51,7 +51,7 @@ INSERT INTO `jrGroupAccess` (`GroupID`,`MenuItem`,`GroupItemDescription`,`ItemAc
 DROP TABLE IF EXISTS `jrUserGroups`;
 CREATE TABLE `jrUserGroups` (
   `GroupID` varchar(10) default NULL,
-  `GroupDescription` varchar(50) default NULL,
+  `GroupDescription` varchar(250) default NULL,
   `MenuXML` varchar(10) default NULL,
   `DateFormat` varchar(20) default NULL,
   `CreateDate` varchar(20) default NULL,
@@ -66,7 +66,7 @@ CREATE TABLE `jrUserGroups` (
   `CopyAccess` smallint(6) default NULL,
   `PrintAccess` smallint(6) default NULL,
   `AccessMethod` varchar(10) default NULL,
-  `BUnit` varchar(50) default NULL
+  `BUnit` varchar(250) default NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
  
@@ -79,17 +79,17 @@ DROP TABLE IF EXISTS `jrUsers`;
 CREATE TABLE `jrUsers` (
   `UserID` varchar(20) default NULL,
   `GroupID` varchar(10) default NULL,
-  `UserDescription` varchar(50) default NULL,
-  `Name` varchar(50) default NULL,
-  `Address1` varchar(50) default NULL,
-  `Address2` varchar(50) default NULL,
-  `Address3` varchar(50) default NULL,
+  `UserDescription` varchar(250) default NULL,
+  `Name` varchar(250) default NULL,
+  `Address1` varchar(250) default NULL,
+  `Address2` varchar(250) default NULL,
+  `Address3` varchar(250) default NULL,
   `Address4` varchar(10) default NULL,
   `Phone1` varchar(20) default NULL,
   `Phone2` varchar(20) default NULL,
-  `Fax` varchar(50) default NULL,
-  `Email` varchar(50) default NULL,
-  `WebSite` varchar(50) default NULL,
+  `Fax` varchar(250) default NULL,
+  `Email` varchar(250) default NULL,
+  `WebSite` varchar(250) default NULL,
   `Notes` mediumtext,
   `CreateDate` varchar(10) default NULL,
   `ActiveDate` varchar(10) default NULL,
@@ -124,7 +124,7 @@ CREATE TABLE `jrUsers` (
   `RegularFontBold` smallint(6) default NULL,
   `CopyAccess` smallint(6) default NULL,
   `PrintAccess` smallint(6) default NULL,
-  `Password` varchar(50) default NULL
+  `Password` varchar(250) default NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
  
@@ -133,26 +133,26 @@ DROP TABLE IF EXISTS `wkpCryptHistory`;
 CREATE TABLE `wkpCryptHistory` (
   `HistoryID` int(11) NOT NULL default '0',
   `PasswordID` int(11) NOT NULL default '0',
-  `a0` varchar(50) default NULL,
-  `b9` varchar(50) default NULL,
-  `c8` varchar(50) default NULL,
-  `d7` varchar(50) default NULL,
-  `e6` varchar(50) default NULL,
-  `f5` varchar(50) default NULL,
-  `g4` varchar(50) default NULL,
-  `h3` varchar(50) default NULL,
-  `i2` varchar(50) default NULL,
-  `j1` varchar(50) default NULL,
-  `k0` varchar(50) default NULL,
-  `l9` varchar(50) default NULL,
-  `m8` varchar(50) default NULL,
-  `n7` varchar(50) default NULL,
-  `o6` varchar(50) default NULL,
-  `p5` varchar(50) default NULL,
-  `q4` varchar(50) default NULL,
-  `r3` varchar(50) default NULL,
-  `s2` varchar(50) default NULL,
-  `t1` varchar(50) default NULL,
+  `a0` varchar(250) default NULL,
+  `b9` varchar(250) default NULL,
+  `c8` varchar(250) default NULL,
+  `d7` varchar(250) default NULL,
+  `e6` varchar(250) default NULL,
+  `f5` varchar(250) default NULL,
+  `g4` varchar(250) default NULL,
+  `h3` varchar(250) default NULL,
+  `i2` varchar(250) default NULL,
+  `j1` varchar(250) default NULL,
+  `k0` varchar(250) default NULL,
+  `l9` varchar(250) default NULL,
+  `m8` varchar(250) default NULL,
+  `n7` varchar(250) default NULL,
+  `o6` varchar(250) default NULL,
+  `p5` varchar(250) default NULL,
+  `q4` varchar(250) default NULL,
+  `r3` varchar(250) default NULL,
+  `s2` varchar(250) default NULL,
+  `t1` varchar(250) default NULL,
   `Notes` longblob,
   `Image` longblob,
   `KeeperID` int(11) default NULL,
@@ -163,39 +163,51 @@ CREATE TABLE `wkpCryptHistory` (
 DROP TABLE IF EXISTS `wkpGroups`;
 CREATE TABLE `wkpGroups` (
   `KeeperID` int(11) NOT NULL default '0',
-  `KeeperDesc` varchar(50) default NULL,
-  `keeperIcon` varchar(50) default NULL,
-  `CreateDate` varchar(50) default NULL,
-  `LastUpdate` varchar(50) default NULL,
-  `j1` varchar(50) default NULL,
+  `KeeperDesc` varchar(250) default NULL,
+  `keeperIcon` varchar(250) default NULL,
+  `CreateDate` varchar(250) default NULL,
+  `LastUpdate` varchar(250) default NULL,
+  `j1` varchar(250) default NULL,
   `PrntID` int(11) NOT NULL default '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-
+INSERT INTO `wkpGroups` (`KeeperID`,`KeeperDesc`,`keeperIcon`,`CreateDate`,`LastUpdate`,`j1`,`PrntID`) 
+			 VALUES   (21, 'General' ,'MNode1.gif','20070101','20070101','[Share-Group/]' ,0);
+INSERT INTO `wkpGroups` (`KeeperID`,`KeeperDesc`,`keeperIcon`,`CreateDate`,`LastUpdate`,`j1`,`PrntID`) 
+			 VALUES   (22, 'Internet' ,'MNode1.gif','20070101','20070101','[Share-Group/]' ,0);
+INSERT INTO `wkpGroups` (`KeeperID`,`KeeperDesc`,`keeperIcon`,`CreateDate`,`LastUpdate`,`j1`,`PrntID`) 
+			 VALUES   (23, 'EMail' ,'MNode1.gif','20070101','20070101','[Share-Group/]' ,0);
+INSERT INTO `wkpGroups` (`KeeperID`,`KeeperDesc`,`keeperIcon`,`CreateDate`,`LastUpdate`,`j1`,`PrntID`) 
+			 VALUES   (24, 'Office' ,'MNode1.gif','20070101','20070101','[Share-Group/]' ,0);
+INSERT INTO `wkpGroups` (`KeeperID`,`KeeperDesc`,`keeperIcon`,`CreateDate`,`LastUpdate`,`j1`,`PrntID`) 
+			 VALUES   (24, 'Home' ,'MNode1.gif','20070101','20070101','[Share-Group/]' ,0);
+INSERT INTO `wkpGroups` (`KeeperID`,`KeeperDesc`,`keeperIcon`,`CreateDate`,`LastUpdate`,`j1`,`PrntID`) 
+			 VALUES   (26, 'Other' ,'MNode1.gif','20070101','20070101','[Share-Group/]' ,0);
+ 
 
 DROP TABLE IF EXISTS `wkpPasswordCrypt`;
 CREATE TABLE `wkpPasswordCrypt` (
   `PasswordID` int(11) NOT NULL default '0',
-  `a0` varchar(50) default NULL,
-  `b9` varchar(50) default NULL,
-  `c8` varchar(50) default NULL,
-  `d7` varchar(50) default NULL,
-  `e6` varchar(50) default NULL,
-  `f5` varchar(50) default NULL,
-  `g4` varchar(50) default NULL,
-  `h3` varchar(50) default NULL,
-  `i2` varchar(50) default NULL,
-  `j1` varchar(50) default NULL,
-  `k0` varchar(50) default NULL,
-  `l9` varchar(50) default NULL,
-  `m8` varchar(50) default NULL,
-  `n7` varchar(50) default NULL,
-  `o6` varchar(50) default NULL,
-  `p5` varchar(50) default NULL,
-  `q4` varchar(50) default NULL,
-  `r3` varchar(50) default NULL,
-  `s2` varchar(50) default NULL,
-  `t1` varchar(50) default NULL,
+  `a0` varchar(250) default NULL,
+  `b9` varchar(250) default NULL,
+  `c8` varchar(250) default NULL,
+  `d7` varchar(250) default NULL,
+  `e6` varchar(250) default NULL,
+  `f5` varchar(250) default NULL,
+  `g4` varchar(250) default NULL,
+  `h3` varchar(250) default NULL,
+  `i2` varchar(250) default NULL,
+  `j1` varchar(250) default NULL,
+  `k0` varchar(250) default NULL,
+  `l9` varchar(250) default NULL,
+  `m8` varchar(250) default NULL,
+  `n7` varchar(250) default NULL,
+  `o6` varchar(250) default NULL,
+  `p5` varchar(250) default NULL,
+  `q4` varchar(250) default NULL,
+  `r3` varchar(250) default NULL,
+  `s2` varchar(250) default NULL,
+  `t1` varchar(250) default NULL,
   `Notes` longblob,
   `Image` longblob,
   `KeeperID` int(11) NOT NULL default '0',
@@ -204,16 +216,16 @@ CREATE TABLE `wkpPasswordCrypt` (
 
 CREATE TABLE `wkpPasswordAKin` (
   `AKinID` int(11) NOT NULL,
-  `z0` varchar(50) default NULL,
-  `y1` varchar(50) default NULL,
-  `x2` varchar(50) default NULL,
-  `w3` varchar(50) default NULL,
-  `v4` varchar(50) default NULL,
-  `u5` varchar(50) default NULL,
-  `t6` varchar(50) default NULL,
-  `s7` varchar(50) default NULL,
-  `t8` varchar(50) default NULL,
-  `r9` varchar(50) default NULL,
+  `z0` varchar(250) default NULL,
+  `y1` varchar(250) default NULL,
+  `x2` varchar(250) default NULL,
+  `w3` varchar(250) default NULL,
+  `v4` varchar(250) default NULL,
+  `u5` varchar(250) default NULL,
+  `t6` varchar(250) default NULL,
+  `s7` varchar(250) default NULL,
+  `t8` varchar(250) default NULL,
+  `r9` varchar(250) default NULL,
   `PasswordID` int(11) NOT NULL,
   PRIMARY KEY  (`AKinID`,`PasswordID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;

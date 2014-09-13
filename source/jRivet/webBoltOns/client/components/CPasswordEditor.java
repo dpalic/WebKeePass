@@ -80,7 +80,8 @@ import webBoltOns.client.clientUtil.PasswordGntr;
 import webBoltOns.client.components.componentRules.StandardComponentLayout;
 import webBoltOns.dataContol.DataSet;
 
-public class CPasswordEditor extends JPasswordField implements StandardComponentLayout, ActionListener, KeyListener {
+public class CPasswordEditor extends JPasswordField implements StandardComponentLayout, 
+                                     ActionListener, KeyListener {
 
 	class PWAnalysis {
 		protected int caps, ccaps, ccharacters, cdigits, characters;
