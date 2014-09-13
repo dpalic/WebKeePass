@@ -83,7 +83,7 @@ public class ScriptHandler extends HandlerBase {
 	private String handlerMode;
 	private int hl = 0, par_hl = 0, acsLvl = 1;
 	private String title, scrpt, mthd, clss,
-			hght, wdth, refesh, docType;
+			hght, wdth, refesh, docType, icn;
 	private Stack<String> stck = new Stack<String>();
 	private DataSet tbl = new DataSet();
 	private UserSecurityManager usrScrtyMngr;
@@ -159,7 +159,7 @@ public class ScriptHandler extends HandlerBase {
 		tbl.putStringField(MenuItem.SCRIPTNAME, scrpt);
 		tbl.putStringField(MenuItem.BANNER_TITLE, dataAccess.getBannerTitle());
 		tbl.putStringField(MenuItem.METHODNAME, mthd);
-		tbl.putStringField(WindowItem.SCREEN_TITLE, title);
+		tbl.putStringField(WindowItem.SCREEN_TITLE, title); 
 		tbl.putStringField("[logoTitle/]", dataAccess.getWindowTitle());
 		return tbl;
 	}
@@ -176,6 +176,7 @@ public class ScriptHandler extends HandlerBase {
 		tbl.putStringField(WindowItem.SCRIPTNAME, scrpt);
 		tbl.putStringField(WindowItem.METHOD, mthd);
 		tbl.putStringField(WindowItem.AUTO_REFRESH, refesh);
+		tbl.putStringField(WindowItem.ICON, icn);
 		tbl.putStringField(WindowItem.BANNER_TITLE, dataAccess .getBannerTitle());
 		tbl.putStringField("[logoTitle/]", dataAccess.getWindowTitle());
 		tbl.putIntegerField("[ScriptAccessLevel/]", acsLvl);
@@ -341,6 +342,7 @@ public class ScriptHandler extends HandlerBase {
 			wdth = formatAttributeValue("[Integer/]", WindowItem.WIDTH, attrs);
 			mthd = formatAttributeValue("", WindowItem.METHOD,attrs);
 			refesh = formatAttributeValue("[Boolean/]", WindowItem.AUTO_REFRESH, attrs);
+			icn = formatAttributeValue("", WindowItem.ICON,attrs);
 			docType = formatAttributeValue("",WindowItem.DOCUMENT_TYPE, attrs);
 			
 			if(usrScrtyMngr != null &&  dataAccess.isSecurityManagerON())

@@ -174,8 +174,6 @@ INSERT INTO wkpGroups (KeeperID, KeeperDesc,keeperIcon,CreateDate,LastUpdate,j1,
 INSERT INTO wkpGroups (KeeperID, KeeperDesc,keeperIcon,CreateDate,LastUpdate,j1,PrntID)  
 			 VALUES (24, 'Home', 'MNode1.gif','20070101','20070101','[Share-Group/]' ,0);
 INSERT INTO wkpGroups (KeeperID, KeeperDesc,keeperIcon,CreateDate,LastUpdate,j1,PrntID)  
-			 VALUES (25, 'Home', 'MNode1.gif','20070101','20070101','[Share-Group/]' ,0);
-INSERT INTO wkpGroups (KeeperID, KeeperDesc,keeperIcon,CreateDate,LastUpdate,j1,PrntID)  
 			 VALUES (26, 'Other', 'MNode1.gif','20070101','20070101','[Share-Group/]' ,0);
 
  
@@ -206,7 +204,8 @@ CREATE TABLE wkpPasswordCrypt (
   KeeperID int 
 );
 
-CREATE TABLE  wkpPasswordAKin  (AKinID  int NOT NULL PRIMARY KEY,
+CREATE TABLE  wkpPasswordAKin  (
+   AKinID  int NOT NULL PRIMARY KEY,
    z0  varchar(250) default NULL,
    y1  varchar(250) default NULL,
    x2  varchar(250) default NULL,  
@@ -218,3 +217,15 @@ CREATE TABLE  wkpPasswordAKin  (AKinID  int NOT NULL PRIMARY KEY,
    t8  varchar(250) default NULL, 
    r9  varchar(250) default NULL,
    PasswordID int); 
+
+CREATE TABLE wkpBundle (
+  BundleID int  NOT NULL PRIMARY KEY,
+  aa varchar(250),
+  bb varchar(250),
+  cc varchar(250),
+  dd varchar(250),
+  ee varchar(250),
+  ff varchar(250),
+  gg varchar(250),
+  hh varchar(250)
+ );

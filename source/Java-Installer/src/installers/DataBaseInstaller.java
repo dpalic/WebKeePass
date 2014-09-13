@@ -33,7 +33,7 @@ public class DataBaseInstaller {
 			+ "`WindowTitleColorGreen`,`WindowTitleFontColorRed`,`WindowTitleFontColorBlue`,`WindowTitleFontColorGreen`,`CursorColorRed`,"
 			+ "`CursorColorBlue`,`CursorColorGreen`,`HeaderFontName`,`HeaderFontSize`,`HeaderFontItalic`,`HeaderFontBold`,`RegularFontName`,"
 			+ "`RegularFontSize`,`RegularFontItalic`,`RegularFontBold`,`CopyAccess`,`PrintAccess`,`Password`) VALUES  "
-			+ " ( ?, ?, ?, ?, '','','','','',NULL,'','','',NULL,NULL,NULL,'','20060706',1,255,255,255,100,255,100,250,250,250,0,0,0,0,0,0,250,220,250,"
+			+ " ( ?, ?, ?, ?, '','','','','',NULL,'','','',NULL,NULL,NULL,'','20060706',1,255,255,255,100,255,100,0,170,0,0,0,0,0,0,0,250,220,250,"
 			+ "'Arial',11,0,1,'Arial',11,0,0,0,0,?) ";
 
 	
@@ -47,7 +47,7 @@ public class DataBaseInstaller {
 			+ " WindowTitleColorGreen , WindowTitleFontColorRed , WindowTitleFontColorBlue , WindowTitleFontColorGreen , CursorColorRed ,"
 			+ " CursorColorBlue , CursorColorGreen , HeaderFontName , HeaderFontSize , HeaderFontItalic , HeaderFontBold , RegularFontName ,"
 			+ " RegularFontSize , RegularFontItalic , RegularFontBold , CopyAccess , PrintAccess , Password ) VALUES  "
-			+ " ( ?, ?, ?, ?, '','','','','',NULL,'','','',NULL,NULL,NULL,'','20060706',1,255,255,255,100,255,100,250,250,250,0,0,0,0,0,0,250,220,250,"
+			+ " ( ?, ?, ?, ?, '','','','','',NULL,'','','',NULL,NULL,NULL,'','20060706',1,255,255,255,100,255,100,0,170,0,0,0,0,0,0,0,250,220,250,"
 			+ "'Arial',11,0,1,'Arial',11,0,0,0,0,?) ";
 
 	

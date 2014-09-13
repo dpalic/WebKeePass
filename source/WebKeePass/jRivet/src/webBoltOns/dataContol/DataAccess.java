@@ -68,6 +68,7 @@ import java.sql.Statement;
 import java.util.Hashtable;
 import java.util.Vector;
 
+import javax.naming.Context;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
@@ -76,7 +77,8 @@ import oracle.jdbc.driver.*;
 import org.xml.sax.InputSource;
 
 import webBoltOns.ServletConnector;
-import webBoltOns.dataContol.CipherString.EncryptionException;
+import webBoltOns.dataContol.CipherString.EncryptionException; 
+import webBoltOns.server.UserSecurityManager;
 
 /**
  * <h1>DataAccess</h1>
@@ -1048,6 +1050,27 @@ public class DataAccess {
 			eOpts.putStringField("[scriptAccessPath/]", getScriptPath());
 			eOpts.putStringField("[imageAccessPath/]", getImagePath());
 			eOpts.put("[StandardUserTheme/]", getStandardUserTheme());
+			
+			 
+			eOpts.putBooleanField("LDAP", DataSet.checkBoolean((String) cfgTable.get("LDAP")));
+			if(eOpts.getBooleanField("LDAP")) {
+			  eOpts.putStringField(Context.INITIAL_CONTEXT_FACTORY, 
+					(String) cfgTable.get(Context.INITIAL_CONTEXT_FACTORY));
+			  eOpts.putStringField(Context.SECURITY_AUTHENTICATION, 
+					(String) cfgTable.get(Context.SECURITY_AUTHENTICATION));
+			  eOpts.putStringField(Context.SECURITY_PROTOCOL, 
+					(String) cfgTable.get(Context.SECURITY_PROTOCOL));
+			  eOpts.putStringField(Context.PROVIDER_URL, 
+					(String) cfgTable.get(Context.PROVIDER_URL));
+			  eOpts.putStringField(UserSecurityManager.PRINCIPAL_DN_PREFIX_OPT, 
+					(String) cfgTable.get(UserSecurityManager.PRINCIPAL_DN_PREFIX_OPT));
+			  eOpts.putStringField(UserSecurityManager.PRINCIPAL_DN_SUFFIX_OPT, 
+					(String) cfgTable.get(UserSecurityManager.PRINCIPAL_DN_SUFFIX_OPT));
+			  eOpts.putStringField(UserSecurityManager.MATCH_ON_USER_DN_OPT, 
+					  (String) cfgTable.get(UserSecurityManager.MATCH_ON_USER_DN_OPT));
+			  eOpts.putStringField("[LDAP_Group/]",(String) cfgTable.get("LDAP_Group"));
+			  
+			}
 			
 			eOpts.put("[iconTable/]", loadAllIcons());
 			eOpts.put("[literalTable/]", literals.getTable());

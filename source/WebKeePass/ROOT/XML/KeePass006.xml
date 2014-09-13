@@ -2,18 +2,18 @@
 
 <!--	 **Script Builder 2.1 *  -->
 <!--	 	 Script Name :  KeePass006 -->
-<!--	 	 Description :  Search Passwords -->
+<!--	 	 Description :  My Password Profile -->
 <!--	 	 Server Class :  server.TheCrypt -->
 <!--	 	 Initalization Method :  getCryptSrch -->
-<!--	 	 File Path :  /home/java/Projects/JavaProjects/WebKeePass-1.070905/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass006.xml -->
-<!--	 	 Last Update :  16-Sep-2007 -->
-<!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="KeePass006" DOCUMENT_TYPE="Window" CLASS_NAME="server.TheCrypt" METHOD="getCryptSrch" AUTO_REFRESH="false" DESCRIPTION="Search Passwords" Screen_Title="Search Passwords" WIDTH="1015" HEIGHT="710">
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass006.xml -->
+<!--	 	 Last Update :  19-May-2008 -->
+<!--	 	 User Profile:  pjones -->
+<SCRIPT SCRIPT_NAME="KeePass006" DOCUMENT_TYPE="Window" CLASS_NAME="server.TheCrypt" METHOD="getCryptSrch" AUTO_REFRESH="false" ICON="WKP8.jpg" DESCRIPTION="My Password Profile" Screen_Title="My Password Profile" WIDTH="880" HEIGHT="500">
   <ButtonBar>
     <BarButton TYPE="CLEAR" DESCRIPTION="Clear" ICON="iClear.gif" />
-    <BarButton TYPE="FIND" DESCRIPTION="Find It!" ICON="iFind.gif" METHOD="getCryptSrch" />
+    <BarButton TYPE="FIND" DESCRIPTION="Find/Refresh" ICON="iFind.gif" METHOD="getCryptSrch" />
   </ButtonBar>
-  <Table FIELDNAME="Table1" HEIGHT="20" WIDTH="20" POSITION="Left">
+  <Table FIELDNAME="Table1" HEIGHT="12" WIDTH="12" POSITION="Left">
     <TableTextField FIELDNAME="PasswordID" DESCRIPTION="-ID" LENGTH="2" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
     <TableTextField FIELDNAME="a0" DESCRIPTION="Title" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
     <TableTextField FIELDNAME="b9" DESCRIPTION="User Name" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />

@@ -58,29 +58,38 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Enumeration;
+import java.util.Properties;
+
+import javax.naming.Context;
+import javax.naming.NamingException;
+import javax.naming.ldap.InitialLdapContext;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.InputSource;
 
+import com.sun.org.apache.bcel.internal.generic.GETSTATIC;
+
 import webBoltOns.client.WindowItem;
+import webBoltOns.dataContol.DBSchemaException;
 import webBoltOns.dataContol.DataAccess;
 import webBoltOns.dataContol.DataSet;
-import webBoltOns.dataContol.DBSchemaException;
 
 public class UserSecurityManager {
 
-	public final static int NONE = 1;
-	public final static int READ = 2;
-	public final static int READ_WRITE = 3;
+	public static final int NONE = 1;
+	public static final int READ = 2;
+	public static final int READ_WRITE = 3;
+	public static final String PRINCIPAL_DN_PREFIX_OPT = "principalDNPrefix";
+	public static final String PRINCIPAL_DN_SUFFIX_OPT = "principalDNSuffix";
+	public static final String MATCH_ON_USER_DN_OPT = "matchOnUserDN";
+	
 	protected  String reqUserID, reqDesc, reqGroup;
 
-	public UserSecurityManager() { }
+	private boolean ldap = false;
 	
-
+	public UserSecurityManager() { }
 	
 	
 	/* */
@@ -124,30 +133,94 @@ public class UserSecurityManager {
 	}
 
 	
+	
+	public void setLdapLogin (boolean ld) {
+		ldap = ld;
+	}
+	
 	/* */
 	public DataSet confirmPassword(DataSet login, DataAccess dataAccess) {
 		try {
 			String qry = "Select Password From jrUsers Where UserID = '" + 
 			                                    login.getStringField("[Login-UserName/]") +"' ";
-			
-			if(dataAccess.executeQuery(qry, new String[] {"Password"} , login)
-					&&  login.getStringField("Password").equals(login.getStringField("[Login-Password/]" ))) {
-				login.putStringField("[UserManagerStatus/]", "Grant_Access");
-				login.setUser(login.getStringField("[Login-UserName/]"));
-				login.putStringField("[cKey/]", dataAccess.getCKey());
+			   
+			if (! ldap && dataAccess.executeQuery(qry, new String[] {"Password"} , login)
+					     &&  login.getStringField("Password").equals(
+					    		 login.getStringField("[Login-Password/]" ))) {	
+				   login.putStringField("[UserManagerStatus/]", "Grant_Access");
+				   login.setUser(login.getStringField("[Login-UserName/]"));
+				   login.putStringField("[cKey/]", dataAccess.getCKey());
+				   
+			} else if (ldap && comfirmLDAP(login.getStringField("[Login-UserName/]"), 
+							   login.getStringField("[Login-Clear/]") ,dataAccess )) {
+				   login.putStringField("[UserManagerStatus/]", "Grant_Access");
+				   login.setUser(login.getStringField("[Login-UserName/]"));
+				   login.putStringField("[cKey/]", dataAccess.getCKey());			   
+			   
 			} else {
-				login.putStringField("[UserManagerStatus/]", "Prompt_Access");
-				login.setUser("");
-				login.putStringField("[cKey/]","");
+				   login.putStringField("[UserManagerStatus/]", "Prompt_Access");
+				   login.setUser("");
+				   login.putStringField("[cKey/]","");
+			   
 			}
 			
-		} catch (Exception er) {}	
-		login.remove("[Login-UserName/]");
-		login.remove("[Login-Password/]");
+		} catch (Exception er) {	
+		   login.putStringField("[UserManagerStatus/]", "Prompt_Access");
+		   login.setUser("");
+		   login.putStringField("[cKey/]","");
+		}   
 		return login;
 	}
 	
 	
+	
+	private boolean  comfirmLDAP(String username, String password, DataAccess dataAccess) {		
+		try {
+			
+			Properties env = new Properties();
+			// Set defaults for key values if they are missing
+			String factoryName = dataAccess.getEOpts().getStringField(Context.INITIAL_CONTEXT_FACTORY);
+			if (factoryName == null || factoryName.equals("")) 
+				factoryName = "com.sun.jndi.ldap.LdapCtxFactory";
+			env.setProperty(Context.INITIAL_CONTEXT_FACTORY, factoryName);
+
+			
+			String authType = dataAccess.getEOpts().getStringField(Context.SECURITY_AUTHENTICATION);
+			if (authType == null || authType.equals(""))
+				 authType = "simple";
+			env.setProperty(Context.SECURITY_AUTHENTICATION, authType);
+			
+			String protocol = dataAccess.getEOpts().getStringField(Context.SECURITY_PROTOCOL);
+			String providerURL = dataAccess.getEOpts().getStringField(Context.PROVIDER_URL);
+			if (providerURL == null)
+				providerURL = "ldap://localhost:" + ((protocol != null && protocol.equals("ssl")) ? "636" : "389");
+
+			String principalDNPrefix = dataAccess.getEOpts().getStringField(PRINCIPAL_DN_PREFIX_OPT);
+			if (principalDNPrefix == null)	
+				principalDNPrefix = "";
+			
+			String principalDNSuffix = dataAccess.getEOpts().getStringField(PRINCIPAL_DN_SUFFIX_OPT);
+			if (principalDNSuffix == null)
+				principalDNSuffix = "";
+			
+			String matchType = dataAccess.getEOpts().getStringField(MATCH_ON_USER_DN_OPT);
+			
+			boolean matchOnUserDN = Boolean.valueOf(matchType).booleanValue();
+			String userDN = principalDNPrefix + username + principalDNSuffix;
+			env.setProperty(Context.PROVIDER_URL, providerURL);
+			env.setProperty(Context.SECURITY_PRINCIPAL, userDN);
+			env.put(Context.SECURITY_CREDENTIALS, password);
+			 
+			InitialLdapContext ctx = new InitialLdapContext(env, null);
+			
+			ctx.close();
+
+		} catch  (NamingException e ) {
+			return false;
+		}
+			return true;
+		}
+
 	
 	/* */
 	public DataSet setRequesterAccess(DataSet dataSet, DataAccess dataAccess) {
@@ -202,6 +275,11 @@ public class UserSecurityManager {
 					   new String [] {"GroupID", "UserDescription"}, ds)) {
 				reqGroup = ds.getStringField("GroupID");
 				reqDesc = ds.getStringField("UserDescription");
+				reqUserID = userID;
+			} else if(ldap) {
+				reqGroup = dataAccess.getEOpts().getStringField("[LDAP_Group/]");
+				if(reqGroup == null || reqGroup.equals("")) reqGroup = "Users";
+				reqDesc =  "Users";
 				reqUserID = userID;
 			}
 		} catch (Exception er) {}
@@ -328,7 +406,10 @@ public class UserSecurityManager {
 		String userID = users.getUser();
 		ResultSet resultSet;
 		String sql;
+		users.putBooleanField("LDAP", ldap);
+		
 		Statement qry = dataAccess.execConnectReadOnly();
+		
 			try {
 				sql = "Select  BackGroundColorRed, BackGroundColorBlue, BackGroundColorGreen, "
 						+ " TitleBarColorRed, TitleBarColorBlue, TitleBarColorGreen,"
@@ -350,11 +431,48 @@ public class UserSecurityManager {
 					users.putStringField("[CursorColor/]", buildColorAttr("CursorColor", resultSet));
 					users.putStringField("[HeaderFont/]", buildFontAttr("HeaderFont", resultSet));
 					users.putStringField("[RegularFont/]", buildFontAttr("RegularFont", resultSet));
+					
+				} else if(ldap) {
+					dataAccess.logMessage(" *UserSecurityManager.getUserTheme*  -- LDAP User theme fall back" );
+					users.putStringField("[BackGroundColor/]",
+							 dataAccess.getStandardUserTheme().getStringField("[BackGroundColor/]"));
+					users.putStringField("[TitleBarColor/]",	 
+							dataAccess.getStandardUserTheme().getStringField("[TitleBarColor/]"));
+					users.putStringField("[TitleBarFontColor/]",
+							  dataAccess.getStandardUserTheme().getStringField("[TitleBarFontColor/]"));
+					users.putStringField("[WindowTitleColor/]", 
+							  dataAccess.getStandardUserTheme().getStringField("[WindowTitleColor/]"));
+					users.putStringField("[WindowTitleFontColor/]",
+							  dataAccess.getStandardUserTheme().getStringField("[WindowTitleFontColor/]"));
+					users.putStringField("[CursorColor/]", 
+							  dataAccess.getStandardUserTheme().getStringField("[CursorColor/]"));
+					users.putStringField("[HeaderFont/]", 
+							  dataAccess.getStandardUserTheme().getStringField("[HeaderFont/]"));
+					users.putStringField("[RegularFont/]", 
+							  dataAccess.getStandardUserTheme().getStringField("[RegularFont/]"));
+				
 				}
+				
 				resultSet.close();
 			} catch (Exception er) {
-				dataAccess.logMessage(" *UserSecurityManager.getUserTheme*  --  " + er );
-				users.addMessage("SVR0001");
+				dataAccess.logMessage(" *UserSecurityManager.getUserTheme*  -- User theme fall back --  " + er );
+				users.putStringField("[BackGroundColor/]",
+						 dataAccess.getStandardUserTheme().getStringField("[BackGroundColor/]"));
+				users.putStringField("[TitleBarColor/]",	 
+						dataAccess.getStandardUserTheme().getStringField("[TitleBarColor/]"));
+				users.putStringField("[TitleBarFontColor/]",
+						  dataAccess.getStandardUserTheme().getStringField("[TitleBarFontColor/]"));
+				users.putStringField("[WindowTitleColor/]", 
+						  dataAccess.getStandardUserTheme().getStringField("[WindowTitleColor/]"));
+				users.putStringField("[WindowTitleFontColor/]",
+						  dataAccess.getStandardUserTheme().getStringField("[WindowTitleFontColor/]"));
+				users.putStringField("[CursorColor/]", 
+						  dataAccess.getStandardUserTheme().getStringField("[CursorColor/]"));
+				users.putStringField("[HeaderFont/]", 
+						  dataAccess.getStandardUserTheme().getStringField("[HeaderFont/]"));
+				users.putStringField("[RegularFont/]", 
+						  dataAccess.getStandardUserTheme().getStringField("[RegularFont/]"));
+
 			} finally {
 				dataAccess.execClose(qry);
 			}
@@ -704,9 +822,9 @@ public class UserSecurityManager {
 		user.putIntegerField("TitleBarColorRed", 100);
 		user.putIntegerField("TitleBarColorBlue", 255);
 		user.putIntegerField("TitleBarColorGreen", 100);
-		user.putIntegerField("TitleBarFontColorRed", 250);
-		user.putIntegerField("TitleBarFontColorBlue", 250);
-		user.putIntegerField("TitleBarFontColorGreen", 250);
+		user.putIntegerField("TitleBarFontColorRed", 0);
+		user.putIntegerField("TitleBarFontColorBlue", 170);
+		user.putIntegerField("TitleBarFontColorGreen", 0);
 		user.putIntegerField("WindowTitleColorRed", 235);
 		user.putIntegerField("WindowTitleColorBlue", 235);
 		user.putIntegerField("WindowTitleColorGreen", 235);

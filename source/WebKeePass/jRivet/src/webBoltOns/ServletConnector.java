@@ -407,11 +407,12 @@ import webBoltOns.server.servletUtil.NativeExecutable;
 			dataAccess.logMessage(".....Connection :" + dataAccess.getConnectionType());
 
 			dataAccess.logMessage(".....Opening SecurityManager ");
-			if (dataAccess.isSecurityManagerON())
+			if (dataAccess.isSecurityManagerON()) {
 				userSecurityManager = new UserSecurityManager();
-			else
+				userSecurityManager.setLdapLogin(dataAccess.getEOpts().getBooleanField("LDAP"));
+			} else { 
 				userSecurityManager = null;
-			
+			}
 			
 			dataAccess.logMessage(".....SecurityManager open");
 			dataAccess.logMessage(".....Get all Image Icons");

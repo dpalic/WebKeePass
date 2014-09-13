@@ -6,9 +6,9 @@
 <!--	 	 Server Class :  server.Akin -->
 <!--	 	 Initalization Method :   -->
 <!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass007.xml -->
-<!--	 	 Last Update :  20-Apr-2008 -->
-<!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="KeePass007" DOCUMENT_TYPE="Window" CLASS_NAME="server.Akin" AUTO_REFRESH="true" DESCRIPTION="Share My Password" Screen_Title="Share My Password" WIDTH="820" HEIGHT="500">
+<!--	 	 Last Update :  18-May-2008 -->
+<!--	 	 User Profile:  pjones -->
+<SCRIPT SCRIPT_NAME="KeePass007" DOCUMENT_TYPE="Window" CLASS_NAME="server.Akin" AUTO_REFRESH="true" ICON="WKP2.jpg" DESCRIPTION="Share My Password" Screen_Title="Share My Password" WIDTH="920" HEIGHT="540">
   <ButtonBar>
     <BarButton TYPE="FIND" DESCRIPTION="Find/Refresh" ICON="iFind.gif" METHOD="initAkinList" />
     <BarButton TYPE="POST" DESCRIPTION="Update Changes" ICON="iEdit.gif" METHOD="updAkinList" />
@@ -21,14 +21,19 @@
   </Panel>
   <Panel POSITION="Left" HIDDEN="N">
     <Table FIELDNAME="Table1" HEIGHT="12" WIDTH="0" POSITION="Left">
-      <TableTextField FIELDNAME="AKinID" DESCRIPTION="ID" LENGTH="3" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="20" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Left" />
-      <TableTextField FIELDNAME="x2" DESCRIPTION="User / Group" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="40" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
-      <TableTextField FIELDNAME="w3" DESCRIPTION="Share Desc" LENGTH="20" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableTextField FIELDNAME="AKinID" DESCRIPTION="ID" LENGTH="3" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="20" PROTECTED="Y" ZERO_FILL="N" ENCRYPT="N" ALIGNMENT="Center" />
+      <TableTextField FIELDNAME="x2" DESCRIPTION="Web User/ Web User Group" LENGTH="12" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="40" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
+      <TableTextField FIELDNAME="t6" DESCRIPTION="KeePass Group" LENGTH="8" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="40" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" LINK="KeePass018" PARAMETER="@aa" />
+      <TableTextField FIELDNAME="w3" DESCRIPTION="Share Desc" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Left" />
       <TableCheckBox FIELDNAME="v4" DESCRIPTION="Share Active" ENCRYPT="Y" />
-      <TableComboBox FIELDNAME="U5" DESCRIPTION="Share Group" LENGTH="10" PROTECTED="N" ENCRYPT="Y" ALIGNMENT="Left" LIST_TABLE_NAME="wkpGroups" LIST_TABLE_FIELD="KeeperID" LIST_TABLE_DESCRIPTION="KeeperDesc" LIST_TABLE_SELECTTION=" j1=:[Share-Group/]:">
+      <TableTextField FIELDNAME="r9" DESCRIPTION="Expires On" LENGTH="8" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="N" ZERO_FILL="N" ENCRYPT="Y" ALIGNMENT="Center" />
+      <TableComboBox FIELDNAME="U5" DESCRIPTION="Share Category" LENGTH="8" PROTECTED="N" ENCRYPT="Y" ALIGNMENT="Left" LIST_TABLE_NAME="wkpGroups" LIST_TABLE_FIELD="KeeperID" LIST_TABLE_DESCRIPTION="KeeperDesc" LIST_TABLE_SELECTTION=" j1=:[Share-Group/]:">
 	<ComboItem DESCRIPTION=" " DEFAULT_VALUE=" " />
       </TableComboBox>
     </Table>
+  </Panel>
+  <Panel POSITION="Left" HIDDEN="N">
+    <Button FIELDNAME="pbndles" DESCRIPTION="Create KeePass Groups" POSITION="Left" LINK="KeePass017" METHOD_CLASS="server.Akin" METHOD="getBndList" />
   </Panel>
 </SCRIPT>
 

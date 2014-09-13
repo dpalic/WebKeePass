@@ -2,13 +2,13 @@
 
 <!--	 **Script Builder 2.1 *  -->
 <!--	 	 Script Name :  UserAdmin130 -->
-<!--	 	 Description :  User Profiles  -->
+<!--	 	 Description :  Web User Profile -->
 <!--	 	 Server Class :  webBoltOns.server.UserSecurityManager -->
 <!--	 	 Initalization Method :   -->
-<!--	 	 File Path :  /home/java/Projects/JavaProjects/WebKeePass-1.070905/jakarta-tomcat-5.5.7/webapps/ROOT/XML/UserAdmin130.xml -->
-<!--	 	 Last Update :  18-Sep-2007 -->
-<!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="UserAdmin130" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.UserSecurityManager" AUTO_REFRESH="false" DESCRIPTION="User Profiles " Screen_Title="User Profiles " WIDTH="910" HEIGHT="595">
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/UserAdmin130.xml -->
+<!--	 	 Last Update :  18-May-2008 -->
+<!--	 	 User Profile:  pjones -->
+<SCRIPT SCRIPT_NAME="UserAdmin130" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.UserSecurityManager" AUTO_REFRESH="false" ICON="WKPD.jpg" DESCRIPTION="Web User Profile" Screen_Title="Web User Profile" WIDTH="910" HEIGHT="595">
   <ButtonBar>
     <BarButton TYPE="CLEAR" DESCRIPTION="Clear      " ICON="iClear.gif" />
     <BarButton TYPE="FIND" DESCRIPTION="Find-it!   " ICON="iFind.gif" METHOD="getUserList" />

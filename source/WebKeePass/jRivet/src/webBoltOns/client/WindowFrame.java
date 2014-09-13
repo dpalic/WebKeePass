@@ -993,32 +993,38 @@ public class WindowFrame implements ClipboardOwner, ComManager, ActionListener {
 			}
 		}
 
+
+		final JLabel bl = new JLabel(scrnTtle);
+		bl.setFont(new java.awt.Font("Dialog", 3, 18));
+		bl.setForeground(cntr.tbFontColor);
+		bl.setBackground(cntr.bgColor);
+		
 		final JPanel controls = new JPanel();
 		controls.add(dock);
 		controls.add(info);
+		final JPanel navP = new JPanel(new BorderLayout());
+		navP.add(BorderLayout.WEST, buildNavBar(script));
+		navP.add(BorderLayout.EAST, controls);
 		
+		final JPanel bnerP = new JPanel(new BorderLayout());
+		bnerP.setBackground(cntr.bgColor);
+		bnerP.add(BorderLayout.NORTH, bl);
+		bnerP.add(BorderLayout.SOUTH, navP);
+ 
+		topPnl = new JPanel(new BorderLayout(20,20));
+		String icn = script.getStringField(WindowItem.ICON);
 		
-		JLabel bannerLabel = new JLabel(scrnTtle);
-
-		bannerLabel.setFont(new java.awt.Font("Dialog", 1, 15));
-		bannerLabel.setForeground(cntr.tbFontColor);
-		final JPanel bannerPanel = new JPanel(new BorderLayout());
-		bannerPanel.setBackground(cntr.tbColor);
-		bannerPanel.add(BorderLayout.SOUTH, bannerLabel);
-
-		// create the buttons
-		final JPanel buttonbar = buildNavBar(script);
-
-		final JPanel buttonPanel = new JPanel();
-		buttonPanel.setLayout(new BorderLayout());
-		buttonPanel.add(BorderLayout.WEST, buttonbar);
-		buttonPanel.add(BorderLayout.EAST, controls);
-
-		topPnl = new JPanel();
-		topPnl.setLayout(new BorderLayout(5,5));
-		topPnl.add(BorderLayout.NORTH, bannerPanel);
-		topPnl.add(BorderLayout.SOUTH, buttonPanel);
+		if(icn != null && ! icn.equals("*"))
+			topPnl.add(BorderLayout.WEST, new JLabel(
+					cntr.getImageIcon(script.getStringField(WindowItem.ICON))));
+		else
+			topPnl.add(BorderLayout.WEST, new JLabel(cntr.getImageIcon("icon.jpg")));
+			
+			
+		topPnl.add(BorderLayout.CENTER, bnerP);
+		topPnl.add(BorderLayout.SOUTH, new JLabel());
 				
+		
 		mPnl = new JPanel();
 		mPnl.setLayout(new BorderLayout());
 		mPnl.add(BorderLayout.NORTH, topPnl);

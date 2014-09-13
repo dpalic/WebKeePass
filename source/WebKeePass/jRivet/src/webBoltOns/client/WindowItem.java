@@ -104,6 +104,7 @@ public class WindowItem {
 	public static final String ICON = "ICON";
 	public static final String IMAGE_BOX_OBJECT = "ImageBox";
 	public static final String IMAGE_FIELD = "ImageField";
+	public static final String TEXT_LABEL = "TextLabel";
 	public static final String LEFT = "Left";
 	public static final String LEFT_FILL = "Left Fill";
 	public static final String LENGTH = "LENGTH";

@@ -6,9 +6,9 @@
 <!--	 	 Server Class :  server.Akin -->
 <!--	 	 Initalization Method :  getAkinListByPwd -->
 <!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass016.xml -->
-<!--	 	 Last Update :  19-Apr-2008 -->
-<!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="KeePass016" DOCUMENT_TYPE="Window" CLASS_NAME="server.Akin" METHOD="getAkinListByPwd" AUTO_REFRESH="false" DESCRIPTION="My Shared Password Profile" Screen_Title="My Shared Password Profile" WIDTH="820" HEIGHT="524">
+<!--	 	 Last Update :  18-May-2008 -->
+<!--	 	 User Profile:  pjones -->
+<SCRIPT SCRIPT_NAME="KeePass016" DOCUMENT_TYPE="Window" CLASS_NAME="server.Akin" METHOD="getAkinListByPwd" AUTO_REFRESH="false" ICON="WKP4.jpg" DESCRIPTION="My Shared Password Profile" Screen_Title="My Shared Password Profile" WIDTH="820" HEIGHT="524">
   <ButtonBar>
     <BarButton TYPE="FIND" DESCRIPTION="Find/Refresh" ICON="iFind.gif" METHOD="getAkinListByPwd" />
   </ButtonBar>

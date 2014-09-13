@@ -193,6 +193,7 @@
  <Table tableName="wkpPasswordAKin" description=" Table Name - wkpPasswordAKin">
   <Column field="AKinID" type="INT" length="32" description="wkpPasswordAKin.AKinID - INTEGER" />
   <Column field="PasswordID" type="INT" length="32" description="wkpPasswordAKin.PasswordID"  />
+  <Column field="UserID" type="CHR" length="20" description="jrUsers.UserID - VARCHAR" />
   <Column field="z0" type="CHR" length="50" description="wkpPasswordAKin.z0 - VARCHAR" />
   <Column field="y1" type="CHR" length="50" description="wkpPasswordAKin.y1 - VARCHAR" />
   <Column field="x2" type="CHR" length="50" description="wkpPasswordAKin.x2 - VARCHAR" />
@@ -216,7 +217,19 @@
   <Column field="PrntID" type="INT" length="32" description="wkpGroups.PrGroupID - INTEGER" />
  </Table>
 
- 
+
+ <Table tableName="wkpBundle" description=" Table Name - wkpBundle">
+  <Column field="BundleID" type="INT" length="64" description="wkpBundle.BUNDLEID - NUMBER" />
+  <Column field="aa" type="CHR" length="50" description="wkpBundle.AA - VARCHAR" />
+  <Column field="bb" type="CHR" length="50" description="wkpBundle.BB - VARCHAR" />
+  <Column field="cc" type="CHR" length="50" description="wkpBundle.CC - VARCHAR" />
+  <Column field="dd" type="CHR" length="50" description="wkpBundle.DD - VARCHAR" />
+  <Column field="ee" type="CHR" length="50" description="wkpBundle.EE - VARCHAR" />
+  <Column field="ff" type="CHR" length="50" description="wkpBundle.FF - VARCHAR" />
+  <Column field="gg" type="CHR" length="50" description="wkpBundle.GG - VARCHAR" />
+  <Column field="hh" type="CHR" length="50" description="wkpBundle.HH - VARCHAR" />
+ </Table>
+
  
 </Metadata>
 

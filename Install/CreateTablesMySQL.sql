@@ -231,4 +231,20 @@ CREATE TABLE `wkpPasswordAKin` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 
+
+CREATE TABLE `wkpBundle` (
+  `BundleID` int(11)  NOT NULL,
+  `aa` varchar(250) default NULL,
+  `bb` varchar(250) default NULL,
+  `cc` varchar(250) default NULL,
+  `dd` varchar(250) default NULL,
+  `ee` varchar(250) default NULL,
+  `ff` varchar(250) default NULL,
+  `gg` varchar(250) default NULL,
+  `hh` varchar(250) default NULL,
+   PRIMARY KEY  (`BundleID`)
+ ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
  

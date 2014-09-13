@@ -102,7 +102,6 @@ import javax.swing.JTree;
 import javax.swing.KeyStroke;
 import javax.swing.RepaintManager;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
 import javax.swing.ToolTipManager;
 import javax.swing.UIManager;
 import javax.swing.border.BevelBorder;
@@ -121,7 +120,6 @@ import webBoltOns.client.components.componentRules.ComManager;
 import webBoltOns.client.components.layoutManagers.GridFlowLayout;
 import webBoltOns.client.components.layoutManagers.GridFlowLayoutParameter;
 import webBoltOns.client.components.layoutManagers.StackedFlowLayout;
-import webBoltOns.dataContol.DBSchemaException;
 import webBoltOns.dataContol.DataSet;
 
 /**
@@ -575,8 +573,12 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 		mnCmpTr[parent_hl].getTreeNode().add(mnCmpTr[hl].getTreeNode());
 
 		if (mnCmpTr[hl].getQuickLink()) {
-
-			final JButton qlink = new JButton(mnCmpTr[hl].getDescription(), cntr.quickLinkIcon);
+			JButton qlink;
+			if(mnCmpTr[hl].getIconName() == null || mnCmpTr[hl].getIconName().equals(""))
+					qlink = new JButton(mnCmpTr[hl].getDescription(), cntr.quickLinkIcon);
+			else
+					qlink = new JButton(mnCmpTr[hl].getDescription(),cntr.getImageIcon(mnCmpTr[hl].getIconName()));
+			
 			qlink.setName(Integer.toString(hl));
 			qlink.setBorder(null);
 			char n = getNextButtonMnemonic(mnCmpTr[hl].getDescription());
@@ -1153,7 +1155,8 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 		DefaultMutableTreeNode adminNode = new DefaultMutableTreeNode(new JLabel("Start Administrative Tasks"));
 		
 		optionNode.add(new DefaultMutableTreeNode(new JLabel("About")));
-		optionNode.add(new DefaultMutableTreeNode(new JLabel("Change My Password")));
+		if(cntr.securityManager && ! cntr.ldap)
+			optionNode.add(new DefaultMutableTreeNode(new JLabel("Change My Password")));
 		if (cntr.deskTopThemeAccess)
 			optionNode.add(new DefaultMutableTreeNode(new JLabel("Desktop Themes")));
 		if (cntr.administratorAccess)
@@ -1194,7 +1197,7 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 		crdPnl.add(buildAbout(), "About");
 		crdPnl.add(buildUserTools(), "Desktop Themes");
 		crdPnl.add(buildAdminTools(adminNode, combomode), "Start Administrative Tasks");
-		if(cntr.securityManager)
+		if(cntr.securityManager && ! cntr.ldap)
 			crdPnl.add(buildChngPswrd(), "Change My Password");
 		
 		optionSplit.setRightComponent(crdPnl);
@@ -1483,7 +1486,7 @@ public class MenuFrame extends JPanel implements ComManager, ClipboardOwner,  Mo
 				topRight.setBackground(cntr.bgColor);
 				imgPnl.setBackground(cntr.bgColor);
 				bnrBar.setBackground(cntr.tbColor);
-				banner.setForeground(cntr.tbFontColor);
+				banner.setForeground(Color.WHITE);
 			}
 
 		} catch (Exception e) {}

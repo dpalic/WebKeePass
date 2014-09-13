@@ -3,21 +3,36 @@
 
  <!-- JDBC Data source info for the DataAccess object-->
 
- <DATABASE_CONNECTION>
-
+<!--
+  <DATABASE_CONNECTION>
   <DATABASE_NAME>Web Register</DATABASE_NAME>
   <DESCRIPTION>Web Register</DESCRIPTION>
   <DRIVER>com.mysql.jdbc.Driver</DRIVER>
-  <URL>jdbc:mysql://localhost/WebKeePass</URL>
+  <URL>jdbc:mysql://localhost/WebKeePassLuke</URL>
   <CONNECTIONS>5</CONNECTIONS>
   <CONNECT_TYPE>HTTP</CONNECT_TYPE>
   <REGISTRY_PORT>5555</REGISTRY_PORT>
   <SOCKET_PORT>5556</SOCKET_PORT>
-  <USERID>dbusername</USERID>
-  <PASSWORD>dbpassword</PASSWORD>
+  <USERID>root</USERID>
+  <PASSWORD>powerful</PASSWORD>
+
+  </DATABASE_CONNECTION>
+ -->
+
+
+ <DATABASE_CONNECTION>
+  <DATABASE_NAME>Web Register</DATABASE_NAME>
+  <DESCRIPTION>Web Register</DESCRIPTION>
+  <DRIVER>oracle.jdbc.driver.OracleDriver</DRIVER>
+  <URL>jdbc:oracle:thin:@localhost:1521:XE</URL>
+  <CONNECTIONS>5</CONNECTIONS>
+  <CONNECT_TYPE>HTTP</CONNECT_TYPE>
+  <REGISTRY_PORT>5555</REGISTRY_PORT>
+  <SOCKET_PORT>5556</SOCKET_PORT>
+  <USERID>wkp1</USERID>
+  <PASSWORD>wkp1</PASSWORD>
 
  </DATABASE_CONNECTION>
-
 
  <CONFIG>
 
@@ -25,12 +40,12 @@
 
 
  <!-- XML folder locations - This is the path to the folder containing all jRivet XML files -->
-  <DATABASE_SCHEMA>/webkeepass/jakarta-tomcat-5.5.7/webapps/ROOT/WEB-INF/Schema1.xml</DATABASE_SCHEMA>
-  <LITERALS>/webkeepass/jakarta-tomcat-5.5.7/webapps/ROOT/WEB-INF/Literal1.xml</LITERALS>
+  <DATABASE_SCHEMA>/home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/WEB-INF/Schema1.xml</DATABASE_SCHEMA>
+  <LITERALS>/home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/WEB-INF/Literal1.xml</LITERALS>
   
-  <SCRIPT_DIRECTORY>/webkeepass/jakarta-tomcat-5.5.7/webapps/ROOT/XML/</SCRIPT_DIRECTORY>
-  <IMAGE_DIRECTORY>/webkeepass/jakarta-tomcat-5.5.7/webapps/ROOT/XML/images/</IMAGE_DIRECTORY>
-  <LOG_DIRECTORY>/webkeepass/jakarta-tomcat-5.5.7/logs/</LOG_DIRECTORY>
+  <SCRIPT_DIRECTORY>/home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/</SCRIPT_DIRECTORY>
+  <IMAGE_DIRECTORY>/home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/images/</IMAGE_DIRECTORY>
+  <LOG_DIRECTORY>/home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/logs/</LOG_DIRECTORY>
 
 
 
@@ -53,10 +68,21 @@
 
  <!-- User Security Manager - Set 'ON' / 'OFF'  -->
   <UserSecurityManager>JRIVET</UserSecurityManager>
-  <UserSecurityKey>mykey</UserSecurityKey>  
+  <UserSecurityKey>6a188f04db5b3d733b440aae90eddd223b6265c7</UserSecurityKey>  
  </CONFIG>
 
 
+ <!-- LDAP  - Set 'ON' / 'OFF'  -->  
+  <LDAP_CONFIG>
+    <LDAP>true</LDAP>
+    <LDAP_Group>Users</LDAP_Group>	
+    <principalDNPrefix>uid=</principalDNPrefix> 
+    <principalDNSuffix>,ou=People,dc=home,dc=net</principalDNSuffix>
+    <java.naming.provider.url>ldap://localhost:389</java.naming.provider.url>	
+    <java.naming.security.authentication>simple</java.naming.security.authentication>
+    <java.naming.factory.initial>com.sun.jndi.ldap.LdapCtxFactory</java.naming.factory.initial>  
+  </LDAP_CONFIG>
+  
  
  <!-- Desk top settings, defaults and icons -->
  
@@ -86,8 +112,8 @@
     <downMessageArrowIcon>Down.gif</downMessageArrowIcon> 
     <tableCopyIcon>copy.gif</tableCopyIcon> 
     <tablePrintIcon>print.gif</tablePrintIcon> 
-    <menuDocumentIcon>MNode2.gif</menuDocumentIcon> 
-    <menuScriptIcon>MNode2.gif</menuScriptIcon> 
+    <menuDocumentIcon>MNode1.gif</menuDocumentIcon> 
+    <menuScriptIcon>MNode1.gif</menuScriptIcon> 
     <menuOpenedIcon>MNode2.gif</menuOpenedIcon> 
     <menuClosedIcon>MNode2.gif</menuClosedIcon> 
     <menuCollapseIcon>treeCollapse.gif</menuCollapseIcon> 

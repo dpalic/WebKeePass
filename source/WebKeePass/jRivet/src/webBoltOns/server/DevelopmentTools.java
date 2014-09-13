@@ -127,7 +127,8 @@ public class DevelopmentTools {
 				script.putStringField("MethodID", scriptTable.getStringField(WindowItem.METHOD));		
 				script.putIntegerField("Hght", scriptTable.getIntegerField(WindowItem.HEIGHT));
 				script.putIntegerField("Wdth", scriptTable.getIntegerField(WindowItem.WIDTH));
-				script.putBooleanField("aFresh", scriptTable.getBooleanField(WindowItem.AUTO_REFRESH));										
+				script.putBooleanField("aFresh", scriptTable.getBooleanField(WindowItem.AUTO_REFRESH));		
+				script.putStringField("aIcon", scriptTable.getStringField(WindowItem.ICON));		
 				script.put("SEditor", scriptTable);
 			   
 			} else if (docType.equals("[MENU_SCRIPT/]") && handler.isValidXMLType(docType)) {
@@ -455,6 +456,8 @@ public class DevelopmentTools {
         		setRootAttribute(root, WindowItem.CLASSNAME, script.getStringField("ClassID"));
         		setRootAttribute(root, WindowItem.METHOD, script.getStringField("MethodID"));
         		setReportAttribute(root, WindowItem.AUTO_REFRESH, script.getStringField("aFresh"));
+           		setReportAttribute(root, WindowItem.ICON, script.getStringField("aIcon"));
+           	        		
            	} else {
         		setReportAttribute(root, WindowItem.DOCUMENT_TYPE, "Menu");
            	}	

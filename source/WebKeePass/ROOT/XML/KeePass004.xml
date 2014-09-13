@@ -2,13 +2,13 @@
 
 <!--	 **Script Builder 2.1 *  -->
 <!--	 	 Script Name :  KeePass004 -->
-<!--	 	 Description :  Create Group -->
+<!--	 	 Description :  Create Password Category -->
 <!--	 	 Server Class :  server.TheCryptKeeper -->
 <!--	 	 Initalization Method :  newCryptKeeper -->
-<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeePass-1.071019/app/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass004.xml -->
-<!--	 	 Last Update :  13-Dec-2007 -->
-<!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="KeePass004" DOCUMENT_TYPE="Window" CLASS_NAME="server.TheCryptKeeper" METHOD="newCryptKeeper" AUTO_REFRESH="true" DESCRIPTION="Create Group" Screen_Title="Create Group" WIDTH="600" HEIGHT="380">
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass004.xml -->
+<!--	 	 Last Update :  17-May-2008 -->
+<!--	 	 User Profile:  pjones -->
+<SCRIPT SCRIPT_NAME="KeePass004" DOCUMENT_TYPE="Window" CLASS_NAME="server.TheCryptKeeper" METHOD="newCryptKeeper" AUTO_REFRESH="true" ICON="WKP6.jpg" DESCRIPTION="Create Password Category" Screen_Title="Create Password Category" WIDTH="600" HEIGHT="380">
   <ButtonBar>
     <BarButton TYPE="CLEAR" DESCRIPTION="Clear/New " ICON="iClear.gif" />
     <BarButton TYPE="FIND" DESCRIPTION="Find/Refresh" ICON="iFind.gif" METHOD="getCryptKeeper" />
@@ -18,11 +18,11 @@
   </ButtonBar>
   <Panel POSITION="Left" HIDDEN="N">
     <TextField FIELDNAME="KeeperID" DESCRIPTION="ID #" LENGTH="4" DECIMALS="0" DATA_TYPE="INT" DATA_LEN="5" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
-    <TextField FIELDNAME="KeeperDesc" DESCRIPTION="Group Desc." LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
+    <TextField FIELDNAME="KeeperDesc" DESCRIPTION="Category" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
     <TextField FIELDNAME="KeeperIcon" DESCRIPTION="icon File Name" LENGTH="15" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="50" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
     <TextField FIELDNAME="CreateDate" DESCRIPTION="Create Date" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" POSITION="Left" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
     <TextField FIELDNAME="LastUpdate" DESCRIPTION="Last Update" LENGTH="12" DECIMALS="0" DATA_TYPE="DAT" DATA_LEN="20" PROTECTED="Y" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
-    <ComboBox FIELDNAME="PrntID" DESCRIPTION="Parent " LENGTH="15" DATA_TYPE="CHR" POSITION="Left" ENCRYPT="N" LIST_TABLE_NAME="wkpGroups" LIST_TABLE_FIELD="KeeperID" LIST_TABLE_DESCRIPTION="KeeperDesc" LIST_TABLE_SELECTTION="j1 = :Scmbl:" />
+    <ComboBox FIELDNAME="PrntID" DESCRIPTION="Parent Category" LENGTH="15" DATA_TYPE="CHR" POSITION="Left" ENCRYPT="N" LIST_TABLE_NAME="wkpGroups" LIST_TABLE_FIELD="KeeperID" LIST_TABLE_DESCRIPTION="KeeperDesc" LIST_TABLE_SELECTTION="j1 = :Scmbl:" />
   </Panel>
 </SCRIPT>
 

@@ -186,6 +186,7 @@ public  class ScriptRules {
 			"PREVIEW", "REPORT", "NEW-LINE", "DEL-LINE", "POST-LINE" };
 
 	public final static String[] screenComponents = {
+			WindowItem.TEXT_LABEL,
 			WindowItem.TEXT_FIELD_OBJECT,
 			WindowItem.SEARCH_FIELD_OBJECT,
 			WindowItem.SPINNER_OBJECT,
@@ -234,7 +235,7 @@ public  class ScriptRules {
 		
 	
 	public ScriptRules() {
-
+		compClass.put(WindowItem.TEXT_LABEL, "webBoltOns.client.components.CTextLabel");
 		compClass.put(WindowItem.TEXT_FIELD_OBJECT, "webBoltOns.client.components.CTextBoxField");
 		compClass.put(WindowItem.MACRO_EDITOR, "webBoltOns.client.components.CMacroEditor");
 		compClass.put(WindowItem.SEARCH_FIELD_OBJECT, "webBoltOns.client.components.CSearchTextField");
@@ -273,7 +274,38 @@ public  class ScriptRules {
 		compClass.put(WindowItem.TABLE_IMAGE_OBJECT, "webBoltOns.client.components.CTableColumn");
 		compClass.put(WindowItem.TABLE_TEXTFIELD_OBJECT, "webBoltOns.client.components.CTableColumn");
 		
-		
+		propertyRules.put(WindowItem.TEXT_LABEL, new String[] {
+				"T", // 00 Component
+				"F", // 01 Type
+				"T", // 02 Label Description:
+				"T", // 03 Field Name
+				"T", // 04 Position
+				"F", // 05 Data Type
+				"F", // 06 Data Length
+				"F", // 07 Decmails
+				"F", // 08 Data Aligment
+				"F", // 09 Input/output
+				"F", // 10 Edit Mask
+				"F", // 11 Length
+				"F", // 12 Height
+				"F", // 13 Width
+				"F", // 14 Icon File Name:
+				"F", // 15 Script Link
+				"F", // 16 Link Method:
+				"F", // 17 Link Class:
+				"F", // 18 Paramter Name
+				"F", // 19 List Table:
+				"F", // 20 List Field Name:
+				"F", // 21 List Field Desc:
+				"F", // 22 List Selection
+				"F", // 23 Component Orientation 
+				"F", // 24 Default Value 
+				"F", // 25 Hidden Object 
+				"F", // 26 Zero Fill Value
+				"F", // 27 Commit Method
+				"F", // 28 Commit Class		
+				"F", // 29 Encrypted	
+		});		
 		propertyRules.put(WindowItem.TEXT_FIELD_OBJECT, new String[] {
 				"T", // 00 Component
 				"F", // 01 Type

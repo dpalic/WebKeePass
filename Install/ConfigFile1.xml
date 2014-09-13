@@ -5,8 +5,8 @@
 
  <DATABASE_CONNECTION>
 
-  <DATABASE_NAME>Web Register</DATABASE_NAME>
-  <DESCRIPTION>Web Register</DESCRIPTION>
+  <DATABASE_NAME>WebKeePass - Password Safe</DATABASE_NAME>
+  <DESCRIPTION>WebKeePass - Password Safe</DESCRIPTION>
   <DRIVER>{dvr}</DRIVER>
   <URL>{db}</URL>
   <CONNECTIONS>5</CONNECTIONS>
@@ -21,7 +21,7 @@
 
  <CONFIG>
 
-  <BANNER_TITLE>Web Register</BANNER_TITLE>
+  <BANNER_TITLE>WebKeePass - Password Safe</BANNER_TITLE>
 
 
  <!-- XML folder locations - This is the path to the folder containing all jRivet XML files -->
@@ -32,6 +32,19 @@
   <IMAGE_DIRECTORY>{images}</IMAGE_DIRECTORY>
   <LOG_DIRECTORY>{logs}</LOG_DIRECTORY>
 
+
+
+ <!-- LDAP   -->  
+  <LDAP_CONFIG>
+    <LDAP>false</LDAP>
+    <LDAP_Group>Users</LDAP_Group>	
+    <principalDNPrefix>uid=</principalDNPrefix> 
+    <principalDNSuffix>,ou=People,dc=home,dc=net</principalDNSuffix>
+    <java.naming.provider.url>ldap://localhost:389</java.naming.provider.url>	
+    <java.naming.security.authentication>simple</java.naming.security.authentication>
+    <java.naming.factory.initial>com.sun.jndi.ldap.LdapCtxFactory</java.naming.factory.initial>  
+  </LDAP_CONFIG>
+  
 
 
 
@@ -64,10 +77,7 @@
 
 
 
- <!-- Images and icons -->
-
-
-   <IMAGES> 
+ <!-- Images and icons -->   <IMAGES> 
     <menuBannerImage>banner.jpg</menuBannerImage> 
     <logo_Icon>oDot.gif</logo_Icon> 
     <link_Icon>Link.gif</link_Icon> 
@@ -86,8 +96,8 @@
     <downMessageArrowIcon>Down.gif</downMessageArrowIcon> 
     <tableCopyIcon>copy.gif</tableCopyIcon> 
     <tablePrintIcon>print.gif</tablePrintIcon> 
-    <menuDocumentIcon>MNode2.gif</menuDocumentIcon> 
-    <menuScriptIcon>MNode2.gif</menuScriptIcon> 
+    <menuDocumentIcon>MNode1.gif</menuDocumentIcon> 
+    <menuScriptIcon>MNode1.gif</menuScriptIcon> 
     <menuOpenedIcon>MNode2.gif</menuOpenedIcon> 
     <menuClosedIcon>MNode2.gif</menuClosedIcon> 
     <menuCollapseIcon>treeCollapse.gif</menuCollapseIcon> 
@@ -96,7 +106,6 @@
     <menuScriptLinkIcon>webURL.gif</menuScriptLinkIcon>  
     <cIcon>treeCollapse.gif</cIcon> 
    </IMAGES> 
-
  
   <STANDARD_FONTS>
     <HeaderFont   FamilyName ='ARIAL'  PointSize= '11'   Italics='false'  Bolded='true' />

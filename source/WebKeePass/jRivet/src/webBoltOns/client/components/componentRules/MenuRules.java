@@ -67,20 +67,24 @@ public class MenuRules {
 			new JLabel("Menu/Option : "),
 			new JLabel("Description: "),
 			new JLabel("XML/HTTP Link: "),
-			new JLabel("Quick Link: ") };
+			new JLabel("Quick Link: "),
+			new JLabel("Quick Link Image: ")};
 
 	public final Component[] propertyComponents = {
 			new JTextField(), // Component
 			new JTextField(), // 01 Label Description:
 			new JTextField(), // 02 Link
 			new JComboBox(), // 03 Quick
+			new JTextField(), // 03 Image
 	};
 
 	public final String[] propertyTypes = { 
 			MenuItem.OBJECT_NAME,
 			MenuItem.DESCRIPTION, 
 			MenuItem.LINK,
-			MenuItem.QUICKLINK };
+			MenuItem.QUICKLINK,
+			MenuItem.ICON,
+			};
 
 	public final String[] screenComponents = { MenuItem.SUB_MENU_OBJECT,
 			"Script", MenuItem.DOCUMENT_TO_LOAD_OBJECT, };
@@ -92,18 +96,20 @@ public class MenuRules {
 				"T", // 01 Label Description:
 				"T", // LINK
 				"T", // Quick Link
+				"F", // Image
 		});
 		propertyRules.put("Script", new String[] { "T", // Component
 				"T", // 01 Label Description:
 				"T", // LINK
 				"T", // Quick Link
+				"T", // Image
 		});
 		propertyRules.put(MenuItem.DOCUMENT_TO_LOAD_OBJECT, new String[] {
 				"T", // Component
 				"T", // 01 Label Description:
 				"T", // LINK
 				"T", // Quick Link
+				"T", // Image
 		});
-
 	}
 }

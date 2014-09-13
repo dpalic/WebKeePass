@@ -178,6 +178,7 @@ public class MenuItem extends WindowItem {
 		setObjectName(DataSet.parseProperty(OBJECT_NAME, object));
 		setDescription(DataSet.parseProperty(DESCRIPTION, object));
 		setScriptToRun(DataSet.parseProperty(LINK,object));
+		setIconName(DataSet.parseProperty(ICON,object));
 		setParentHL(Integer.parseInt(DataSet.parseProperty(PARENT_HL, object)));
         setUserAccessLevel(Integer.parseInt(DataSet.parseProperty(ACCESS_LEVEL, object)));
 		if (DataSet.parseProperty(MenuItem.QUICKLINK, object).equals(

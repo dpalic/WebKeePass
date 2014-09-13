@@ -5,10 +5,10 @@
 <!--	 	 Description :  Update Shared Group -->
 <!--	 	 Server Class :  server.TheCryptKeeperShare -->
 <!--	 	 Initalization Method :  getCryptKeeper -->
-<!--	 	 File Path :  C:\WebKeePassMy\jakarta-tomcat-5.5.7\webapps\ROOT\XML\KeePass015.xml -->
-<!--	 	 Last Update :  27-Dec-2007 -->
-<!--	 	 User Profile:  root -->
-<SCRIPT SCRIPT_NAME="KeePass015" DOCUMENT_TYPE="Window" CLASS_NAME="server.TheCryptKeeperShare" METHOD="getCryptKeeper" AUTO_REFRESH="false" DESCRIPTION="Update Shared Group" Screen_Title="Update Shared Group" WIDTH="600" HEIGHT="380">
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/KeePass015.xml -->
+<!--	 	 Last Update :  18-May-2008 -->
+<!--	 	 User Profile:  pjones -->
+<SCRIPT SCRIPT_NAME="KeePass015" DOCUMENT_TYPE="Window" CLASS_NAME="server.TheCryptKeeperShare" METHOD="getCryptKeeper" AUTO_REFRESH="false" ICON="icon.jpg" DESCRIPTION="Update Shared Group" Screen_Title="Update Shared Group" WIDTH="610" HEIGHT="380">
   <ButtonBar>
     <BarButton TYPE="CLEAR" DESCRIPTION="Clear/New " ICON="iClear.gif" />
     <BarButton TYPE="FIND" DESCRIPTION="Find/Refresh" ICON="iFind.gif" METHOD="getCryptKeeper" />

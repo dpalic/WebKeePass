@@ -121,7 +121,7 @@ public class AppletConnector extends JApplet {
 	public boolean isStandalone = false, administratorAccess = false,
 			deskTopThemeAccess = false, tipAccess = false,
 			tableCopyAccess = false, tablePrintAccess = false,
-			securityManager = false,  strictEncoding= true;
+			securityManager = false,  strictEncoding= true, ldap = false;
 			
 	public String jRivetVersion = " - jRivet Framework - version: v 4.070310 2007/03/10 ";
 
@@ -850,6 +850,7 @@ public class AppletConnector extends JApplet {
 	
 	private void loadGuestEnvironment(DataSet ds) throws EncryptionException {
 		securityManager = false;
+		ldap = false;
 		System.out.println("UserSecurityManager: OFF");
 		setEnvironment((DataSet)ds.get("[Standards/]"));
 		user = "GENERAL";
@@ -870,8 +871,11 @@ public class AppletConnector extends JApplet {
 	private void loadUserEnvironment(DataSet ds) throws InvalidUserException, EncryptionException {
 		System.out.println("UserSecurityManager: ON");
 		securityManager = true;
+		if(ldap) System.out.println("Using LDAP-Auth");
 		ds.remove("[Login-UserName/]");
 		ds.remove("[Login-Password/]");
+		ds.remove("[Login-Clear/]");
+		
 		ds.put(MenuItem.ACTION, "USER_LOGIN");
 		ds = getHttpObject(ds);
 		
@@ -900,6 +904,7 @@ public class AppletConnector extends JApplet {
 		ds.remove("[cKey/]");
 		
 		setEnvironment(ds);
+		ldap = ds.getBooleanField("LDAP");
 		user = ds.getUser();
 		userDesc = ds.getUserDescription();
 		menuScript = ds.getStringField("[MENU_SCRIPT/]");

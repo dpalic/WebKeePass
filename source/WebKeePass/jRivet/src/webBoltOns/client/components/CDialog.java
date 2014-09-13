@@ -1094,6 +1094,10 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 		north.setBorder(BorderFactory.createEtchedBorder());
 		north.add(BorderLayout.CENTER, new JLabel(cnct.banner));
 		un = new JTextField(15);
+		un.setName("username");
+		un.setActionCommand("username");
+		un.addActionListener(this);
+		
 		pw = new JPasswordField(15);
 		pw.setName("login");
 		pw.setActionCommand("login");
@@ -1128,8 +1132,13 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 		main.add(BorderLayout.SOUTH, south);
 		getContentPane().add(main);
 
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				 un.requestFocusInWindow();
+			}
+		});
+		
 		displayDialog(null, main);
-
 		if (rtnBln)
 			return login;
 		else
@@ -1220,10 +1229,16 @@ public class CDialog extends JDialog implements ActionListener, KeyListener,
 					isBld.isSelected(), isItlc.isSelected(), isST.isSelected(),
 					isSS.isSelected(), isUndrlne.isSelected(), fColor
 							.getBackground());
-
+			
+		} else if (cmd.equals("username") && un.getText() != null && !un.getText().equals("")) {
+			SwingUtilities.invokeLater(new Runnable() {
+				public void run() {pw.requestFocusInWindow();}
+			});
+			
 		} else if (cmd.equals("login")) {
 			rtnBln = true;
 			login.putStringField("[Login-UserName/]", un.getText());
+			login.putStringField("[Login-Clear/]", new String(pw.getPassword()));
 			try {
 				login.putStringField("[Login-Password/]", CPasswordField
 						.sha1(new String(pw.getPassword())));

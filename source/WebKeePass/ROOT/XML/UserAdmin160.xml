@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--	 **Script Builder 1.0 *  -->
+<!--	 **Script Builder 2.1 *  -->
 <!--	 	 Script Name :  UserAdmin160 -->
 <!--	 	 Description :  Menu Editor -->
 <!--	 	 Server Class :  webBoltOns.server.DevelopmentTools -->
 <!--	 	 Initalization Method :   -->
-<!--	 	 File Path :  /usr/jRivet-2.060206-Linux/jakarta-tomcat-5.5.7/webapps/jRivetExample1/WEB-INF/XML/UserAdmin160.xml -->
-<!--	 	 Last Update :  05-Feb-2006 -->
-<!--	 	 User Profile:  GENERAL -->
-<SCRIPT SCRIPT_NAME="UserAdmin160" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.DevelopmentTools" AUTO_REFRESH="false" DESCRIPTION="Menu Editor" Screen_Title="Menu Editor" WIDTH="700" HEIGHT="720">
+<!--	 	 File Path :  /home/pjones/Projects/JavaProjects/WebKeePassLuke/jakarta-tomcat-5.5.7/webapps/ROOT/XML/UserAdmin160.xml -->
+<!--	 	 Last Update :  18-May-2008 -->
+<!--	 	 User Profile:  pjones -->
+<SCRIPT SCRIPT_NAME="UserAdmin160" DOCUMENT_TYPE="Window" CLASS_NAME="webBoltOns.server.DevelopmentTools" AUTO_REFRESH="false" ICON="icon.jpg" DESCRIPTION="Menu Editor" Screen_Title="Menu Editor" WIDTH="700" HEIGHT="720">
   <ButtonBar>
     <BarButton TYPE="CLEAR" DESCRIPTION="Clear  " ICON="iClear.gif" />
-    <BarButton TYPE="FIND" DESCRIPTION="Load    " METHOD="getScriptDetails" ICON="iFind.gif" />
-    <BarButton TYPE="POST" DESCRIPTION="Save    " METHOD="saveScriptDetails" ICON="iEdit.gif" />
+    <BarButton TYPE="FIND" DESCRIPTION="Load    " ICON="iFind.gif" METHOD="getScriptDetails" />
+    <BarButton TYPE="POST" DESCRIPTION="Save    " ICON="iEdit.gif" METHOD="saveScriptDetails" />
   </ButtonBar>
-  <Panel POSITION="Left Fill" Hidden="N">
-    <TextField DESCRIPTION="Script Name" METHOD="getScriptDetails" FIELDNAME="ScriptID" LENGTH="10" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" LINK="UserAdmin190" PARAMETER="@ScriptFileName" />
-    <TextField DESCRIPTION="Description" FIELDNAME="DescID" LENGTH="30" DECIMALS="0" DATATYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" Hidden="N" ZERO_FILL_VALUE="N" />
+  <Panel POSITION="Left Fill" HIDDEN="N">
+    <TextField FIELDNAME="ScriptID" DESCRIPTION="Script Name" LENGTH="10" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" LINK="UserAdmin190" PARAMETER="@ScriptFileName" METHOD="getScriptDetails" />
+    <TextField FIELDNAME="DescID" DESCRIPTION="Description" LENGTH="30" DECIMALS="0" DATA_TYPE="CHR" DATA_LEN="0" POSITION="Left" PROTECTED="N" HIDDEN="N" ZERO_FILL="N" ENCRYPT="N" />
   </Panel>
-  <Panel POSITION="Left" Hidden="N">
+  <Panel POSITION="Left" HIDDEN="N">
     <MenuEditor FIELDNAME="SEditor" HEIGHT="375" />
   </Panel>
 </SCRIPT>
