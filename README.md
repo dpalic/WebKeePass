@@ -2,8 +2,9 @@ WebKeePass
 ==========
 
 Fork of the previous sourceforge project http://sourceforge.net/projects/webkeepass/files/ since the SF project has no repository.
-Imported version of 1.070527 zip archiveWebKeePass  Copyright (C) 2007 
+You will find a git branch for every imported ZIP-file of SourceForge. I tried to keep to track all moves in the project to provide you the maximum transparency of my import to github.
 
+Imported versions: all from 1.070527 till 17.09.2014 
 
 WebKeePass  Copyright (C) 2007 
 All rights reserved.
