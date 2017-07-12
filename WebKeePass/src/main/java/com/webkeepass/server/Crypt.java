@@ -1,4 +1,4 @@
-package server;
+package com.webkeepass.server;
 
 /**
  * <p>Title: PasswordCrypt </p>

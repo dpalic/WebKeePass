@@ -1,4 +1,4 @@
-package server;
+package com.webkeepass.server;
 /**
  * <p>Title: Sequences</p>
  * <p>Description: </p>

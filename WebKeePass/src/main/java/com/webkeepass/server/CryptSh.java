@@ -1,4 +1,4 @@
-package server;
+package com.webkeepass.server;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
