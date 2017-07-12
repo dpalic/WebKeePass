@@ -1,10 +1,79 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
+<head>
+<title>  </title>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+
+   function msNewWin() {
+     var width = screen.availWidth - 15;
+     var height = screen.availHeight - 60;
+     var s = "toolbar=NO,directories=NO,status=No,scrollbars=NO,resizable=YES,menubar=YES,left=0,top=0," +
+             "width=" + width + ",height=" + height;
+   		if(navigator.appName == "Microsoft Internet Explorer") {
+          if( navigator.appVersion.indexOf("MSIE") > 0 ) {
+            win = window.open("msie.html","",s);
+            win.moveTo(0,0);
+            win.focus();           
+		window.opener='X';
+		window.open('','_parent','');
+		window.close();  
+          } else {
+            closeWin.Click();
+            win = window.open("netscape.html","",s);
+            win.moveTo(0,0);
+            win.focus();
+          }
+   		}
+
+	}
+
+
+   function mzReSize(){
+        if(navigator.appName != "Microsoft Internet Explorer") {
+		   document.wb.width=window.innerWidth;
+		   document.wb.height=window.innerHeight;
+   		}
+   }
+
+
+   function mzThisWin(){
+     if(navigator.appName != "Microsoft Internet Explorer") { 
+		document.write("    <p>   ");
+        document.write("    <object style=\"position: absolute; left: 0; top: 0;\">  ");
+        document.write("    <applet name=\"wb\" codebase=\".\" archive=\"webboltons.jar\" code=\"webBoltOns.AppletConnector.class\"   ");
+        document.write("                   width=\"" + window.innerWidth +"\" height=\"" + window.innerHeight  + "\" hspace=\"0\" vspace=\"0\">  ");
+        
+        document.write("     <param name=\"localHost\" value=\"no\">  ");
+        document.write("     <param name=\"registryPort\" value=\"5555\">  ");
+        document.write("     <param name=\"socketPort\" value=\"5556\">  ");
+        document.write("     <param name=\"servletURL\" value=\"ServletConnector\">  ");
+        document.write("     <param name=\"reportURL\" value=\"ReportWriter\">  ");
+        document.write("     <param name=\"MAYSCRIPT\" value=\"true\"> ");
+        document.write("    </applet>  ");
+        document.write("    </object>  ");
+        document.write("    </p>  ");
+      }  
+      
+       function closeWin() {  
+            window.opener='X';
+		window.open('','_parent','');
+		window.close(); 
+	 }
+       
+       
+   }
+	
+	
+ //-->
+</SCRIPT>
+
+</head>
+<body onload="javascript:msNewWin();" onResize="javascript:mzReSize();" bgcolor="#EOEOEO">
+<SCRIPT LANGUAGE="JavaScript"> 	mzThisWin();  </SCRIPT>
+<object id=closeWin type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11">
+<param name="Command" value="Close">
+</object>
+
+</body>
 </html>
